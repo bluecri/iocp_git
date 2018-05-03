@@ -55,7 +55,7 @@ SessionErrType Session::PreRecv()
 	{
 		if (WSAGetLastError() != WSA_IO_PENDING) 
 		{
-			DeleteIoContext(preRecvContext);
+			DeleteIOContext(preRecvContext);
 			printf_s("[DEBUG] : SessionPreRecv Error : %d\n", GetLastError());
 			return SessionErrType::NOT_PENDING;
 		}
@@ -87,7 +87,7 @@ SessionErrType Session::PostRecv()
 	{
 		if (WSAGetLastError() != WSA_IO_PENDING)
 		{
-			DeleteIoContext(preRecvContext);
+			DeleteIOContext(preRecvContext);
 			printf_s("[DEBUG] : SessionPreRecv Error : %d\n", GetLastError());
 			return NOT_PENDING;
 		}
@@ -155,7 +155,7 @@ SessionErrType Session::FlushSend()
 	{
 		if (WSAGetLastError() != WSA_IO_PENDING)
 		{
-			DeleteIoContext(sendContext);
+			DeleteIOContext(sendContext);
 			printf_s("Session::FlushSend Error : %d\n", GetLastError());
 
 			DisconnectRequest(DR_SENDFLUSH_ERROR);

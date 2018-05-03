@@ -5,7 +5,6 @@ class Session;
 
 enum IOType 
 {
-	IOTYPE_NONE,
 	IOTYPE_SEND,
 	IOTYPE_RECV,
 	IOTYPE_RECV_ZERO,
@@ -13,13 +12,6 @@ enum IOType
 	IOTYPE_DISCONNECT,
 	IOTYPE_CONNECT
 };
-
-
-enum DBType
-{
-	DBTYPE_none
-};
-
 
 enum DisconnectReason
 {
@@ -34,10 +26,9 @@ enum DisconnectReason
 struct OverlappedContext
 {
 public:
-	OverlappedContext(Session* owner);
+	OverlappedContext();
 
 	OVERLAPPED	_overlapped;
-	Session*	_sessionObject;		// OverlappedContext가 남아있는 경우(ref>0) session은 reset되지 않음.
 	WSABUF		_wsaBuf;
 };
 
@@ -46,18 +37,12 @@ struct OverlappedIOContext : public OverlappedContext
 {
 public:
 	OverlappedIOContext(Session* owner, IOType ioType);
-
-	IOType _ioType;
+	
+	Session*	_sessionObject;		// OverlappedContext가 남아있는 경우(ref>0) session은 reset되지 않음.
+	IOType		_ioType;
 };
 
-struct OverlappedDBContext : public OverlappedContext
-{
-public:
-	OverlappedDBContext(Session* owner, DBType ioType);
-
-	DBType _dbType;
-};
-
+//IO Contexts
 
 struct OverlappedPreRecvContext : public OverlappedIOContext, public ObjectPool<OverlappedPreRecvContext>
 {
@@ -108,4 +93,7 @@ struct OverlappedDisconnectContext : public OverlappedIOContext, public ObjectPo
 };
 
 
-void DeleteIoContext(OverlappedContext* context);
+
+//Delete context
+
+void DeleteIOContext(OverlappedIOContext* context);

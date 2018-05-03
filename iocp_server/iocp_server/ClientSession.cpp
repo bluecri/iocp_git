@@ -118,17 +118,18 @@ void ClientSession::DisconnectRequest(DisconnectReason dr)
 	}
 
 	OverlappedDisconnectContext* context = new OverlappedDisconnectContext(this, dr);
-	_sharedPlayer->__clientSession = nullptr;
+	_sharedPlayer->__bClientConn = false;
 
 	_sharedPlayer->LeaveWriteLock();
 
-	_sharedPlayer.reset();	// release shared_ptr Player
+	// dbcontext->session->player 접근을 위해 release 하지 않음.(bConnected로 확인) release shared_ptr Player
+	//_sharedPlayer.reset();	
 
 	if (FALSE == GIocpManager->_slpfnDisconnectEx(__socket, (LPOVERLAPPED)context, TF_REUSE_SOCKET, 0))
 	{
 		if (WSAGetLastError() != WSA_IO_PENDING)
 		{
-			DeleteIoContext(context);
+			DeleteIOContext(context);
 			printf_s("[DEBUG] : ClientSession::DisconnectRequest Error : %d\n", GetLastError());
 		}
 	}

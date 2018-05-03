@@ -2,22 +2,55 @@
 #include "OverlappedContext.h"
 #include "Session.h"
 
-OverlappedContext::OverlappedContext(Session * owner) : _sessionObject(owner)
+OverlappedContext::OverlappedContext()
 {
 	memset(&_overlapped, 0, sizeof(_overlapped));
 	memset(&_wsaBuf, 0, sizeof(_wsaBuf));
+}
 
+OverlappedIOContext::OverlappedIOContext(Session * owner, IOType ioType) : OverlappedContext() ,_sessionObject(owner), _ioType(ioType)
+{
 	_sessionObject->AddRef();
 }
 
-OverlappedIOContext::OverlappedIOContext(Session * owner, IOType ioType) : OverlappedContext(owner)
-{
-}
 
-OverlappedDBContext::OverlappedDBContext(Session * owner, DBType ioType) : OverlappedContext(owner)
+void DeleteIOContext(OverlappedIOContext * context)
 {
-}
+	if (nullptr == context)
+		return;
 
-void DeleteIoContext(OverlappedContext * context)
-{
+	context->_sessionObject->ReleaseRef();
+
+	/// ObjectPool's operate delete dispatch
+	switch (context->_ioType)
+	{
+	case IOTYPE_SEND:
+		delete static_cast<OverlappedSendContext*>(context);
+		break;
+
+	case IOTYPE_RECV_ZERO:
+		delete static_cast<OverlappedPreRecvContext*>(context);
+		break;
+
+	case IOTYPE_RECV:
+		delete static_cast<OverlappedRecvContext*>(context);
+		break;
+
+	case IOTYPE_DISCONNECT:
+		delete static_cast<OverlappedDisconnectContext*>(context);
+		break;
+
+	case IOTYPE_ACCEPT:
+		delete static_cast<OverlappedAcceptContext*>(context);
+		break;
+
+	case IOTYPE_CONNECT:
+		delete static_cast<OverlappedConnectContext*>(context);
+		break;
+
+	default:
+		CRASH_ASSERT(false);
+	}
+
+	return;
 }

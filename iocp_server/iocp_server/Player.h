@@ -14,7 +14,7 @@ public:
 	virtual ~Player();
 
 	int GetPlayerId() { return __playerId; }
-	bool isConnWIthClient() { return (__clientSession != nullptr); }
+	bool isConnWIthClient() { return __bClientConn; }
 	void Start(int heartbeat);
 
 	void OnTick(); ///< 로그인후 1초마다 불리는 기능
@@ -32,19 +32,19 @@ public:	// DB requests
 	bool CreateSendBuf(Packet* packet);
 
 	//only for guest
-	void RequestNewPlayer(DBPacket* dbPacket);	
+	void RequestNewPlayer(std::string& strID, std::string& strPassword, std::string& strNickName);
 	void ResponseNewPlayer();
 
-	void RequestLogin(DBPacket* dbPacket);		//with id & pw
+	void RequestLogin();		//with id & pw
 	void ResponseLogin();							//ger ID from DB
 	
 	//only for login
-	void RequestLogout(DBPacket* dbPacket);
+	void RequestLogout();
 	void RequestSaveState();
 	void RequestLoadState();
 
 private:
-
+	bool GetClientSessionWithAddRef(ClientSession* cSession);
 
 private:
 
@@ -56,6 +56,7 @@ private:
 	/// 버프 리스트  GCE
 	std::map<int, int> __buffList; ///< (id, time)
 
+	bool __bClientConn;
 	ClientSession* __clientSession;
 	friend class ClientSession;
 	friend class PlayerManager;
