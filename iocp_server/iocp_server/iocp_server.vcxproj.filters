@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\PCH">
+      <UniqueIdentifier>{50a4aaea-2d34-48b2-8cf5-2a9ebb64d66b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\origin">
+      <UniqueIdentifier>{ae2850dc-8f58-4413-8a51-3358215db3e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Session">
+      <UniqueIdentifier>{bf55c8f2-c89a-452e-9c9c-588c56cc939c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\NetworkObject">
+      <UniqueIdentifier>{9601a9b2-cdc1-4536-ac7b-aeb34f33f7b0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="addressbook.pb.cc">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일\PCH</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="origin\CircularBuffer.cpp">
+      <Filter>소스 파일\origin</Filter>
+    </ClCompile>
+    <ClCompile Include="origin\Exception.cpp">
+      <Filter>소스 파일\origin</Filter>
+    </ClCompile>
+    <ClCompile Include="origin\FastSpinlock.cpp">
+      <Filter>소스 파일\origin</Filter>
+    </ClCompile>
+    <ClCompile Include="origin\LockOrderChecker.cpp">
+      <Filter>소스 파일\origin</Filter>
+    </ClCompile>
+    <ClCompile Include="origin\MemoryPool.cpp">
+      <Filter>소스 파일\origin</Filter>
+    </ClCompile>
+    <ClCompile Include="IocpManager.cpp">
+      <Filter>소스 파일\Session</Filter>
+    </ClCompile>
+    <ClCompile Include="IOThread.cpp">
+      <Filter>소스 파일\Session</Filter>
+    </ClCompile>
+    <ClCompile Include="origin\ThreadLocal.cpp">
+      <Filter>소스 파일\origin</Filter>
+    </ClCompile>
+    <ClCompile Include="Session.cpp">
+      <Filter>소스 파일\Session</Filter>
+    </ClCompile>
+    <ClCompile Include="OverlappedContext.cpp">
+      <Filter>소스 파일\Session</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>소스 파일\NetworkObject</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientSession.cpp">
+      <Filter>소스 파일\Session</Filter>
+    </ClCompile>
+    <ClCompile Include="SendRequestSessionConcurrentQueue.cpp">
+      <Filter>소스 파일\Session</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientSessionManager.cpp">
+      <Filter>소스 파일\Session</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerSessionManager.cpp">
+      <Filter>소스 파일\Session</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>소스 파일\PCH</Filter>
+    </ClInclude>
+    <ClInclude Include="addressbook.pb.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="origin\CircularBuffer.h">
+      <Filter>소스 파일\origin</Filter>
+    </ClInclude>
+    <ClInclude Include="origin\Exception.h">
+      <Filter>소스 파일\origin</Filter>
+    </ClInclude>
+    <ClInclude Include="origin\FastSpinlock.h">
+      <Filter>소스 파일\origin</Filter>
+    </ClInclude>
+    <ClInclude Include="origin\LockOrderChecker.h">
+      <Filter>소스 파일\origin</Filter>
+    </ClInclude>
+    <ClInclude Include="origin\MemoryPool.h">
+      <Filter>소스 파일\origin</Filter>
+    </ClInclude>
+    <ClInclude Include="origin\ObjectPool.h">
+      <Filter>소스 파일\origin</Filter>
+    </ClInclude>
+    <ClInclude Include="origin\TypeTraits.h">
+      <Filter>소스 파일\origin</Filter>
+    </ClInclude>
+    <ClInclude Include="origin\XTL.h">
+      <Filter>소스 파일\origin</Filter>
+    </ClInclude>
+    <ClInclude Include="IocpManager.h">
+      <Filter>소스 파일\Session</Filter>
+    </ClInclude>
+    <ClInclude Include="IOThread.h">
+      <Filter>소스 파일\Session</Filter>
+    </ClInclude>
+    <ClInclude Include="origin\ThreadLocal.h">
+      <Filter>소스 파일\origin</Filter>
+    </ClInclude>
+    <ClInclude Include="Session.h">
+      <Filter>소스 파일\Session</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientSession.h">
+      <Filter>소스 파일\Session</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerSession.h">
+      <Filter>소스 파일\Session</Filter>
+    </ClInclude>
+    <ClInclude Include="OverlappedContext.h">
+      <Filter>소스 파일\Session</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>소스 파일\NetworkObject</Filter>
+    </ClInclude>
+    <ClInclude Include="LocalSendRequestSessionList.h">
+      <Filter>소스 파일\Session</Filter>
+    </ClInclude>
+    <ClInclude Include="origin\SyncExecutable.h">
+      <Filter>소스 파일\origin</Filter>
+    </ClInclude>
+    <ClInclude Include="SendRequestSessionConcurrentQueue.h">
+      <Filter>소스 파일\Session</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientSessionManager.h">
+      <Filter>소스 파일\Session</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerSessionManager.h">
+      <Filter>소스 파일\Session</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
