@@ -25,6 +25,12 @@
     <Filter Include="소스 파일\NetworkObject">
       <UniqueIdentifier>{9601a9b2-cdc1-4536-ac7b-aeb34f33f7b0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Packet">
+      <UniqueIdentifier>{88927754-c29d-40e1-a3c6-85ff6b08cf4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\DatabaseHandling">
+      <UniqueIdentifier>{4869cbf2-e6d5-439a-872e-10d931697219}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="addressbook.pb.cc">
@@ -80,6 +86,15 @@
     </ClCompile>
     <ClCompile Include="ServerSessionManager.cpp">
       <Filter>소스 파일\Session</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerManager.cpp">
+      <Filter>소스 파일\NetworkObject</Filter>
+    </ClCompile>
+    <ClCompile Include="DBThread.cpp">
+      <Filter>소스 파일\DatabaseHandling</Filter>
+    </ClCompile>
+    <ClCompile Include="DBContext.cpp">
+      <Filter>소스 파일\DatabaseHandling</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +166,27 @@
     </ClInclude>
     <ClInclude Include="ServerSessionManager.h">
       <Filter>소스 파일\Session</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerManager.h">
+      <Filter>소스 파일\NetworkObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Packet.h">
+      <Filter>소스 파일\Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="DBPacket.h">
+      <Filter>소스 파일\Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="DBManager.h">
+      <Filter>소스 파일\DatabaseHandling</Filter>
+    </ClInclude>
+    <ClInclude Include="DBThread.h">
+      <Filter>소스 파일\DatabaseHandling</Filter>
+    </ClInclude>
+    <ClInclude Include="DBContext.h">
+      <Filter>소스 파일\DatabaseHandling</Filter>
+    </ClInclude>
+    <ClInclude Include="DBHelper.h">
+      <Filter>소스 파일\DatabaseHandling</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

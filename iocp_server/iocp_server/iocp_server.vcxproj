@@ -170,6 +170,9 @@
   <ItemGroup>
     <ClCompile Include="addressbook.pb.cc" />
     <ClCompile Include="ClientSession.cpp" />
+    <ClCompile Include="DBContext.cpp" />
+    <ClCompile Include="DBThread.cpp" />
+    <ClCompile Include="PlayerManager.cpp" />
     <ClCompile Include="SendRequestSessionConcurrentQueue.cpp" />
     <ClCompile Include="IocpManager.cpp" />
     <ClCompile Include="IOThread.cpp" />
@@ -195,6 +198,11 @@
   <ItemGroup>
     <ClInclude Include="addressbook.pb.h" />
     <ClInclude Include="ClientSession.h" />
+    <ClInclude Include="DBContext.h" />
+    <ClInclude Include="DBHelper.h" />
+    <ClInclude Include="DBManager.h" />
+    <ClInclude Include="DBPacket.h" />
+    <ClInclude Include="DBThread.h" />
     <ClInclude Include="IocpManager.h" />
     <ClInclude Include="IOThread.h" />
     <ClInclude Include="LocalSendRequestSessionList.h" />
@@ -209,7 +217,9 @@
     <ClInclude Include="origin\TypeTraits.h" />
     <ClInclude Include="origin\XTL.h" />
     <ClInclude Include="OverlappedContext.h" />
+    <ClInclude Include="Packet.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerManager.h" />
     <ClInclude Include="SendRequestSessionConcurrentQueue.h" />
     <ClInclude Include="ServerSession.h" />
     <ClInclude Include="ServerSessionManager.h" />

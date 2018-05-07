@@ -39,15 +39,28 @@ void Player::DecayTickBuff()
 {
 }
 
-void Player::RequestNewPlayer(DBPacket * dbPacket)
+void Player::RequestNewPlayer(std::string& strID, std::string& strPassword, std::string& strNickName)
 {
+	/*
+	ClientSession* targetSession = __clientSession;
+
+	if (false == GetClientSessionWithAddRef(targetSession)) {
+		return;
+	}
+
+	__clientSession->ReleaseRef();
+	*/
+
+	
+	OverlappedDBContext* context = new OverlappedDBLogInOutContext(GetSharedFromThis<Player>(), strID, strPassword, strNickName, OverlappedDBLogInOutContext::E_TYPE::CREATE);
+
 }
 
 void Player::ResponseNewPlayer()
 {
 }
 
-void Player::RequestLogin(DBPacket * dbPacket)
+void Player::RequestLogin()
 {
 }
 
@@ -55,27 +68,47 @@ void Player::ResponseLogin()
 {
 }
 
-bool Player::CreateSendBuf(Packet* packet)
+// client와 connection을 check하고 valid 하면 Ref증가 후 cSession 저장.
+// 사용시 반드시 releaseRef해야함.
+bool Player::GetClientSessionWithAddRef(ClientSession* cSession)
 {
 	EnterReadLock();
 
 	//check is connected
-	if (!(__clientSession != nullptr && __clientSession->IsConnected())) {
+	if (!isConnWIthClient()) {
 		LeaveReadLock();
 		return false;
 	}
 
-	__clientSession->AddRef();	// queue에 session 추가 전, addRef하여 session return 방지
-	
-	__clientSession->PostSend(packet->GetPacketStart(), packet->GetSize());	//data post 후 concurrnt queue push.
-	GSendRequestSessionQueue->PushSession(__clientSession);
+	__clientSession->AddRef();	// addRef하여 session return 방지.
+
+	cSession = __clientSession;
+
+	LeaveReadLock();
+
+	return true;
+}
+
+bool Player::CreateSendBuf(Packet* packet)
+{
+	ClientSession* targetSession = __clientSession;
+
+	if (false == GetClientSessionWithAddRef(targetSession)) {
+		return false;
+	}
+
+	targetSession->PostSend(packet->GetPacketStart(), packet->GetSize());	//data post 후 concurrnt queue push.
+	GSendRequestSessionQueue->PushSession(targetSession);
+
+	//queue에 session 추가 전, addRef. GSendRequestSessionQueue pop시 releaseRef 필수
 
 	/*
 		queue에 session을 넣기 전에 postSend해야 data없이 session pop이 이뤄지는걸 방지할 수 있음.
 		player lock과 recvbuffer lock을 연속적으로 사용할 수 밖에 없는가?
+
+		=> __clientSession을 따로 빼서 저장하고 이를 사용. Addref는 이미 되었으므로 clientSession 보장.
 	*/
 
-	LeaveReadLock();
 	
 	return true;
 }
