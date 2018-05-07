@@ -16,6 +16,7 @@
 #include <string.h>
 #include <vector>
 #include <deque>
+#include <queue>
 #include <map>
 
 #include <process.h>
@@ -38,11 +39,19 @@
 #include <glm/gtx/norm.hpp>
 #include <glm/gtx/rotate_vector.hpp>
 
+#include "google/protobuf/io/zero_copy_stream.h"
+#include "google/protobuf/io/zero_copy_stream_impl_lite.h"
+#include "google/protobuf/text_format.h"
+#include "google/protobuf/io/coded_stream.h"
+#include "google/protobuf/message_lite.h"
+
 #include "sql.h"
 
 
 #include "origin\FastSpinlock.h"
 #include "origin\Exception.h"
+
 #include "../../3rdParty/google_protobuf/protoGen/GetSource/protoPack.pb.h"
 
 using namespace glm;
+using namespace google;

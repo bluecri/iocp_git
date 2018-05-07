@@ -4,7 +4,7 @@
 
 class ClientSession;
 class PlayerManager;
-struct Packet;
+class Packet;
 class RigidbodyComponent;
 
 class Player : public SyncExecutable
@@ -36,9 +36,6 @@ public:
 	
 
 public:	// DB requests
-	//send buf
-	bool CreateSendBuf(Packet* packet);
-
 	//only for guest
 	void RequestNewPlayer(std::string& strID, std::string& strPassword, std::string& strNickName);
 	void ResponseNewPlayer();
@@ -53,13 +50,14 @@ public:	// DB requests
 
 	bool GetClientSessionWithAddRef(ClientSession* cSession);
 private:
-
+	//send buf
+	bool SendToClient(Packet* packet);
 private:
-
-	int			_playerUID;
-	char*		_id;
-	char*		_nickName;
-	int			_heartBeat;
+	
+	int		_playerUID;
+	char*	_id;
+	char*	_nickName;
+	int		_heartBeat;
 
 	RigidbodyComponent* _rigidbodyComp;
 

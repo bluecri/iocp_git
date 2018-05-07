@@ -1,6 +1,6 @@
 syntax = "proto2";
 
-package proto;
+package prop;
 
 message msgLobby {
     required int32 uid = 1;

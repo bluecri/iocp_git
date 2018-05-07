@@ -154,8 +154,15 @@ void IocpManager::PostContext(IOverlappedContext * context)
 
 unsigned int IocpManager::FnIoWorkerThread(LPVOID lpParam)
 {
+	// ThreadLocal init
 	LThreadType = THREAD_TYPE::THREAD_IO_WORKER;
 	LWorkerThreadId = MAX_DB_THREAD + reinterpret_cast<int>(lpParam);
+
+	for (int i = 0; i < SENDREQUESET_QUEUE_SIZE; i++)
+	{
+		LSendRequestSessionQueue[i] = new std::queue<Session*>();
+	}
+	LSendRequestSessionQueueIndex = 0;
 
 	CRASH_ASSERT(LWorkerThreadId >= MAX_DB_THREAD);
 

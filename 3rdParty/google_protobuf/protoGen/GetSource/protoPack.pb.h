@@ -186,7 +186,7 @@ inline void InitDefaults() {
   InitDefaultsinGameChatBroadcast();
 }
 }  // namespace protobuf_protoPack_2eproto
-namespace proto {
+namespace prop {
 class accountCreate;
 class accountCreateDefaultTypeInternal;
 extern accountCreateDefaultTypeInternal _accountCreate_default_instance_;
@@ -328,12 +328,12 @@ extern outLobbyLobbylistRequestDefaultTypeInternal _outLobbyLobbylistRequest_def
 class outLobbyLobbylistResponse;
 class outLobbyLobbylistResponseDefaultTypeInternal;
 extern outLobbyLobbylistResponseDefaultTypeInternal _outLobbyLobbylistResponse_default_instance_;
-}  // namespace proto
-namespace proto {
+}  // namespace prop
+namespace prop {
 
 // ===================================================================
 
-class msgLobby : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.msgLobby) */ {
+class msgLobby : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.msgLobby) */ {
  public:
   msgLobby();
   virtual ~msgLobby();
@@ -465,7 +465,7 @@ class msgLobby : public ::google::protobuf::Message /* @@protoc_insertion_point(
   bool closed() const;
   void set_closed(bool value);
 
-  // @@protoc_insertion_point(class_scope:proto.msgLobby)
+  // @@protoc_insertion_point(class_scope:prop.msgLobby)
  private:
   void set_has_uid();
   void clear_has_uid();
@@ -494,7 +494,7 @@ class msgLobby : public ::google::protobuf::Message /* @@protoc_insertion_point(
 };
 // -------------------------------------------------------------------
 
-class msgRoom : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.msgRoom) */ {
+class msgRoom : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.msgRoom) */ {
  public:
   msgRoom();
   virtual ~msgRoom();
@@ -619,7 +619,7 @@ class msgRoom : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   ::google::protobuf::int32 useramaxnum() const;
   void set_useramaxnum(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.msgRoom)
+  // @@protoc_insertion_point(class_scope:prop.msgRoom)
  private:
   void set_has_uid();
   void clear_has_uid();
@@ -645,7 +645,7 @@ class msgRoom : public ::google::protobuf::Message /* @@protoc_insertion_point(c
 };
 // -------------------------------------------------------------------
 
-class msgGame : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.msgGame) */ {
+class msgGame : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.msgGame) */ {
  public:
   msgGame();
   virtual ~msgGame();
@@ -734,16 +734,16 @@ class msgGame : public ::google::protobuf::Message /* @@protoc_insertion_point(c
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto.msgUserInfo userList = 3;
+  // repeated .prop.msgUserInfo userList = 3;
   int userlist_size() const;
   void clear_userlist();
   static const int kUserListFieldNumber = 3;
-  const ::proto::msgUserInfo& userlist(int index) const;
-  ::proto::msgUserInfo* mutable_userlist(int index);
-  ::proto::msgUserInfo* add_userlist();
-  ::google::protobuf::RepeatedPtrField< ::proto::msgUserInfo >*
+  const ::prop::msgUserInfo& userlist(int index) const;
+  ::prop::msgUserInfo* mutable_userlist(int index);
+  ::prop::msgUserInfo* add_userlist();
+  ::google::protobuf::RepeatedPtrField< ::prop::msgUserInfo >*
       mutable_userlist();
-  const ::google::protobuf::RepeatedPtrField< ::proto::msgUserInfo >&
+  const ::google::protobuf::RepeatedPtrField< ::prop::msgUserInfo >&
       userlist() const;
 
   // required string number = 2;
@@ -768,7 +768,7 @@ class msgGame : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   ::google::protobuf::int32 uid() const;
   void set_uid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.msgGame)
+  // @@protoc_insertion_point(class_scope:prop.msgGame)
  private:
   void set_has_uid();
   void clear_has_uid();
@@ -781,7 +781,7 @@ class msgGame : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::proto::msgUserInfo > userlist_;
+  ::google::protobuf::RepeatedPtrField< ::prop::msgUserInfo > userlist_;
   ::google::protobuf::internal::ArenaStringPtr number_;
   ::google::protobuf::int32 uid_;
   friend struct ::protobuf_protoPack_2eproto::TableStruct;
@@ -789,7 +789,7 @@ class msgGame : public ::google::protobuf::Message /* @@protoc_insertion_point(c
 };
 // -------------------------------------------------------------------
 
-class msgUserInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.msgUserInfo) */ {
+class msgUserInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.msgUserInfo) */ {
  public:
   msgUserInfo();
   virtual ~msgUserInfo();
@@ -907,7 +907,7 @@ class msgUserInfo : public ::google::protobuf::Message /* @@protoc_insertion_poi
   ::google::protobuf::int32 id() const;
   void set_id(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.msgUserInfo)
+  // @@protoc_insertion_point(class_scope:prop.msgUserInfo)
  private:
   void set_has_uid();
   void clear_has_uid();
@@ -930,7 +930,7 @@ class msgUserInfo : public ::google::protobuf::Message /* @@protoc_insertion_poi
 };
 // -------------------------------------------------------------------
 
-class msgUserInGameInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.msgUserInGameInfo) */ {
+class msgUserInGameInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.msgUserInGameInfo) */ {
  public:
   msgUserInGameInfo();
   virtual ~msgUserInGameInfo();
@@ -1075,7 +1075,7 @@ class msgUserInGameInfo : public ::google::protobuf::Message /* @@protoc_inserti
   float qw() const;
   void set_qw(float value);
 
-  // @@protoc_insertion_point(class_scope:proto.msgUserInGameInfo)
+  // @@protoc_insertion_point(class_scope:prop.msgUserInGameInfo)
  private:
   void set_has_useruid();
   void clear_has_useruid();
@@ -1113,7 +1113,7 @@ class msgUserInGameInfo : public ::google::protobuf::Message /* @@protoc_inserti
 };
 // -------------------------------------------------------------------
 
-class msgUserInGameStateInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.msgUserInGameStateInfo) */ {
+class msgUserInGameStateInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.msgUserInGameStateInfo) */ {
  public:
   msgUserInGameStateInfo();
   virtual ~msgUserInGameStateInfo();
@@ -1216,7 +1216,7 @@ class msgUserInGameStateInfo : public ::google::protobuf::Message /* @@protoc_in
   ::google::protobuf::int32 statebit32() const;
   void set_statebit32(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.msgUserInGameStateInfo)
+  // @@protoc_insertion_point(class_scope:prop.msgUserInGameStateInfo)
  private:
   void set_has_useruid();
   void clear_has_useruid();
@@ -1236,7 +1236,7 @@ class msgUserInGameStateInfo : public ::google::protobuf::Message /* @@protoc_in
 };
 // -------------------------------------------------------------------
 
-class accountCreate : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.accountCreate) */ {
+class accountCreate : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.accountCreate) */ {
  public:
   accountCreate();
   virtual ~accountCreate();
@@ -1370,7 +1370,7 @@ class accountCreate : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::std::string* release_nickname();
   void set_allocated_nickname(::std::string* nickname);
 
-  // @@protoc_insertion_point(class_scope:proto.accountCreate)
+  // @@protoc_insertion_point(class_scope:prop.accountCreate)
  private:
   void set_has_id();
   void clear_has_id();
@@ -1393,7 +1393,7 @@ class accountCreate : public ::google::protobuf::Message /* @@protoc_insertion_p
 };
 // -------------------------------------------------------------------
 
-class accountLogin : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.accountLogin) */ {
+class accountLogin : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.accountLogin) */ {
  public:
   accountLogin();
   virtual ~accountLogin();
@@ -1512,7 +1512,7 @@ class accountLogin : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::std::string* release_password();
   void set_allocated_password(::std::string* password);
 
-  // @@protoc_insertion_point(class_scope:proto.accountLogin)
+  // @@protoc_insertion_point(class_scope:prop.accountLogin)
  private:
   void set_has_id();
   void clear_has_id();
@@ -1532,7 +1532,7 @@ class accountLogin : public ::google::protobuf::Message /* @@protoc_insertion_po
 };
 // -------------------------------------------------------------------
 
-class accountLogout : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.accountLogout) */ {
+class accountLogout : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.accountLogout) */ {
  public:
   accountLogout();
   virtual ~accountLogout();
@@ -1628,7 +1628,7 @@ class accountLogout : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::google::protobuf::int32 empty() const;
   void set_empty(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.accountLogout)
+  // @@protoc_insertion_point(class_scope:prop.accountLogout)
  private:
   void set_has_empty();
   void clear_has_empty();
@@ -1642,7 +1642,7 @@ class accountLogout : public ::google::protobuf::Message /* @@protoc_insertion_p
 };
 // -------------------------------------------------------------------
 
-class anyPlayerInfoSelfRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.anyPlayerInfoSelfRequest) */ {
+class anyPlayerInfoSelfRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.anyPlayerInfoSelfRequest) */ {
  public:
   anyPlayerInfoSelfRequest();
   virtual ~anyPlayerInfoSelfRequest();
@@ -1738,7 +1738,7 @@ class anyPlayerInfoSelfRequest : public ::google::protobuf::Message /* @@protoc_
   ::google::protobuf::int32 empty() const;
   void set_empty(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.anyPlayerInfoSelfRequest)
+  // @@protoc_insertion_point(class_scope:prop.anyPlayerInfoSelfRequest)
  private:
   void set_has_empty();
   void clear_has_empty();
@@ -1752,7 +1752,7 @@ class anyPlayerInfoSelfRequest : public ::google::protobuf::Message /* @@protoc_
 };
 // -------------------------------------------------------------------
 
-class anyPlayerInfoOtherRequestWithID : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.anyPlayerInfoOtherRequestWithID) */ {
+class anyPlayerInfoOtherRequestWithID : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.anyPlayerInfoOtherRequestWithID) */ {
  public:
   anyPlayerInfoOtherRequestWithID();
   virtual ~anyPlayerInfoOtherRequestWithID();
@@ -1856,7 +1856,7 @@ class anyPlayerInfoOtherRequestWithID : public ::google::protobuf::Message /* @@
   ::std::string* release_otherid();
   void set_allocated_otherid(::std::string* otherid);
 
-  // @@protoc_insertion_point(class_scope:proto.anyPlayerInfoOtherRequestWithID)
+  // @@protoc_insertion_point(class_scope:prop.anyPlayerInfoOtherRequestWithID)
  private:
   void set_has_otherid();
   void clear_has_otherid();
@@ -1870,7 +1870,7 @@ class anyPlayerInfoOtherRequestWithID : public ::google::protobuf::Message /* @@
 };
 // -------------------------------------------------------------------
 
-class anyPlayerInfoOtherRequestWithNickName : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.anyPlayerInfoOtherRequestWithNickName) */ {
+class anyPlayerInfoOtherRequestWithNickName : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.anyPlayerInfoOtherRequestWithNickName) */ {
  public:
   anyPlayerInfoOtherRequestWithNickName();
   virtual ~anyPlayerInfoOtherRequestWithNickName();
@@ -1974,7 +1974,7 @@ class anyPlayerInfoOtherRequestWithNickName : public ::google::protobuf::Message
   ::std::string* release_othernickname();
   void set_allocated_othernickname(::std::string* othernickname);
 
-  // @@protoc_insertion_point(class_scope:proto.anyPlayerInfoOtherRequestWithNickName)
+  // @@protoc_insertion_point(class_scope:prop.anyPlayerInfoOtherRequestWithNickName)
  private:
   void set_has_othernickname();
   void clear_has_othernickname();
@@ -1988,7 +1988,7 @@ class anyPlayerInfoOtherRequestWithNickName : public ::google::protobuf::Message
 };
 // -------------------------------------------------------------------
 
-class anyPlayerInfoResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.anyPlayerInfoResponse) */ {
+class anyPlayerInfoResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.anyPlayerInfoResponse) */ {
  public:
   anyPlayerInfoResponse();
   virtual ~anyPlayerInfoResponse();
@@ -2077,16 +2077,16 @@ class anyPlayerInfoResponse : public ::google::protobuf::Message /* @@protoc_ins
 
   // accessors -------------------------------------------------------
 
-  // required .proto.msgUserInfo userInfo = 1;
+  // required .prop.msgUserInfo userInfo = 1;
   bool has_userinfo() const;
   void clear_userinfo();
   static const int kUserInfoFieldNumber = 1;
-  const ::proto::msgUserInfo& userinfo() const;
-  ::proto::msgUserInfo* release_userinfo();
-  ::proto::msgUserInfo* mutable_userinfo();
-  void set_allocated_userinfo(::proto::msgUserInfo* userinfo);
+  const ::prop::msgUserInfo& userinfo() const;
+  ::prop::msgUserInfo* release_userinfo();
+  ::prop::msgUserInfo* mutable_userinfo();
+  void set_allocated_userinfo(::prop::msgUserInfo* userinfo);
 
-  // @@protoc_insertion_point(class_scope:proto.anyPlayerInfoResponse)
+  // @@protoc_insertion_point(class_scope:prop.anyPlayerInfoResponse)
  private:
   void set_has_userinfo();
   void clear_has_userinfo();
@@ -2094,13 +2094,13 @@ class anyPlayerInfoResponse : public ::google::protobuf::Message /* @@protoc_ins
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::proto::msgUserInfo* userinfo_;
+  ::prop::msgUserInfo* userinfo_;
   friend struct ::protobuf_protoPack_2eproto::TableStruct;
   friend void ::protobuf_protoPack_2eproto::InitDefaultsanyPlayerInfoResponseImpl();
 };
 // -------------------------------------------------------------------
 
-class anyWhisperRequestWithUID : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.anyWhisperRequestWithUID) */ {
+class anyWhisperRequestWithUID : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.anyWhisperRequestWithUID) */ {
  public:
   anyWhisperRequestWithUID();
   virtual ~anyWhisperRequestWithUID();
@@ -2211,7 +2211,7 @@ class anyWhisperRequestWithUID : public ::google::protobuf::Message /* @@protoc_
   ::google::protobuf::int32 otheruid() const;
   void set_otheruid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.anyWhisperRequestWithUID)
+  // @@protoc_insertion_point(class_scope:prop.anyWhisperRequestWithUID)
  private:
   void set_has_otheruid();
   void clear_has_otheruid();
@@ -2231,7 +2231,7 @@ class anyWhisperRequestWithUID : public ::google::protobuf::Message /* @@protoc_
 };
 // -------------------------------------------------------------------
 
-class anyWhisperRequestWithID : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.anyWhisperRequestWithID) */ {
+class anyWhisperRequestWithID : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.anyWhisperRequestWithID) */ {
  public:
   anyWhisperRequestWithID();
   virtual ~anyWhisperRequestWithID();
@@ -2350,7 +2350,7 @@ class anyWhisperRequestWithID : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_chat();
   void set_allocated_chat(::std::string* chat);
 
-  // @@protoc_insertion_point(class_scope:proto.anyWhisperRequestWithID)
+  // @@protoc_insertion_point(class_scope:prop.anyWhisperRequestWithID)
  private:
   void set_has_otherid();
   void clear_has_otherid();
@@ -2370,7 +2370,7 @@ class anyWhisperRequestWithID : public ::google::protobuf::Message /* @@protoc_i
 };
 // -------------------------------------------------------------------
 
-class anyWhisperRequestWithNickName : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.anyWhisperRequestWithNickName) */ {
+class anyWhisperRequestWithNickName : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.anyWhisperRequestWithNickName) */ {
  public:
   anyWhisperRequestWithNickName();
   virtual ~anyWhisperRequestWithNickName();
@@ -2489,7 +2489,7 @@ class anyWhisperRequestWithNickName : public ::google::protobuf::Message /* @@pr
   ::std::string* release_chat();
   void set_allocated_chat(::std::string* chat);
 
-  // @@protoc_insertion_point(class_scope:proto.anyWhisperRequestWithNickName)
+  // @@protoc_insertion_point(class_scope:prop.anyWhisperRequestWithNickName)
  private:
   void set_has_othernickname();
   void clear_has_othernickname();
@@ -2509,7 +2509,7 @@ class anyWhisperRequestWithNickName : public ::google::protobuf::Message /* @@pr
 };
 // -------------------------------------------------------------------
 
-class anyWhisperResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.anyWhisperResponse) */ {
+class anyWhisperResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.anyWhisperResponse) */ {
  public:
   anyWhisperResponse();
   virtual ~anyWhisperResponse();
@@ -2605,7 +2605,7 @@ class anyWhisperResponse : public ::google::protobuf::Message /* @@protoc_insert
   bool success() const;
   void set_success(bool value);
 
-  // @@protoc_insertion_point(class_scope:proto.anyWhisperResponse)
+  // @@protoc_insertion_point(class_scope:prop.anyWhisperResponse)
  private:
   void set_has_success();
   void clear_has_success();
@@ -2619,7 +2619,7 @@ class anyWhisperResponse : public ::google::protobuf::Message /* @@protoc_insert
 };
 // -------------------------------------------------------------------
 
-class outLobbyLobbylistRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.outLobbyLobbylistRequest) */ {
+class outLobbyLobbylistRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.outLobbyLobbylistRequest) */ {
  public:
   outLobbyLobbylistRequest();
   virtual ~outLobbyLobbylistRequest();
@@ -2715,7 +2715,7 @@ class outLobbyLobbylistRequest : public ::google::protobuf::Message /* @@protoc_
   ::google::protobuf::int32 empty() const;
   void set_empty(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.outLobbyLobbylistRequest)
+  // @@protoc_insertion_point(class_scope:prop.outLobbyLobbylistRequest)
  private:
   void set_has_empty();
   void clear_has_empty();
@@ -2729,7 +2729,7 @@ class outLobbyLobbylistRequest : public ::google::protobuf::Message /* @@protoc_
 };
 // -------------------------------------------------------------------
 
-class outLobbyLobbylistResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.outLobbyLobbylistResponse) */ {
+class outLobbyLobbylistResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.outLobbyLobbylistResponse) */ {
  public:
   outLobbyLobbylistResponse();
   virtual ~outLobbyLobbylistResponse();
@@ -2818,16 +2818,16 @@ class outLobbyLobbylistResponse : public ::google::protobuf::Message /* @@protoc
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto.msgLobby lobbyList = 2;
+  // repeated .prop.msgLobby lobbyList = 2;
   int lobbylist_size() const;
   void clear_lobbylist();
   static const int kLobbyListFieldNumber = 2;
-  const ::proto::msgLobby& lobbylist(int index) const;
-  ::proto::msgLobby* mutable_lobbylist(int index);
-  ::proto::msgLobby* add_lobbylist();
-  ::google::protobuf::RepeatedPtrField< ::proto::msgLobby >*
+  const ::prop::msgLobby& lobbylist(int index) const;
+  ::prop::msgLobby* mutable_lobbylist(int index);
+  ::prop::msgLobby* add_lobbylist();
+  ::google::protobuf::RepeatedPtrField< ::prop::msgLobby >*
       mutable_lobbylist();
-  const ::google::protobuf::RepeatedPtrField< ::proto::msgLobby >&
+  const ::google::protobuf::RepeatedPtrField< ::prop::msgLobby >&
       lobbylist() const;
 
   // required bool success = 1;
@@ -2837,7 +2837,7 @@ class outLobbyLobbylistResponse : public ::google::protobuf::Message /* @@protoc
   bool success() const;
   void set_success(bool value);
 
-  // @@protoc_insertion_point(class_scope:proto.outLobbyLobbylistResponse)
+  // @@protoc_insertion_point(class_scope:prop.outLobbyLobbylistResponse)
  private:
   void set_has_success();
   void clear_has_success();
@@ -2845,14 +2845,14 @@ class outLobbyLobbylistResponse : public ::google::protobuf::Message /* @@protoc
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::proto::msgLobby > lobbylist_;
+  ::google::protobuf::RepeatedPtrField< ::prop::msgLobby > lobbylist_;
   bool success_;
   friend struct ::protobuf_protoPack_2eproto::TableStruct;
   friend void ::protobuf_protoPack_2eproto::InitDefaultsoutLobbyLobbylistResponseImpl();
 };
 // -------------------------------------------------------------------
 
-class outLobbyEnterLobbyRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.outLobbyEnterLobbyRequest) */ {
+class outLobbyEnterLobbyRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.outLobbyEnterLobbyRequest) */ {
  public:
   outLobbyEnterLobbyRequest();
   virtual ~outLobbyEnterLobbyRequest();
@@ -2948,7 +2948,7 @@ class outLobbyEnterLobbyRequest : public ::google::protobuf::Message /* @@protoc
   ::google::protobuf::int32 lobbyuid() const;
   void set_lobbyuid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.outLobbyEnterLobbyRequest)
+  // @@protoc_insertion_point(class_scope:prop.outLobbyEnterLobbyRequest)
  private:
   void set_has_lobbyuid();
   void clear_has_lobbyuid();
@@ -2962,7 +2962,7 @@ class outLobbyEnterLobbyRequest : public ::google::protobuf::Message /* @@protoc
 };
 // -------------------------------------------------------------------
 
-class outLobbyEnterLobbyResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.outLobbyEnterLobbyResponse) */ {
+class outLobbyEnterLobbyResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.outLobbyEnterLobbyResponse) */ {
  public:
   outLobbyEnterLobbyResponse();
   virtual ~outLobbyEnterLobbyResponse();
@@ -3065,7 +3065,7 @@ class outLobbyEnterLobbyResponse : public ::google::protobuf::Message /* @@proto
   ::google::protobuf::int32 lobbyuid() const;
   void set_lobbyuid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.outLobbyEnterLobbyResponse)
+  // @@protoc_insertion_point(class_scope:prop.outLobbyEnterLobbyResponse)
  private:
   void set_has_success();
   void clear_has_success();
@@ -3085,7 +3085,7 @@ class outLobbyEnterLobbyResponse : public ::google::protobuf::Message /* @@proto
 };
 // -------------------------------------------------------------------
 
-class inLobbyPlayerlistRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inLobbyPlayerlistRequest) */ {
+class inLobbyPlayerlistRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inLobbyPlayerlistRequest) */ {
  public:
   inLobbyPlayerlistRequest();
   virtual ~inLobbyPlayerlistRequest();
@@ -3181,7 +3181,7 @@ class inLobbyPlayerlistRequest : public ::google::protobuf::Message /* @@protoc_
   ::google::protobuf::int32 lobbyuid() const;
   void set_lobbyuid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.inLobbyPlayerlistRequest)
+  // @@protoc_insertion_point(class_scope:prop.inLobbyPlayerlistRequest)
  private:
   void set_has_lobbyuid();
   void clear_has_lobbyuid();
@@ -3195,7 +3195,7 @@ class inLobbyPlayerlistRequest : public ::google::protobuf::Message /* @@protoc_
 };
 // -------------------------------------------------------------------
 
-class inLobbyPlayerlistResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inLobbyPlayerlistResponse) */ {
+class inLobbyPlayerlistResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inLobbyPlayerlistResponse) */ {
  public:
   inLobbyPlayerlistResponse();
   virtual ~inLobbyPlayerlistResponse();
@@ -3284,16 +3284,16 @@ class inLobbyPlayerlistResponse : public ::google::protobuf::Message /* @@protoc
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto.msgUserInfo userList = 3;
+  // repeated .prop.msgUserInfo userList = 3;
   int userlist_size() const;
   void clear_userlist();
   static const int kUserListFieldNumber = 3;
-  const ::proto::msgUserInfo& userlist(int index) const;
-  ::proto::msgUserInfo* mutable_userlist(int index);
-  ::proto::msgUserInfo* add_userlist();
-  ::google::protobuf::RepeatedPtrField< ::proto::msgUserInfo >*
+  const ::prop::msgUserInfo& userlist(int index) const;
+  ::prop::msgUserInfo* mutable_userlist(int index);
+  ::prop::msgUserInfo* add_userlist();
+  ::google::protobuf::RepeatedPtrField< ::prop::msgUserInfo >*
       mutable_userlist();
-  const ::google::protobuf::RepeatedPtrField< ::proto::msgUserInfo >&
+  const ::google::protobuf::RepeatedPtrField< ::prop::msgUserInfo >&
       userlist() const;
 
   // required bool success = 1;
@@ -3310,7 +3310,7 @@ class inLobbyPlayerlistResponse : public ::google::protobuf::Message /* @@protoc
   ::google::protobuf::int32 lobbyuid() const;
   void set_lobbyuid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.inLobbyPlayerlistResponse)
+  // @@protoc_insertion_point(class_scope:prop.inLobbyPlayerlistResponse)
  private:
   void set_has_success();
   void clear_has_success();
@@ -3323,7 +3323,7 @@ class inLobbyPlayerlistResponse : public ::google::protobuf::Message /* @@protoc
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::proto::msgUserInfo > userlist_;
+  ::google::protobuf::RepeatedPtrField< ::prop::msgUserInfo > userlist_;
   bool success_;
   ::google::protobuf::int32 lobbyuid_;
   friend struct ::protobuf_protoPack_2eproto::TableStruct;
@@ -3331,7 +3331,7 @@ class inLobbyPlayerlistResponse : public ::google::protobuf::Message /* @@protoc
 };
 // -------------------------------------------------------------------
 
-class inLobbyEnterRoomRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inLobbyEnterRoomRequest) */ {
+class inLobbyEnterRoomRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inLobbyEnterRoomRequest) */ {
  public:
   inLobbyEnterRoomRequest();
   virtual ~inLobbyEnterRoomRequest();
@@ -3427,7 +3427,7 @@ class inLobbyEnterRoomRequest : public ::google::protobuf::Message /* @@protoc_i
   ::google::protobuf::int32 roomuid() const;
   void set_roomuid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.inLobbyEnterRoomRequest)
+  // @@protoc_insertion_point(class_scope:prop.inLobbyEnterRoomRequest)
  private:
   void set_has_roomuid();
   void clear_has_roomuid();
@@ -3441,7 +3441,7 @@ class inLobbyEnterRoomRequest : public ::google::protobuf::Message /* @@protoc_i
 };
 // -------------------------------------------------------------------
 
-class inLobbyEnterRoomResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inLobbyEnterRoomResponse) */ {
+class inLobbyEnterRoomResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inLobbyEnterRoomResponse) */ {
  public:
   inLobbyEnterRoomResponse();
   virtual ~inLobbyEnterRoomResponse();
@@ -3544,7 +3544,7 @@ class inLobbyEnterRoomResponse : public ::google::protobuf::Message /* @@protoc_
   ::google::protobuf::int32 roomuid() const;
   void set_roomuid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.inLobbyEnterRoomResponse)
+  // @@protoc_insertion_point(class_scope:prop.inLobbyEnterRoomResponse)
  private:
   void set_has_success();
   void clear_has_success();
@@ -3564,7 +3564,7 @@ class inLobbyEnterRoomResponse : public ::google::protobuf::Message /* @@protoc_
 };
 // -------------------------------------------------------------------
 
-class inLobbyLeaveLobbyRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inLobbyLeaveLobbyRequest) */ {
+class inLobbyLeaveLobbyRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inLobbyLeaveLobbyRequest) */ {
  public:
   inLobbyLeaveLobbyRequest();
   virtual ~inLobbyLeaveLobbyRequest();
@@ -3660,7 +3660,7 @@ class inLobbyLeaveLobbyRequest : public ::google::protobuf::Message /* @@protoc_
   ::google::protobuf::int32 lobbyuid() const;
   void set_lobbyuid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.inLobbyLeaveLobbyRequest)
+  // @@protoc_insertion_point(class_scope:prop.inLobbyLeaveLobbyRequest)
  private:
   void set_has_lobbyuid();
   void clear_has_lobbyuid();
@@ -3674,7 +3674,7 @@ class inLobbyLeaveLobbyRequest : public ::google::protobuf::Message /* @@protoc_
 };
 // -------------------------------------------------------------------
 
-class inLobbyLeaveLobbyResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inLobbyLeaveLobbyResponse) */ {
+class inLobbyLeaveLobbyResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inLobbyLeaveLobbyResponse) */ {
  public:
   inLobbyLeaveLobbyResponse();
   virtual ~inLobbyLeaveLobbyResponse();
@@ -3777,7 +3777,7 @@ class inLobbyLeaveLobbyResponse : public ::google::protobuf::Message /* @@protoc
   ::google::protobuf::int32 lobbyuid() const;
   void set_lobbyuid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.inLobbyLeaveLobbyResponse)
+  // @@protoc_insertion_point(class_scope:prop.inLobbyLeaveLobbyResponse)
  private:
   void set_has_success();
   void clear_has_success();
@@ -3797,7 +3797,7 @@ class inLobbyLeaveLobbyResponse : public ::google::protobuf::Message /* @@protoc
 };
 // -------------------------------------------------------------------
 
-class inLobbyChatRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inLobbyChatRequest) */ {
+class inLobbyChatRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inLobbyChatRequest) */ {
  public:
   inLobbyChatRequest();
   virtual ~inLobbyChatRequest();
@@ -3908,7 +3908,7 @@ class inLobbyChatRequest : public ::google::protobuf::Message /* @@protoc_insert
   ::google::protobuf::int32 lobbyuid() const;
   void set_lobbyuid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.inLobbyChatRequest)
+  // @@protoc_insertion_point(class_scope:prop.inLobbyChatRequest)
  private:
   void set_has_lobbyuid();
   void clear_has_lobbyuid();
@@ -3928,7 +3928,7 @@ class inLobbyChatRequest : public ::google::protobuf::Message /* @@protoc_insert
 };
 // -------------------------------------------------------------------
 
-class inLobbyChatResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inLobbyChatResponse) */ {
+class inLobbyChatResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inLobbyChatResponse) */ {
  public:
   inLobbyChatResponse();
   virtual ~inLobbyChatResponse();
@@ -4024,7 +4024,7 @@ class inLobbyChatResponse : public ::google::protobuf::Message /* @@protoc_inser
   bool success() const;
   void set_success(bool value);
 
-  // @@protoc_insertion_point(class_scope:proto.inLobbyChatResponse)
+  // @@protoc_insertion_point(class_scope:prop.inLobbyChatResponse)
  private:
   void set_has_success();
   void clear_has_success();
@@ -4038,7 +4038,7 @@ class inLobbyChatResponse : public ::google::protobuf::Message /* @@protoc_inser
 };
 // -------------------------------------------------------------------
 
-class inLobbyChatBroadcast : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inLobbyChatBroadcast) */ {
+class inLobbyChatBroadcast : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inLobbyChatBroadcast) */ {
  public:
   inLobbyChatBroadcast();
   virtual ~inLobbyChatBroadcast();
@@ -4149,7 +4149,7 @@ class inLobbyChatBroadcast : public ::google::protobuf::Message /* @@protoc_inse
   ::google::protobuf::int32 lobbyuid() const;
   void set_lobbyuid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.inLobbyChatBroadcast)
+  // @@protoc_insertion_point(class_scope:prop.inLobbyChatBroadcast)
  private:
   void set_has_lobbyuid();
   void clear_has_lobbyuid();
@@ -4169,7 +4169,7 @@ class inLobbyChatBroadcast : public ::google::protobuf::Message /* @@protoc_inse
 };
 // -------------------------------------------------------------------
 
-class inRoomChatRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inRoomChatRequest) */ {
+class inRoomChatRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inRoomChatRequest) */ {
  public:
   inRoomChatRequest();
   virtual ~inRoomChatRequest();
@@ -4280,7 +4280,7 @@ class inRoomChatRequest : public ::google::protobuf::Message /* @@protoc_inserti
   ::google::protobuf::int32 roomuid() const;
   void set_roomuid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.inRoomChatRequest)
+  // @@protoc_insertion_point(class_scope:prop.inRoomChatRequest)
  private:
   void set_has_roomuid();
   void clear_has_roomuid();
@@ -4300,7 +4300,7 @@ class inRoomChatRequest : public ::google::protobuf::Message /* @@protoc_inserti
 };
 // -------------------------------------------------------------------
 
-class inRoomChatResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inRoomChatResponse) */ {
+class inRoomChatResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inRoomChatResponse) */ {
  public:
   inRoomChatResponse();
   virtual ~inRoomChatResponse();
@@ -4396,7 +4396,7 @@ class inRoomChatResponse : public ::google::protobuf::Message /* @@protoc_insert
   bool success() const;
   void set_success(bool value);
 
-  // @@protoc_insertion_point(class_scope:proto.inRoomChatResponse)
+  // @@protoc_insertion_point(class_scope:prop.inRoomChatResponse)
  private:
   void set_has_success();
   void clear_has_success();
@@ -4410,7 +4410,7 @@ class inRoomChatResponse : public ::google::protobuf::Message /* @@protoc_insert
 };
 // -------------------------------------------------------------------
 
-class inRoomChatBroadcast : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inRoomChatBroadcast) */ {
+class inRoomChatBroadcast : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inRoomChatBroadcast) */ {
  public:
   inRoomChatBroadcast();
   virtual ~inRoomChatBroadcast();
@@ -4521,7 +4521,7 @@ class inRoomChatBroadcast : public ::google::protobuf::Message /* @@protoc_inser
   ::google::protobuf::int32 roomuid() const;
   void set_roomuid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.inRoomChatBroadcast)
+  // @@protoc_insertion_point(class_scope:prop.inRoomChatBroadcast)
  private:
   void set_has_roomuid();
   void clear_has_roomuid();
@@ -4541,7 +4541,7 @@ class inRoomChatBroadcast : public ::google::protobuf::Message /* @@protoc_inser
 };
 // -------------------------------------------------------------------
 
-class inRoomLeaveRoomRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inRoomLeaveRoomRequest) */ {
+class inRoomLeaveRoomRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inRoomLeaveRoomRequest) */ {
  public:
   inRoomLeaveRoomRequest();
   virtual ~inRoomLeaveRoomRequest();
@@ -4637,7 +4637,7 @@ class inRoomLeaveRoomRequest : public ::google::protobuf::Message /* @@protoc_in
   ::google::protobuf::int32 roomuid() const;
   void set_roomuid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.inRoomLeaveRoomRequest)
+  // @@protoc_insertion_point(class_scope:prop.inRoomLeaveRoomRequest)
  private:
   void set_has_roomuid();
   void clear_has_roomuid();
@@ -4651,7 +4651,7 @@ class inRoomLeaveRoomRequest : public ::google::protobuf::Message /* @@protoc_in
 };
 // -------------------------------------------------------------------
 
-class inRoomLeaveRoomResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inRoomLeaveRoomResponse) */ {
+class inRoomLeaveRoomResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inRoomLeaveRoomResponse) */ {
  public:
   inRoomLeaveRoomResponse();
   virtual ~inRoomLeaveRoomResponse();
@@ -4761,7 +4761,7 @@ class inRoomLeaveRoomResponse : public ::google::protobuf::Message /* @@protoc_i
   ::google::protobuf::int32 lobbyuid() const;
   void set_lobbyuid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.inRoomLeaveRoomResponse)
+  // @@protoc_insertion_point(class_scope:prop.inRoomLeaveRoomResponse)
  private:
   void set_has_success();
   void clear_has_success();
@@ -4784,7 +4784,7 @@ class inRoomLeaveRoomResponse : public ::google::protobuf::Message /* @@protoc_i
 };
 // -------------------------------------------------------------------
 
-class inRoomReadyRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inRoomReadyRequest) */ {
+class inRoomReadyRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inRoomReadyRequest) */ {
  public:
   inRoomReadyRequest();
   virtual ~inRoomReadyRequest();
@@ -4880,7 +4880,7 @@ class inRoomReadyRequest : public ::google::protobuf::Message /* @@protoc_insert
   bool ready() const;
   void set_ready(bool value);
 
-  // @@protoc_insertion_point(class_scope:proto.inRoomReadyRequest)
+  // @@protoc_insertion_point(class_scope:prop.inRoomReadyRequest)
  private:
   void set_has_ready();
   void clear_has_ready();
@@ -4894,7 +4894,7 @@ class inRoomReadyRequest : public ::google::protobuf::Message /* @@protoc_insert
 };
 // -------------------------------------------------------------------
 
-class inRoomReadyResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inRoomReadyResponse) */ {
+class inRoomReadyResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inRoomReadyResponse) */ {
  public:
   inRoomReadyResponse();
   virtual ~inRoomReadyResponse();
@@ -4990,7 +4990,7 @@ class inRoomReadyResponse : public ::google::protobuf::Message /* @@protoc_inser
   bool success() const;
   void set_success(bool value);
 
-  // @@protoc_insertion_point(class_scope:proto.inRoomReadyResponse)
+  // @@protoc_insertion_point(class_scope:prop.inRoomReadyResponse)
  private:
   void set_has_success();
   void clear_has_success();
@@ -5004,7 +5004,7 @@ class inRoomReadyResponse : public ::google::protobuf::Message /* @@protoc_inser
 };
 // -------------------------------------------------------------------
 
-class inRoomStartRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inRoomStartRequest) */ {
+class inRoomStartRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inRoomStartRequest) */ {
  public:
   inRoomStartRequest();
   virtual ~inRoomStartRequest();
@@ -5100,7 +5100,7 @@ class inRoomStartRequest : public ::google::protobuf::Message /* @@protoc_insert
   bool start() const;
   void set_start(bool value);
 
-  // @@protoc_insertion_point(class_scope:proto.inRoomStartRequest)
+  // @@protoc_insertion_point(class_scope:prop.inRoomStartRequest)
  private:
   void set_has_start();
   void clear_has_start();
@@ -5114,7 +5114,7 @@ class inRoomStartRequest : public ::google::protobuf::Message /* @@protoc_insert
 };
 // -------------------------------------------------------------------
 
-class inRoomStartResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inRoomStartResponse) */ {
+class inRoomStartResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inRoomStartResponse) */ {
  public:
   inRoomStartResponse();
   virtual ~inRoomStartResponse();
@@ -5210,7 +5210,7 @@ class inRoomStartResponse : public ::google::protobuf::Message /* @@protoc_inser
   bool success() const;
   void set_success(bool value);
 
-  // @@protoc_insertion_point(class_scope:proto.inRoomStartResponse)
+  // @@protoc_insertion_point(class_scope:prop.inRoomStartResponse)
  private:
   void set_has_success();
   void clear_has_success();
@@ -5224,7 +5224,7 @@ class inRoomStartResponse : public ::google::protobuf::Message /* @@protoc_inser
 };
 // -------------------------------------------------------------------
 
-class inRoomStartBroadcast : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inRoomStartBroadcast) */ {
+class inRoomStartBroadcast : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inRoomStartBroadcast) */ {
  public:
   inRoomStartBroadcast();
   virtual ~inRoomStartBroadcast();
@@ -5320,7 +5320,7 @@ class inRoomStartBroadcast : public ::google::protobuf::Message /* @@protoc_inse
   ::google::protobuf::int32 ingameuid() const;
   void set_ingameuid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.inRoomStartBroadcast)
+  // @@protoc_insertion_point(class_scope:prop.inRoomStartBroadcast)
  private:
   void set_has_ingameuid();
   void clear_has_ingameuid();
@@ -5334,7 +5334,7 @@ class inRoomStartBroadcast : public ::google::protobuf::Message /* @@protoc_inse
 };
 // -------------------------------------------------------------------
 
-class inGameSyncPlayerPosToServer : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inGameSyncPlayerPosToServer) */ {
+class inGameSyncPlayerPosToServer : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inGameSyncPlayerPosToServer) */ {
  public:
   inGameSyncPlayerPosToServer();
   virtual ~inGameSyncPlayerPosToServer();
@@ -5423,14 +5423,14 @@ class inGameSyncPlayerPosToServer : public ::google::protobuf::Message /* @@prot
 
   // accessors -------------------------------------------------------
 
-  // required .proto.msgUserInGameInfo userInGameInfo = 2;
+  // required .prop.msgUserInGameInfo userInGameInfo = 2;
   bool has_useringameinfo() const;
   void clear_useringameinfo();
   static const int kUserInGameInfoFieldNumber = 2;
-  const ::proto::msgUserInGameInfo& useringameinfo() const;
-  ::proto::msgUserInGameInfo* release_useringameinfo();
-  ::proto::msgUserInGameInfo* mutable_useringameinfo();
-  void set_allocated_useringameinfo(::proto::msgUserInGameInfo* useringameinfo);
+  const ::prop::msgUserInGameInfo& useringameinfo() const;
+  ::prop::msgUserInGameInfo* release_useringameinfo();
+  ::prop::msgUserInGameInfo* mutable_useringameinfo();
+  void set_allocated_useringameinfo(::prop::msgUserInGameInfo* useringameinfo);
 
   // required int32 inGameUID = 1;
   bool has_ingameuid() const;
@@ -5439,7 +5439,7 @@ class inGameSyncPlayerPosToServer : public ::google::protobuf::Message /* @@prot
   ::google::protobuf::int32 ingameuid() const;
   void set_ingameuid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.inGameSyncPlayerPosToServer)
+  // @@protoc_insertion_point(class_scope:prop.inGameSyncPlayerPosToServer)
  private:
   void set_has_ingameuid();
   void clear_has_ingameuid();
@@ -5452,14 +5452,14 @@ class inGameSyncPlayerPosToServer : public ::google::protobuf::Message /* @@prot
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::proto::msgUserInGameInfo* useringameinfo_;
+  ::prop::msgUserInGameInfo* useringameinfo_;
   ::google::protobuf::int32 ingameuid_;
   friend struct ::protobuf_protoPack_2eproto::TableStruct;
   friend void ::protobuf_protoPack_2eproto::InitDefaultsinGameSyncPlayerPosToServerImpl();
 };
 // -------------------------------------------------------------------
 
-class inGameSyncPlayersPosFromServer : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inGameSyncPlayersPosFromServer) */ {
+class inGameSyncPlayersPosFromServer : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inGameSyncPlayersPosFromServer) */ {
  public:
   inGameSyncPlayersPosFromServer();
   virtual ~inGameSyncPlayersPosFromServer();
@@ -5548,16 +5548,16 @@ class inGameSyncPlayersPosFromServer : public ::google::protobuf::Message /* @@p
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto.msgUserInGameInfo usersInGameInfo = 2;
+  // repeated .prop.msgUserInGameInfo usersInGameInfo = 2;
   int usersingameinfo_size() const;
   void clear_usersingameinfo();
   static const int kUsersInGameInfoFieldNumber = 2;
-  const ::proto::msgUserInGameInfo& usersingameinfo(int index) const;
-  ::proto::msgUserInGameInfo* mutable_usersingameinfo(int index);
-  ::proto::msgUserInGameInfo* add_usersingameinfo();
-  ::google::protobuf::RepeatedPtrField< ::proto::msgUserInGameInfo >*
+  const ::prop::msgUserInGameInfo& usersingameinfo(int index) const;
+  ::prop::msgUserInGameInfo* mutable_usersingameinfo(int index);
+  ::prop::msgUserInGameInfo* add_usersingameinfo();
+  ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGameInfo >*
       mutable_usersingameinfo();
-  const ::google::protobuf::RepeatedPtrField< ::proto::msgUserInGameInfo >&
+  const ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGameInfo >&
       usersingameinfo() const;
 
   // required int32 inGameUID = 1;
@@ -5567,7 +5567,7 @@ class inGameSyncPlayersPosFromServer : public ::google::protobuf::Message /* @@p
   ::google::protobuf::int32 ingameuid() const;
   void set_ingameuid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.inGameSyncPlayersPosFromServer)
+  // @@protoc_insertion_point(class_scope:prop.inGameSyncPlayersPosFromServer)
  private:
   void set_has_ingameuid();
   void clear_has_ingameuid();
@@ -5575,14 +5575,14 @@ class inGameSyncPlayersPosFromServer : public ::google::protobuf::Message /* @@p
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::proto::msgUserInGameInfo > usersingameinfo_;
+  ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGameInfo > usersingameinfo_;
   ::google::protobuf::int32 ingameuid_;
   friend struct ::protobuf_protoPack_2eproto::TableStruct;
   friend void ::protobuf_protoPack_2eproto::InitDefaultsinGameSyncPlayersPosFromServerImpl();
 };
 // -------------------------------------------------------------------
 
-class inGameSyncPlayerStateToServer : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inGameSyncPlayerStateToServer) */ {
+class inGameSyncPlayerStateToServer : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inGameSyncPlayerStateToServer) */ {
  public:
   inGameSyncPlayerStateToServer();
   virtual ~inGameSyncPlayerStateToServer();
@@ -5671,14 +5671,14 @@ class inGameSyncPlayerStateToServer : public ::google::protobuf::Message /* @@pr
 
   // accessors -------------------------------------------------------
 
-  // required .proto.msgUserInGameStateInfo userStateInfo = 2;
+  // required .prop.msgUserInGameStateInfo userStateInfo = 2;
   bool has_userstateinfo() const;
   void clear_userstateinfo();
   static const int kUserStateInfoFieldNumber = 2;
-  const ::proto::msgUserInGameStateInfo& userstateinfo() const;
-  ::proto::msgUserInGameStateInfo* release_userstateinfo();
-  ::proto::msgUserInGameStateInfo* mutable_userstateinfo();
-  void set_allocated_userstateinfo(::proto::msgUserInGameStateInfo* userstateinfo);
+  const ::prop::msgUserInGameStateInfo& userstateinfo() const;
+  ::prop::msgUserInGameStateInfo* release_userstateinfo();
+  ::prop::msgUserInGameStateInfo* mutable_userstateinfo();
+  void set_allocated_userstateinfo(::prop::msgUserInGameStateInfo* userstateinfo);
 
   // required int32 inGameUID = 1;
   bool has_ingameuid() const;
@@ -5687,7 +5687,7 @@ class inGameSyncPlayerStateToServer : public ::google::protobuf::Message /* @@pr
   ::google::protobuf::int32 ingameuid() const;
   void set_ingameuid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.inGameSyncPlayerStateToServer)
+  // @@protoc_insertion_point(class_scope:prop.inGameSyncPlayerStateToServer)
  private:
   void set_has_ingameuid();
   void clear_has_ingameuid();
@@ -5700,14 +5700,14 @@ class inGameSyncPlayerStateToServer : public ::google::protobuf::Message /* @@pr
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::proto::msgUserInGameStateInfo* userstateinfo_;
+  ::prop::msgUserInGameStateInfo* userstateinfo_;
   ::google::protobuf::int32 ingameuid_;
   friend struct ::protobuf_protoPack_2eproto::TableStruct;
   friend void ::protobuf_protoPack_2eproto::InitDefaultsinGameSyncPlayerStateToServerImpl();
 };
 // -------------------------------------------------------------------
 
-class inGameSyncPlayersStateFromServer : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inGameSyncPlayersStateFromServer) */ {
+class inGameSyncPlayersStateFromServer : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inGameSyncPlayersStateFromServer) */ {
  public:
   inGameSyncPlayersStateFromServer();
   virtual ~inGameSyncPlayersStateFromServer();
@@ -5796,16 +5796,16 @@ class inGameSyncPlayersStateFromServer : public ::google::protobuf::Message /* @
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto.msgUserInGameStateInfo userStateInfoList = 2;
+  // repeated .prop.msgUserInGameStateInfo userStateInfoList = 2;
   int userstateinfolist_size() const;
   void clear_userstateinfolist();
   static const int kUserStateInfoListFieldNumber = 2;
-  const ::proto::msgUserInGameStateInfo& userstateinfolist(int index) const;
-  ::proto::msgUserInGameStateInfo* mutable_userstateinfolist(int index);
-  ::proto::msgUserInGameStateInfo* add_userstateinfolist();
-  ::google::protobuf::RepeatedPtrField< ::proto::msgUserInGameStateInfo >*
+  const ::prop::msgUserInGameStateInfo& userstateinfolist(int index) const;
+  ::prop::msgUserInGameStateInfo* mutable_userstateinfolist(int index);
+  ::prop::msgUserInGameStateInfo* add_userstateinfolist();
+  ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGameStateInfo >*
       mutable_userstateinfolist();
-  const ::google::protobuf::RepeatedPtrField< ::proto::msgUserInGameStateInfo >&
+  const ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGameStateInfo >&
       userstateinfolist() const;
 
   // required int32 inGameUID = 1;
@@ -5815,7 +5815,7 @@ class inGameSyncPlayersStateFromServer : public ::google::protobuf::Message /* @
   ::google::protobuf::int32 ingameuid() const;
   void set_ingameuid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.inGameSyncPlayersStateFromServer)
+  // @@protoc_insertion_point(class_scope:prop.inGameSyncPlayersStateFromServer)
  private:
   void set_has_ingameuid();
   void clear_has_ingameuid();
@@ -5823,14 +5823,14 @@ class inGameSyncPlayersStateFromServer : public ::google::protobuf::Message /* @
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::proto::msgUserInGameStateInfo > userstateinfolist_;
+  ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGameStateInfo > userstateinfolist_;
   ::google::protobuf::int32 ingameuid_;
   friend struct ::protobuf_protoPack_2eproto::TableStruct;
   friend void ::protobuf_protoPack_2eproto::InitDefaultsinGameSyncPlayersStateFromServerImpl();
 };
 // -------------------------------------------------------------------
 
-class inGameChatRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inGameChatRequest) */ {
+class inGameChatRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inGameChatRequest) */ {
  public:
   inGameChatRequest();
   virtual ~inGameChatRequest();
@@ -5941,7 +5941,7 @@ class inGameChatRequest : public ::google::protobuf::Message /* @@protoc_inserti
   ::google::protobuf::int32 ingameuid() const;
   void set_ingameuid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto.inGameChatRequest)
+  // @@protoc_insertion_point(class_scope:prop.inGameChatRequest)
  private:
   void set_has_ingameuid();
   void clear_has_ingameuid();
@@ -5961,7 +5961,7 @@ class inGameChatRequest : public ::google::protobuf::Message /* @@protoc_inserti
 };
 // -------------------------------------------------------------------
 
-class inGameChatResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inGameChatResponse) */ {
+class inGameChatResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inGameChatResponse) */ {
  public:
   inGameChatResponse();
   virtual ~inGameChatResponse();
@@ -6057,7 +6057,7 @@ class inGameChatResponse : public ::google::protobuf::Message /* @@protoc_insert
   bool success() const;
   void set_success(bool value);
 
-  // @@protoc_insertion_point(class_scope:proto.inGameChatResponse)
+  // @@protoc_insertion_point(class_scope:prop.inGameChatResponse)
  private:
   void set_has_success();
   void clear_has_success();
@@ -6071,7 +6071,7 @@ class inGameChatResponse : public ::google::protobuf::Message /* @@protoc_insert
 };
 // -------------------------------------------------------------------
 
-class inGameChatBroadcast : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.inGameChatBroadcast) */ {
+class inGameChatBroadcast : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inGameChatBroadcast) */ {
  public:
   inGameChatBroadcast();
   virtual ~inGameChatBroadcast();
@@ -6175,7 +6175,7 @@ class inGameChatBroadcast : public ::google::protobuf::Message /* @@protoc_inser
   ::std::string* release_chat();
   void set_allocated_chat(::std::string* chat);
 
-  // @@protoc_insertion_point(class_scope:proto.inGameChatBroadcast)
+  // @@protoc_insertion_point(class_scope:prop.inGameChatBroadcast)
  private:
   void set_has_chat();
   void clear_has_chat();
@@ -6213,13 +6213,13 @@ inline void msgLobby::clear_uid() {
   clear_has_uid();
 }
 inline ::google::protobuf::int32 msgLobby::uid() const {
-  // @@protoc_insertion_point(field_get:proto.msgLobby.uid)
+  // @@protoc_insertion_point(field_get:prop.msgLobby.uid)
   return uid_;
 }
 inline void msgLobby::set_uid(::google::protobuf::int32 value) {
   set_has_uid();
   uid_ = value;
-  // @@protoc_insertion_point(field_set:proto.msgLobby.uid)
+  // @@protoc_insertion_point(field_set:prop.msgLobby.uid)
 }
 
 // required string name = 2;
@@ -6237,41 +6237,41 @@ inline void msgLobby::clear_name() {
   clear_has_name();
 }
 inline const ::std::string& msgLobby::name() const {
-  // @@protoc_insertion_point(field_get:proto.msgLobby.name)
+  // @@protoc_insertion_point(field_get:prop.msgLobby.name)
   return name_.GetNoArena();
 }
 inline void msgLobby::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:proto.msgLobby.name)
+  // @@protoc_insertion_point(field_set:prop.msgLobby.name)
 }
 #if LANG_CXX11
 inline void msgLobby::set_name(::std::string&& value) {
   set_has_name();
   name_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:proto.msgLobby.name)
+  // @@protoc_insertion_point(field_set_rvalue:prop.msgLobby.name)
 }
 #endif
 inline void msgLobby::set_name(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:proto.msgLobby.name)
+  // @@protoc_insertion_point(field_set_char:prop.msgLobby.name)
 }
 inline void msgLobby::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:proto.msgLobby.name)
+  // @@protoc_insertion_point(field_set_pointer:prop.msgLobby.name)
 }
 inline ::std::string* msgLobby::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:proto.msgLobby.name)
+  // @@protoc_insertion_point(field_mutable:prop.msgLobby.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* msgLobby::release_name() {
-  // @@protoc_insertion_point(field_release:proto.msgLobby.name)
+  // @@protoc_insertion_point(field_release:prop.msgLobby.name)
   clear_has_name();
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -6282,7 +6282,7 @@ inline void msgLobby::set_allocated_name(::std::string* name) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:proto.msgLobby.name)
+  // @@protoc_insertion_point(field_set_allocated:prop.msgLobby.name)
 }
 
 // required int32 userNum = 3;
@@ -6300,13 +6300,13 @@ inline void msgLobby::clear_usernum() {
   clear_has_usernum();
 }
 inline ::google::protobuf::int32 msgLobby::usernum() const {
-  // @@protoc_insertion_point(field_get:proto.msgLobby.userNum)
+  // @@protoc_insertion_point(field_get:prop.msgLobby.userNum)
   return usernum_;
 }
 inline void msgLobby::set_usernum(::google::protobuf::int32 value) {
   set_has_usernum();
   usernum_ = value;
-  // @@protoc_insertion_point(field_set:proto.msgLobby.userNum)
+  // @@protoc_insertion_point(field_set:prop.msgLobby.userNum)
 }
 
 // required int32 useraMaxNum = 4;
@@ -6324,13 +6324,13 @@ inline void msgLobby::clear_useramaxnum() {
   clear_has_useramaxnum();
 }
 inline ::google::protobuf::int32 msgLobby::useramaxnum() const {
-  // @@protoc_insertion_point(field_get:proto.msgLobby.useraMaxNum)
+  // @@protoc_insertion_point(field_get:prop.msgLobby.useraMaxNum)
   return useramaxnum_;
 }
 inline void msgLobby::set_useramaxnum(::google::protobuf::int32 value) {
   set_has_useramaxnum();
   useramaxnum_ = value;
-  // @@protoc_insertion_point(field_set:proto.msgLobby.useraMaxNum)
+  // @@protoc_insertion_point(field_set:prop.msgLobby.useraMaxNum)
 }
 
 // required bool closed = 5;
@@ -6348,13 +6348,13 @@ inline void msgLobby::clear_closed() {
   clear_has_closed();
 }
 inline bool msgLobby::closed() const {
-  // @@protoc_insertion_point(field_get:proto.msgLobby.closed)
+  // @@protoc_insertion_point(field_get:prop.msgLobby.closed)
   return closed_;
 }
 inline void msgLobby::set_closed(bool value) {
   set_has_closed();
   closed_ = value;
-  // @@protoc_insertion_point(field_set:proto.msgLobby.closed)
+  // @@protoc_insertion_point(field_set:prop.msgLobby.closed)
 }
 
 // -------------------------------------------------------------------
@@ -6376,13 +6376,13 @@ inline void msgRoom::clear_uid() {
   clear_has_uid();
 }
 inline ::google::protobuf::int32 msgRoom::uid() const {
-  // @@protoc_insertion_point(field_get:proto.msgRoom.uid)
+  // @@protoc_insertion_point(field_get:prop.msgRoom.uid)
   return uid_;
 }
 inline void msgRoom::set_uid(::google::protobuf::int32 value) {
   set_has_uid();
   uid_ = value;
-  // @@protoc_insertion_point(field_set:proto.msgRoom.uid)
+  // @@protoc_insertion_point(field_set:prop.msgRoom.uid)
 }
 
 // required string name = 2;
@@ -6400,41 +6400,41 @@ inline void msgRoom::clear_name() {
   clear_has_name();
 }
 inline const ::std::string& msgRoom::name() const {
-  // @@protoc_insertion_point(field_get:proto.msgRoom.name)
+  // @@protoc_insertion_point(field_get:prop.msgRoom.name)
   return name_.GetNoArena();
 }
 inline void msgRoom::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:proto.msgRoom.name)
+  // @@protoc_insertion_point(field_set:prop.msgRoom.name)
 }
 #if LANG_CXX11
 inline void msgRoom::set_name(::std::string&& value) {
   set_has_name();
   name_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:proto.msgRoom.name)
+  // @@protoc_insertion_point(field_set_rvalue:prop.msgRoom.name)
 }
 #endif
 inline void msgRoom::set_name(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:proto.msgRoom.name)
+  // @@protoc_insertion_point(field_set_char:prop.msgRoom.name)
 }
 inline void msgRoom::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:proto.msgRoom.name)
+  // @@protoc_insertion_point(field_set_pointer:prop.msgRoom.name)
 }
 inline ::std::string* msgRoom::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:proto.msgRoom.name)
+  // @@protoc_insertion_point(field_mutable:prop.msgRoom.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* msgRoom::release_name() {
-  // @@protoc_insertion_point(field_release:proto.msgRoom.name)
+  // @@protoc_insertion_point(field_release:prop.msgRoom.name)
   clear_has_name();
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -6445,7 +6445,7 @@ inline void msgRoom::set_allocated_name(::std::string* name) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:proto.msgRoom.name)
+  // @@protoc_insertion_point(field_set_allocated:prop.msgRoom.name)
 }
 
 // required int32 userNum = 3;
@@ -6463,13 +6463,13 @@ inline void msgRoom::clear_usernum() {
   clear_has_usernum();
 }
 inline ::google::protobuf::int32 msgRoom::usernum() const {
-  // @@protoc_insertion_point(field_get:proto.msgRoom.userNum)
+  // @@protoc_insertion_point(field_get:prop.msgRoom.userNum)
   return usernum_;
 }
 inline void msgRoom::set_usernum(::google::protobuf::int32 value) {
   set_has_usernum();
   usernum_ = value;
-  // @@protoc_insertion_point(field_set:proto.msgRoom.userNum)
+  // @@protoc_insertion_point(field_set:prop.msgRoom.userNum)
 }
 
 // required int32 useraMaxNum = 4;
@@ -6487,13 +6487,13 @@ inline void msgRoom::clear_useramaxnum() {
   clear_has_useramaxnum();
 }
 inline ::google::protobuf::int32 msgRoom::useramaxnum() const {
-  // @@protoc_insertion_point(field_get:proto.msgRoom.useraMaxNum)
+  // @@protoc_insertion_point(field_get:prop.msgRoom.useraMaxNum)
   return useramaxnum_;
 }
 inline void msgRoom::set_useramaxnum(::google::protobuf::int32 value) {
   set_has_useramaxnum();
   useramaxnum_ = value;
-  // @@protoc_insertion_point(field_set:proto.msgRoom.useraMaxNum)
+  // @@protoc_insertion_point(field_set:prop.msgRoom.useraMaxNum)
 }
 
 // -------------------------------------------------------------------
@@ -6515,13 +6515,13 @@ inline void msgGame::clear_uid() {
   clear_has_uid();
 }
 inline ::google::protobuf::int32 msgGame::uid() const {
-  // @@protoc_insertion_point(field_get:proto.msgGame.uid)
+  // @@protoc_insertion_point(field_get:prop.msgGame.uid)
   return uid_;
 }
 inline void msgGame::set_uid(::google::protobuf::int32 value) {
   set_has_uid();
   uid_ = value;
-  // @@protoc_insertion_point(field_set:proto.msgGame.uid)
+  // @@protoc_insertion_point(field_set:prop.msgGame.uid)
 }
 
 // required string number = 2;
@@ -6539,41 +6539,41 @@ inline void msgGame::clear_number() {
   clear_has_number();
 }
 inline const ::std::string& msgGame::number() const {
-  // @@protoc_insertion_point(field_get:proto.msgGame.number)
+  // @@protoc_insertion_point(field_get:prop.msgGame.number)
   return number_.GetNoArena();
 }
 inline void msgGame::set_number(const ::std::string& value) {
   set_has_number();
   number_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:proto.msgGame.number)
+  // @@protoc_insertion_point(field_set:prop.msgGame.number)
 }
 #if LANG_CXX11
 inline void msgGame::set_number(::std::string&& value) {
   set_has_number();
   number_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:proto.msgGame.number)
+  // @@protoc_insertion_point(field_set_rvalue:prop.msgGame.number)
 }
 #endif
 inline void msgGame::set_number(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_number();
   number_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:proto.msgGame.number)
+  // @@protoc_insertion_point(field_set_char:prop.msgGame.number)
 }
 inline void msgGame::set_number(const char* value, size_t size) {
   set_has_number();
   number_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:proto.msgGame.number)
+  // @@protoc_insertion_point(field_set_pointer:prop.msgGame.number)
 }
 inline ::std::string* msgGame::mutable_number() {
   set_has_number();
-  // @@protoc_insertion_point(field_mutable:proto.msgGame.number)
+  // @@protoc_insertion_point(field_mutable:prop.msgGame.number)
   return number_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* msgGame::release_number() {
-  // @@protoc_insertion_point(field_release:proto.msgGame.number)
+  // @@protoc_insertion_point(field_release:prop.msgGame.number)
   clear_has_number();
   return number_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -6584,36 +6584,36 @@ inline void msgGame::set_allocated_number(::std::string* number) {
     clear_has_number();
   }
   number_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), number);
-  // @@protoc_insertion_point(field_set_allocated:proto.msgGame.number)
+  // @@protoc_insertion_point(field_set_allocated:prop.msgGame.number)
 }
 
-// repeated .proto.msgUserInfo userList = 3;
+// repeated .prop.msgUserInfo userList = 3;
 inline int msgGame::userlist_size() const {
   return userlist_.size();
 }
 inline void msgGame::clear_userlist() {
   userlist_.Clear();
 }
-inline const ::proto::msgUserInfo& msgGame::userlist(int index) const {
-  // @@protoc_insertion_point(field_get:proto.msgGame.userList)
+inline const ::prop::msgUserInfo& msgGame::userlist(int index) const {
+  // @@protoc_insertion_point(field_get:prop.msgGame.userList)
   return userlist_.Get(index);
 }
-inline ::proto::msgUserInfo* msgGame::mutable_userlist(int index) {
-  // @@protoc_insertion_point(field_mutable:proto.msgGame.userList)
+inline ::prop::msgUserInfo* msgGame::mutable_userlist(int index) {
+  // @@protoc_insertion_point(field_mutable:prop.msgGame.userList)
   return userlist_.Mutable(index);
 }
-inline ::proto::msgUserInfo* msgGame::add_userlist() {
-  // @@protoc_insertion_point(field_add:proto.msgGame.userList)
+inline ::prop::msgUserInfo* msgGame::add_userlist() {
+  // @@protoc_insertion_point(field_add:prop.msgGame.userList)
   return userlist_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto::msgUserInfo >*
+inline ::google::protobuf::RepeatedPtrField< ::prop::msgUserInfo >*
 msgGame::mutable_userlist() {
-  // @@protoc_insertion_point(field_mutable_list:proto.msgGame.userList)
+  // @@protoc_insertion_point(field_mutable_list:prop.msgGame.userList)
   return &userlist_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto::msgUserInfo >&
+inline const ::google::protobuf::RepeatedPtrField< ::prop::msgUserInfo >&
 msgGame::userlist() const {
-  // @@protoc_insertion_point(field_list:proto.msgGame.userList)
+  // @@protoc_insertion_point(field_list:prop.msgGame.userList)
   return userlist_;
 }
 
@@ -6636,13 +6636,13 @@ inline void msgUserInfo::clear_uid() {
   clear_has_uid();
 }
 inline ::google::protobuf::int32 msgUserInfo::uid() const {
-  // @@protoc_insertion_point(field_get:proto.msgUserInfo.uid)
+  // @@protoc_insertion_point(field_get:prop.msgUserInfo.uid)
   return uid_;
 }
 inline void msgUserInfo::set_uid(::google::protobuf::int32 value) {
   set_has_uid();
   uid_ = value;
-  // @@protoc_insertion_point(field_set:proto.msgUserInfo.uid)
+  // @@protoc_insertion_point(field_set:prop.msgUserInfo.uid)
 }
 
 // required int32 id = 2;
@@ -6660,13 +6660,13 @@ inline void msgUserInfo::clear_id() {
   clear_has_id();
 }
 inline ::google::protobuf::int32 msgUserInfo::id() const {
-  // @@protoc_insertion_point(field_get:proto.msgUserInfo.id)
+  // @@protoc_insertion_point(field_get:prop.msgUserInfo.id)
   return id_;
 }
 inline void msgUserInfo::set_id(::google::protobuf::int32 value) {
   set_has_id();
   id_ = value;
-  // @@protoc_insertion_point(field_set:proto.msgUserInfo.id)
+  // @@protoc_insertion_point(field_set:prop.msgUserInfo.id)
 }
 
 // required string Nickname = 3;
@@ -6684,41 +6684,41 @@ inline void msgUserInfo::clear_nickname() {
   clear_has_nickname();
 }
 inline const ::std::string& msgUserInfo::nickname() const {
-  // @@protoc_insertion_point(field_get:proto.msgUserInfo.Nickname)
+  // @@protoc_insertion_point(field_get:prop.msgUserInfo.Nickname)
   return nickname_.GetNoArena();
 }
 inline void msgUserInfo::set_nickname(const ::std::string& value) {
   set_has_nickname();
   nickname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:proto.msgUserInfo.Nickname)
+  // @@protoc_insertion_point(field_set:prop.msgUserInfo.Nickname)
 }
 #if LANG_CXX11
 inline void msgUserInfo::set_nickname(::std::string&& value) {
   set_has_nickname();
   nickname_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:proto.msgUserInfo.Nickname)
+  // @@protoc_insertion_point(field_set_rvalue:prop.msgUserInfo.Nickname)
 }
 #endif
 inline void msgUserInfo::set_nickname(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_nickname();
   nickname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:proto.msgUserInfo.Nickname)
+  // @@protoc_insertion_point(field_set_char:prop.msgUserInfo.Nickname)
 }
 inline void msgUserInfo::set_nickname(const char* value, size_t size) {
   set_has_nickname();
   nickname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:proto.msgUserInfo.Nickname)
+  // @@protoc_insertion_point(field_set_pointer:prop.msgUserInfo.Nickname)
 }
 inline ::std::string* msgUserInfo::mutable_nickname() {
   set_has_nickname();
-  // @@protoc_insertion_point(field_mutable:proto.msgUserInfo.Nickname)
+  // @@protoc_insertion_point(field_mutable:prop.msgUserInfo.Nickname)
   return nickname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* msgUserInfo::release_nickname() {
-  // @@protoc_insertion_point(field_release:proto.msgUserInfo.Nickname)
+  // @@protoc_insertion_point(field_release:prop.msgUserInfo.Nickname)
   clear_has_nickname();
   return nickname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -6729,7 +6729,7 @@ inline void msgUserInfo::set_allocated_nickname(::std::string* nickname) {
     clear_has_nickname();
   }
   nickname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), nickname);
-  // @@protoc_insertion_point(field_set_allocated:proto.msgUserInfo.Nickname)
+  // @@protoc_insertion_point(field_set_allocated:prop.msgUserInfo.Nickname)
 }
 
 // -------------------------------------------------------------------
@@ -6751,13 +6751,13 @@ inline void msgUserInGameInfo::clear_useruid() {
   clear_has_useruid();
 }
 inline ::google::protobuf::int32 msgUserInGameInfo::useruid() const {
-  // @@protoc_insertion_point(field_get:proto.msgUserInGameInfo.userUid)
+  // @@protoc_insertion_point(field_get:prop.msgUserInGameInfo.userUid)
   return useruid_;
 }
 inline void msgUserInGameInfo::set_useruid(::google::protobuf::int32 value) {
   set_has_useruid();
   useruid_ = value;
-  // @@protoc_insertion_point(field_set:proto.msgUserInGameInfo.userUid)
+  // @@protoc_insertion_point(field_set:prop.msgUserInGameInfo.userUid)
 }
 
 // required float x = 2;
@@ -6775,13 +6775,13 @@ inline void msgUserInGameInfo::clear_x() {
   clear_has_x();
 }
 inline float msgUserInGameInfo::x() const {
-  // @@protoc_insertion_point(field_get:proto.msgUserInGameInfo.x)
+  // @@protoc_insertion_point(field_get:prop.msgUserInGameInfo.x)
   return x_;
 }
 inline void msgUserInGameInfo::set_x(float value) {
   set_has_x();
   x_ = value;
-  // @@protoc_insertion_point(field_set:proto.msgUserInGameInfo.x)
+  // @@protoc_insertion_point(field_set:prop.msgUserInGameInfo.x)
 }
 
 // required float y = 3;
@@ -6799,13 +6799,13 @@ inline void msgUserInGameInfo::clear_y() {
   clear_has_y();
 }
 inline float msgUserInGameInfo::y() const {
-  // @@protoc_insertion_point(field_get:proto.msgUserInGameInfo.y)
+  // @@protoc_insertion_point(field_get:prop.msgUserInGameInfo.y)
   return y_;
 }
 inline void msgUserInGameInfo::set_y(float value) {
   set_has_y();
   y_ = value;
-  // @@protoc_insertion_point(field_set:proto.msgUserInGameInfo.y)
+  // @@protoc_insertion_point(field_set:prop.msgUserInGameInfo.y)
 }
 
 // required float z = 4;
@@ -6823,13 +6823,13 @@ inline void msgUserInGameInfo::clear_z() {
   clear_has_z();
 }
 inline float msgUserInGameInfo::z() const {
-  // @@protoc_insertion_point(field_get:proto.msgUserInGameInfo.z)
+  // @@protoc_insertion_point(field_get:prop.msgUserInGameInfo.z)
   return z_;
 }
 inline void msgUserInGameInfo::set_z(float value) {
   set_has_z();
   z_ = value;
-  // @@protoc_insertion_point(field_set:proto.msgUserInGameInfo.z)
+  // @@protoc_insertion_point(field_set:prop.msgUserInGameInfo.z)
 }
 
 // required float qx = 5;
@@ -6847,13 +6847,13 @@ inline void msgUserInGameInfo::clear_qx() {
   clear_has_qx();
 }
 inline float msgUserInGameInfo::qx() const {
-  // @@protoc_insertion_point(field_get:proto.msgUserInGameInfo.qx)
+  // @@protoc_insertion_point(field_get:prop.msgUserInGameInfo.qx)
   return qx_;
 }
 inline void msgUserInGameInfo::set_qx(float value) {
   set_has_qx();
   qx_ = value;
-  // @@protoc_insertion_point(field_set:proto.msgUserInGameInfo.qx)
+  // @@protoc_insertion_point(field_set:prop.msgUserInGameInfo.qx)
 }
 
 // required float qy = 6;
@@ -6871,13 +6871,13 @@ inline void msgUserInGameInfo::clear_qy() {
   clear_has_qy();
 }
 inline float msgUserInGameInfo::qy() const {
-  // @@protoc_insertion_point(field_get:proto.msgUserInGameInfo.qy)
+  // @@protoc_insertion_point(field_get:prop.msgUserInGameInfo.qy)
   return qy_;
 }
 inline void msgUserInGameInfo::set_qy(float value) {
   set_has_qy();
   qy_ = value;
-  // @@protoc_insertion_point(field_set:proto.msgUserInGameInfo.qy)
+  // @@protoc_insertion_point(field_set:prop.msgUserInGameInfo.qy)
 }
 
 // required float qz = 7;
@@ -6895,13 +6895,13 @@ inline void msgUserInGameInfo::clear_qz() {
   clear_has_qz();
 }
 inline float msgUserInGameInfo::qz() const {
-  // @@protoc_insertion_point(field_get:proto.msgUserInGameInfo.qz)
+  // @@protoc_insertion_point(field_get:prop.msgUserInGameInfo.qz)
   return qz_;
 }
 inline void msgUserInGameInfo::set_qz(float value) {
   set_has_qz();
   qz_ = value;
-  // @@protoc_insertion_point(field_set:proto.msgUserInGameInfo.qz)
+  // @@protoc_insertion_point(field_set:prop.msgUserInGameInfo.qz)
 }
 
 // required float qw = 8;
@@ -6919,13 +6919,13 @@ inline void msgUserInGameInfo::clear_qw() {
   clear_has_qw();
 }
 inline float msgUserInGameInfo::qw() const {
-  // @@protoc_insertion_point(field_get:proto.msgUserInGameInfo.qw)
+  // @@protoc_insertion_point(field_get:prop.msgUserInGameInfo.qw)
   return qw_;
 }
 inline void msgUserInGameInfo::set_qw(float value) {
   set_has_qw();
   qw_ = value;
-  // @@protoc_insertion_point(field_set:proto.msgUserInGameInfo.qw)
+  // @@protoc_insertion_point(field_set:prop.msgUserInGameInfo.qw)
 }
 
 // -------------------------------------------------------------------
@@ -6947,13 +6947,13 @@ inline void msgUserInGameStateInfo::clear_useruid() {
   clear_has_useruid();
 }
 inline ::google::protobuf::int32 msgUserInGameStateInfo::useruid() const {
-  // @@protoc_insertion_point(field_get:proto.msgUserInGameStateInfo.userUid)
+  // @@protoc_insertion_point(field_get:prop.msgUserInGameStateInfo.userUid)
   return useruid_;
 }
 inline void msgUserInGameStateInfo::set_useruid(::google::protobuf::int32 value) {
   set_has_useruid();
   useruid_ = value;
-  // @@protoc_insertion_point(field_set:proto.msgUserInGameStateInfo.userUid)
+  // @@protoc_insertion_point(field_set:prop.msgUserInGameStateInfo.userUid)
 }
 
 // required int32 stateBit32 = 2;
@@ -6971,13 +6971,13 @@ inline void msgUserInGameStateInfo::clear_statebit32() {
   clear_has_statebit32();
 }
 inline ::google::protobuf::int32 msgUserInGameStateInfo::statebit32() const {
-  // @@protoc_insertion_point(field_get:proto.msgUserInGameStateInfo.stateBit32)
+  // @@protoc_insertion_point(field_get:prop.msgUserInGameStateInfo.stateBit32)
   return statebit32_;
 }
 inline void msgUserInGameStateInfo::set_statebit32(::google::protobuf::int32 value) {
   set_has_statebit32();
   statebit32_ = value;
-  // @@protoc_insertion_point(field_set:proto.msgUserInGameStateInfo.stateBit32)
+  // @@protoc_insertion_point(field_set:prop.msgUserInGameStateInfo.stateBit32)
 }
 
 // -------------------------------------------------------------------
@@ -6999,41 +6999,41 @@ inline void accountCreate::clear_id() {
   clear_has_id();
 }
 inline const ::std::string& accountCreate::id() const {
-  // @@protoc_insertion_point(field_get:proto.accountCreate.id)
+  // @@protoc_insertion_point(field_get:prop.accountCreate.id)
   return id_.GetNoArena();
 }
 inline void accountCreate::set_id(const ::std::string& value) {
   set_has_id();
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:proto.accountCreate.id)
+  // @@protoc_insertion_point(field_set:prop.accountCreate.id)
 }
 #if LANG_CXX11
 inline void accountCreate::set_id(::std::string&& value) {
   set_has_id();
   id_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:proto.accountCreate.id)
+  // @@protoc_insertion_point(field_set_rvalue:prop.accountCreate.id)
 }
 #endif
 inline void accountCreate::set_id(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_id();
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:proto.accountCreate.id)
+  // @@protoc_insertion_point(field_set_char:prop.accountCreate.id)
 }
 inline void accountCreate::set_id(const char* value, size_t size) {
   set_has_id();
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:proto.accountCreate.id)
+  // @@protoc_insertion_point(field_set_pointer:prop.accountCreate.id)
 }
 inline ::std::string* accountCreate::mutable_id() {
   set_has_id();
-  // @@protoc_insertion_point(field_mutable:proto.accountCreate.id)
+  // @@protoc_insertion_point(field_mutable:prop.accountCreate.id)
   return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* accountCreate::release_id() {
-  // @@protoc_insertion_point(field_release:proto.accountCreate.id)
+  // @@protoc_insertion_point(field_release:prop.accountCreate.id)
   clear_has_id();
   return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -7044,7 +7044,7 @@ inline void accountCreate::set_allocated_id(::std::string* id) {
     clear_has_id();
   }
   id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
-  // @@protoc_insertion_point(field_set_allocated:proto.accountCreate.id)
+  // @@protoc_insertion_point(field_set_allocated:prop.accountCreate.id)
 }
 
 // required string password = 2;
@@ -7062,41 +7062,41 @@ inline void accountCreate::clear_password() {
   clear_has_password();
 }
 inline const ::std::string& accountCreate::password() const {
-  // @@protoc_insertion_point(field_get:proto.accountCreate.password)
+  // @@protoc_insertion_point(field_get:prop.accountCreate.password)
   return password_.GetNoArena();
 }
 inline void accountCreate::set_password(const ::std::string& value) {
   set_has_password();
   password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:proto.accountCreate.password)
+  // @@protoc_insertion_point(field_set:prop.accountCreate.password)
 }
 #if LANG_CXX11
 inline void accountCreate::set_password(::std::string&& value) {
   set_has_password();
   password_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:proto.accountCreate.password)
+  // @@protoc_insertion_point(field_set_rvalue:prop.accountCreate.password)
 }
 #endif
 inline void accountCreate::set_password(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_password();
   password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:proto.accountCreate.password)
+  // @@protoc_insertion_point(field_set_char:prop.accountCreate.password)
 }
 inline void accountCreate::set_password(const char* value, size_t size) {
   set_has_password();
   password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:proto.accountCreate.password)
+  // @@protoc_insertion_point(field_set_pointer:prop.accountCreate.password)
 }
 inline ::std::string* accountCreate::mutable_password() {
   set_has_password();
-  // @@protoc_insertion_point(field_mutable:proto.accountCreate.password)
+  // @@protoc_insertion_point(field_mutable:prop.accountCreate.password)
   return password_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* accountCreate::release_password() {
-  // @@protoc_insertion_point(field_release:proto.accountCreate.password)
+  // @@protoc_insertion_point(field_release:prop.accountCreate.password)
   clear_has_password();
   return password_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -7107,7 +7107,7 @@ inline void accountCreate::set_allocated_password(::std::string* password) {
     clear_has_password();
   }
   password_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), password);
-  // @@protoc_insertion_point(field_set_allocated:proto.accountCreate.password)
+  // @@protoc_insertion_point(field_set_allocated:prop.accountCreate.password)
 }
 
 // required string nickname = 3;
@@ -7125,41 +7125,41 @@ inline void accountCreate::clear_nickname() {
   clear_has_nickname();
 }
 inline const ::std::string& accountCreate::nickname() const {
-  // @@protoc_insertion_point(field_get:proto.accountCreate.nickname)
+  // @@protoc_insertion_point(field_get:prop.accountCreate.nickname)
   return nickname_.GetNoArena();
 }
 inline void accountCreate::set_nickname(const ::std::string& value) {
   set_has_nickname();
   nickname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:proto.accountCreate.nickname)
+  // @@protoc_insertion_point(field_set:prop.accountCreate.nickname)
 }
 #if LANG_CXX11
 inline void accountCreate::set_nickname(::std::string&& value) {
   set_has_nickname();
   nickname_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:proto.accountCreate.nickname)
+  // @@protoc_insertion_point(field_set_rvalue:prop.accountCreate.nickname)
 }
 #endif
 inline void accountCreate::set_nickname(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_nickname();
   nickname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:proto.accountCreate.nickname)
+  // @@protoc_insertion_point(field_set_char:prop.accountCreate.nickname)
 }
 inline void accountCreate::set_nickname(const char* value, size_t size) {
   set_has_nickname();
   nickname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:proto.accountCreate.nickname)
+  // @@protoc_insertion_point(field_set_pointer:prop.accountCreate.nickname)
 }
 inline ::std::string* accountCreate::mutable_nickname() {
   set_has_nickname();
-  // @@protoc_insertion_point(field_mutable:proto.accountCreate.nickname)
+  // @@protoc_insertion_point(field_mutable:prop.accountCreate.nickname)
   return nickname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* accountCreate::release_nickname() {
-  // @@protoc_insertion_point(field_release:proto.accountCreate.nickname)
+  // @@protoc_insertion_point(field_release:prop.accountCreate.nickname)
   clear_has_nickname();
   return nickname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -7170,7 +7170,7 @@ inline void accountCreate::set_allocated_nickname(::std::string* nickname) {
     clear_has_nickname();
   }
   nickname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), nickname);
-  // @@protoc_insertion_point(field_set_allocated:proto.accountCreate.nickname)
+  // @@protoc_insertion_point(field_set_allocated:prop.accountCreate.nickname)
 }
 
 // -------------------------------------------------------------------
@@ -7192,41 +7192,41 @@ inline void accountLogin::clear_id() {
   clear_has_id();
 }
 inline const ::std::string& accountLogin::id() const {
-  // @@protoc_insertion_point(field_get:proto.accountLogin.id)
+  // @@protoc_insertion_point(field_get:prop.accountLogin.id)
   return id_.GetNoArena();
 }
 inline void accountLogin::set_id(const ::std::string& value) {
   set_has_id();
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:proto.accountLogin.id)
+  // @@protoc_insertion_point(field_set:prop.accountLogin.id)
 }
 #if LANG_CXX11
 inline void accountLogin::set_id(::std::string&& value) {
   set_has_id();
   id_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:proto.accountLogin.id)
+  // @@protoc_insertion_point(field_set_rvalue:prop.accountLogin.id)
 }
 #endif
 inline void accountLogin::set_id(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_id();
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:proto.accountLogin.id)
+  // @@protoc_insertion_point(field_set_char:prop.accountLogin.id)
 }
 inline void accountLogin::set_id(const char* value, size_t size) {
   set_has_id();
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:proto.accountLogin.id)
+  // @@protoc_insertion_point(field_set_pointer:prop.accountLogin.id)
 }
 inline ::std::string* accountLogin::mutable_id() {
   set_has_id();
-  // @@protoc_insertion_point(field_mutable:proto.accountLogin.id)
+  // @@protoc_insertion_point(field_mutable:prop.accountLogin.id)
   return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* accountLogin::release_id() {
-  // @@protoc_insertion_point(field_release:proto.accountLogin.id)
+  // @@protoc_insertion_point(field_release:prop.accountLogin.id)
   clear_has_id();
   return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -7237,7 +7237,7 @@ inline void accountLogin::set_allocated_id(::std::string* id) {
     clear_has_id();
   }
   id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
-  // @@protoc_insertion_point(field_set_allocated:proto.accountLogin.id)
+  // @@protoc_insertion_point(field_set_allocated:prop.accountLogin.id)
 }
 
 // required string password = 2;
@@ -7255,41 +7255,41 @@ inline void accountLogin::clear_password() {
   clear_has_password();
 }
 inline const ::std::string& accountLogin::password() const {
-  // @@protoc_insertion_point(field_get:proto.accountLogin.password)
+  // @@protoc_insertion_point(field_get:prop.accountLogin.password)
   return password_.GetNoArena();
 }
 inline void accountLogin::set_password(const ::std::string& value) {
   set_has_password();
   password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:proto.accountLogin.password)
+  // @@protoc_insertion_point(field_set:prop.accountLogin.password)
 }
 #if LANG_CXX11
 inline void accountLogin::set_password(::std::string&& value) {
   set_has_password();
   password_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:proto.accountLogin.password)
+  // @@protoc_insertion_point(field_set_rvalue:prop.accountLogin.password)
 }
 #endif
 inline void accountLogin::set_password(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_password();
   password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:proto.accountLogin.password)
+  // @@protoc_insertion_point(field_set_char:prop.accountLogin.password)
 }
 inline void accountLogin::set_password(const char* value, size_t size) {
   set_has_password();
   password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:proto.accountLogin.password)
+  // @@protoc_insertion_point(field_set_pointer:prop.accountLogin.password)
 }
 inline ::std::string* accountLogin::mutable_password() {
   set_has_password();
-  // @@protoc_insertion_point(field_mutable:proto.accountLogin.password)
+  // @@protoc_insertion_point(field_mutable:prop.accountLogin.password)
   return password_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* accountLogin::release_password() {
-  // @@protoc_insertion_point(field_release:proto.accountLogin.password)
+  // @@protoc_insertion_point(field_release:prop.accountLogin.password)
   clear_has_password();
   return password_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -7300,7 +7300,7 @@ inline void accountLogin::set_allocated_password(::std::string* password) {
     clear_has_password();
   }
   password_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), password);
-  // @@protoc_insertion_point(field_set_allocated:proto.accountLogin.password)
+  // @@protoc_insertion_point(field_set_allocated:prop.accountLogin.password)
 }
 
 // -------------------------------------------------------------------
@@ -7322,13 +7322,13 @@ inline void accountLogout::clear_empty() {
   clear_has_empty();
 }
 inline ::google::protobuf::int32 accountLogout::empty() const {
-  // @@protoc_insertion_point(field_get:proto.accountLogout.empty)
+  // @@protoc_insertion_point(field_get:prop.accountLogout.empty)
   return empty_;
 }
 inline void accountLogout::set_empty(::google::protobuf::int32 value) {
   set_has_empty();
   empty_ = value;
-  // @@protoc_insertion_point(field_set:proto.accountLogout.empty)
+  // @@protoc_insertion_point(field_set:prop.accountLogout.empty)
 }
 
 // -------------------------------------------------------------------
@@ -7350,13 +7350,13 @@ inline void anyPlayerInfoSelfRequest::clear_empty() {
   clear_has_empty();
 }
 inline ::google::protobuf::int32 anyPlayerInfoSelfRequest::empty() const {
-  // @@protoc_insertion_point(field_get:proto.anyPlayerInfoSelfRequest.empty)
+  // @@protoc_insertion_point(field_get:prop.anyPlayerInfoSelfRequest.empty)
   return empty_;
 }
 inline void anyPlayerInfoSelfRequest::set_empty(::google::protobuf::int32 value) {
   set_has_empty();
   empty_ = value;
-  // @@protoc_insertion_point(field_set:proto.anyPlayerInfoSelfRequest.empty)
+  // @@protoc_insertion_point(field_set:prop.anyPlayerInfoSelfRequest.empty)
 }
 
 // -------------------------------------------------------------------
@@ -7378,41 +7378,41 @@ inline void anyPlayerInfoOtherRequestWithID::clear_otherid() {
   clear_has_otherid();
 }
 inline const ::std::string& anyPlayerInfoOtherRequestWithID::otherid() const {
-  // @@protoc_insertion_point(field_get:proto.anyPlayerInfoOtherRequestWithID.otherID)
+  // @@protoc_insertion_point(field_get:prop.anyPlayerInfoOtherRequestWithID.otherID)
   return otherid_.GetNoArena();
 }
 inline void anyPlayerInfoOtherRequestWithID::set_otherid(const ::std::string& value) {
   set_has_otherid();
   otherid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:proto.anyPlayerInfoOtherRequestWithID.otherID)
+  // @@protoc_insertion_point(field_set:prop.anyPlayerInfoOtherRequestWithID.otherID)
 }
 #if LANG_CXX11
 inline void anyPlayerInfoOtherRequestWithID::set_otherid(::std::string&& value) {
   set_has_otherid();
   otherid_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:proto.anyPlayerInfoOtherRequestWithID.otherID)
+  // @@protoc_insertion_point(field_set_rvalue:prop.anyPlayerInfoOtherRequestWithID.otherID)
 }
 #endif
 inline void anyPlayerInfoOtherRequestWithID::set_otherid(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_otherid();
   otherid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:proto.anyPlayerInfoOtherRequestWithID.otherID)
+  // @@protoc_insertion_point(field_set_char:prop.anyPlayerInfoOtherRequestWithID.otherID)
 }
 inline void anyPlayerInfoOtherRequestWithID::set_otherid(const char* value, size_t size) {
   set_has_otherid();
   otherid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:proto.anyPlayerInfoOtherRequestWithID.otherID)
+  // @@protoc_insertion_point(field_set_pointer:prop.anyPlayerInfoOtherRequestWithID.otherID)
 }
 inline ::std::string* anyPlayerInfoOtherRequestWithID::mutable_otherid() {
   set_has_otherid();
-  // @@protoc_insertion_point(field_mutable:proto.anyPlayerInfoOtherRequestWithID.otherID)
+  // @@protoc_insertion_point(field_mutable:prop.anyPlayerInfoOtherRequestWithID.otherID)
   return otherid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* anyPlayerInfoOtherRequestWithID::release_otherid() {
-  // @@protoc_insertion_point(field_release:proto.anyPlayerInfoOtherRequestWithID.otherID)
+  // @@protoc_insertion_point(field_release:prop.anyPlayerInfoOtherRequestWithID.otherID)
   clear_has_otherid();
   return otherid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -7423,7 +7423,7 @@ inline void anyPlayerInfoOtherRequestWithID::set_allocated_otherid(::std::string
     clear_has_otherid();
   }
   otherid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), otherid);
-  // @@protoc_insertion_point(field_set_allocated:proto.anyPlayerInfoOtherRequestWithID.otherID)
+  // @@protoc_insertion_point(field_set_allocated:prop.anyPlayerInfoOtherRequestWithID.otherID)
 }
 
 // -------------------------------------------------------------------
@@ -7445,41 +7445,41 @@ inline void anyPlayerInfoOtherRequestWithNickName::clear_othernickname() {
   clear_has_othernickname();
 }
 inline const ::std::string& anyPlayerInfoOtherRequestWithNickName::othernickname() const {
-  // @@protoc_insertion_point(field_get:proto.anyPlayerInfoOtherRequestWithNickName.otherNickname)
+  // @@protoc_insertion_point(field_get:prop.anyPlayerInfoOtherRequestWithNickName.otherNickname)
   return othernickname_.GetNoArena();
 }
 inline void anyPlayerInfoOtherRequestWithNickName::set_othernickname(const ::std::string& value) {
   set_has_othernickname();
   othernickname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:proto.anyPlayerInfoOtherRequestWithNickName.otherNickname)
+  // @@protoc_insertion_point(field_set:prop.anyPlayerInfoOtherRequestWithNickName.otherNickname)
 }
 #if LANG_CXX11
 inline void anyPlayerInfoOtherRequestWithNickName::set_othernickname(::std::string&& value) {
   set_has_othernickname();
   othernickname_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:proto.anyPlayerInfoOtherRequestWithNickName.otherNickname)
+  // @@protoc_insertion_point(field_set_rvalue:prop.anyPlayerInfoOtherRequestWithNickName.otherNickname)
 }
 #endif
 inline void anyPlayerInfoOtherRequestWithNickName::set_othernickname(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_othernickname();
   othernickname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:proto.anyPlayerInfoOtherRequestWithNickName.otherNickname)
+  // @@protoc_insertion_point(field_set_char:prop.anyPlayerInfoOtherRequestWithNickName.otherNickname)
 }
 inline void anyPlayerInfoOtherRequestWithNickName::set_othernickname(const char* value, size_t size) {
   set_has_othernickname();
   othernickname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:proto.anyPlayerInfoOtherRequestWithNickName.otherNickname)
+  // @@protoc_insertion_point(field_set_pointer:prop.anyPlayerInfoOtherRequestWithNickName.otherNickname)
 }
 inline ::std::string* anyPlayerInfoOtherRequestWithNickName::mutable_othernickname() {
   set_has_othernickname();
-  // @@protoc_insertion_point(field_mutable:proto.anyPlayerInfoOtherRequestWithNickName.otherNickname)
+  // @@protoc_insertion_point(field_mutable:prop.anyPlayerInfoOtherRequestWithNickName.otherNickname)
   return othernickname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* anyPlayerInfoOtherRequestWithNickName::release_othernickname() {
-  // @@protoc_insertion_point(field_release:proto.anyPlayerInfoOtherRequestWithNickName.otherNickname)
+  // @@protoc_insertion_point(field_release:prop.anyPlayerInfoOtherRequestWithNickName.otherNickname)
   clear_has_othernickname();
   return othernickname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -7490,14 +7490,14 @@ inline void anyPlayerInfoOtherRequestWithNickName::set_allocated_othernickname(:
     clear_has_othernickname();
   }
   othernickname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), othernickname);
-  // @@protoc_insertion_point(field_set_allocated:proto.anyPlayerInfoOtherRequestWithNickName.otherNickname)
+  // @@protoc_insertion_point(field_set_allocated:prop.anyPlayerInfoOtherRequestWithNickName.otherNickname)
 }
 
 // -------------------------------------------------------------------
 
 // anyPlayerInfoResponse
 
-// required .proto.msgUserInfo userInfo = 1;
+// required .prop.msgUserInfo userInfo = 1;
 inline bool anyPlayerInfoResponse::has_userinfo() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -7511,28 +7511,28 @@ inline void anyPlayerInfoResponse::clear_userinfo() {
   if (userinfo_ != NULL) userinfo_->Clear();
   clear_has_userinfo();
 }
-inline const ::proto::msgUserInfo& anyPlayerInfoResponse::userinfo() const {
-  const ::proto::msgUserInfo* p = userinfo_;
-  // @@protoc_insertion_point(field_get:proto.anyPlayerInfoResponse.userInfo)
-  return p != NULL ? *p : *reinterpret_cast<const ::proto::msgUserInfo*>(
-      &::proto::_msgUserInfo_default_instance_);
+inline const ::prop::msgUserInfo& anyPlayerInfoResponse::userinfo() const {
+  const ::prop::msgUserInfo* p = userinfo_;
+  // @@protoc_insertion_point(field_get:prop.anyPlayerInfoResponse.userInfo)
+  return p != NULL ? *p : *reinterpret_cast<const ::prop::msgUserInfo*>(
+      &::prop::_msgUserInfo_default_instance_);
 }
-inline ::proto::msgUserInfo* anyPlayerInfoResponse::release_userinfo() {
-  // @@protoc_insertion_point(field_release:proto.anyPlayerInfoResponse.userInfo)
+inline ::prop::msgUserInfo* anyPlayerInfoResponse::release_userinfo() {
+  // @@protoc_insertion_point(field_release:prop.anyPlayerInfoResponse.userInfo)
   clear_has_userinfo();
-  ::proto::msgUserInfo* temp = userinfo_;
+  ::prop::msgUserInfo* temp = userinfo_;
   userinfo_ = NULL;
   return temp;
 }
-inline ::proto::msgUserInfo* anyPlayerInfoResponse::mutable_userinfo() {
+inline ::prop::msgUserInfo* anyPlayerInfoResponse::mutable_userinfo() {
   set_has_userinfo();
   if (userinfo_ == NULL) {
-    userinfo_ = new ::proto::msgUserInfo;
+    userinfo_ = new ::prop::msgUserInfo;
   }
-  // @@protoc_insertion_point(field_mutable:proto.anyPlayerInfoResponse.userInfo)
+  // @@protoc_insertion_point(field_mutable:prop.anyPlayerInfoResponse.userInfo)
   return userinfo_;
 }
-inline void anyPlayerInfoResponse::set_allocated_userinfo(::proto::msgUserInfo* userinfo) {
+inline void anyPlayerInfoResponse::set_allocated_userinfo(::prop::msgUserInfo* userinfo) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == NULL) {
     delete userinfo_;
@@ -7548,7 +7548,7 @@ inline void anyPlayerInfoResponse::set_allocated_userinfo(::proto::msgUserInfo* 
     clear_has_userinfo();
   }
   userinfo_ = userinfo;
-  // @@protoc_insertion_point(field_set_allocated:proto.anyPlayerInfoResponse.userInfo)
+  // @@protoc_insertion_point(field_set_allocated:prop.anyPlayerInfoResponse.userInfo)
 }
 
 // -------------------------------------------------------------------
@@ -7570,13 +7570,13 @@ inline void anyWhisperRequestWithUID::clear_otheruid() {
   clear_has_otheruid();
 }
 inline ::google::protobuf::int32 anyWhisperRequestWithUID::otheruid() const {
-  // @@protoc_insertion_point(field_get:proto.anyWhisperRequestWithUID.otherUID)
+  // @@protoc_insertion_point(field_get:prop.anyWhisperRequestWithUID.otherUID)
   return otheruid_;
 }
 inline void anyWhisperRequestWithUID::set_otheruid(::google::protobuf::int32 value) {
   set_has_otheruid();
   otheruid_ = value;
-  // @@protoc_insertion_point(field_set:proto.anyWhisperRequestWithUID.otherUID)
+  // @@protoc_insertion_point(field_set:prop.anyWhisperRequestWithUID.otherUID)
 }
 
 // required string chat = 2;
@@ -7594,41 +7594,41 @@ inline void anyWhisperRequestWithUID::clear_chat() {
   clear_has_chat();
 }
 inline const ::std::string& anyWhisperRequestWithUID::chat() const {
-  // @@protoc_insertion_point(field_get:proto.anyWhisperRequestWithUID.chat)
+  // @@protoc_insertion_point(field_get:prop.anyWhisperRequestWithUID.chat)
   return chat_.GetNoArena();
 }
 inline void anyWhisperRequestWithUID::set_chat(const ::std::string& value) {
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:proto.anyWhisperRequestWithUID.chat)
+  // @@protoc_insertion_point(field_set:prop.anyWhisperRequestWithUID.chat)
 }
 #if LANG_CXX11
 inline void anyWhisperRequestWithUID::set_chat(::std::string&& value) {
   set_has_chat();
   chat_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:proto.anyWhisperRequestWithUID.chat)
+  // @@protoc_insertion_point(field_set_rvalue:prop.anyWhisperRequestWithUID.chat)
 }
 #endif
 inline void anyWhisperRequestWithUID::set_chat(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:proto.anyWhisperRequestWithUID.chat)
+  // @@protoc_insertion_point(field_set_char:prop.anyWhisperRequestWithUID.chat)
 }
 inline void anyWhisperRequestWithUID::set_chat(const char* value, size_t size) {
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:proto.anyWhisperRequestWithUID.chat)
+  // @@protoc_insertion_point(field_set_pointer:prop.anyWhisperRequestWithUID.chat)
 }
 inline ::std::string* anyWhisperRequestWithUID::mutable_chat() {
   set_has_chat();
-  // @@protoc_insertion_point(field_mutable:proto.anyWhisperRequestWithUID.chat)
+  // @@protoc_insertion_point(field_mutable:prop.anyWhisperRequestWithUID.chat)
   return chat_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* anyWhisperRequestWithUID::release_chat() {
-  // @@protoc_insertion_point(field_release:proto.anyWhisperRequestWithUID.chat)
+  // @@protoc_insertion_point(field_release:prop.anyWhisperRequestWithUID.chat)
   clear_has_chat();
   return chat_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -7639,7 +7639,7 @@ inline void anyWhisperRequestWithUID::set_allocated_chat(::std::string* chat) {
     clear_has_chat();
   }
   chat_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), chat);
-  // @@protoc_insertion_point(field_set_allocated:proto.anyWhisperRequestWithUID.chat)
+  // @@protoc_insertion_point(field_set_allocated:prop.anyWhisperRequestWithUID.chat)
 }
 
 // -------------------------------------------------------------------
@@ -7661,41 +7661,41 @@ inline void anyWhisperRequestWithID::clear_otherid() {
   clear_has_otherid();
 }
 inline const ::std::string& anyWhisperRequestWithID::otherid() const {
-  // @@protoc_insertion_point(field_get:proto.anyWhisperRequestWithID.otherID)
+  // @@protoc_insertion_point(field_get:prop.anyWhisperRequestWithID.otherID)
   return otherid_.GetNoArena();
 }
 inline void anyWhisperRequestWithID::set_otherid(const ::std::string& value) {
   set_has_otherid();
   otherid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:proto.anyWhisperRequestWithID.otherID)
+  // @@protoc_insertion_point(field_set:prop.anyWhisperRequestWithID.otherID)
 }
 #if LANG_CXX11
 inline void anyWhisperRequestWithID::set_otherid(::std::string&& value) {
   set_has_otherid();
   otherid_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:proto.anyWhisperRequestWithID.otherID)
+  // @@protoc_insertion_point(field_set_rvalue:prop.anyWhisperRequestWithID.otherID)
 }
 #endif
 inline void anyWhisperRequestWithID::set_otherid(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_otherid();
   otherid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:proto.anyWhisperRequestWithID.otherID)
+  // @@protoc_insertion_point(field_set_char:prop.anyWhisperRequestWithID.otherID)
 }
 inline void anyWhisperRequestWithID::set_otherid(const char* value, size_t size) {
   set_has_otherid();
   otherid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:proto.anyWhisperRequestWithID.otherID)
+  // @@protoc_insertion_point(field_set_pointer:prop.anyWhisperRequestWithID.otherID)
 }
 inline ::std::string* anyWhisperRequestWithID::mutable_otherid() {
   set_has_otherid();
-  // @@protoc_insertion_point(field_mutable:proto.anyWhisperRequestWithID.otherID)
+  // @@protoc_insertion_point(field_mutable:prop.anyWhisperRequestWithID.otherID)
   return otherid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* anyWhisperRequestWithID::release_otherid() {
-  // @@protoc_insertion_point(field_release:proto.anyWhisperRequestWithID.otherID)
+  // @@protoc_insertion_point(field_release:prop.anyWhisperRequestWithID.otherID)
   clear_has_otherid();
   return otherid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -7706,7 +7706,7 @@ inline void anyWhisperRequestWithID::set_allocated_otherid(::std::string* otheri
     clear_has_otherid();
   }
   otherid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), otherid);
-  // @@protoc_insertion_point(field_set_allocated:proto.anyWhisperRequestWithID.otherID)
+  // @@protoc_insertion_point(field_set_allocated:prop.anyWhisperRequestWithID.otherID)
 }
 
 // required string chat = 2;
@@ -7724,41 +7724,41 @@ inline void anyWhisperRequestWithID::clear_chat() {
   clear_has_chat();
 }
 inline const ::std::string& anyWhisperRequestWithID::chat() const {
-  // @@protoc_insertion_point(field_get:proto.anyWhisperRequestWithID.chat)
+  // @@protoc_insertion_point(field_get:prop.anyWhisperRequestWithID.chat)
   return chat_.GetNoArena();
 }
 inline void anyWhisperRequestWithID::set_chat(const ::std::string& value) {
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:proto.anyWhisperRequestWithID.chat)
+  // @@protoc_insertion_point(field_set:prop.anyWhisperRequestWithID.chat)
 }
 #if LANG_CXX11
 inline void anyWhisperRequestWithID::set_chat(::std::string&& value) {
   set_has_chat();
   chat_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:proto.anyWhisperRequestWithID.chat)
+  // @@protoc_insertion_point(field_set_rvalue:prop.anyWhisperRequestWithID.chat)
 }
 #endif
 inline void anyWhisperRequestWithID::set_chat(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:proto.anyWhisperRequestWithID.chat)
+  // @@protoc_insertion_point(field_set_char:prop.anyWhisperRequestWithID.chat)
 }
 inline void anyWhisperRequestWithID::set_chat(const char* value, size_t size) {
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:proto.anyWhisperRequestWithID.chat)
+  // @@protoc_insertion_point(field_set_pointer:prop.anyWhisperRequestWithID.chat)
 }
 inline ::std::string* anyWhisperRequestWithID::mutable_chat() {
   set_has_chat();
-  // @@protoc_insertion_point(field_mutable:proto.anyWhisperRequestWithID.chat)
+  // @@protoc_insertion_point(field_mutable:prop.anyWhisperRequestWithID.chat)
   return chat_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* anyWhisperRequestWithID::release_chat() {
-  // @@protoc_insertion_point(field_release:proto.anyWhisperRequestWithID.chat)
+  // @@protoc_insertion_point(field_release:prop.anyWhisperRequestWithID.chat)
   clear_has_chat();
   return chat_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -7769,7 +7769,7 @@ inline void anyWhisperRequestWithID::set_allocated_chat(::std::string* chat) {
     clear_has_chat();
   }
   chat_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), chat);
-  // @@protoc_insertion_point(field_set_allocated:proto.anyWhisperRequestWithID.chat)
+  // @@protoc_insertion_point(field_set_allocated:prop.anyWhisperRequestWithID.chat)
 }
 
 // -------------------------------------------------------------------
@@ -7791,41 +7791,41 @@ inline void anyWhisperRequestWithNickName::clear_othernickname() {
   clear_has_othernickname();
 }
 inline const ::std::string& anyWhisperRequestWithNickName::othernickname() const {
-  // @@protoc_insertion_point(field_get:proto.anyWhisperRequestWithNickName.otherNickname)
+  // @@protoc_insertion_point(field_get:prop.anyWhisperRequestWithNickName.otherNickname)
   return othernickname_.GetNoArena();
 }
 inline void anyWhisperRequestWithNickName::set_othernickname(const ::std::string& value) {
   set_has_othernickname();
   othernickname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:proto.anyWhisperRequestWithNickName.otherNickname)
+  // @@protoc_insertion_point(field_set:prop.anyWhisperRequestWithNickName.otherNickname)
 }
 #if LANG_CXX11
 inline void anyWhisperRequestWithNickName::set_othernickname(::std::string&& value) {
   set_has_othernickname();
   othernickname_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:proto.anyWhisperRequestWithNickName.otherNickname)
+  // @@protoc_insertion_point(field_set_rvalue:prop.anyWhisperRequestWithNickName.otherNickname)
 }
 #endif
 inline void anyWhisperRequestWithNickName::set_othernickname(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_othernickname();
   othernickname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:proto.anyWhisperRequestWithNickName.otherNickname)
+  // @@protoc_insertion_point(field_set_char:prop.anyWhisperRequestWithNickName.otherNickname)
 }
 inline void anyWhisperRequestWithNickName::set_othernickname(const char* value, size_t size) {
   set_has_othernickname();
   othernickname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:proto.anyWhisperRequestWithNickName.otherNickname)
+  // @@protoc_insertion_point(field_set_pointer:prop.anyWhisperRequestWithNickName.otherNickname)
 }
 inline ::std::string* anyWhisperRequestWithNickName::mutable_othernickname() {
   set_has_othernickname();
-  // @@protoc_insertion_point(field_mutable:proto.anyWhisperRequestWithNickName.otherNickname)
+  // @@protoc_insertion_point(field_mutable:prop.anyWhisperRequestWithNickName.otherNickname)
   return othernickname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* anyWhisperRequestWithNickName::release_othernickname() {
-  // @@protoc_insertion_point(field_release:proto.anyWhisperRequestWithNickName.otherNickname)
+  // @@protoc_insertion_point(field_release:prop.anyWhisperRequestWithNickName.otherNickname)
   clear_has_othernickname();
   return othernickname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -7836,7 +7836,7 @@ inline void anyWhisperRequestWithNickName::set_allocated_othernickname(::std::st
     clear_has_othernickname();
   }
   othernickname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), othernickname);
-  // @@protoc_insertion_point(field_set_allocated:proto.anyWhisperRequestWithNickName.otherNickname)
+  // @@protoc_insertion_point(field_set_allocated:prop.anyWhisperRequestWithNickName.otherNickname)
 }
 
 // required string chat = 2;
@@ -7854,41 +7854,41 @@ inline void anyWhisperRequestWithNickName::clear_chat() {
   clear_has_chat();
 }
 inline const ::std::string& anyWhisperRequestWithNickName::chat() const {
-  // @@protoc_insertion_point(field_get:proto.anyWhisperRequestWithNickName.chat)
+  // @@protoc_insertion_point(field_get:prop.anyWhisperRequestWithNickName.chat)
   return chat_.GetNoArena();
 }
 inline void anyWhisperRequestWithNickName::set_chat(const ::std::string& value) {
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:proto.anyWhisperRequestWithNickName.chat)
+  // @@protoc_insertion_point(field_set:prop.anyWhisperRequestWithNickName.chat)
 }
 #if LANG_CXX11
 inline void anyWhisperRequestWithNickName::set_chat(::std::string&& value) {
   set_has_chat();
   chat_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:proto.anyWhisperRequestWithNickName.chat)
+  // @@protoc_insertion_point(field_set_rvalue:prop.anyWhisperRequestWithNickName.chat)
 }
 #endif
 inline void anyWhisperRequestWithNickName::set_chat(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:proto.anyWhisperRequestWithNickName.chat)
+  // @@protoc_insertion_point(field_set_char:prop.anyWhisperRequestWithNickName.chat)
 }
 inline void anyWhisperRequestWithNickName::set_chat(const char* value, size_t size) {
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:proto.anyWhisperRequestWithNickName.chat)
+  // @@protoc_insertion_point(field_set_pointer:prop.anyWhisperRequestWithNickName.chat)
 }
 inline ::std::string* anyWhisperRequestWithNickName::mutable_chat() {
   set_has_chat();
-  // @@protoc_insertion_point(field_mutable:proto.anyWhisperRequestWithNickName.chat)
+  // @@protoc_insertion_point(field_mutable:prop.anyWhisperRequestWithNickName.chat)
   return chat_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* anyWhisperRequestWithNickName::release_chat() {
-  // @@protoc_insertion_point(field_release:proto.anyWhisperRequestWithNickName.chat)
+  // @@protoc_insertion_point(field_release:prop.anyWhisperRequestWithNickName.chat)
   clear_has_chat();
   return chat_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -7899,7 +7899,7 @@ inline void anyWhisperRequestWithNickName::set_allocated_chat(::std::string* cha
     clear_has_chat();
   }
   chat_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), chat);
-  // @@protoc_insertion_point(field_set_allocated:proto.anyWhisperRequestWithNickName.chat)
+  // @@protoc_insertion_point(field_set_allocated:prop.anyWhisperRequestWithNickName.chat)
 }
 
 // -------------------------------------------------------------------
@@ -7921,13 +7921,13 @@ inline void anyWhisperResponse::clear_success() {
   clear_has_success();
 }
 inline bool anyWhisperResponse::success() const {
-  // @@protoc_insertion_point(field_get:proto.anyWhisperResponse.success)
+  // @@protoc_insertion_point(field_get:prop.anyWhisperResponse.success)
   return success_;
 }
 inline void anyWhisperResponse::set_success(bool value) {
   set_has_success();
   success_ = value;
-  // @@protoc_insertion_point(field_set:proto.anyWhisperResponse.success)
+  // @@protoc_insertion_point(field_set:prop.anyWhisperResponse.success)
 }
 
 // -------------------------------------------------------------------
@@ -7949,13 +7949,13 @@ inline void outLobbyLobbylistRequest::clear_empty() {
   clear_has_empty();
 }
 inline ::google::protobuf::int32 outLobbyLobbylistRequest::empty() const {
-  // @@protoc_insertion_point(field_get:proto.outLobbyLobbylistRequest.empty)
+  // @@protoc_insertion_point(field_get:prop.outLobbyLobbylistRequest.empty)
   return empty_;
 }
 inline void outLobbyLobbylistRequest::set_empty(::google::protobuf::int32 value) {
   set_has_empty();
   empty_ = value;
-  // @@protoc_insertion_point(field_set:proto.outLobbyLobbylistRequest.empty)
+  // @@protoc_insertion_point(field_set:prop.outLobbyLobbylistRequest.empty)
 }
 
 // -------------------------------------------------------------------
@@ -7977,42 +7977,42 @@ inline void outLobbyLobbylistResponse::clear_success() {
   clear_has_success();
 }
 inline bool outLobbyLobbylistResponse::success() const {
-  // @@protoc_insertion_point(field_get:proto.outLobbyLobbylistResponse.success)
+  // @@protoc_insertion_point(field_get:prop.outLobbyLobbylistResponse.success)
   return success_;
 }
 inline void outLobbyLobbylistResponse::set_success(bool value) {
   set_has_success();
   success_ = value;
-  // @@protoc_insertion_point(field_set:proto.outLobbyLobbylistResponse.success)
+  // @@protoc_insertion_point(field_set:prop.outLobbyLobbylistResponse.success)
 }
 
-// repeated .proto.msgLobby lobbyList = 2;
+// repeated .prop.msgLobby lobbyList = 2;
 inline int outLobbyLobbylistResponse::lobbylist_size() const {
   return lobbylist_.size();
 }
 inline void outLobbyLobbylistResponse::clear_lobbylist() {
   lobbylist_.Clear();
 }
-inline const ::proto::msgLobby& outLobbyLobbylistResponse::lobbylist(int index) const {
-  // @@protoc_insertion_point(field_get:proto.outLobbyLobbylistResponse.lobbyList)
+inline const ::prop::msgLobby& outLobbyLobbylistResponse::lobbylist(int index) const {
+  // @@protoc_insertion_point(field_get:prop.outLobbyLobbylistResponse.lobbyList)
   return lobbylist_.Get(index);
 }
-inline ::proto::msgLobby* outLobbyLobbylistResponse::mutable_lobbylist(int index) {
-  // @@protoc_insertion_point(field_mutable:proto.outLobbyLobbylistResponse.lobbyList)
+inline ::prop::msgLobby* outLobbyLobbylistResponse::mutable_lobbylist(int index) {
+  // @@protoc_insertion_point(field_mutable:prop.outLobbyLobbylistResponse.lobbyList)
   return lobbylist_.Mutable(index);
 }
-inline ::proto::msgLobby* outLobbyLobbylistResponse::add_lobbylist() {
-  // @@protoc_insertion_point(field_add:proto.outLobbyLobbylistResponse.lobbyList)
+inline ::prop::msgLobby* outLobbyLobbylistResponse::add_lobbylist() {
+  // @@protoc_insertion_point(field_add:prop.outLobbyLobbylistResponse.lobbyList)
   return lobbylist_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto::msgLobby >*
+inline ::google::protobuf::RepeatedPtrField< ::prop::msgLobby >*
 outLobbyLobbylistResponse::mutable_lobbylist() {
-  // @@protoc_insertion_point(field_mutable_list:proto.outLobbyLobbylistResponse.lobbyList)
+  // @@protoc_insertion_point(field_mutable_list:prop.outLobbyLobbylistResponse.lobbyList)
   return &lobbylist_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto::msgLobby >&
+inline const ::google::protobuf::RepeatedPtrField< ::prop::msgLobby >&
 outLobbyLobbylistResponse::lobbylist() const {
-  // @@protoc_insertion_point(field_list:proto.outLobbyLobbylistResponse.lobbyList)
+  // @@protoc_insertion_point(field_list:prop.outLobbyLobbylistResponse.lobbyList)
   return lobbylist_;
 }
 
@@ -8035,13 +8035,13 @@ inline void outLobbyEnterLobbyRequest::clear_lobbyuid() {
   clear_has_lobbyuid();
 }
 inline ::google::protobuf::int32 outLobbyEnterLobbyRequest::lobbyuid() const {
-  // @@protoc_insertion_point(field_get:proto.outLobbyEnterLobbyRequest.lobbyUID)
+  // @@protoc_insertion_point(field_get:prop.outLobbyEnterLobbyRequest.lobbyUID)
   return lobbyuid_;
 }
 inline void outLobbyEnterLobbyRequest::set_lobbyuid(::google::protobuf::int32 value) {
   set_has_lobbyuid();
   lobbyuid_ = value;
-  // @@protoc_insertion_point(field_set:proto.outLobbyEnterLobbyRequest.lobbyUID)
+  // @@protoc_insertion_point(field_set:prop.outLobbyEnterLobbyRequest.lobbyUID)
 }
 
 // -------------------------------------------------------------------
@@ -8063,13 +8063,13 @@ inline void outLobbyEnterLobbyResponse::clear_success() {
   clear_has_success();
 }
 inline bool outLobbyEnterLobbyResponse::success() const {
-  // @@protoc_insertion_point(field_get:proto.outLobbyEnterLobbyResponse.success)
+  // @@protoc_insertion_point(field_get:prop.outLobbyEnterLobbyResponse.success)
   return success_;
 }
 inline void outLobbyEnterLobbyResponse::set_success(bool value) {
   set_has_success();
   success_ = value;
-  // @@protoc_insertion_point(field_set:proto.outLobbyEnterLobbyResponse.success)
+  // @@protoc_insertion_point(field_set:prop.outLobbyEnterLobbyResponse.success)
 }
 
 // required int32 lobbyUID = 2;
@@ -8087,13 +8087,13 @@ inline void outLobbyEnterLobbyResponse::clear_lobbyuid() {
   clear_has_lobbyuid();
 }
 inline ::google::protobuf::int32 outLobbyEnterLobbyResponse::lobbyuid() const {
-  // @@protoc_insertion_point(field_get:proto.outLobbyEnterLobbyResponse.lobbyUID)
+  // @@protoc_insertion_point(field_get:prop.outLobbyEnterLobbyResponse.lobbyUID)
   return lobbyuid_;
 }
 inline void outLobbyEnterLobbyResponse::set_lobbyuid(::google::protobuf::int32 value) {
   set_has_lobbyuid();
   lobbyuid_ = value;
-  // @@protoc_insertion_point(field_set:proto.outLobbyEnterLobbyResponse.lobbyUID)
+  // @@protoc_insertion_point(field_set:prop.outLobbyEnterLobbyResponse.lobbyUID)
 }
 
 // -------------------------------------------------------------------
@@ -8115,13 +8115,13 @@ inline void inLobbyPlayerlistRequest::clear_lobbyuid() {
   clear_has_lobbyuid();
 }
 inline ::google::protobuf::int32 inLobbyPlayerlistRequest::lobbyuid() const {
-  // @@protoc_insertion_point(field_get:proto.inLobbyPlayerlistRequest.lobbyUID)
+  // @@protoc_insertion_point(field_get:prop.inLobbyPlayerlistRequest.lobbyUID)
   return lobbyuid_;
 }
 inline void inLobbyPlayerlistRequest::set_lobbyuid(::google::protobuf::int32 value) {
   set_has_lobbyuid();
   lobbyuid_ = value;
-  // @@protoc_insertion_point(field_set:proto.inLobbyPlayerlistRequest.lobbyUID)
+  // @@protoc_insertion_point(field_set:prop.inLobbyPlayerlistRequest.lobbyUID)
 }
 
 // -------------------------------------------------------------------
@@ -8143,13 +8143,13 @@ inline void inLobbyPlayerlistResponse::clear_success() {
   clear_has_success();
 }
 inline bool inLobbyPlayerlistResponse::success() const {
-  // @@protoc_insertion_point(field_get:proto.inLobbyPlayerlistResponse.success)
+  // @@protoc_insertion_point(field_get:prop.inLobbyPlayerlistResponse.success)
   return success_;
 }
 inline void inLobbyPlayerlistResponse::set_success(bool value) {
   set_has_success();
   success_ = value;
-  // @@protoc_insertion_point(field_set:proto.inLobbyPlayerlistResponse.success)
+  // @@protoc_insertion_point(field_set:prop.inLobbyPlayerlistResponse.success)
 }
 
 // required int32 lobbyUID = 2;
@@ -8167,42 +8167,42 @@ inline void inLobbyPlayerlistResponse::clear_lobbyuid() {
   clear_has_lobbyuid();
 }
 inline ::google::protobuf::int32 inLobbyPlayerlistResponse::lobbyuid() const {
-  // @@protoc_insertion_point(field_get:proto.inLobbyPlayerlistResponse.lobbyUID)
+  // @@protoc_insertion_point(field_get:prop.inLobbyPlayerlistResponse.lobbyUID)
   return lobbyuid_;
 }
 inline void inLobbyPlayerlistResponse::set_lobbyuid(::google::protobuf::int32 value) {
   set_has_lobbyuid();
   lobbyuid_ = value;
-  // @@protoc_insertion_point(field_set:proto.inLobbyPlayerlistResponse.lobbyUID)
+  // @@protoc_insertion_point(field_set:prop.inLobbyPlayerlistResponse.lobbyUID)
 }
 
-// repeated .proto.msgUserInfo userList = 3;
+// repeated .prop.msgUserInfo userList = 3;
 inline int inLobbyPlayerlistResponse::userlist_size() const {
   return userlist_.size();
 }
 inline void inLobbyPlayerlistResponse::clear_userlist() {
   userlist_.Clear();
 }
-inline const ::proto::msgUserInfo& inLobbyPlayerlistResponse::userlist(int index) const {
-  // @@protoc_insertion_point(field_get:proto.inLobbyPlayerlistResponse.userList)
+inline const ::prop::msgUserInfo& inLobbyPlayerlistResponse::userlist(int index) const {
+  // @@protoc_insertion_point(field_get:prop.inLobbyPlayerlistResponse.userList)
   return userlist_.Get(index);
 }
-inline ::proto::msgUserInfo* inLobbyPlayerlistResponse::mutable_userlist(int index) {
-  // @@protoc_insertion_point(field_mutable:proto.inLobbyPlayerlistResponse.userList)
+inline ::prop::msgUserInfo* inLobbyPlayerlistResponse::mutable_userlist(int index) {
+  // @@protoc_insertion_point(field_mutable:prop.inLobbyPlayerlistResponse.userList)
   return userlist_.Mutable(index);
 }
-inline ::proto::msgUserInfo* inLobbyPlayerlistResponse::add_userlist() {
-  // @@protoc_insertion_point(field_add:proto.inLobbyPlayerlistResponse.userList)
+inline ::prop::msgUserInfo* inLobbyPlayerlistResponse::add_userlist() {
+  // @@protoc_insertion_point(field_add:prop.inLobbyPlayerlistResponse.userList)
   return userlist_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto::msgUserInfo >*
+inline ::google::protobuf::RepeatedPtrField< ::prop::msgUserInfo >*
 inLobbyPlayerlistResponse::mutable_userlist() {
-  // @@protoc_insertion_point(field_mutable_list:proto.inLobbyPlayerlistResponse.userList)
+  // @@protoc_insertion_point(field_mutable_list:prop.inLobbyPlayerlistResponse.userList)
   return &userlist_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto::msgUserInfo >&
+inline const ::google::protobuf::RepeatedPtrField< ::prop::msgUserInfo >&
 inLobbyPlayerlistResponse::userlist() const {
-  // @@protoc_insertion_point(field_list:proto.inLobbyPlayerlistResponse.userList)
+  // @@protoc_insertion_point(field_list:prop.inLobbyPlayerlistResponse.userList)
   return userlist_;
 }
 
@@ -8225,13 +8225,13 @@ inline void inLobbyEnterRoomRequest::clear_roomuid() {
   clear_has_roomuid();
 }
 inline ::google::protobuf::int32 inLobbyEnterRoomRequest::roomuid() const {
-  // @@protoc_insertion_point(field_get:proto.inLobbyEnterRoomRequest.roomUID)
+  // @@protoc_insertion_point(field_get:prop.inLobbyEnterRoomRequest.roomUID)
   return roomuid_;
 }
 inline void inLobbyEnterRoomRequest::set_roomuid(::google::protobuf::int32 value) {
   set_has_roomuid();
   roomuid_ = value;
-  // @@protoc_insertion_point(field_set:proto.inLobbyEnterRoomRequest.roomUID)
+  // @@protoc_insertion_point(field_set:prop.inLobbyEnterRoomRequest.roomUID)
 }
 
 // -------------------------------------------------------------------
@@ -8253,13 +8253,13 @@ inline void inLobbyEnterRoomResponse::clear_success() {
   clear_has_success();
 }
 inline bool inLobbyEnterRoomResponse::success() const {
-  // @@protoc_insertion_point(field_get:proto.inLobbyEnterRoomResponse.success)
+  // @@protoc_insertion_point(field_get:prop.inLobbyEnterRoomResponse.success)
   return success_;
 }
 inline void inLobbyEnterRoomResponse::set_success(bool value) {
   set_has_success();
   success_ = value;
-  // @@protoc_insertion_point(field_set:proto.inLobbyEnterRoomResponse.success)
+  // @@protoc_insertion_point(field_set:prop.inLobbyEnterRoomResponse.success)
 }
 
 // required int32 roomUID = 2;
@@ -8277,13 +8277,13 @@ inline void inLobbyEnterRoomResponse::clear_roomuid() {
   clear_has_roomuid();
 }
 inline ::google::protobuf::int32 inLobbyEnterRoomResponse::roomuid() const {
-  // @@protoc_insertion_point(field_get:proto.inLobbyEnterRoomResponse.roomUID)
+  // @@protoc_insertion_point(field_get:prop.inLobbyEnterRoomResponse.roomUID)
   return roomuid_;
 }
 inline void inLobbyEnterRoomResponse::set_roomuid(::google::protobuf::int32 value) {
   set_has_roomuid();
   roomuid_ = value;
-  // @@protoc_insertion_point(field_set:proto.inLobbyEnterRoomResponse.roomUID)
+  // @@protoc_insertion_point(field_set:prop.inLobbyEnterRoomResponse.roomUID)
 }
 
 // -------------------------------------------------------------------
@@ -8305,13 +8305,13 @@ inline void inLobbyLeaveLobbyRequest::clear_lobbyuid() {
   clear_has_lobbyuid();
 }
 inline ::google::protobuf::int32 inLobbyLeaveLobbyRequest::lobbyuid() const {
-  // @@protoc_insertion_point(field_get:proto.inLobbyLeaveLobbyRequest.lobbyUID)
+  // @@protoc_insertion_point(field_get:prop.inLobbyLeaveLobbyRequest.lobbyUID)
   return lobbyuid_;
 }
 inline void inLobbyLeaveLobbyRequest::set_lobbyuid(::google::protobuf::int32 value) {
   set_has_lobbyuid();
   lobbyuid_ = value;
-  // @@protoc_insertion_point(field_set:proto.inLobbyLeaveLobbyRequest.lobbyUID)
+  // @@protoc_insertion_point(field_set:prop.inLobbyLeaveLobbyRequest.lobbyUID)
 }
 
 // -------------------------------------------------------------------
@@ -8333,13 +8333,13 @@ inline void inLobbyLeaveLobbyResponse::clear_success() {
   clear_has_success();
 }
 inline bool inLobbyLeaveLobbyResponse::success() const {
-  // @@protoc_insertion_point(field_get:proto.inLobbyLeaveLobbyResponse.success)
+  // @@protoc_insertion_point(field_get:prop.inLobbyLeaveLobbyResponse.success)
   return success_;
 }
 inline void inLobbyLeaveLobbyResponse::set_success(bool value) {
   set_has_success();
   success_ = value;
-  // @@protoc_insertion_point(field_set:proto.inLobbyLeaveLobbyResponse.success)
+  // @@protoc_insertion_point(field_set:prop.inLobbyLeaveLobbyResponse.success)
 }
 
 // required int32 lobbyUID = 2;
@@ -8357,13 +8357,13 @@ inline void inLobbyLeaveLobbyResponse::clear_lobbyuid() {
   clear_has_lobbyuid();
 }
 inline ::google::protobuf::int32 inLobbyLeaveLobbyResponse::lobbyuid() const {
-  // @@protoc_insertion_point(field_get:proto.inLobbyLeaveLobbyResponse.lobbyUID)
+  // @@protoc_insertion_point(field_get:prop.inLobbyLeaveLobbyResponse.lobbyUID)
   return lobbyuid_;
 }
 inline void inLobbyLeaveLobbyResponse::set_lobbyuid(::google::protobuf::int32 value) {
   set_has_lobbyuid();
   lobbyuid_ = value;
-  // @@protoc_insertion_point(field_set:proto.inLobbyLeaveLobbyResponse.lobbyUID)
+  // @@protoc_insertion_point(field_set:prop.inLobbyLeaveLobbyResponse.lobbyUID)
 }
 
 // -------------------------------------------------------------------
@@ -8385,13 +8385,13 @@ inline void inLobbyChatRequest::clear_lobbyuid() {
   clear_has_lobbyuid();
 }
 inline ::google::protobuf::int32 inLobbyChatRequest::lobbyuid() const {
-  // @@protoc_insertion_point(field_get:proto.inLobbyChatRequest.lobbyUID)
+  // @@protoc_insertion_point(field_get:prop.inLobbyChatRequest.lobbyUID)
   return lobbyuid_;
 }
 inline void inLobbyChatRequest::set_lobbyuid(::google::protobuf::int32 value) {
   set_has_lobbyuid();
   lobbyuid_ = value;
-  // @@protoc_insertion_point(field_set:proto.inLobbyChatRequest.lobbyUID)
+  // @@protoc_insertion_point(field_set:prop.inLobbyChatRequest.lobbyUID)
 }
 
 // required string chat = 2;
@@ -8409,41 +8409,41 @@ inline void inLobbyChatRequest::clear_chat() {
   clear_has_chat();
 }
 inline const ::std::string& inLobbyChatRequest::chat() const {
-  // @@protoc_insertion_point(field_get:proto.inLobbyChatRequest.chat)
+  // @@protoc_insertion_point(field_get:prop.inLobbyChatRequest.chat)
   return chat_.GetNoArena();
 }
 inline void inLobbyChatRequest::set_chat(const ::std::string& value) {
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:proto.inLobbyChatRequest.chat)
+  // @@protoc_insertion_point(field_set:prop.inLobbyChatRequest.chat)
 }
 #if LANG_CXX11
 inline void inLobbyChatRequest::set_chat(::std::string&& value) {
   set_has_chat();
   chat_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:proto.inLobbyChatRequest.chat)
+  // @@protoc_insertion_point(field_set_rvalue:prop.inLobbyChatRequest.chat)
 }
 #endif
 inline void inLobbyChatRequest::set_chat(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:proto.inLobbyChatRequest.chat)
+  // @@protoc_insertion_point(field_set_char:prop.inLobbyChatRequest.chat)
 }
 inline void inLobbyChatRequest::set_chat(const char* value, size_t size) {
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:proto.inLobbyChatRequest.chat)
+  // @@protoc_insertion_point(field_set_pointer:prop.inLobbyChatRequest.chat)
 }
 inline ::std::string* inLobbyChatRequest::mutable_chat() {
   set_has_chat();
-  // @@protoc_insertion_point(field_mutable:proto.inLobbyChatRequest.chat)
+  // @@protoc_insertion_point(field_mutable:prop.inLobbyChatRequest.chat)
   return chat_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* inLobbyChatRequest::release_chat() {
-  // @@protoc_insertion_point(field_release:proto.inLobbyChatRequest.chat)
+  // @@protoc_insertion_point(field_release:prop.inLobbyChatRequest.chat)
   clear_has_chat();
   return chat_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -8454,7 +8454,7 @@ inline void inLobbyChatRequest::set_allocated_chat(::std::string* chat) {
     clear_has_chat();
   }
   chat_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), chat);
-  // @@protoc_insertion_point(field_set_allocated:proto.inLobbyChatRequest.chat)
+  // @@protoc_insertion_point(field_set_allocated:prop.inLobbyChatRequest.chat)
 }
 
 // -------------------------------------------------------------------
@@ -8476,13 +8476,13 @@ inline void inLobbyChatResponse::clear_success() {
   clear_has_success();
 }
 inline bool inLobbyChatResponse::success() const {
-  // @@protoc_insertion_point(field_get:proto.inLobbyChatResponse.success)
+  // @@protoc_insertion_point(field_get:prop.inLobbyChatResponse.success)
   return success_;
 }
 inline void inLobbyChatResponse::set_success(bool value) {
   set_has_success();
   success_ = value;
-  // @@protoc_insertion_point(field_set:proto.inLobbyChatResponse.success)
+  // @@protoc_insertion_point(field_set:prop.inLobbyChatResponse.success)
 }
 
 // -------------------------------------------------------------------
@@ -8504,13 +8504,13 @@ inline void inLobbyChatBroadcast::clear_lobbyuid() {
   clear_has_lobbyuid();
 }
 inline ::google::protobuf::int32 inLobbyChatBroadcast::lobbyuid() const {
-  // @@protoc_insertion_point(field_get:proto.inLobbyChatBroadcast.lobbyUID)
+  // @@protoc_insertion_point(field_get:prop.inLobbyChatBroadcast.lobbyUID)
   return lobbyuid_;
 }
 inline void inLobbyChatBroadcast::set_lobbyuid(::google::protobuf::int32 value) {
   set_has_lobbyuid();
   lobbyuid_ = value;
-  // @@protoc_insertion_point(field_set:proto.inLobbyChatBroadcast.lobbyUID)
+  // @@protoc_insertion_point(field_set:prop.inLobbyChatBroadcast.lobbyUID)
 }
 
 // required string chat = 2;
@@ -8528,41 +8528,41 @@ inline void inLobbyChatBroadcast::clear_chat() {
   clear_has_chat();
 }
 inline const ::std::string& inLobbyChatBroadcast::chat() const {
-  // @@protoc_insertion_point(field_get:proto.inLobbyChatBroadcast.chat)
+  // @@protoc_insertion_point(field_get:prop.inLobbyChatBroadcast.chat)
   return chat_.GetNoArena();
 }
 inline void inLobbyChatBroadcast::set_chat(const ::std::string& value) {
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:proto.inLobbyChatBroadcast.chat)
+  // @@protoc_insertion_point(field_set:prop.inLobbyChatBroadcast.chat)
 }
 #if LANG_CXX11
 inline void inLobbyChatBroadcast::set_chat(::std::string&& value) {
   set_has_chat();
   chat_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:proto.inLobbyChatBroadcast.chat)
+  // @@protoc_insertion_point(field_set_rvalue:prop.inLobbyChatBroadcast.chat)
 }
 #endif
 inline void inLobbyChatBroadcast::set_chat(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:proto.inLobbyChatBroadcast.chat)
+  // @@protoc_insertion_point(field_set_char:prop.inLobbyChatBroadcast.chat)
 }
 inline void inLobbyChatBroadcast::set_chat(const char* value, size_t size) {
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:proto.inLobbyChatBroadcast.chat)
+  // @@protoc_insertion_point(field_set_pointer:prop.inLobbyChatBroadcast.chat)
 }
 inline ::std::string* inLobbyChatBroadcast::mutable_chat() {
   set_has_chat();
-  // @@protoc_insertion_point(field_mutable:proto.inLobbyChatBroadcast.chat)
+  // @@protoc_insertion_point(field_mutable:prop.inLobbyChatBroadcast.chat)
   return chat_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* inLobbyChatBroadcast::release_chat() {
-  // @@protoc_insertion_point(field_release:proto.inLobbyChatBroadcast.chat)
+  // @@protoc_insertion_point(field_release:prop.inLobbyChatBroadcast.chat)
   clear_has_chat();
   return chat_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -8573,7 +8573,7 @@ inline void inLobbyChatBroadcast::set_allocated_chat(::std::string* chat) {
     clear_has_chat();
   }
   chat_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), chat);
-  // @@protoc_insertion_point(field_set_allocated:proto.inLobbyChatBroadcast.chat)
+  // @@protoc_insertion_point(field_set_allocated:prop.inLobbyChatBroadcast.chat)
 }
 
 // -------------------------------------------------------------------
@@ -8595,13 +8595,13 @@ inline void inRoomChatRequest::clear_roomuid() {
   clear_has_roomuid();
 }
 inline ::google::protobuf::int32 inRoomChatRequest::roomuid() const {
-  // @@protoc_insertion_point(field_get:proto.inRoomChatRequest.roomUID)
+  // @@protoc_insertion_point(field_get:prop.inRoomChatRequest.roomUID)
   return roomuid_;
 }
 inline void inRoomChatRequest::set_roomuid(::google::protobuf::int32 value) {
   set_has_roomuid();
   roomuid_ = value;
-  // @@protoc_insertion_point(field_set:proto.inRoomChatRequest.roomUID)
+  // @@protoc_insertion_point(field_set:prop.inRoomChatRequest.roomUID)
 }
 
 // required string chat = 2;
@@ -8619,41 +8619,41 @@ inline void inRoomChatRequest::clear_chat() {
   clear_has_chat();
 }
 inline const ::std::string& inRoomChatRequest::chat() const {
-  // @@protoc_insertion_point(field_get:proto.inRoomChatRequest.chat)
+  // @@protoc_insertion_point(field_get:prop.inRoomChatRequest.chat)
   return chat_.GetNoArena();
 }
 inline void inRoomChatRequest::set_chat(const ::std::string& value) {
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:proto.inRoomChatRequest.chat)
+  // @@protoc_insertion_point(field_set:prop.inRoomChatRequest.chat)
 }
 #if LANG_CXX11
 inline void inRoomChatRequest::set_chat(::std::string&& value) {
   set_has_chat();
   chat_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:proto.inRoomChatRequest.chat)
+  // @@protoc_insertion_point(field_set_rvalue:prop.inRoomChatRequest.chat)
 }
 #endif
 inline void inRoomChatRequest::set_chat(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:proto.inRoomChatRequest.chat)
+  // @@protoc_insertion_point(field_set_char:prop.inRoomChatRequest.chat)
 }
 inline void inRoomChatRequest::set_chat(const char* value, size_t size) {
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:proto.inRoomChatRequest.chat)
+  // @@protoc_insertion_point(field_set_pointer:prop.inRoomChatRequest.chat)
 }
 inline ::std::string* inRoomChatRequest::mutable_chat() {
   set_has_chat();
-  // @@protoc_insertion_point(field_mutable:proto.inRoomChatRequest.chat)
+  // @@protoc_insertion_point(field_mutable:prop.inRoomChatRequest.chat)
   return chat_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* inRoomChatRequest::release_chat() {
-  // @@protoc_insertion_point(field_release:proto.inRoomChatRequest.chat)
+  // @@protoc_insertion_point(field_release:prop.inRoomChatRequest.chat)
   clear_has_chat();
   return chat_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -8664,7 +8664,7 @@ inline void inRoomChatRequest::set_allocated_chat(::std::string* chat) {
     clear_has_chat();
   }
   chat_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), chat);
-  // @@protoc_insertion_point(field_set_allocated:proto.inRoomChatRequest.chat)
+  // @@protoc_insertion_point(field_set_allocated:prop.inRoomChatRequest.chat)
 }
 
 // -------------------------------------------------------------------
@@ -8686,13 +8686,13 @@ inline void inRoomChatResponse::clear_success() {
   clear_has_success();
 }
 inline bool inRoomChatResponse::success() const {
-  // @@protoc_insertion_point(field_get:proto.inRoomChatResponse.success)
+  // @@protoc_insertion_point(field_get:prop.inRoomChatResponse.success)
   return success_;
 }
 inline void inRoomChatResponse::set_success(bool value) {
   set_has_success();
   success_ = value;
-  // @@protoc_insertion_point(field_set:proto.inRoomChatResponse.success)
+  // @@protoc_insertion_point(field_set:prop.inRoomChatResponse.success)
 }
 
 // -------------------------------------------------------------------
@@ -8714,13 +8714,13 @@ inline void inRoomChatBroadcast::clear_roomuid() {
   clear_has_roomuid();
 }
 inline ::google::protobuf::int32 inRoomChatBroadcast::roomuid() const {
-  // @@protoc_insertion_point(field_get:proto.inRoomChatBroadcast.roomUID)
+  // @@protoc_insertion_point(field_get:prop.inRoomChatBroadcast.roomUID)
   return roomuid_;
 }
 inline void inRoomChatBroadcast::set_roomuid(::google::protobuf::int32 value) {
   set_has_roomuid();
   roomuid_ = value;
-  // @@protoc_insertion_point(field_set:proto.inRoomChatBroadcast.roomUID)
+  // @@protoc_insertion_point(field_set:prop.inRoomChatBroadcast.roomUID)
 }
 
 // required string chat = 2;
@@ -8738,41 +8738,41 @@ inline void inRoomChatBroadcast::clear_chat() {
   clear_has_chat();
 }
 inline const ::std::string& inRoomChatBroadcast::chat() const {
-  // @@protoc_insertion_point(field_get:proto.inRoomChatBroadcast.chat)
+  // @@protoc_insertion_point(field_get:prop.inRoomChatBroadcast.chat)
   return chat_.GetNoArena();
 }
 inline void inRoomChatBroadcast::set_chat(const ::std::string& value) {
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:proto.inRoomChatBroadcast.chat)
+  // @@protoc_insertion_point(field_set:prop.inRoomChatBroadcast.chat)
 }
 #if LANG_CXX11
 inline void inRoomChatBroadcast::set_chat(::std::string&& value) {
   set_has_chat();
   chat_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:proto.inRoomChatBroadcast.chat)
+  // @@protoc_insertion_point(field_set_rvalue:prop.inRoomChatBroadcast.chat)
 }
 #endif
 inline void inRoomChatBroadcast::set_chat(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:proto.inRoomChatBroadcast.chat)
+  // @@protoc_insertion_point(field_set_char:prop.inRoomChatBroadcast.chat)
 }
 inline void inRoomChatBroadcast::set_chat(const char* value, size_t size) {
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:proto.inRoomChatBroadcast.chat)
+  // @@protoc_insertion_point(field_set_pointer:prop.inRoomChatBroadcast.chat)
 }
 inline ::std::string* inRoomChatBroadcast::mutable_chat() {
   set_has_chat();
-  // @@protoc_insertion_point(field_mutable:proto.inRoomChatBroadcast.chat)
+  // @@protoc_insertion_point(field_mutable:prop.inRoomChatBroadcast.chat)
   return chat_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* inRoomChatBroadcast::release_chat() {
-  // @@protoc_insertion_point(field_release:proto.inRoomChatBroadcast.chat)
+  // @@protoc_insertion_point(field_release:prop.inRoomChatBroadcast.chat)
   clear_has_chat();
   return chat_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -8783,7 +8783,7 @@ inline void inRoomChatBroadcast::set_allocated_chat(::std::string* chat) {
     clear_has_chat();
   }
   chat_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), chat);
-  // @@protoc_insertion_point(field_set_allocated:proto.inRoomChatBroadcast.chat)
+  // @@protoc_insertion_point(field_set_allocated:prop.inRoomChatBroadcast.chat)
 }
 
 // -------------------------------------------------------------------
@@ -8805,13 +8805,13 @@ inline void inRoomLeaveRoomRequest::clear_roomuid() {
   clear_has_roomuid();
 }
 inline ::google::protobuf::int32 inRoomLeaveRoomRequest::roomuid() const {
-  // @@protoc_insertion_point(field_get:proto.inRoomLeaveRoomRequest.roomUID)
+  // @@protoc_insertion_point(field_get:prop.inRoomLeaveRoomRequest.roomUID)
   return roomuid_;
 }
 inline void inRoomLeaveRoomRequest::set_roomuid(::google::protobuf::int32 value) {
   set_has_roomuid();
   roomuid_ = value;
-  // @@protoc_insertion_point(field_set:proto.inRoomLeaveRoomRequest.roomUID)
+  // @@protoc_insertion_point(field_set:prop.inRoomLeaveRoomRequest.roomUID)
 }
 
 // -------------------------------------------------------------------
@@ -8833,13 +8833,13 @@ inline void inRoomLeaveRoomResponse::clear_success() {
   clear_has_success();
 }
 inline bool inRoomLeaveRoomResponse::success() const {
-  // @@protoc_insertion_point(field_get:proto.inRoomLeaveRoomResponse.success)
+  // @@protoc_insertion_point(field_get:prop.inRoomLeaveRoomResponse.success)
   return success_;
 }
 inline void inRoomLeaveRoomResponse::set_success(bool value) {
   set_has_success();
   success_ = value;
-  // @@protoc_insertion_point(field_set:proto.inRoomLeaveRoomResponse.success)
+  // @@protoc_insertion_point(field_set:prop.inRoomLeaveRoomResponse.success)
 }
 
 // required int32 roomUID = 2;
@@ -8857,13 +8857,13 @@ inline void inRoomLeaveRoomResponse::clear_roomuid() {
   clear_has_roomuid();
 }
 inline ::google::protobuf::int32 inRoomLeaveRoomResponse::roomuid() const {
-  // @@protoc_insertion_point(field_get:proto.inRoomLeaveRoomResponse.roomUID)
+  // @@protoc_insertion_point(field_get:prop.inRoomLeaveRoomResponse.roomUID)
   return roomuid_;
 }
 inline void inRoomLeaveRoomResponse::set_roomuid(::google::protobuf::int32 value) {
   set_has_roomuid();
   roomuid_ = value;
-  // @@protoc_insertion_point(field_set:proto.inRoomLeaveRoomResponse.roomUID)
+  // @@protoc_insertion_point(field_set:prop.inRoomLeaveRoomResponse.roomUID)
 }
 
 // required int32 lobbyUID = 3;
@@ -8881,13 +8881,13 @@ inline void inRoomLeaveRoomResponse::clear_lobbyuid() {
   clear_has_lobbyuid();
 }
 inline ::google::protobuf::int32 inRoomLeaveRoomResponse::lobbyuid() const {
-  // @@protoc_insertion_point(field_get:proto.inRoomLeaveRoomResponse.lobbyUID)
+  // @@protoc_insertion_point(field_get:prop.inRoomLeaveRoomResponse.lobbyUID)
   return lobbyuid_;
 }
 inline void inRoomLeaveRoomResponse::set_lobbyuid(::google::protobuf::int32 value) {
   set_has_lobbyuid();
   lobbyuid_ = value;
-  // @@protoc_insertion_point(field_set:proto.inRoomLeaveRoomResponse.lobbyUID)
+  // @@protoc_insertion_point(field_set:prop.inRoomLeaveRoomResponse.lobbyUID)
 }
 
 // -------------------------------------------------------------------
@@ -8909,13 +8909,13 @@ inline void inRoomReadyRequest::clear_ready() {
   clear_has_ready();
 }
 inline bool inRoomReadyRequest::ready() const {
-  // @@protoc_insertion_point(field_get:proto.inRoomReadyRequest.ready)
+  // @@protoc_insertion_point(field_get:prop.inRoomReadyRequest.ready)
   return ready_;
 }
 inline void inRoomReadyRequest::set_ready(bool value) {
   set_has_ready();
   ready_ = value;
-  // @@protoc_insertion_point(field_set:proto.inRoomReadyRequest.ready)
+  // @@protoc_insertion_point(field_set:prop.inRoomReadyRequest.ready)
 }
 
 // -------------------------------------------------------------------
@@ -8937,13 +8937,13 @@ inline void inRoomReadyResponse::clear_success() {
   clear_has_success();
 }
 inline bool inRoomReadyResponse::success() const {
-  // @@protoc_insertion_point(field_get:proto.inRoomReadyResponse.success)
+  // @@protoc_insertion_point(field_get:prop.inRoomReadyResponse.success)
   return success_;
 }
 inline void inRoomReadyResponse::set_success(bool value) {
   set_has_success();
   success_ = value;
-  // @@protoc_insertion_point(field_set:proto.inRoomReadyResponse.success)
+  // @@protoc_insertion_point(field_set:prop.inRoomReadyResponse.success)
 }
 
 // -------------------------------------------------------------------
@@ -8965,13 +8965,13 @@ inline void inRoomStartRequest::clear_start() {
   clear_has_start();
 }
 inline bool inRoomStartRequest::start() const {
-  // @@protoc_insertion_point(field_get:proto.inRoomStartRequest.start)
+  // @@protoc_insertion_point(field_get:prop.inRoomStartRequest.start)
   return start_;
 }
 inline void inRoomStartRequest::set_start(bool value) {
   set_has_start();
   start_ = value;
-  // @@protoc_insertion_point(field_set:proto.inRoomStartRequest.start)
+  // @@protoc_insertion_point(field_set:prop.inRoomStartRequest.start)
 }
 
 // -------------------------------------------------------------------
@@ -8993,13 +8993,13 @@ inline void inRoomStartResponse::clear_success() {
   clear_has_success();
 }
 inline bool inRoomStartResponse::success() const {
-  // @@protoc_insertion_point(field_get:proto.inRoomStartResponse.success)
+  // @@protoc_insertion_point(field_get:prop.inRoomStartResponse.success)
   return success_;
 }
 inline void inRoomStartResponse::set_success(bool value) {
   set_has_success();
   success_ = value;
-  // @@protoc_insertion_point(field_set:proto.inRoomStartResponse.success)
+  // @@protoc_insertion_point(field_set:prop.inRoomStartResponse.success)
 }
 
 // -------------------------------------------------------------------
@@ -9021,13 +9021,13 @@ inline void inRoomStartBroadcast::clear_ingameuid() {
   clear_has_ingameuid();
 }
 inline ::google::protobuf::int32 inRoomStartBroadcast::ingameuid() const {
-  // @@protoc_insertion_point(field_get:proto.inRoomStartBroadcast.inGameUID)
+  // @@protoc_insertion_point(field_get:prop.inRoomStartBroadcast.inGameUID)
   return ingameuid_;
 }
 inline void inRoomStartBroadcast::set_ingameuid(::google::protobuf::int32 value) {
   set_has_ingameuid();
   ingameuid_ = value;
-  // @@protoc_insertion_point(field_set:proto.inRoomStartBroadcast.inGameUID)
+  // @@protoc_insertion_point(field_set:prop.inRoomStartBroadcast.inGameUID)
 }
 
 // -------------------------------------------------------------------
@@ -9049,16 +9049,16 @@ inline void inGameSyncPlayerPosToServer::clear_ingameuid() {
   clear_has_ingameuid();
 }
 inline ::google::protobuf::int32 inGameSyncPlayerPosToServer::ingameuid() const {
-  // @@protoc_insertion_point(field_get:proto.inGameSyncPlayerPosToServer.inGameUID)
+  // @@protoc_insertion_point(field_get:prop.inGameSyncPlayerPosToServer.inGameUID)
   return ingameuid_;
 }
 inline void inGameSyncPlayerPosToServer::set_ingameuid(::google::protobuf::int32 value) {
   set_has_ingameuid();
   ingameuid_ = value;
-  // @@protoc_insertion_point(field_set:proto.inGameSyncPlayerPosToServer.inGameUID)
+  // @@protoc_insertion_point(field_set:prop.inGameSyncPlayerPosToServer.inGameUID)
 }
 
-// required .proto.msgUserInGameInfo userInGameInfo = 2;
+// required .prop.msgUserInGameInfo userInGameInfo = 2;
 inline bool inGameSyncPlayerPosToServer::has_useringameinfo() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -9072,28 +9072,28 @@ inline void inGameSyncPlayerPosToServer::clear_useringameinfo() {
   if (useringameinfo_ != NULL) useringameinfo_->Clear();
   clear_has_useringameinfo();
 }
-inline const ::proto::msgUserInGameInfo& inGameSyncPlayerPosToServer::useringameinfo() const {
-  const ::proto::msgUserInGameInfo* p = useringameinfo_;
-  // @@protoc_insertion_point(field_get:proto.inGameSyncPlayerPosToServer.userInGameInfo)
-  return p != NULL ? *p : *reinterpret_cast<const ::proto::msgUserInGameInfo*>(
-      &::proto::_msgUserInGameInfo_default_instance_);
+inline const ::prop::msgUserInGameInfo& inGameSyncPlayerPosToServer::useringameinfo() const {
+  const ::prop::msgUserInGameInfo* p = useringameinfo_;
+  // @@protoc_insertion_point(field_get:prop.inGameSyncPlayerPosToServer.userInGameInfo)
+  return p != NULL ? *p : *reinterpret_cast<const ::prop::msgUserInGameInfo*>(
+      &::prop::_msgUserInGameInfo_default_instance_);
 }
-inline ::proto::msgUserInGameInfo* inGameSyncPlayerPosToServer::release_useringameinfo() {
-  // @@protoc_insertion_point(field_release:proto.inGameSyncPlayerPosToServer.userInGameInfo)
+inline ::prop::msgUserInGameInfo* inGameSyncPlayerPosToServer::release_useringameinfo() {
+  // @@protoc_insertion_point(field_release:prop.inGameSyncPlayerPosToServer.userInGameInfo)
   clear_has_useringameinfo();
-  ::proto::msgUserInGameInfo* temp = useringameinfo_;
+  ::prop::msgUserInGameInfo* temp = useringameinfo_;
   useringameinfo_ = NULL;
   return temp;
 }
-inline ::proto::msgUserInGameInfo* inGameSyncPlayerPosToServer::mutable_useringameinfo() {
+inline ::prop::msgUserInGameInfo* inGameSyncPlayerPosToServer::mutable_useringameinfo() {
   set_has_useringameinfo();
   if (useringameinfo_ == NULL) {
-    useringameinfo_ = new ::proto::msgUserInGameInfo;
+    useringameinfo_ = new ::prop::msgUserInGameInfo;
   }
-  // @@protoc_insertion_point(field_mutable:proto.inGameSyncPlayerPosToServer.userInGameInfo)
+  // @@protoc_insertion_point(field_mutable:prop.inGameSyncPlayerPosToServer.userInGameInfo)
   return useringameinfo_;
 }
-inline void inGameSyncPlayerPosToServer::set_allocated_useringameinfo(::proto::msgUserInGameInfo* useringameinfo) {
+inline void inGameSyncPlayerPosToServer::set_allocated_useringameinfo(::prop::msgUserInGameInfo* useringameinfo) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == NULL) {
     delete useringameinfo_;
@@ -9109,7 +9109,7 @@ inline void inGameSyncPlayerPosToServer::set_allocated_useringameinfo(::proto::m
     clear_has_useringameinfo();
   }
   useringameinfo_ = useringameinfo;
-  // @@protoc_insertion_point(field_set_allocated:proto.inGameSyncPlayerPosToServer.userInGameInfo)
+  // @@protoc_insertion_point(field_set_allocated:prop.inGameSyncPlayerPosToServer.userInGameInfo)
 }
 
 // -------------------------------------------------------------------
@@ -9131,42 +9131,42 @@ inline void inGameSyncPlayersPosFromServer::clear_ingameuid() {
   clear_has_ingameuid();
 }
 inline ::google::protobuf::int32 inGameSyncPlayersPosFromServer::ingameuid() const {
-  // @@protoc_insertion_point(field_get:proto.inGameSyncPlayersPosFromServer.inGameUID)
+  // @@protoc_insertion_point(field_get:prop.inGameSyncPlayersPosFromServer.inGameUID)
   return ingameuid_;
 }
 inline void inGameSyncPlayersPosFromServer::set_ingameuid(::google::protobuf::int32 value) {
   set_has_ingameuid();
   ingameuid_ = value;
-  // @@protoc_insertion_point(field_set:proto.inGameSyncPlayersPosFromServer.inGameUID)
+  // @@protoc_insertion_point(field_set:prop.inGameSyncPlayersPosFromServer.inGameUID)
 }
 
-// repeated .proto.msgUserInGameInfo usersInGameInfo = 2;
+// repeated .prop.msgUserInGameInfo usersInGameInfo = 2;
 inline int inGameSyncPlayersPosFromServer::usersingameinfo_size() const {
   return usersingameinfo_.size();
 }
 inline void inGameSyncPlayersPosFromServer::clear_usersingameinfo() {
   usersingameinfo_.Clear();
 }
-inline const ::proto::msgUserInGameInfo& inGameSyncPlayersPosFromServer::usersingameinfo(int index) const {
-  // @@protoc_insertion_point(field_get:proto.inGameSyncPlayersPosFromServer.usersInGameInfo)
+inline const ::prop::msgUserInGameInfo& inGameSyncPlayersPosFromServer::usersingameinfo(int index) const {
+  // @@protoc_insertion_point(field_get:prop.inGameSyncPlayersPosFromServer.usersInGameInfo)
   return usersingameinfo_.Get(index);
 }
-inline ::proto::msgUserInGameInfo* inGameSyncPlayersPosFromServer::mutable_usersingameinfo(int index) {
-  // @@protoc_insertion_point(field_mutable:proto.inGameSyncPlayersPosFromServer.usersInGameInfo)
+inline ::prop::msgUserInGameInfo* inGameSyncPlayersPosFromServer::mutable_usersingameinfo(int index) {
+  // @@protoc_insertion_point(field_mutable:prop.inGameSyncPlayersPosFromServer.usersInGameInfo)
   return usersingameinfo_.Mutable(index);
 }
-inline ::proto::msgUserInGameInfo* inGameSyncPlayersPosFromServer::add_usersingameinfo() {
-  // @@protoc_insertion_point(field_add:proto.inGameSyncPlayersPosFromServer.usersInGameInfo)
+inline ::prop::msgUserInGameInfo* inGameSyncPlayersPosFromServer::add_usersingameinfo() {
+  // @@protoc_insertion_point(field_add:prop.inGameSyncPlayersPosFromServer.usersInGameInfo)
   return usersingameinfo_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto::msgUserInGameInfo >*
+inline ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGameInfo >*
 inGameSyncPlayersPosFromServer::mutable_usersingameinfo() {
-  // @@protoc_insertion_point(field_mutable_list:proto.inGameSyncPlayersPosFromServer.usersInGameInfo)
+  // @@protoc_insertion_point(field_mutable_list:prop.inGameSyncPlayersPosFromServer.usersInGameInfo)
   return &usersingameinfo_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto::msgUserInGameInfo >&
+inline const ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGameInfo >&
 inGameSyncPlayersPosFromServer::usersingameinfo() const {
-  // @@protoc_insertion_point(field_list:proto.inGameSyncPlayersPosFromServer.usersInGameInfo)
+  // @@protoc_insertion_point(field_list:prop.inGameSyncPlayersPosFromServer.usersInGameInfo)
   return usersingameinfo_;
 }
 
@@ -9189,16 +9189,16 @@ inline void inGameSyncPlayerStateToServer::clear_ingameuid() {
   clear_has_ingameuid();
 }
 inline ::google::protobuf::int32 inGameSyncPlayerStateToServer::ingameuid() const {
-  // @@protoc_insertion_point(field_get:proto.inGameSyncPlayerStateToServer.inGameUID)
+  // @@protoc_insertion_point(field_get:prop.inGameSyncPlayerStateToServer.inGameUID)
   return ingameuid_;
 }
 inline void inGameSyncPlayerStateToServer::set_ingameuid(::google::protobuf::int32 value) {
   set_has_ingameuid();
   ingameuid_ = value;
-  // @@protoc_insertion_point(field_set:proto.inGameSyncPlayerStateToServer.inGameUID)
+  // @@protoc_insertion_point(field_set:prop.inGameSyncPlayerStateToServer.inGameUID)
 }
 
-// required .proto.msgUserInGameStateInfo userStateInfo = 2;
+// required .prop.msgUserInGameStateInfo userStateInfo = 2;
 inline bool inGameSyncPlayerStateToServer::has_userstateinfo() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -9212,28 +9212,28 @@ inline void inGameSyncPlayerStateToServer::clear_userstateinfo() {
   if (userstateinfo_ != NULL) userstateinfo_->Clear();
   clear_has_userstateinfo();
 }
-inline const ::proto::msgUserInGameStateInfo& inGameSyncPlayerStateToServer::userstateinfo() const {
-  const ::proto::msgUserInGameStateInfo* p = userstateinfo_;
-  // @@protoc_insertion_point(field_get:proto.inGameSyncPlayerStateToServer.userStateInfo)
-  return p != NULL ? *p : *reinterpret_cast<const ::proto::msgUserInGameStateInfo*>(
-      &::proto::_msgUserInGameStateInfo_default_instance_);
+inline const ::prop::msgUserInGameStateInfo& inGameSyncPlayerStateToServer::userstateinfo() const {
+  const ::prop::msgUserInGameStateInfo* p = userstateinfo_;
+  // @@protoc_insertion_point(field_get:prop.inGameSyncPlayerStateToServer.userStateInfo)
+  return p != NULL ? *p : *reinterpret_cast<const ::prop::msgUserInGameStateInfo*>(
+      &::prop::_msgUserInGameStateInfo_default_instance_);
 }
-inline ::proto::msgUserInGameStateInfo* inGameSyncPlayerStateToServer::release_userstateinfo() {
-  // @@protoc_insertion_point(field_release:proto.inGameSyncPlayerStateToServer.userStateInfo)
+inline ::prop::msgUserInGameStateInfo* inGameSyncPlayerStateToServer::release_userstateinfo() {
+  // @@protoc_insertion_point(field_release:prop.inGameSyncPlayerStateToServer.userStateInfo)
   clear_has_userstateinfo();
-  ::proto::msgUserInGameStateInfo* temp = userstateinfo_;
+  ::prop::msgUserInGameStateInfo* temp = userstateinfo_;
   userstateinfo_ = NULL;
   return temp;
 }
-inline ::proto::msgUserInGameStateInfo* inGameSyncPlayerStateToServer::mutable_userstateinfo() {
+inline ::prop::msgUserInGameStateInfo* inGameSyncPlayerStateToServer::mutable_userstateinfo() {
   set_has_userstateinfo();
   if (userstateinfo_ == NULL) {
-    userstateinfo_ = new ::proto::msgUserInGameStateInfo;
+    userstateinfo_ = new ::prop::msgUserInGameStateInfo;
   }
-  // @@protoc_insertion_point(field_mutable:proto.inGameSyncPlayerStateToServer.userStateInfo)
+  // @@protoc_insertion_point(field_mutable:prop.inGameSyncPlayerStateToServer.userStateInfo)
   return userstateinfo_;
 }
-inline void inGameSyncPlayerStateToServer::set_allocated_userstateinfo(::proto::msgUserInGameStateInfo* userstateinfo) {
+inline void inGameSyncPlayerStateToServer::set_allocated_userstateinfo(::prop::msgUserInGameStateInfo* userstateinfo) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == NULL) {
     delete userstateinfo_;
@@ -9249,7 +9249,7 @@ inline void inGameSyncPlayerStateToServer::set_allocated_userstateinfo(::proto::
     clear_has_userstateinfo();
   }
   userstateinfo_ = userstateinfo;
-  // @@protoc_insertion_point(field_set_allocated:proto.inGameSyncPlayerStateToServer.userStateInfo)
+  // @@protoc_insertion_point(field_set_allocated:prop.inGameSyncPlayerStateToServer.userStateInfo)
 }
 
 // -------------------------------------------------------------------
@@ -9271,42 +9271,42 @@ inline void inGameSyncPlayersStateFromServer::clear_ingameuid() {
   clear_has_ingameuid();
 }
 inline ::google::protobuf::int32 inGameSyncPlayersStateFromServer::ingameuid() const {
-  // @@protoc_insertion_point(field_get:proto.inGameSyncPlayersStateFromServer.inGameUID)
+  // @@protoc_insertion_point(field_get:prop.inGameSyncPlayersStateFromServer.inGameUID)
   return ingameuid_;
 }
 inline void inGameSyncPlayersStateFromServer::set_ingameuid(::google::protobuf::int32 value) {
   set_has_ingameuid();
   ingameuid_ = value;
-  // @@protoc_insertion_point(field_set:proto.inGameSyncPlayersStateFromServer.inGameUID)
+  // @@protoc_insertion_point(field_set:prop.inGameSyncPlayersStateFromServer.inGameUID)
 }
 
-// repeated .proto.msgUserInGameStateInfo userStateInfoList = 2;
+// repeated .prop.msgUserInGameStateInfo userStateInfoList = 2;
 inline int inGameSyncPlayersStateFromServer::userstateinfolist_size() const {
   return userstateinfolist_.size();
 }
 inline void inGameSyncPlayersStateFromServer::clear_userstateinfolist() {
   userstateinfolist_.Clear();
 }
-inline const ::proto::msgUserInGameStateInfo& inGameSyncPlayersStateFromServer::userstateinfolist(int index) const {
-  // @@protoc_insertion_point(field_get:proto.inGameSyncPlayersStateFromServer.userStateInfoList)
+inline const ::prop::msgUserInGameStateInfo& inGameSyncPlayersStateFromServer::userstateinfolist(int index) const {
+  // @@protoc_insertion_point(field_get:prop.inGameSyncPlayersStateFromServer.userStateInfoList)
   return userstateinfolist_.Get(index);
 }
-inline ::proto::msgUserInGameStateInfo* inGameSyncPlayersStateFromServer::mutable_userstateinfolist(int index) {
-  // @@protoc_insertion_point(field_mutable:proto.inGameSyncPlayersStateFromServer.userStateInfoList)
+inline ::prop::msgUserInGameStateInfo* inGameSyncPlayersStateFromServer::mutable_userstateinfolist(int index) {
+  // @@protoc_insertion_point(field_mutable:prop.inGameSyncPlayersStateFromServer.userStateInfoList)
   return userstateinfolist_.Mutable(index);
 }
-inline ::proto::msgUserInGameStateInfo* inGameSyncPlayersStateFromServer::add_userstateinfolist() {
-  // @@protoc_insertion_point(field_add:proto.inGameSyncPlayersStateFromServer.userStateInfoList)
+inline ::prop::msgUserInGameStateInfo* inGameSyncPlayersStateFromServer::add_userstateinfolist() {
+  // @@protoc_insertion_point(field_add:prop.inGameSyncPlayersStateFromServer.userStateInfoList)
   return userstateinfolist_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto::msgUserInGameStateInfo >*
+inline ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGameStateInfo >*
 inGameSyncPlayersStateFromServer::mutable_userstateinfolist() {
-  // @@protoc_insertion_point(field_mutable_list:proto.inGameSyncPlayersStateFromServer.userStateInfoList)
+  // @@protoc_insertion_point(field_mutable_list:prop.inGameSyncPlayersStateFromServer.userStateInfoList)
   return &userstateinfolist_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto::msgUserInGameStateInfo >&
+inline const ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGameStateInfo >&
 inGameSyncPlayersStateFromServer::userstateinfolist() const {
-  // @@protoc_insertion_point(field_list:proto.inGameSyncPlayersStateFromServer.userStateInfoList)
+  // @@protoc_insertion_point(field_list:prop.inGameSyncPlayersStateFromServer.userStateInfoList)
   return userstateinfolist_;
 }
 
@@ -9329,13 +9329,13 @@ inline void inGameChatRequest::clear_ingameuid() {
   clear_has_ingameuid();
 }
 inline ::google::protobuf::int32 inGameChatRequest::ingameuid() const {
-  // @@protoc_insertion_point(field_get:proto.inGameChatRequest.inGameUID)
+  // @@protoc_insertion_point(field_get:prop.inGameChatRequest.inGameUID)
   return ingameuid_;
 }
 inline void inGameChatRequest::set_ingameuid(::google::protobuf::int32 value) {
   set_has_ingameuid();
   ingameuid_ = value;
-  // @@protoc_insertion_point(field_set:proto.inGameChatRequest.inGameUID)
+  // @@protoc_insertion_point(field_set:prop.inGameChatRequest.inGameUID)
 }
 
 // required string chat = 2;
@@ -9353,41 +9353,41 @@ inline void inGameChatRequest::clear_chat() {
   clear_has_chat();
 }
 inline const ::std::string& inGameChatRequest::chat() const {
-  // @@protoc_insertion_point(field_get:proto.inGameChatRequest.chat)
+  // @@protoc_insertion_point(field_get:prop.inGameChatRequest.chat)
   return chat_.GetNoArena();
 }
 inline void inGameChatRequest::set_chat(const ::std::string& value) {
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:proto.inGameChatRequest.chat)
+  // @@protoc_insertion_point(field_set:prop.inGameChatRequest.chat)
 }
 #if LANG_CXX11
 inline void inGameChatRequest::set_chat(::std::string&& value) {
   set_has_chat();
   chat_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:proto.inGameChatRequest.chat)
+  // @@protoc_insertion_point(field_set_rvalue:prop.inGameChatRequest.chat)
 }
 #endif
 inline void inGameChatRequest::set_chat(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:proto.inGameChatRequest.chat)
+  // @@protoc_insertion_point(field_set_char:prop.inGameChatRequest.chat)
 }
 inline void inGameChatRequest::set_chat(const char* value, size_t size) {
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:proto.inGameChatRequest.chat)
+  // @@protoc_insertion_point(field_set_pointer:prop.inGameChatRequest.chat)
 }
 inline ::std::string* inGameChatRequest::mutable_chat() {
   set_has_chat();
-  // @@protoc_insertion_point(field_mutable:proto.inGameChatRequest.chat)
+  // @@protoc_insertion_point(field_mutable:prop.inGameChatRequest.chat)
   return chat_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* inGameChatRequest::release_chat() {
-  // @@protoc_insertion_point(field_release:proto.inGameChatRequest.chat)
+  // @@protoc_insertion_point(field_release:prop.inGameChatRequest.chat)
   clear_has_chat();
   return chat_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -9398,7 +9398,7 @@ inline void inGameChatRequest::set_allocated_chat(::std::string* chat) {
     clear_has_chat();
   }
   chat_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), chat);
-  // @@protoc_insertion_point(field_set_allocated:proto.inGameChatRequest.chat)
+  // @@protoc_insertion_point(field_set_allocated:prop.inGameChatRequest.chat)
 }
 
 // -------------------------------------------------------------------
@@ -9420,13 +9420,13 @@ inline void inGameChatResponse::clear_success() {
   clear_has_success();
 }
 inline bool inGameChatResponse::success() const {
-  // @@protoc_insertion_point(field_get:proto.inGameChatResponse.success)
+  // @@protoc_insertion_point(field_get:prop.inGameChatResponse.success)
   return success_;
 }
 inline void inGameChatResponse::set_success(bool value) {
   set_has_success();
   success_ = value;
-  // @@protoc_insertion_point(field_set:proto.inGameChatResponse.success)
+  // @@protoc_insertion_point(field_set:prop.inGameChatResponse.success)
 }
 
 // -------------------------------------------------------------------
@@ -9448,41 +9448,41 @@ inline void inGameChatBroadcast::clear_chat() {
   clear_has_chat();
 }
 inline const ::std::string& inGameChatBroadcast::chat() const {
-  // @@protoc_insertion_point(field_get:proto.inGameChatBroadcast.chat)
+  // @@protoc_insertion_point(field_get:prop.inGameChatBroadcast.chat)
   return chat_.GetNoArena();
 }
 inline void inGameChatBroadcast::set_chat(const ::std::string& value) {
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:proto.inGameChatBroadcast.chat)
+  // @@protoc_insertion_point(field_set:prop.inGameChatBroadcast.chat)
 }
 #if LANG_CXX11
 inline void inGameChatBroadcast::set_chat(::std::string&& value) {
   set_has_chat();
   chat_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:proto.inGameChatBroadcast.chat)
+  // @@protoc_insertion_point(field_set_rvalue:prop.inGameChatBroadcast.chat)
 }
 #endif
 inline void inGameChatBroadcast::set_chat(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:proto.inGameChatBroadcast.chat)
+  // @@protoc_insertion_point(field_set_char:prop.inGameChatBroadcast.chat)
 }
 inline void inGameChatBroadcast::set_chat(const char* value, size_t size) {
   set_has_chat();
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:proto.inGameChatBroadcast.chat)
+  // @@protoc_insertion_point(field_set_pointer:prop.inGameChatBroadcast.chat)
 }
 inline ::std::string* inGameChatBroadcast::mutable_chat() {
   set_has_chat();
-  // @@protoc_insertion_point(field_mutable:proto.inGameChatBroadcast.chat)
+  // @@protoc_insertion_point(field_mutable:prop.inGameChatBroadcast.chat)
   return chat_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* inGameChatBroadcast::release_chat() {
-  // @@protoc_insertion_point(field_release:proto.inGameChatBroadcast.chat)
+  // @@protoc_insertion_point(field_release:prop.inGameChatBroadcast.chat)
   clear_has_chat();
   return chat_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -9493,7 +9493,7 @@ inline void inGameChatBroadcast::set_allocated_chat(::std::string* chat) {
     clear_has_chat();
   }
   chat_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), chat);
-  // @@protoc_insertion_point(field_set_allocated:proto.inGameChatBroadcast.chat)
+  // @@protoc_insertion_point(field_set_allocated:prop.inGameChatBroadcast.chat)
 }
 
 #ifdef __GNUC__
@@ -9594,7 +9594,7 @@ inline void inGameChatBroadcast::set_allocated_chat(::std::string* chat) {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace proto
+}  // namespace prop
 
 // @@protoc_insertion_point(global_scope)
 

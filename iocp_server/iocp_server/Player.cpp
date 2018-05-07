@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "Packet.h"
 #include "ClientSession.h"
+#include "origin\ThreadLocal.h"
 #include "SendRequestSessionConcurrentQueue.h"
 
 Player::Player(ClientSession * session) : _clientSession(session)
@@ -90,7 +91,7 @@ bool Player::GetClientSessionWithAddRef(ClientSession* cSession)
 	return true;
 }
 
-bool Player::CreateSendBuf(Packet* packet)
+bool Player::SendToClient(Packet* packet)
 {
 	ClientSession* targetSession = _clientSession;
 
@@ -99,8 +100,17 @@ bool Player::CreateSendBuf(Packet* packet)
 		return false;
 	}
 
-	targetSession->PostSend(packet->GetPacketStart(), packet->GetSize());	//data post ÈÄ concurrnt queue push.
-	GSendRequestSessionQueue->PushSession(targetSession);
+	targetSession->PostSend(packet);	//data post ÈÄ concurrnt queue push.
+	
+	switch (LThreadType)
+	{
+		case THREAD_TYPE::THREAD_IO_WORKER:
+			LSendRequestSessionQueue[LSendRequestSessionQueueIndex]->push(targetSession);
+			break;
+		default:
+			GSendRequestSessionQueue->PushSession(targetSession);
+			break;
+	}
 
 
 	/*
