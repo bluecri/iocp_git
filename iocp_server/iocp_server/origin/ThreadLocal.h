@@ -11,12 +11,6 @@ enum THREAD_TYPE
 	THREAD_DB_WORKER
 };
 
-enum COMPLETION_KEY_TYPE
-{
-	CK_NONE,
-	CK_DB_REQUEST,
-	CK_DB_RESULT
-};
 
 class ThreadCallHistory;
 class ThreadCallElapsedRecord;

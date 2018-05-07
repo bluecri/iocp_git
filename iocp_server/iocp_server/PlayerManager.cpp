@@ -16,10 +16,15 @@ std::shared_ptr<Player> PlayerManager::GetGuestPlayer(ClientSession* session)
 	} while (__guestPlayerMap.end() != __guestPlayerMap.find(guestGenID));
 	
 	auto guestPlayerShared = std::make_shared<Player>(session);
+	guestPlayerShared->EnterWriteLock();
+	guestPlayerShared->_playerUID = guestGenID;
+	guestPlayerShared->_clientSession = session;
 
-	// No need lock.
-	guestPlayerShared->__playerId = guestGenID;
+	__guestPlayerMaplock.EnterWriteLock();
 	__guestPlayerMap.insert(make_pair(guestGenID, guestPlayerShared));
+	__guestPlayerMaplock.LeaveWriteLock();
+
+	guestPlayerShared->LeaveWriteLock();
 
 	return guestPlayerShared;
 }
@@ -38,42 +43,48 @@ void PlayerManager::UnregisterGuestPlayer(int playerGuestID)
 	return;
 }
 
-void PlayerManager::RegisterLoginPlayer(std::shared_ptr<Player> guestPlayerShared, int playerID)
+// guest player와 새로 접속할 player UID를 이용해 guest->login player로 승격시킴. guestPlayerShared의 UID를 playerUID로 update.
+void PlayerManager::MoveGuestToLoginPlayer(std::shared_ptr<Player> guestPlayerShared, int playerUID)
 {
 	guestPlayerShared->EnterWriteLock();
 
-	// remove ptr from guestList
+	// remove this ptr from guestList
 	__guestPlayerMaplock.EnterWriteLock();
-	__guestPlayerMap.erase(guestPlayerShared->GetPlayerId());
+	__guestPlayerMap.erase(guestPlayerShared->GetPlayerUID());
 	__guestPlayerMaplock.LeaveWriteLock();
 
-	__loginPlayerMaplock.EnterReadLock();
+	__loginPlayerMaplock.EnterWriteLock();
+
+	auto it = __loginPlayerMap.find(playerUID);
+	if (it == __loginPlayerMap.end())
+	{
+		__loginPlayerMap.insert(make_pair(playerUID, guestPlayerShared));
+		__loginPlayerMaplock.LeaveWriteLock();
+
+		guestPlayerShared->_playerUID = playerUID;
+		guestPlayerShared->LeaveWriteLock();
+
+		return;
+	}
 
 	// server already has Player with id... -> Re Get that Player and connect with client
-	auto it = __loginPlayerMap.find(guestPlayerShared->GetPlayerId());
-	if (it != __loginPlayerMap.end()) 
-	{
-		// already has Player
-		guestPlayerShared->__clientSession->_sharedPlayer.reset();	//client->guest player remove
-		guestPlayerShared->__clientSession = nullptr;	//player->guest client remove
+	// already has Player
+	std::shared_ptr<Player> alreadyLogPlayerShared = __loginPlayerMap[playerUID];
+	__loginPlayerMaplock.LeaveWriteLock();
 
-
-	}
-	else
-	{
-		__guestPlayerMap.erase()
-		__loginPlayerMap.insert(make_pair(toBeLoginPlayerShared->GetPlayerId(), toBeLoginPlayerShared));
-	}
-
-
-	__loginPlayerMaplock.EnterReadLock();
-
-
+	ClientSession* newClientSession = guestPlayerShared->_clientSession;
+	guestPlayerShared->_clientSession = nullptr;	//guest->client remove
 	guestPlayerShared->LeaveWriteLock();
 
+	alreadyLogPlayerShared->EnterWriteLock();
+	alreadyLogPlayerShared->_clientSession = newClientSession;	//player ->client
+	alreadyLogPlayerShared->_bClientConn = true;
 
-	// else.. register new created player
-	__stPlayerMap.insert(make_pair(guestGenID, guestPlayerShared));
+	alreadyLogPlayerShared->_clientSession->_sharedPlayer.reset();	//client->guest player remove
+	alreadyLogPlayerShared->_clientSession->_sharedPlayer = alreadyLogPlayerShared;	//client->player
+	alreadyLogPlayerShared->LeaveWriteLock();
+
+	return;
 }
 
 void PlayerManager::UnregisterLoginPlayer(int plyaerID)

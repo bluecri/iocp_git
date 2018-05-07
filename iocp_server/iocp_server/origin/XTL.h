@@ -4,8 +4,6 @@
 #include <vector>
 #include <deque>
 #include <set>
-#include <hash_set>
-#include <hash_map>
 #include <map>
 #include <queue>
 
@@ -83,18 +81,6 @@ template <class T, class C = std::less<T> >
 struct xset
 {
 	typedef std::set<T, C, STLAllocator<T> > type;
-};
-
-template <class K, class T, class C = std::hash_compare<K, std::less<K>> >
-struct xhash_map
-{
-	typedef std::hash_map<K, T, C, STLAllocator<std::pair<K, T>> > type;
-};
-
-template <class T, class C = std::hash_compare<T, std::less<T>> >
-struct xhash_set
-{
-	typedef std::hash_set<T, C, STLAllocator<T> > type;
 };
 
 template <class T, class C = std::less<std::vector<T>::value_type> >

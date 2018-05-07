@@ -22,9 +22,6 @@
 #include <assert.h>
 #include <limits.h>
 
-#include <WinSock2.h>
-#include <Mswsock.h>
-
 #include <cstdint>
 #include <memory>
 
@@ -41,8 +38,11 @@
 #include <glm/gtx/norm.hpp>
 #include <glm/gtx/rotate_vector.hpp>
 
+#include "sql.h"
 
 
 #include "origin\FastSpinlock.h"
+#include "origin\Exception.h"
+#include "../../3rdParty/google_protobuf/protoGen/GetSource/protoPack.pb.h"
 
 using namespace glm;

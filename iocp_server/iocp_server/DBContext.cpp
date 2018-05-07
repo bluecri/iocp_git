@@ -1,8 +1,9 @@
 #include "DBContext.h"
 #include "origin\ThreadLocal.h"
 
-OverlappedDBContext::OverlappedDBContext(std::shared_ptr<Player> owner, DBType dbType) : OverlappedContext(), _playerObject(owner), _dbType(dbType)
+OverlappedDBContext::OverlappedDBContext(std::shared_ptr<Player> owner, DBType dbType) : _playerObject(owner), _dbType(dbType)
 {
+	
 }
 
 void OverlappedDBContext::OnResult()
@@ -43,17 +44,4 @@ void DeleteDBContext(OverlappedDBContext * context)
 	}
 
 	return;
-}
-
-bool OverlappedDBLogInOutContext::OnSQLExecute()
-{
-	return false;
-}
-
-void OverlappedDBLogInOutContext::OnSuccess()
-{
-}
-
-void OverlappedDBLogInOutContext::OnFail()
-{
 }

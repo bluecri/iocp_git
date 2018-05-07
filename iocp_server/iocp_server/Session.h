@@ -56,9 +56,9 @@ public:
 protected:
 	SOCKET __socket;
 
-	CircularBuffer __recvBuffer;
-	CircularBuffer __sendBuffer;
-	FastSpinlock __lockSendBuffer;
+	CircularBuffer _recvBuffer;
+	CircularBuffer _sendBuffer;
+	FastSpinlock _lockSendBuffer;
 
 	friend class Player;
 	SessionErrType PostSend(const char* data, size_t len);

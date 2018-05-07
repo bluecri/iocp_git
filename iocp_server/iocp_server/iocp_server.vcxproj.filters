@@ -31,6 +31,15 @@
     <Filter Include="소스 파일\DatabaseHandling">
       <UniqueIdentifier>{4869cbf2-e6d5-439a-872e-10d931697219}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\OdbcContents">
+      <UniqueIdentifier>{1b3f91ec-c655-4f2e-abc1-d2398cfc713e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Components">
+      <UniqueIdentifier>{1d2bfc92-64c3-42a9-b694-fcd5f41a3a76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="리소스 파일\protobuf">
+      <UniqueIdentifier>{e46730ba-d143-4c89-965a-49956c961b24}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="addressbook.pb.cc">
@@ -95,6 +104,18 @@
     </ClCompile>
     <ClCompile Include="DBContext.cpp">
       <Filter>소스 파일\DatabaseHandling</Filter>
+    </ClCompile>
+    <ClCompile Include="DBHelper.cpp">
+      <Filter>소스 파일\DatabaseHandling</Filter>
+    </ClCompile>
+    <ClCompile Include="DBManager.cpp">
+      <Filter>소스 파일\DatabaseHandling</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDBContext.cpp">
+      <Filter>소스 파일\OdbcContents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\3rdParty\google_protobuf\protoGen\GetSource\protoPack.pb.cc">
+      <Filter>소스 파일\Packet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -188,5 +209,31 @@
     <ClInclude Include="DBHelper.h">
       <Filter>소스 파일\DatabaseHandling</Filter>
     </ClInclude>
+    <ClInclude Include="SQLStatement.h">
+      <Filter>소스 파일\OdbcContents</Filter>
+    </ClInclude>
+    <ClInclude Include="ContentsConfig.h">
+      <Filter>소스 파일\OdbcContents</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDBContext.h">
+      <Filter>소스 파일\OdbcContents</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidbodyComponentManager.h">
+      <Filter>소스 파일\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidbodyComponent.h">
+      <Filter>소스 파일\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3rdParty\google_protobuf\protoGen\GetSource\protoPack.pb.h">
+      <Filter>소스 파일\Packet</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameDB.sql">
+      <Filter>소스 파일\OdbcContents</Filter>
+    </None>
+    <None Include="..\..\3rdParty\google_protobuf\protoGen\protoPack.proto">
+      <Filter>리소스 파일\protobuf</Filter>
+    </None>
   </ItemGroup>
 </Project>

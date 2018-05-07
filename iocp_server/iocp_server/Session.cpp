@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Session.h"
 
-Session::Session(size_t sendBufSize, size_t recvBufSize) : __recvBuffer(0), __sendBuffer(recvBufSize)
+Session::Session(size_t sendBufSize, size_t recvBufSize) : _recvBuffer(0), _sendBuffer(recvBufSize)
 {
 	__socket = 0;
 	__lRefCount = 0;
@@ -14,11 +14,11 @@ void Session::SessionReset()
 	__lSendPendingCount = 0;
 	__lRefCount = 0;
 
-	__recvBuffer.BufferReset();
+	_recvBuffer.BufferReset();
 
-	__lockSendBuffer.EnterWriteLock();
-	__sendBuffer.BufferReset();
-	__lockSendBuffer.LeaveWriteLock();
+	_lockSendBuffer.EnterWriteLock();
+	_sendBuffer.BufferReset();
+	_lockSendBuffer.LeaveWriteLock();
 
 	LINGER lingerOption;
 	lingerOption.l_onoff = 1;
@@ -71,7 +71,7 @@ SessionErrType Session::PostRecv()
 		return SessionErrType::DISCONN;
 	}
 
-	if (0 == __recvBuffer.GetFreeSpaceSize())
+	if (0 == _recvBuffer.GetFreeSpaceSize())
 	{
 		return SessionErrType::POSTRECV_NOSPACE;
 	}
@@ -80,8 +80,8 @@ SessionErrType Session::PostRecv()
 
 	DWORD recvbytes = 0;
 	DWORD flags = 0;
-	preRecvContext->_wsaBuf.len = __recvBuffer.GetFreeSpaceSize();
-	preRecvContext->_wsaBuf.buf = __recvBuffer.GetBufferEnd();
+	preRecvContext->_wsaBuf.len = _recvBuffer.GetFreeSpaceSize();
+	preRecvContext->_wsaBuf.buf = _recvBuffer.GetBufferEnd();
 
 	if (SOCKET_ERROR == WSARecv(__socket, &preRecvContext->_wsaBuf, 1, &recvbytes, &flags, (LPWSAOVERLAPPED)preRecvContext, NULL))
 	{
@@ -103,16 +103,16 @@ SessionErrType Session::PostSend(const char * data, size_t len)
 		return SessionErrType::DISCONN;
 	}
 
-	FastSpinlockGuard criticalSection(__lockSendBuffer);
+	FastSpinlockGuard criticalSection(_lockSendBuffer);
 
-	if (__sendBuffer.GetFreeSpaceSize() < len)
+	if (_sendBuffer.GetFreeSpaceSize() < len)
 		return SessionErrType::POSTSEND_NOSPACE;
 
-	char* destData = __sendBuffer.GetBufferEnd();
+	char* destData = _sendBuffer.GetBufferEnd();
 
 	memcpy(destData, data, len);
 
-	__sendBuffer.Commit(len);
+	_sendBuffer.Commit(len);
 
 	return SessionErrType::SAFE;
 }
@@ -126,10 +126,10 @@ SessionErrType Session::FlushSend()
 	}
 
 
-	FastSpinlockGuard criticalSection(__lockSendBuffer);
+	FastSpinlockGuard criticalSection(_lockSendBuffer);
 
 	/// 보낼 데이터가 없는 경우
-	if (0 == __sendBuffer.GetContiguiousBytes())
+	if (0 == _sendBuffer.GetContiguiousBytes())
 	{
 		/// 보낼 데이터도 없는 경우
 		if (0 == __lSendPendingCount)
@@ -147,8 +147,8 @@ SessionErrType Session::FlushSend()
 	//GSendRequestSessionQueue
 	DWORD sendbytes = 0;
 	DWORD flags = 0;
-	sendContext->_wsaBuf.len = (ULONG)__sendBuffer.GetContiguiousBytes();
-	sendContext->_wsaBuf.buf = __sendBuffer.GetBufferStart();
+	sendContext->_wsaBuf.len = (ULONG)_sendBuffer.GetContiguiousBytes();
+	sendContext->_wsaBuf.buf = _sendBuffer.GetBufferStart();
 
 	/// start async send
 	if (SOCKET_ERROR == WSASend(__socket, &sendContext->_wsaBuf, 1, &sendbytes, flags, (LPWSAOVERLAPPED)sendContext, NULL))
@@ -175,10 +175,17 @@ SessionErrType Session::FlushSend()
 
 void Session::SendCompletion(DWORD transferred)
 {
+	FastSpinlockGuard criticalSection(_lockSendBuffer);
+
+	_sendBuffer.Remove(transferred);
+
+	mSendPendingCount--;
 }
 
 void Session::RecvCompletion(DWORD transferred)
 {
+	_recvBuffer.Commit(transferred);
+
 }
 
 void Session::AddRef()

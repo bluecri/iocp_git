@@ -5,13 +5,13 @@
 #include "DBContext.h"
 #include "OverlappedContext.h"
 
-IOThread::IOThread(HANDLE hThread, HANDLE hCompletionPort) : __handle(hThread), __hCompletionPort(hCompletionPort)
+IOThread::IOThread(HANDLE hThread, HANDLE hCompletionPort) : _handle(hThread), _hCompletionPort(hCompletionPort)
 {
 }
 
 IOThread::~IOThread()
 {
-	CloseHandle(__handle);
+	CloseHandle(_handle);
 }
 
 DWORD IOThread::Run()
@@ -30,7 +30,7 @@ DWORD IOThread::Run()
 
 	bool completionOk = false;
 
-	int ret = GetQueuedCompletionStatus(__hCompletionPort, &dwTransferred, (PULONG_PTR)&completionKey, &overlapped, GQCS_TIMEOUT);
+	int ret = GetQueuedCompletionStatus(_hCompletionPort, &dwTransferred, (PULONG_PTR)&completionKey, &overlapped, GQCS_TIMEOUT);
 
 	if (CK_DB_RESULT == completionKey)
 	{
@@ -103,6 +103,8 @@ DWORD IOThread::Run()
 
 	case IOTYPE_RECV:
 		remote->RecvCompletion(dwTransferred);
+
+		//TODO : Check Packet with first length
 
 		completionOk = remote->PreRecv();
 

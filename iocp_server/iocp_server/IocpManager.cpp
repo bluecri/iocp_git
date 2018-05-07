@@ -3,7 +3,7 @@
 #include "IocpManager.h"
 #include "IOThread.h"
 #include "ClientSessionManager.h"
-#include "origin/Exception.h"
+#include "origin\ThreadLocal.h"
 
 
 //static & global
@@ -24,6 +24,7 @@ IocpManager::IocpManager() : __hCompletionPort(nullptr), __listenSocket(0)
 
 IocpManager::~IocpManager()
 {
+	
 }
 
 bool IocpManager::Initialize()
@@ -99,6 +100,10 @@ void IocpManager::Finalize()
 	CloseHandle(__hCompletionPort);
 
 	WSACleanup();
+
+	//HANDLE __hCompletionPort;
+	//SOCKET __listenSocket;
+	//IOThread* __ioWorkerThread[MAX_IO_THREAD];
 }
 
 bool IocpManager::StartIoThreads()
@@ -149,5 +154,10 @@ void IocpManager::PostContext(IOverlappedContext * context)
 
 unsigned int IocpManager::FnIoWorkerThread(LPVOID lpParam)
 {
-	return 0;
+	LThreadType = THREAD_TYPE::THREAD_IO_WORKER;
+	LWorkerThreadId = MAX_DB_THREAD + reinterpret_cast<int>(lpParam);
+
+	CRASH_ASSERT(LWorkerThreadId >= MAX_DB_THREAD);
+
+	return GIocpManager->__ioWorkerThread[LWorkerThreadId - MAX_DB_THREAD]->Run();
 }

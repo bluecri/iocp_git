@@ -4,8 +4,8 @@
 
 class ClientSession;
 class PlayerManager;
-class Packet;
-class DBPacket;
+struct Packet;
+class RigidbodyComponent;
 
 class Player : public SyncExecutable
 {
@@ -13,8 +13,7 @@ public:
 	Player(ClientSession* session);
 	virtual ~Player();
 
-	int GetPlayerId() { return __playerId; }
-	bool isConnWIthClient() { return __bClientConn; }
+	bool isConnWIthClient() { return _bClientConn; }
 	void Start(int heartbeat);
 
 	void OnTick(); ///< 로그인후 1초마다 불리는 기능
@@ -26,6 +25,15 @@ public:
 
 	/// 주기적으로 버프 시간 업데이트하는 함수
 	void DecayTickBuff();
+
+
+
+	int GetPlayerUID() { return _playerUID; }
+	char* GetPlayerID() { return _id; }
+	char* GetPlayerNIckName() { return _nickName; }
+
+	RigidbodyComponent* GetRigidbodyComponent() { return _rigidbodyComp; }
+	
 
 public:	// DB requests
 	//send buf
@@ -43,21 +51,23 @@ public:	// DB requests
 	void RequestSaveState();
 	void RequestLoadState();
 
-private:
 	bool GetClientSessionWithAddRef(ClientSession* cSession);
+private:
 
 private:
 
-	int		__playerId;
-	int		__heartBeat;
+	int			_playerUID;
+	char*		_id;
+	char*		_nickName;
+	int			_heartBeat;
 
-	vec3	__posVec3;
+	RigidbodyComponent* _rigidbodyComp;
 
 	/// 버프 리스트  GCE
-	std::map<int, int> __buffList; ///< (id, time)
+	std::map<int, int> _buffList; ///< (id, time)
 
-	bool __bClientConn;
-	ClientSession* __clientSession;
+	bool _bClientConn;
+	ClientSession* _clientSession;
 	friend class ClientSession;
 	friend class PlayerManager;
 };

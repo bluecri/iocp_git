@@ -9,9 +9,9 @@
 #include <mysql.h>
 
 #define EXAMPLE_HOST NULL	//localhost
-#define EXAMPLE_USER "clientUser7"
-#define EXAMPLE_PASS "clientUser7"
-#define EXAMPLE_DB "world"
+#define EXAMPLE_USER "serverUser"
+#define EXAMPLE_PASS "serverUser1"
+#define EXAMPLE_DB "gamedb"
 #define EXAMPLE_PORT 3306
 
 #include "SendRequestSessionConcurrentQueue.h"
@@ -20,6 +20,8 @@
 #include "ClientSession.h"
 #include "ServerSession.h"
 #include "PlayerManager.h"
+#include "DBManager.h"
+#include "IocpManager.h"
 
 using namespace std;
 
@@ -34,8 +36,12 @@ int main(int argc, const char **argv)
 	GClientSessionManager = new ClientSessionManager();
 	GServerSessionManager = new ServerSessionManager();
 
-	GClientSessionManager->ReturnSession(new ClientSession());
+	GDatabaseManager = new DBManager();
+	GIocpManager= new IocpManager();
 	GPlayerManager = new PlayerManager();
+
+	GDatabaseManager->Initialize();
+	GIocpManager->Initialize();
 
 	return 0;
 }

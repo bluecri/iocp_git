@@ -5,7 +5,7 @@
 
 #define CONNECT_SERVER_ADDR	"127.0.0.1"
 #define CONNECT_SERVER_PORT 1
-#define SQL_SERVER_CONN_STR	L"Driver={SQL Server};Server=127.0.0.1\\SQL4GAMESERVER;Database=GameDB;UID=sa;PWD=...."
+#define SQL_SERVER_CONN_STR	"Driver={SQL Server};Server=127.0.0.1:3306;Database=gamedb;UID=serverUser;PWD=serverUser1"
 
 #define GQCS_TIMEOUT	10 //INFINITE
 #define MAX_IO_THREAD	4
