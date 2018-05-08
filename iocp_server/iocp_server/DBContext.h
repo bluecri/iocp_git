@@ -1,6 +1,5 @@
 #pragma once
 
-#include "OverlappedContext.h"
 #include "Player.h"
 
 enum CKType {
@@ -11,12 +10,12 @@ enum CKType {
 enum DBType
 {
 	DBTYPE_NONE,
-	DBTYPE_LOGINOUT
-
+	DBTYPE_LOGINOUT,
+	DBTYPE_PLAYER
 };
 
 
-struct OverlappedDBContext : public OverlappedContext
+struct OverlappedDBContext
 {
 public:
 	OverlappedDBContext(std::shared_ptr<Player> owner, DBType dbType);
@@ -26,8 +25,9 @@ public:
 	void OnResult();	//call OnSuccess Or OnFail according to success
 	
 	
-
 	std::shared_ptr<Player>	_playerObject;
+	int _intUID;	//if _playerObject is null -> use this. If _playerObject is needed... do something/
+
 	DBType	_dbType;
 	bool	_bSuccess;
 
@@ -37,28 +37,5 @@ protected:
 	virtual void OnFail() {}
 };
 
-
-//DB contexts
-//GetSharedFromThis<Player>(),
-struct OverlappedDBLogInOutContext : public OverlappedDBContext, public ObjectPool<OverlappedDBLogInOutContext>
-{
-	enum E_TYPE { CREATE, LOGIN, LOGOUT };
-
-	OverlappedDBLogInOutContext(std::shared_ptr<Player> owner, std::string& id, std::string& password, std::string& nickName, OverlappedDBLogInOutContext::E_TYPE type)
-		: OverlappedDBContext(owner, DBTYPE_LOGINOUT), _strID(id), _strPassword(password), _strNickName(nickName), _inType(type)
-	{
-	}
-
-	virtual bool OnSQLExecute();
-	virtual void OnSuccess();
-	virtual void OnFail();
-
-	std::string _strID;
-	std::string _strPassword;
-	std::string _strNickName;
-
-	E_TYPE _inType;
-
-};
 
 void DeleteDBContext(OverlappedDBContext* context);

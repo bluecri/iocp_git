@@ -77,6 +77,8 @@ class ClassTypeLock
 public:
 	struct LockGuard
 	{
+		int emptyInt;
+
 		LockGuard()
 		{
 			TargetClass::mLock.EnterWriteLock();
@@ -86,13 +88,11 @@ public:
 		{
 			TargetClass::mLock.LeaveWriteLock();
 		}
-
 	};
 
 private:
 	static FastSpinlock mLock;
 };
 
-//TOOODO
 template <class TargetClass>
 FastSpinlock ClassTypeLock<TargetClass>::mLock;

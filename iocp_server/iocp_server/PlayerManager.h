@@ -7,7 +7,7 @@
 #define MIN_GUEST_ID	(1<<30)
 #define MAX_GUEST_ID	~(1<<31)
 
-class Packet;
+struct Packet;
 class ClientSession;
 
 class PlayerManager
@@ -19,7 +19,7 @@ public:
 	std::shared_ptr<Player> GetGuestPlayer(ClientSession* session);
 	void UnregisterGuestPlayer(int plyaerID);
 
-	void RegisterLoginPlayer(std::shared_ptr<Player> loginPlayerShared);
+	void MoveGuestToLoginPlayer(std::shared_ptr<Player> guestPlayerShared, int playerID);
 	void UnregisterLoginPlayer(int plyaerID);
 
 private:

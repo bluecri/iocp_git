@@ -2,9 +2,10 @@
 #include "Player.h"
 #include "Packet.h"
 #include "ClientSession.h"
+#include "origin\ThreadLocal.h"
 #include "SendRequestSessionConcurrentQueue.h"
 
-Player::Player(ClientSession * session) : __clientSession(session)
+Player::Player(ClientSession * session) : _clientSession(session)
 {
 	PlayerReset();
 }
@@ -23,12 +24,12 @@ void Player::OnTick()
 
 void Player::PlayerReset()
 {
-	__playerId = -1;
-	__heartBeat = -1;
+	_playerUID = -1;
+	_heartBeat = -1;
 
-	__buffList.clear(); ///< (id, time)
+	_buffList.clear(); ///< (id, time)
 
-	__clientSession = nullptr;
+	_clientSession = nullptr;
 }
 
 void Player::AddBuff(int fromPlayerId, int buffId, int duration)
@@ -69,9 +70,10 @@ void Player::ResponseLogin()
 }
 
 // client와 connection을 check하고 valid 하면 Ref증가 후 cSession 저장.
-// 사용시 반드시 releaseRef해야함.
+// 사용시 반드시 releaseRef해야함.	//Player::CreateSendBuf 에서 사용.
 bool Player::GetClientSessionWithAddRef(ClientSession* cSession)
 {
+	
 	EnterReadLock();
 
 	//check is connected
@@ -80,27 +82,36 @@ bool Player::GetClientSessionWithAddRef(ClientSession* cSession)
 		return false;
 	}
 
-	__clientSession->AddRef();	// addRef하여 session return 방지.
+	_clientSession->AddRef();	// addRef하여 session return 방지.
 
-	cSession = __clientSession;
+	cSession = _clientSession;
 
 	LeaveReadLock();
 
 	return true;
 }
 
-bool Player::CreateSendBuf(Packet* packet)
+bool Player::SendToClient(Packet* packet)
 {
-	ClientSession* targetSession = __clientSession;
+	ClientSession* targetSession = _clientSession;
 
+	//queue에 session 추가 전, addRef. GSendRequestSessionQueue pop시 releaseRef 필수
 	if (false == GetClientSessionWithAddRef(targetSession)) {
 		return false;
 	}
 
-	targetSession->PostSend(packet->GetPacketStart(), packet->GetSize());	//data post 후 concurrnt queue push.
-	GSendRequestSessionQueue->PushSession(targetSession);
+	targetSession->PostSend(packet);	//data post 후 concurrnt queue push.
+	
+	switch (LThreadType)
+	{
+		case THREAD_TYPE::THREAD_IO_WORKER:
+			LSendRequestSessionQueue[LSendRequestSessionQueueIndex]->push(targetSession);
+			break;
+		default:
+			GSendRequestSessionQueue->PushSession(targetSession);
+			break;
+	}
 
-	//queue에 session 추가 전, addRef. GSendRequestSessionQueue pop시 releaseRef 필수
 
 	/*
 		queue에 session을 넣기 전에 postSend해야 data없이 session pop이 이뤄지는걸 방지할 수 있음.

@@ -11,11 +11,13 @@ enum SessionErrType {
 	POSTSEND_NOSPACE,
 	SAFE,
 	NODATA_TOSEND_BUT_PENDDING,
-	SEND_PENDDING,
-	SEND_PENDING_COUNT_MISS
+	SAFE_SEND_PENDDING,
+	SEND_PENDING_COUNT_MISS,
+	FAIL
 };
 
 class Player;
+class Packet;
 
 class Session
 {
@@ -34,7 +36,7 @@ public:
 	SessionErrType FlushSend();
 
 	virtual void DisconnectCompletion(DisconnectReason dr) = 0;
-	void SendCompletion(DWORD transferred);
+	SessionErrType SendCompletion(DWORD transferred);
 	void RecvCompletion(DWORD transferred);
 
 	void AddRef();
@@ -56,12 +58,12 @@ public:
 protected:
 	SOCKET __socket;
 
-	CircularBuffer __recvBuffer;
-	CircularBuffer __sendBuffer;
-	FastSpinlock __lockSendBuffer;
+	CircularBuffer _recvBuffer;
+	CircularBuffer _sendBuffer;
+	FastSpinlock _lockSendBuffer;
 
 	friend class Player;
-	SessionErrType PostSend(const char* data, size_t len);
+	SessionErrType PostSend(Packet* packet);
 
 	volatile long __lRefCount;
 	volatile long __lSendPendingCount;

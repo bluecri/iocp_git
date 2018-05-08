@@ -1,10 +1,6 @@
 #pragma once
 #include "../stdafx.h"
 
-#include "Exception.h"
-#include "FastSpinlock.h"
-
-
 template <class TOBJECT, int ALLOC_COUNT = 100>
 class ObjectPool : public ClassTypeLock<TOBJECT>
 {
@@ -13,6 +9,7 @@ public:
 	static void* operator new(size_t objSize)
 	{
 		LockGuard criticalSection;
+		
 
 		if (!mFreeList)
 		{

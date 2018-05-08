@@ -1,0 +1,282 @@
+syntax = "proto2";
+
+package prop;
+
+message msgLobby {
+    required int32 uid = 1;
+    required string name = 2;
+	required int32 userNum = 3;
+	required int32 useraMaxNum = 4;
+	required bool closed = 5;
+}
+
+message msgRoom {
+    required int32 uid = 1;
+    required string name = 2;
+	required int32 userNum = 3;
+	required int32 useraMaxNum = 4;
+}
+
+message msgGame {
+    required int32 uid = 1;
+    required string number = 2;
+	repeated msgUserInfo userList = 3;
+}
+
+message msgUserInfo {
+    required int32 uid = 1;
+    required int32 id = 2;
+	required string Nickname = 3;
+}
+
+message msgUserInGameInfo {
+    required int32 userUid = 1;
+	required float x = 2;
+	required float y = 3;
+	required float z = 4;
+	required float qx = 5;
+	required float qy = 6;
+	required float qz = 7;
+	required float qw = 8;
+}
+
+message msgUserInGameStateInfo
+{
+    required int32 userUid = 1;
+	required int32 stateBit32 = 2;
+}
+
+message accountCreate 
+{
+  required string id = 1;
+  required string password = 2;
+  required string nickname = 3;
+}
+
+message accountLogin
+{
+  required string id = 1;
+  required string password = 2;
+}
+
+message accountLogout
+{
+  required int32 empty = 1;
+}
+
+
+
+message anyPlayerInfoSelfRequest
+{
+  required int32 empty = 1;
+}
+
+message anyPlayerInfoOtherRequestWithID
+{
+	required string otherID = 1;
+}
+
+message anyPlayerInfoOtherRequestWithNickName
+{
+	required string otherNickname = 1;
+}
+
+message anyPlayerInfoResponse
+{
+	required msgUserInfo userInfo = 1;
+}
+
+
+message anyWhisperRequestWithUID
+{
+	required int32 otherUID = 1;
+	required string chat = 2;
+}
+
+message anyWhisperRequestWithID
+{
+	required string otherID = 1;
+	required string chat = 2;
+}
+
+message anyWhisperRequestWithNickName
+{
+	required string otherNickname = 1;
+	required string chat = 2;
+}
+
+message anyWhisperResponse
+{
+	required bool success = 1;
+}
+
+
+message outLobbyLobbylistRequest
+{
+	required int32 empty = 1;
+}
+
+message outLobbyLobbylistResponse
+{
+	required bool success = 1;
+	repeated msgLobby lobbyList = 2;
+}
+
+message outLobbyEnterLobbyRequest
+{
+	required int32 lobbyUID = 1;
+}
+
+message outLobbyEnterLobbyResponse
+{
+	required bool success = 1;
+	required int32 lobbyUID = 2;
+}
+
+
+message inLobbyPlayerlistRequest
+{
+	required int32 lobbyUID = 1;
+}
+
+message inLobbyPlayerlistResponse
+{
+	required bool success = 1;
+	required int32 lobbyUID = 2;
+	repeated msgUserInfo userList = 3;
+}
+
+message inLobbyEnterRoomRequest
+{
+	required int32 roomUID = 2;
+}
+
+message inLobbyEnterRoomResponse
+{
+	required bool success = 1;
+	required int32 roomUID = 2;
+}
+
+message inLobbyLeaveLobbyRequest
+{
+	required int32 lobbyUID = 1;
+}
+
+message inLobbyLeaveLobbyResponse
+{
+	required bool success = 1;
+	required int32 lobbyUID = 2;
+}
+
+message inLobbyChatRequest
+{
+	required int32 lobbyUID = 1;
+	required string chat = 2;
+}
+
+message inLobbyChatResponse
+{
+	required bool success = 1;
+}
+
+message inLobbyChatBroadcast
+{
+	required int32 lobbyUID = 1;
+	required string chat = 2;
+}
+
+
+message inRoomChatRequest
+{
+	required int32 roomUID = 1;
+	required string chat = 2;
+}
+
+message inRoomChatResponse
+{
+	required bool success = 1;
+}
+
+message inRoomChatBroadcast
+{
+	required int32 roomUID = 1;
+	required string chat = 2;
+}
+
+message inRoomLeaveRoomRequest
+{
+	required int32 roomUID = 1;
+}
+
+message inRoomLeaveRoomResponse
+{
+	required bool success = 1;
+	required int32 roomUID = 2;
+	required int32 lobbyUID = 3;
+}
+
+message inRoomReadyRequest
+{
+	required bool ready = 1;
+}
+
+message inRoomReadyResponse
+{
+	required bool success = 1;
+}
+
+message inRoomStartRequest
+{
+	required bool start = 1;
+}
+
+message inRoomStartResponse
+{
+	required bool success = 1;
+}
+
+message inRoomStartBroadcast
+{
+	required int32 inGameUID = 1;
+}
+
+
+message inGameSyncPlayerPosToServer
+{
+	required int32 inGameUID = 1;
+	required msgUserInGameInfo userInGameInfo = 2;
+}
+
+message inGameSyncPlayersPosFromServer
+{
+	required int32 inGameUID = 1;
+	repeated msgUserInGameInfo usersInGameInfo = 2;
+}
+
+message inGameSyncPlayerStateToServer
+{
+	required int32 inGameUID = 1;
+	required msgUserInGameStateInfo userStateInfo = 2;
+}
+
+message inGameSyncPlayersStateFromServer
+{
+	required int32 inGameUID = 1;
+	repeated msgUserInGameStateInfo userStateInfoList = 2;
+}
+
+message inGameChatRequest
+{
+	required int32 inGameUID = 1;
+	required string chat = 2;
+}
+
+message inGameChatResponse
+{
+	required bool success = 1;
+}
+
+message inGameChatBroadcast
+{
+	required string chat = 1;
+}

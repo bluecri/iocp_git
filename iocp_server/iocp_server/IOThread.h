@@ -14,9 +14,9 @@ public:
 	void DoTimerJob();
 
 public:
-	HANDLE GetHandle() { return __handle; }
+	HANDLE GetHandle() { return _handle; }
 
 private:
-	HANDLE __handle;
-	HANDLE __hCompletionPort;	// GetQueuedCompletionStatus로 참조할 completionPort. GIocpManager로도 참조 가능.
+	HANDLE _handle;
+	HANDLE _hCompletionPort;	// GetQueuedCompletionStatus로 참조할 completionPort. GIocpManager로도 참조 가능.
 };

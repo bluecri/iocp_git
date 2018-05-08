@@ -1,26 +1,28 @@
 #include "stdafx.h"
 #include "IOThread.h"
 #include "ClientSession.h"
-
+#include "origin\ThreadLocal.h"
 #include "DBContext.h"
 #include "OverlappedContext.h"
 
-IOThread::IOThread(HANDLE hThread, HANDLE hCompletionPort) : __handle(hThread), __hCompletionPort(hCompletionPort)
+IOThread::IOThread(HANDLE hThread, HANDLE hCompletionPort) : _handle(hThread), _hCompletionPort(hCompletionPort)
 {
 }
 
 IOThread::~IOThread()
 {
-	CloseHandle(__handle);
+	CloseHandle(_handle);
 }
 
 DWORD IOThread::Run()
 {
 	while (true) {
 
-		DoIocpJob();
+		//DoIocpJob();
 
-		DoTimerJob();
+		//DoTimerJob();
+
+		//DoSendFlushJob();
 	}
 
 	DWORD dwTransferred = 0;
@@ -28,9 +30,9 @@ DWORD IOThread::Run()
 
 	ULONG_PTR completionKey = 0;
 
-	bool completionOk = false;
+	SessionErrType completionOk = SessionErrType::FAIL;
 
-	int ret = GetQueuedCompletionStatus(__hCompletionPort, &dwTransferred, (PULONG_PTR)&completionKey, &overlapped, GQCS_TIMEOUT);
+	int ret = GetQueuedCompletionStatus(_hCompletionPort, &dwTransferred, (PULONG_PTR)&completionKey, &overlapped, GQCS_TIMEOUT);
 
 	if (CK_DB_RESULT == completionKey)
 	{
@@ -74,17 +76,17 @@ DWORD IOThread::Run()
 	{
 	case IOTYPE_CONNECT:
 		dynamic_cast<ServerSession*>(remote)->ConnectCompletion();
-		completionOk = true;
+		completionOk = SessionErrType::SAFE;
 		break;
 
 	case IOTYPE_DISCONNECT:
 		remote->DisconnectCompletion(static_cast<OverlappedDisconnectContext*>(context)->_dr);
-		completionOk = true;
+		completionOk = SessionErrType::SAFE;
 		break;
 
 	case IOTYPE_ACCEPT:
 		dynamic_cast<ClientSession*>(remote)->AcceptCompletion();
-		completionOk = true;
+		completionOk = SessionErrType::SAFE;
 		break;
 
 	case IOTYPE_RECV_ZERO:
@@ -92,17 +94,24 @@ DWORD IOThread::Run()
 		break;
 
 	case IOTYPE_SEND:
-		remote->SendCompletion(dwTransferred);
+		//flush send뒤 바로 남은 buffer를 send한다면?, pending인 경우 해당 session은 재검사 될 것이므로 session list에서 제외해도 되는가? : 일단 시도.
+		completionOk = remote->SendCompletion(dwTransferred);
 
 		if (context->_wsaBuf.len != dwTransferred)
+		{
 			printf_s("Partial SendCompletion requested [%d], sent [%d]\n", context->_wsaBuf.len, dwTransferred);
-		else
-			completionOk = true;
-
+			completionOk = SessionErrType::FAIL;
+		}
 		break;
 
 	case IOTYPE_RECV:
 		remote->RecvCompletion(dwTransferred);
+
+
+
+		//TODO : Check Packet with first length
+
+
 
 		completionOk = remote->PreRecv();
 
@@ -114,9 +123,10 @@ DWORD IOThread::Run()
 		break;
 	}
 
-	if (!completionOk)
+	if (!(completionOk == SessionErrType::SAFE || completionOk == SessionErrType::SAFE_SEND_PENDDING))
 	{
 		/// connection closing
+		printf_s("DWORD IOThread::Run() completionOK fail.. try disconnect : %d\n", completionOk);
 		remote->DisconnectRequest(DR_IO_REQUEST_ERROR);
 	}
 
@@ -131,4 +141,31 @@ void IOThread::DoIocpJob()
 
 void IOThread::DoTimerJob()
 {
+}
+
+void IOThread::DoSendFlushJob()
+{
+	//global session flush
+
+
+
+	// local session flush
+	while (!LSendRequestSessionQueue.empty())
+	{
+		// LSendRequestSessionQueueIndex switch 방법 사용 x
+		// LSendRequestSessionQueue[(LSendRequestSessionQueueIndex + 1 % 2)]->push(this);
+	
+		Session* session = LSendRequestSessionQueue[0]->front();
+		LSendRequestSessionQueue.pop();
+
+		SessionErrType completionOk = session->FlushSend();
+		if (!(completionOk == SessionErrType::SAFE || completionOk == SessionErrType::SAFE_SEND_PENDDING))
+		{
+			printf_s("DWORD IOThread::DoSendFlushJob() fail.. try disconnect : %d\n", completionOk);
+			session->DisconnectRequest(DR_IO_REQUEST_ERROR);
+			return;
+		}
+	}
+	
+	return;
 }

@@ -28,7 +28,25 @@ bool ClientSession::PostAccept()
 {
 	CRASH_ASSERT(LThreadType == THREAD_IO_WORKER);
 
-	return false;
+	OverlappedAcceptContext* acceptContext = new OverlappedAcceptContext(this);
+	DWORD bytes = 0;
+	DWORD flags = 0;
+	acceptContext->_wsaBuf.len = 0;
+	acceptContext->_wsaBuf.buf = nullptr;
+
+	if (FALSE == AcceptEx(*GIocpManager->GetPtrListenSocket(), __socket, GIocpManager->_schAcceptBuf, 0,
+		sizeof(SOCKADDR_IN) + 16, sizeof(SOCKADDR_IN) + 16, &bytes, (LPOVERLAPPED)acceptContext))
+	{
+		if (WSAGetLastError() != WSA_IO_PENDING)
+		{
+			DeleteIOContext(acceptContext);
+			printf_s("AcceptEx Error : %d\n", GetLastError());
+
+			return false;
+		}
+	}
+
+	return true;
 }
 
 void ClientSession::AcceptCompletion()
@@ -118,7 +136,7 @@ void ClientSession::DisconnectRequest(DisconnectReason dr)
 	}
 
 	OverlappedDisconnectContext* context = new OverlappedDisconnectContext(this, dr);
-	_sharedPlayer->__bClientConn = false;
+	_sharedPlayer->_bClientConn = false;
 
 	_sharedPlayer->LeaveWriteLock();
 
