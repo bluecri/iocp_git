@@ -1,7 +1,7 @@
 #include "DBContext.h"
 #include "origin\ThreadLocal.h"
 
-OverlappedDBContext::OverlappedDBContext(std::shared_ptr<Player> owner, DBType dbType) : _playerObject(owner), _dbType(dbType)
+OverlappedDBContext::OverlappedDBContext(std::shared_ptr<Player> owner, DBType dbType) : _playerShared(owner), _dbType(dbType)
 {
 	
 }

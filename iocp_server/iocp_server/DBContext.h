@@ -18,15 +18,15 @@ enum DBType
 struct OverlappedDBContext
 {
 public:
-	OverlappedDBContext(std::shared_ptr<Player> owner, DBType dbType);
+	OverlappedDBContext(std::shared_ptr<Player> playerShared, DBType dbType);
 	
 	bool SQLExecute();	// call OnSQLExecute
 
 	void OnResult();	//call OnSuccess Or OnFail according to success
 	
 	
-	std::shared_ptr<Player>	_playerObject;
-	int _intUID;	//if _playerObject is null -> use this. If _playerObject is needed... do something/
+	std::shared_ptr<Player>	_playerShared;
+	int _intUID;	//if playerShared is null -> use this. If playerShared is needed... do something/
 
 	DBType	_dbType;
 	bool	_bSuccess;

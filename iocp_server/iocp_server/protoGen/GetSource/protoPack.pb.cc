@@ -50,21 +50,36 @@ class msgUserInGameStateInfoDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<msgUserInGameStateInfo>
       _instance;
 } _msgUserInGameStateInfo_default_instance_;
-class accountCreateDefaultTypeInternal {
+class accountCreateRequestDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<accountCreate>
+  ::google::protobuf::internal::ExplicitlyConstructed<accountCreateRequest>
       _instance;
-} _accountCreate_default_instance_;
-class accountLoginDefaultTypeInternal {
+} _accountCreateRequest_default_instance_;
+class accountCreateResponseDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<accountLogin>
+  ::google::protobuf::internal::ExplicitlyConstructed<accountCreateResponse>
       _instance;
-} _accountLogin_default_instance_;
-class accountLogoutDefaultTypeInternal {
+} _accountCreateResponse_default_instance_;
+class accountLoginRequestDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<accountLogout>
+  ::google::protobuf::internal::ExplicitlyConstructed<accountLoginRequest>
       _instance;
-} _accountLogout_default_instance_;
+} _accountLoginRequest_default_instance_;
+class accountLoginResponseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<accountLoginResponse>
+      _instance;
+} _accountLoginResponse_default_instance_;
+class accountLogoutRequestDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<accountLogoutRequest>
+      _instance;
+} _accountLogoutRequest_default_instance_;
+class accountLogoutResponseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<accountLogoutResponse>
+      _instance;
+} _accountLogoutResponse_default_instance_;
 class anyPlayerInfoSelfRequestDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<anyPlayerInfoSelfRequest>
@@ -384,7 +399,7 @@ void InitDefaultsmsgUserInGameStateInfo() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsmsgUserInGameStateInfoImpl);
 }
 
-void InitDefaultsaccountCreateImpl() {
+void InitDefaultsaccountCreateRequestImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
 #ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
@@ -393,19 +408,19 @@ void InitDefaultsaccountCreateImpl() {
   ::google::protobuf::internal::InitProtobufDefaults();
 #endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
   {
-    void* ptr = &::prop::_accountCreate_default_instance_;
-    new (ptr) ::prop::accountCreate();
+    void* ptr = &::prop::_accountCreateRequest_default_instance_;
+    new (ptr) ::prop::accountCreateRequest();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::prop::accountCreate::InitAsDefaultInstance();
+  ::prop::accountCreateRequest::InitAsDefaultInstance();
 }
 
-void InitDefaultsaccountCreate() {
+void InitDefaultsaccountCreateRequest() {
   static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsaccountCreateImpl);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsaccountCreateRequestImpl);
 }
 
-void InitDefaultsaccountLoginImpl() {
+void InitDefaultsaccountCreateResponseImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
 #ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
@@ -414,19 +429,19 @@ void InitDefaultsaccountLoginImpl() {
   ::google::protobuf::internal::InitProtobufDefaults();
 #endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
   {
-    void* ptr = &::prop::_accountLogin_default_instance_;
-    new (ptr) ::prop::accountLogin();
+    void* ptr = &::prop::_accountCreateResponse_default_instance_;
+    new (ptr) ::prop::accountCreateResponse();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::prop::accountLogin::InitAsDefaultInstance();
+  ::prop::accountCreateResponse::InitAsDefaultInstance();
 }
 
-void InitDefaultsaccountLogin() {
+void InitDefaultsaccountCreateResponse() {
   static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsaccountLoginImpl);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsaccountCreateResponseImpl);
 }
 
-void InitDefaultsaccountLogoutImpl() {
+void InitDefaultsaccountLoginRequestImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
 #ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
@@ -435,16 +450,79 @@ void InitDefaultsaccountLogoutImpl() {
   ::google::protobuf::internal::InitProtobufDefaults();
 #endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
   {
-    void* ptr = &::prop::_accountLogout_default_instance_;
-    new (ptr) ::prop::accountLogout();
+    void* ptr = &::prop::_accountLoginRequest_default_instance_;
+    new (ptr) ::prop::accountLoginRequest();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::prop::accountLogout::InitAsDefaultInstance();
+  ::prop::accountLoginRequest::InitAsDefaultInstance();
 }
 
-void InitDefaultsaccountLogout() {
+void InitDefaultsaccountLoginRequest() {
   static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsaccountLogoutImpl);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsaccountLoginRequestImpl);
+}
+
+void InitDefaultsaccountLoginResponseImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  {
+    void* ptr = &::prop::_accountLoginResponse_default_instance_;
+    new (ptr) ::prop::accountLoginResponse();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::prop::accountLoginResponse::InitAsDefaultInstance();
+}
+
+void InitDefaultsaccountLoginResponse() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsaccountLoginResponseImpl);
+}
+
+void InitDefaultsaccountLogoutRequestImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  {
+    void* ptr = &::prop::_accountLogoutRequest_default_instance_;
+    new (ptr) ::prop::accountLogoutRequest();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::prop::accountLogoutRequest::InitAsDefaultInstance();
+}
+
+void InitDefaultsaccountLogoutRequest() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsaccountLogoutRequestImpl);
+}
+
+void InitDefaultsaccountLogoutResponseImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  {
+    void* ptr = &::prop::_accountLogoutResponse_default_instance_;
+    new (ptr) ::prop::accountLogoutResponse();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::prop::accountLogoutResponse::InitAsDefaultInstance();
+}
+
+void InitDefaultsaccountLogoutResponse() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsaccountLogoutResponseImpl);
 }
 
 void InitDefaultsanyPlayerInfoSelfRequestImpl() {
@@ -1252,7 +1330,7 @@ void InitDefaultsinGameChatBroadcast() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsinGameChatBroadcastImpl);
 }
 
-::google::protobuf::Metadata file_level_metadata[47];
+::google::protobuf::Metadata file_level_metadata[50];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::msgLobby, _has_bits_),
@@ -1335,32 +1413,53 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::msgUserInGameStateInfo, statebit32_),
   0,
   1,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountCreate, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountCreate, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountCreateRequest, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountCreateRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountCreate, id_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountCreate, password_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountCreate, nickname_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountCreateRequest, id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountCreateRequest, password_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountCreateRequest, nickname_),
   0,
   1,
   2,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountLogin, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountLogin, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountCreateResponse, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountCreateResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountLogin, id_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountLogin, password_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountCreateResponse, success_),
+  0,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountLoginRequest, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountLoginRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountLoginRequest, id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountLoginRequest, password_),
   0,
   1,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountLogout, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountLogout, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountLoginResponse, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountLoginResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountLogout, empty_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountLoginResponse, success_),
+  0,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountLogoutRequest, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountLogoutRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountLogoutRequest, empty_),
+  0,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountLogoutResponse, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountLogoutResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::accountLogoutResponse, success_),
   0,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::anyPlayerInfoSelfRequest, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::prop::anyPlayerInfoSelfRequest, _internal_metadata_),
@@ -1676,47 +1775,50 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 39, 47, sizeof(::prop::msgUserInfo)},
   { 50, 63, sizeof(::prop::msgUserInGameInfo)},
   { 71, 78, sizeof(::prop::msgUserInGameStateInfo)},
-  { 80, 88, sizeof(::prop::accountCreate)},
-  { 91, 98, sizeof(::prop::accountLogin)},
-  { 100, 106, sizeof(::prop::accountLogout)},
-  { 107, 113, sizeof(::prop::anyPlayerInfoSelfRequest)},
-  { 114, 120, sizeof(::prop::anyPlayerInfoOtherRequestWithID)},
-  { 121, 127, sizeof(::prop::anyPlayerInfoOtherRequestWithNickName)},
-  { 128, 134, sizeof(::prop::anyPlayerInfoResponse)},
-  { 135, 142, sizeof(::prop::anyWhisperRequestWithUID)},
-  { 144, 151, sizeof(::prop::anyWhisperRequestWithID)},
-  { 153, 160, sizeof(::prop::anyWhisperRequestWithNickName)},
-  { 162, 168, sizeof(::prop::anyWhisperResponse)},
-  { 169, 175, sizeof(::prop::outLobbyLobbylistRequest)},
-  { 176, 183, sizeof(::prop::outLobbyLobbylistResponse)},
-  { 185, 191, sizeof(::prop::outLobbyEnterLobbyRequest)},
-  { 192, 199, sizeof(::prop::outLobbyEnterLobbyResponse)},
-  { 201, 207, sizeof(::prop::inLobbyPlayerlistRequest)},
-  { 208, 216, sizeof(::prop::inLobbyPlayerlistResponse)},
-  { 219, 225, sizeof(::prop::inLobbyEnterRoomRequest)},
-  { 226, 233, sizeof(::prop::inLobbyEnterRoomResponse)},
-  { 235, 241, sizeof(::prop::inLobbyLeaveLobbyRequest)},
-  { 242, 249, sizeof(::prop::inLobbyLeaveLobbyResponse)},
-  { 251, 258, sizeof(::prop::inLobbyChatRequest)},
-  { 260, 266, sizeof(::prop::inLobbyChatResponse)},
-  { 267, 274, sizeof(::prop::inLobbyChatBroadcast)},
-  { 276, 283, sizeof(::prop::inRoomChatRequest)},
-  { 285, 291, sizeof(::prop::inRoomChatResponse)},
-  { 292, 299, sizeof(::prop::inRoomChatBroadcast)},
-  { 301, 307, sizeof(::prop::inRoomLeaveRoomRequest)},
-  { 308, 316, sizeof(::prop::inRoomLeaveRoomResponse)},
-  { 319, 325, sizeof(::prop::inRoomReadyRequest)},
-  { 326, 332, sizeof(::prop::inRoomReadyResponse)},
-  { 333, 339, sizeof(::prop::inRoomStartRequest)},
-  { 340, 346, sizeof(::prop::inRoomStartResponse)},
-  { 347, 353, sizeof(::prop::inRoomStartBroadcast)},
-  { 354, 361, sizeof(::prop::inGameSyncPlayerPosToServer)},
-  { 363, 370, sizeof(::prop::inGameSyncPlayersPosFromServer)},
-  { 372, 379, sizeof(::prop::inGameSyncPlayerStateToServer)},
-  { 381, 388, sizeof(::prop::inGameSyncPlayersStateFromServer)},
-  { 390, 397, sizeof(::prop::inGameChatRequest)},
-  { 399, 405, sizeof(::prop::inGameChatResponse)},
-  { 406, 412, sizeof(::prop::inGameChatBroadcast)},
+  { 80, 88, sizeof(::prop::accountCreateRequest)},
+  { 91, 97, sizeof(::prop::accountCreateResponse)},
+  { 98, 105, sizeof(::prop::accountLoginRequest)},
+  { 107, 113, sizeof(::prop::accountLoginResponse)},
+  { 114, 120, sizeof(::prop::accountLogoutRequest)},
+  { 121, 127, sizeof(::prop::accountLogoutResponse)},
+  { 128, 134, sizeof(::prop::anyPlayerInfoSelfRequest)},
+  { 135, 141, sizeof(::prop::anyPlayerInfoOtherRequestWithID)},
+  { 142, 148, sizeof(::prop::anyPlayerInfoOtherRequestWithNickName)},
+  { 149, 155, sizeof(::prop::anyPlayerInfoResponse)},
+  { 156, 163, sizeof(::prop::anyWhisperRequestWithUID)},
+  { 165, 172, sizeof(::prop::anyWhisperRequestWithID)},
+  { 174, 181, sizeof(::prop::anyWhisperRequestWithNickName)},
+  { 183, 189, sizeof(::prop::anyWhisperResponse)},
+  { 190, 196, sizeof(::prop::outLobbyLobbylistRequest)},
+  { 197, 204, sizeof(::prop::outLobbyLobbylistResponse)},
+  { 206, 212, sizeof(::prop::outLobbyEnterLobbyRequest)},
+  { 213, 220, sizeof(::prop::outLobbyEnterLobbyResponse)},
+  { 222, 228, sizeof(::prop::inLobbyPlayerlistRequest)},
+  { 229, 237, sizeof(::prop::inLobbyPlayerlistResponse)},
+  { 240, 246, sizeof(::prop::inLobbyEnterRoomRequest)},
+  { 247, 254, sizeof(::prop::inLobbyEnterRoomResponse)},
+  { 256, 262, sizeof(::prop::inLobbyLeaveLobbyRequest)},
+  { 263, 270, sizeof(::prop::inLobbyLeaveLobbyResponse)},
+  { 272, 279, sizeof(::prop::inLobbyChatRequest)},
+  { 281, 287, sizeof(::prop::inLobbyChatResponse)},
+  { 288, 295, sizeof(::prop::inLobbyChatBroadcast)},
+  { 297, 304, sizeof(::prop::inRoomChatRequest)},
+  { 306, 312, sizeof(::prop::inRoomChatResponse)},
+  { 313, 320, sizeof(::prop::inRoomChatBroadcast)},
+  { 322, 328, sizeof(::prop::inRoomLeaveRoomRequest)},
+  { 329, 337, sizeof(::prop::inRoomLeaveRoomResponse)},
+  { 340, 346, sizeof(::prop::inRoomReadyRequest)},
+  { 347, 353, sizeof(::prop::inRoomReadyResponse)},
+  { 354, 360, sizeof(::prop::inRoomStartRequest)},
+  { 361, 367, sizeof(::prop::inRoomStartResponse)},
+  { 368, 374, sizeof(::prop::inRoomStartBroadcast)},
+  { 375, 382, sizeof(::prop::inGameSyncPlayerPosToServer)},
+  { 384, 391, sizeof(::prop::inGameSyncPlayersPosFromServer)},
+  { 393, 400, sizeof(::prop::inGameSyncPlayerStateToServer)},
+  { 402, 409, sizeof(::prop::inGameSyncPlayersStateFromServer)},
+  { 411, 418, sizeof(::prop::inGameChatRequest)},
+  { 420, 426, sizeof(::prop::inGameChatResponse)},
+  { 427, 433, sizeof(::prop::inGameChatBroadcast)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -1726,9 +1828,12 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::prop::_msgUserInfo_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::prop::_msgUserInGameInfo_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::prop::_msgUserInGameStateInfo_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::prop::_accountCreate_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::prop::_accountLogin_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::prop::_accountLogout_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::prop::_accountCreateRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::prop::_accountCreateResponse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::prop::_accountLoginRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::prop::_accountLoginResponse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::prop::_accountLogoutRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::prop::_accountLogoutResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::prop::_anyPlayerInfoSelfRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::prop::_anyPlayerInfoOtherRequestWithID_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::prop::_anyPlayerInfoOtherRequestWithNickName_default_instance_),
@@ -1785,7 +1890,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 47);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 50);
 }
 
 void AddDescriptorsImpl() {
@@ -1803,69 +1908,73 @@ void AddDescriptorsImpl() {
       "\001 \002(\005\022\t\n\001x\030\002 \002(\002\022\t\n\001y\030\003 \002(\002\022\t\n\001z\030\004 \002(\002\022\n"
       "\n\002qx\030\005 \002(\002\022\n\n\002qy\030\006 \002(\002\022\n\n\002qz\030\007 \002(\002\022\n\n\002qw"
       "\030\010 \002(\002\"=\n\026msgUserInGameStateInfo\022\017\n\007user"
-      "Uid\030\001 \002(\005\022\022\n\nstateBit32\030\002 \002(\005\"\?\n\raccount"
-      "Create\022\n\n\002id\030\001 \002(\t\022\020\n\010password\030\002 \002(\t\022\020\n\010"
-      "nickname\030\003 \002(\t\",\n\014accountLogin\022\n\n\002id\030\001 \002"
-      "(\t\022\020\n\010password\030\002 \002(\t\"\036\n\raccountLogout\022\r\n"
-      "\005empty\030\001 \002(\005\")\n\030anyPlayerInfoSelfRequest"
-      "\022\r\n\005empty\030\001 \002(\005\"2\n\037anyPlayerInfoOtherReq"
-      "uestWithID\022\017\n\007otherID\030\001 \002(\t\">\n%anyPlayer"
-      "InfoOtherRequestWithNickName\022\025\n\rotherNic"
-      "kname\030\001 \002(\t\"<\n\025anyPlayerInfoResponse\022#\n\010"
-      "userInfo\030\001 \002(\0132\021.prop.msgUserInfo\":\n\030any"
-      "WhisperRequestWithUID\022\020\n\010otherUID\030\001 \002(\005\022"
-      "\014\n\004chat\030\002 \002(\t\"8\n\027anyWhisperRequestWithID"
-      "\022\017\n\007otherID\030\001 \002(\t\022\014\n\004chat\030\002 \002(\t\"D\n\035anyWh"
-      "isperRequestWithNickName\022\025\n\rotherNicknam"
-      "e\030\001 \002(\t\022\014\n\004chat\030\002 \002(\t\"%\n\022anyWhisperRespo"
-      "nse\022\017\n\007success\030\001 \002(\010\")\n\030outLobbyLobbylis"
-      "tRequest\022\r\n\005empty\030\001 \002(\005\"O\n\031outLobbyLobby"
-      "listResponse\022\017\n\007success\030\001 \002(\010\022!\n\tlobbyLi"
-      "st\030\002 \003(\0132\016.prop.msgLobby\"-\n\031outLobbyEnte"
-      "rLobbyRequest\022\020\n\010lobbyUID\030\001 \002(\005\"\?\n\032outLo"
-      "bbyEnterLobbyResponse\022\017\n\007success\030\001 \002(\010\022\020"
-      "\n\010lobbyUID\030\002 \002(\005\",\n\030inLobbyPlayerlistReq"
-      "uest\022\020\n\010lobbyUID\030\001 \002(\005\"c\n\031inLobbyPlayerl"
-      "istResponse\022\017\n\007success\030\001 \002(\010\022\020\n\010lobbyUID"
-      "\030\002 \002(\005\022#\n\010userList\030\003 \003(\0132\021.prop.msgUserI"
-      "nfo\"*\n\027inLobbyEnterRoomRequest\022\017\n\007roomUI"
-      "D\030\002 \002(\005\"<\n\030inLobbyEnterRoomResponse\022\017\n\007s"
-      "uccess\030\001 \002(\010\022\017\n\007roomUID\030\002 \002(\005\",\n\030inLobby"
-      "LeaveLobbyRequest\022\020\n\010lobbyUID\030\001 \002(\005\">\n\031i"
-      "nLobbyLeaveLobbyResponse\022\017\n\007success\030\001 \002("
-      "\010\022\020\n\010lobbyUID\030\002 \002(\005\"4\n\022inLobbyChatReques"
-      "t\022\020\n\010lobbyUID\030\001 \002(\005\022\014\n\004chat\030\002 \002(\t\"&\n\023inL"
-      "obbyChatResponse\022\017\n\007success\030\001 \002(\010\"6\n\024inL"
-      "obbyChatBroadcast\022\020\n\010lobbyUID\030\001 \002(\005\022\014\n\004c"
-      "hat\030\002 \002(\t\"2\n\021inRoomChatRequest\022\017\n\007roomUI"
-      "D\030\001 \002(\005\022\014\n\004chat\030\002 \002(\t\"%\n\022inRoomChatRespo"
-      "nse\022\017\n\007success\030\001 \002(\010\"4\n\023inRoomChatBroadc"
-      "ast\022\017\n\007roomUID\030\001 \002(\005\022\014\n\004chat\030\002 \002(\t\")\n\026in"
-      "RoomLeaveRoomRequest\022\017\n\007roomUID\030\001 \002(\005\"M\n"
-      "\027inRoomLeaveRoomResponse\022\017\n\007success\030\001 \002("
-      "\010\022\017\n\007roomUID\030\002 \002(\005\022\020\n\010lobbyUID\030\003 \002(\005\"#\n\022"
-      "inRoomReadyRequest\022\r\n\005ready\030\001 \002(\010\"&\n\023inR"
-      "oomReadyResponse\022\017\n\007success\030\001 \002(\010\"#\n\022inR"
-      "oomStartRequest\022\r\n\005start\030\001 \002(\010\"&\n\023inRoom"
-      "StartResponse\022\017\n\007success\030\001 \002(\010\")\n\024inRoom"
-      "StartBroadcast\022\021\n\tinGameUID\030\001 \002(\005\"a\n\033inG"
-      "ameSyncPlayerPosToServer\022\021\n\tinGameUID\030\001 "
-      "\002(\005\022/\n\016userInGameInfo\030\002 \002(\0132\027.prop.msgUs"
-      "erInGameInfo\"e\n\036inGameSyncPlayersPosFrom"
-      "Server\022\021\n\tinGameUID\030\001 \002(\005\0220\n\017usersInGame"
-      "Info\030\002 \003(\0132\027.prop.msgUserInGameInfo\"g\n\035i"
-      "nGameSyncPlayerStateToServer\022\021\n\tinGameUI"
-      "D\030\001 \002(\005\0223\n\ruserStateInfo\030\002 \002(\0132\034.prop.ms"
-      "gUserInGameStateInfo\"n\n inGameSyncPlayer"
-      "sStateFromServer\022\021\n\tinGameUID\030\001 \002(\005\0227\n\021u"
-      "serStateInfoList\030\002 \003(\0132\034.prop.msgUserInG"
-      "ameStateInfo\"4\n\021inGameChatRequest\022\021\n\tinG"
-      "ameUID\030\001 \002(\005\022\014\n\004chat\030\002 \002(\t\"%\n\022inGameChat"
-      "Response\022\017\n\007success\030\001 \002(\010\"#\n\023inGameChatB"
-      "roadcast\022\014\n\004chat\030\001 \002(\t"
+      "Uid\030\001 \002(\005\022\022\n\nstateBit32\030\002 \002(\005\"F\n\024account"
+      "CreateRequest\022\n\n\002id\030\001 \002(\t\022\020\n\010password\030\002 "
+      "\002(\t\022\020\n\010nickname\030\003 \002(\t\"(\n\025accountCreateRe"
+      "sponse\022\017\n\007success\030\001 \002(\010\"3\n\023accountLoginR"
+      "equest\022\n\n\002id\030\001 \002(\t\022\020\n\010password\030\002 \002(\t\"\'\n\024"
+      "accountLoginResponse\022\017\n\007success\030\001 \002(\010\"%\n"
+      "\024accountLogoutRequest\022\r\n\005empty\030\001 \002(\005\"(\n\025"
+      "accountLogoutResponse\022\017\n\007success\030\001 \002(\010\")"
+      "\n\030anyPlayerInfoSelfRequest\022\r\n\005empty\030\001 \002("
+      "\005\"2\n\037anyPlayerInfoOtherRequestWithID\022\017\n\007"
+      "otherID\030\001 \002(\t\">\n%anyPlayerInfoOtherReque"
+      "stWithNickName\022\025\n\rotherNickname\030\001 \002(\t\"<\n"
+      "\025anyPlayerInfoResponse\022#\n\010userInfo\030\001 \002(\013"
+      "2\021.prop.msgUserInfo\":\n\030anyWhisperRequest"
+      "WithUID\022\020\n\010otherUID\030\001 \002(\005\022\014\n\004chat\030\002 \002(\t\""
+      "8\n\027anyWhisperRequestWithID\022\017\n\007otherID\030\001 "
+      "\002(\t\022\014\n\004chat\030\002 \002(\t\"D\n\035anyWhisperRequestWi"
+      "thNickName\022\025\n\rotherNickname\030\001 \002(\t\022\014\n\004cha"
+      "t\030\002 \002(\t\"%\n\022anyWhisperResponse\022\017\n\007success"
+      "\030\001 \002(\010\")\n\030outLobbyLobbylistRequest\022\r\n\005em"
+      "pty\030\001 \002(\005\"O\n\031outLobbyLobbylistResponse\022\017"
+      "\n\007success\030\001 \002(\010\022!\n\tlobbyList\030\002 \003(\0132\016.pro"
+      "p.msgLobby\"-\n\031outLobbyEnterLobbyRequest\022"
+      "\020\n\010lobbyUID\030\001 \002(\005\"\?\n\032outLobbyEnterLobbyR"
+      "esponse\022\017\n\007success\030\001 \002(\010\022\020\n\010lobbyUID\030\002 \002"
+      "(\005\",\n\030inLobbyPlayerlistRequest\022\020\n\010lobbyU"
+      "ID\030\001 \002(\005\"c\n\031inLobbyPlayerlistResponse\022\017\n"
+      "\007success\030\001 \002(\010\022\020\n\010lobbyUID\030\002 \002(\005\022#\n\010user"
+      "List\030\003 \003(\0132\021.prop.msgUserInfo\"*\n\027inLobby"
+      "EnterRoomRequest\022\017\n\007roomUID\030\002 \002(\005\"<\n\030inL"
+      "obbyEnterRoomResponse\022\017\n\007success\030\001 \002(\010\022\017"
+      "\n\007roomUID\030\002 \002(\005\",\n\030inLobbyLeaveLobbyRequ"
+      "est\022\020\n\010lobbyUID\030\001 \002(\005\">\n\031inLobbyLeaveLob"
+      "byResponse\022\017\n\007success\030\001 \002(\010\022\020\n\010lobbyUID\030"
+      "\002 \002(\005\"4\n\022inLobbyChatRequest\022\020\n\010lobbyUID\030"
+      "\001 \002(\005\022\014\n\004chat\030\002 \002(\t\"&\n\023inLobbyChatRespon"
+      "se\022\017\n\007success\030\001 \002(\010\"6\n\024inLobbyChatBroadc"
+      "ast\022\020\n\010lobbyUID\030\001 \002(\005\022\014\n\004chat\030\002 \002(\t\"2\n\021i"
+      "nRoomChatRequest\022\017\n\007roomUID\030\001 \002(\005\022\014\n\004cha"
+      "t\030\002 \002(\t\"%\n\022inRoomChatResponse\022\017\n\007success"
+      "\030\001 \002(\010\"4\n\023inRoomChatBroadcast\022\017\n\007roomUID"
+      "\030\001 \002(\005\022\014\n\004chat\030\002 \002(\t\")\n\026inRoomLeaveRoomR"
+      "equest\022\017\n\007roomUID\030\001 \002(\005\"M\n\027inRoomLeaveRo"
+      "omResponse\022\017\n\007success\030\001 \002(\010\022\017\n\007roomUID\030\002"
+      " \002(\005\022\020\n\010lobbyUID\030\003 \002(\005\"#\n\022inRoomReadyReq"
+      "uest\022\r\n\005ready\030\001 \002(\010\"&\n\023inRoomReadyRespon"
+      "se\022\017\n\007success\030\001 \002(\010\"#\n\022inRoomStartReques"
+      "t\022\r\n\005start\030\001 \002(\010\"&\n\023inRoomStartResponse\022"
+      "\017\n\007success\030\001 \002(\010\")\n\024inRoomStartBroadcast"
+      "\022\021\n\tinGameUID\030\001 \002(\005\"a\n\033inGameSyncPlayerP"
+      "osToServer\022\021\n\tinGameUID\030\001 \002(\005\022/\n\016userInG"
+      "ameInfo\030\002 \002(\0132\027.prop.msgUserInGameInfo\"e"
+      "\n\036inGameSyncPlayersPosFromServer\022\021\n\tinGa"
+      "meUID\030\001 \002(\005\0220\n\017usersInGameInfo\030\002 \003(\0132\027.p"
+      "rop.msgUserInGameInfo\"g\n\035inGameSyncPlaye"
+      "rStateToServer\022\021\n\tinGameUID\030\001 \002(\005\0223\n\ruse"
+      "rStateInfo\030\002 \002(\0132\034.prop.msgUserInGameSta"
+      "teInfo\"n\n inGameSyncPlayersStateFromServ"
+      "er\022\021\n\tinGameUID\030\001 \002(\005\0227\n\021userStateInfoLi"
+      "st\030\002 \003(\0132\034.prop.msgUserInGameStateInfo\"4"
+      "\n\021inGameChatRequest\022\021\n\tinGameUID\030\001 \002(\005\022\014"
+      "\n\004chat\030\002 \002(\t\"%\n\022inGameChatResponse\022\017\n\007su"
+      "ccess\030\001 \002(\010\"#\n\023inGameChatBroadcast\022\014\n\004ch"
+      "at\030\001 \002(\t"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 2862);
+      descriptor, 3008);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "protoPack.proto", &protobuf_RegisterTypes);
 }
@@ -4354,23 +4463,23 @@ void msgUserInGameStateInfo::InternalSwap(msgUserInGameStateInfo* other) {
 
 // ===================================================================
 
-void accountCreate::InitAsDefaultInstance() {
+void accountCreateRequest::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int accountCreate::kIdFieldNumber;
-const int accountCreate::kPasswordFieldNumber;
-const int accountCreate::kNicknameFieldNumber;
+const int accountCreateRequest::kIdFieldNumber;
+const int accountCreateRequest::kPasswordFieldNumber;
+const int accountCreateRequest::kNicknameFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-accountCreate::accountCreate()
+accountCreateRequest::accountCreateRequest()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_protoPack_2eproto::InitDefaultsaccountCreate();
+    ::protobuf_protoPack_2eproto::InitDefaultsaccountCreateRequest();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:prop.accountCreate)
+  // @@protoc_insertion_point(constructor:prop.accountCreateRequest)
 }
-accountCreate::accountCreate(const accountCreate& from)
+accountCreateRequest::accountCreateRequest(const accountCreateRequest& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_),
@@ -4388,52 +4497,52 @@ accountCreate::accountCreate(const accountCreate& from)
   if (from.has_nickname()) {
     nickname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.nickname_);
   }
-  // @@protoc_insertion_point(copy_constructor:prop.accountCreate)
+  // @@protoc_insertion_point(copy_constructor:prop.accountCreateRequest)
 }
 
-void accountCreate::SharedCtor() {
+void accountCreateRequest::SharedCtor() {
   _cached_size_ = 0;
   id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   nickname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-accountCreate::~accountCreate() {
-  // @@protoc_insertion_point(destructor:prop.accountCreate)
+accountCreateRequest::~accountCreateRequest() {
+  // @@protoc_insertion_point(destructor:prop.accountCreateRequest)
   SharedDtor();
 }
 
-void accountCreate::SharedDtor() {
+void accountCreateRequest::SharedDtor() {
   id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   nickname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-void accountCreate::SetCachedSize(int size) const {
+void accountCreateRequest::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* accountCreate::descriptor() {
+const ::google::protobuf::Descriptor* accountCreateRequest::descriptor() {
   ::protobuf_protoPack_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_protoPack_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const accountCreate& accountCreate::default_instance() {
-  ::protobuf_protoPack_2eproto::InitDefaultsaccountCreate();
+const accountCreateRequest& accountCreateRequest::default_instance() {
+  ::protobuf_protoPack_2eproto::InitDefaultsaccountCreateRequest();
   return *internal_default_instance();
 }
 
-accountCreate* accountCreate::New(::google::protobuf::Arena* arena) const {
-  accountCreate* n = new accountCreate;
+accountCreateRequest* accountCreateRequest::New(::google::protobuf::Arena* arena) const {
+  accountCreateRequest* n = new accountCreateRequest;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void accountCreate::Clear() {
-// @@protoc_insertion_point(message_clear_start:prop.accountCreate)
+void accountCreateRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:prop.accountCreateRequest)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -4457,11 +4566,11 @@ void accountCreate::Clear() {
   _internal_metadata_.Clear();
 }
 
-bool accountCreate::MergePartialFromCodedStream(
+bool accountCreateRequest::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:prop.accountCreate)
+  // @@protoc_insertion_point(parse_start:prop.accountCreateRequest)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -4476,7 +4585,7 @@ bool accountCreate::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->id().data(), static_cast<int>(this->id().length()),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "prop.accountCreate.id");
+            "prop.accountCreateRequest.id");
         } else {
           goto handle_unusual;
         }
@@ -4492,7 +4601,7 @@ bool accountCreate::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->password().data(), static_cast<int>(this->password().length()),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "prop.accountCreate.password");
+            "prop.accountCreateRequest.password");
         } else {
           goto handle_unusual;
         }
@@ -4508,7 +4617,7 @@ bool accountCreate::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->nickname().data(), static_cast<int>(this->nickname().length()),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "prop.accountCreate.nickname");
+            "prop.accountCreateRequest.nickname");
         } else {
           goto handle_unusual;
         }
@@ -4527,17 +4636,17 @@ bool accountCreate::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:prop.accountCreate)
+  // @@protoc_insertion_point(parse_success:prop.accountCreateRequest)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:prop.accountCreate)
+  // @@protoc_insertion_point(parse_failure:prop.accountCreateRequest)
   return false;
 #undef DO_
 }
 
-void accountCreate::SerializeWithCachedSizes(
+void accountCreateRequest::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:prop.accountCreate)
+  // @@protoc_insertion_point(serialize_start:prop.accountCreateRequest)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -4547,7 +4656,7 @@ void accountCreate::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->id().data(), static_cast<int>(this->id().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "prop.accountCreate.id");
+      "prop.accountCreateRequest.id");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->id(), output);
   }
@@ -4557,7 +4666,7 @@ void accountCreate::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->password().data(), static_cast<int>(this->password().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "prop.accountCreate.password");
+      "prop.accountCreateRequest.password");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       2, this->password(), output);
   }
@@ -4567,7 +4676,7 @@ void accountCreate::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->nickname().data(), static_cast<int>(this->nickname().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "prop.accountCreate.nickname");
+      "prop.accountCreateRequest.nickname");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       3, this->nickname(), output);
   }
@@ -4576,13 +4685,13 @@ void accountCreate::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:prop.accountCreate)
+  // @@protoc_insertion_point(serialize_end:prop.accountCreateRequest)
 }
 
-::google::protobuf::uint8* accountCreate::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* accountCreateRequest::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:prop.accountCreate)
+  // @@protoc_insertion_point(serialize_to_array_start:prop.accountCreateRequest)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -4592,7 +4701,7 @@ void accountCreate::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->id().data(), static_cast<int>(this->id().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "prop.accountCreate.id");
+      "prop.accountCreateRequest.id");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->id(), target);
@@ -4603,7 +4712,7 @@ void accountCreate::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->password().data(), static_cast<int>(this->password().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "prop.accountCreate.password");
+      "prop.accountCreateRequest.password");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->password(), target);
@@ -4614,7 +4723,7 @@ void accountCreate::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->nickname().data(), static_cast<int>(this->nickname().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "prop.accountCreate.nickname");
+      "prop.accountCreateRequest.nickname");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         3, this->nickname(), target);
@@ -4624,12 +4733,12 @@ void accountCreate::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:prop.accountCreate)
+  // @@protoc_insertion_point(serialize_to_array_end:prop.accountCreateRequest)
   return target;
 }
 
-size_t accountCreate::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:prop.accountCreate)
+size_t accountCreateRequest::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:prop.accountCreateRequest)
   size_t total_size = 0;
 
   if (has_id()) {
@@ -4655,8 +4764,8 @@ size_t accountCreate::RequiredFieldsByteSizeFallback() const {
 
   return total_size;
 }
-size_t accountCreate::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:prop.accountCreate)
+size_t accountCreateRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:prop.accountCreateRequest)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4690,23 +4799,23 @@ size_t accountCreate::ByteSizeLong() const {
   return total_size;
 }
 
-void accountCreate::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:prop.accountCreate)
+void accountCreateRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:prop.accountCreateRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  const accountCreate* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const accountCreate>(
+  const accountCreateRequest* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const accountCreateRequest>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:prop.accountCreate)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:prop.accountCreateRequest)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:prop.accountCreate)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:prop.accountCreateRequest)
     MergeFrom(*source);
   }
 }
 
-void accountCreate::MergeFrom(const accountCreate& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:prop.accountCreate)
+void accountCreateRequest::MergeFrom(const accountCreateRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:prop.accountCreateRequest)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -4729,30 +4838,30 @@ void accountCreate::MergeFrom(const accountCreate& from) {
   }
 }
 
-void accountCreate::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:prop.accountCreate)
+void accountCreateRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:prop.accountCreateRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void accountCreate::CopyFrom(const accountCreate& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:prop.accountCreate)
+void accountCreateRequest::CopyFrom(const accountCreateRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:prop.accountCreateRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool accountCreate::IsInitialized() const {
+bool accountCreateRequest::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
   return true;
 }
 
-void accountCreate::Swap(accountCreate* other) {
+void accountCreateRequest::Swap(accountCreateRequest* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void accountCreate::InternalSwap(accountCreate* other) {
+void accountCreateRequest::InternalSwap(accountCreateRequest* other) {
   using std::swap;
   id_.Swap(&other->id_);
   password_.Swap(&other->password_);
@@ -4762,7 +4871,7 @@ void accountCreate::InternalSwap(accountCreate* other) {
   swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata accountCreate::GetMetadata() const {
+::google::protobuf::Metadata accountCreateRequest::GetMetadata() const {
   protobuf_protoPack_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_protoPack_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -4770,22 +4879,263 @@ void accountCreate::InternalSwap(accountCreate* other) {
 
 // ===================================================================
 
-void accountLogin::InitAsDefaultInstance() {
+void accountCreateResponse::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int accountLogin::kIdFieldNumber;
-const int accountLogin::kPasswordFieldNumber;
+const int accountCreateResponse::kSuccessFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-accountLogin::accountLogin()
+accountCreateResponse::accountCreateResponse()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_protoPack_2eproto::InitDefaultsaccountLogin();
+    ::protobuf_protoPack_2eproto::InitDefaultsaccountCreateResponse();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:prop.accountLogin)
+  // @@protoc_insertion_point(constructor:prop.accountCreateResponse)
 }
-accountLogin::accountLogin(const accountLogin& from)
+accountCreateResponse::accountCreateResponse(const accountCreateResponse& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  success_ = from.success_;
+  // @@protoc_insertion_point(copy_constructor:prop.accountCreateResponse)
+}
+
+void accountCreateResponse::SharedCtor() {
+  _cached_size_ = 0;
+  success_ = false;
+}
+
+accountCreateResponse::~accountCreateResponse() {
+  // @@protoc_insertion_point(destructor:prop.accountCreateResponse)
+  SharedDtor();
+}
+
+void accountCreateResponse::SharedDtor() {
+}
+
+void accountCreateResponse::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* accountCreateResponse::descriptor() {
+  ::protobuf_protoPack_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_protoPack_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const accountCreateResponse& accountCreateResponse::default_instance() {
+  ::protobuf_protoPack_2eproto::InitDefaultsaccountCreateResponse();
+  return *internal_default_instance();
+}
+
+accountCreateResponse* accountCreateResponse::New(::google::protobuf::Arena* arena) const {
+  accountCreateResponse* n = new accountCreateResponse;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void accountCreateResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:prop.accountCreateResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  success_ = false;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool accountCreateResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:prop.accountCreateResponse)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required bool success = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          set_has_success();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &success_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:prop.accountCreateResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:prop.accountCreateResponse)
+  return false;
+#undef DO_
+}
+
+void accountCreateResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:prop.accountCreateResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required bool success = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->success(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:prop.accountCreateResponse)
+}
+
+::google::protobuf::uint8* accountCreateResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:prop.accountCreateResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required bool success = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->success(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:prop.accountCreateResponse)
+  return target;
+}
+
+size_t accountCreateResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:prop.accountCreateResponse)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  // required bool success = 1;
+  if (has_success()) {
+    total_size += 1 + 1;
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void accountCreateResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:prop.accountCreateResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const accountCreateResponse* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const accountCreateResponse>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:prop.accountCreateResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:prop.accountCreateResponse)
+    MergeFrom(*source);
+  }
+}
+
+void accountCreateResponse::MergeFrom(const accountCreateResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:prop.accountCreateResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_success()) {
+    set_success(from.success());
+  }
+}
+
+void accountCreateResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:prop.accountCreateResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void accountCreateResponse::CopyFrom(const accountCreateResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:prop.accountCreateResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool accountCreateResponse::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  return true;
+}
+
+void accountCreateResponse::Swap(accountCreateResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void accountCreateResponse::InternalSwap(accountCreateResponse* other) {
+  using std::swap;
+  swap(success_, other->success_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata accountCreateResponse::GetMetadata() const {
+  protobuf_protoPack_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_protoPack_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void accountLoginRequest::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int accountLoginRequest::kIdFieldNumber;
+const int accountLoginRequest::kPasswordFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+accountLoginRequest::accountLoginRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_protoPack_2eproto::InitDefaultsaccountLoginRequest();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:prop.accountLoginRequest)
+}
+accountLoginRequest::accountLoginRequest(const accountLoginRequest& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_),
@@ -4799,50 +5149,50 @@ accountLogin::accountLogin(const accountLogin& from)
   if (from.has_password()) {
     password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.password_);
   }
-  // @@protoc_insertion_point(copy_constructor:prop.accountLogin)
+  // @@protoc_insertion_point(copy_constructor:prop.accountLoginRequest)
 }
 
-void accountLogin::SharedCtor() {
+void accountLoginRequest::SharedCtor() {
   _cached_size_ = 0;
   id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-accountLogin::~accountLogin() {
-  // @@protoc_insertion_point(destructor:prop.accountLogin)
+accountLoginRequest::~accountLoginRequest() {
+  // @@protoc_insertion_point(destructor:prop.accountLoginRequest)
   SharedDtor();
 }
 
-void accountLogin::SharedDtor() {
+void accountLoginRequest::SharedDtor() {
   id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-void accountLogin::SetCachedSize(int size) const {
+void accountLoginRequest::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* accountLogin::descriptor() {
+const ::google::protobuf::Descriptor* accountLoginRequest::descriptor() {
   ::protobuf_protoPack_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_protoPack_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const accountLogin& accountLogin::default_instance() {
-  ::protobuf_protoPack_2eproto::InitDefaultsaccountLogin();
+const accountLoginRequest& accountLoginRequest::default_instance() {
+  ::protobuf_protoPack_2eproto::InitDefaultsaccountLoginRequest();
   return *internal_default_instance();
 }
 
-accountLogin* accountLogin::New(::google::protobuf::Arena* arena) const {
-  accountLogin* n = new accountLogin;
+accountLoginRequest* accountLoginRequest::New(::google::protobuf::Arena* arena) const {
+  accountLoginRequest* n = new accountLoginRequest;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void accountLogin::Clear() {
-// @@protoc_insertion_point(message_clear_start:prop.accountLogin)
+void accountLoginRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:prop.accountLoginRequest)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -4862,11 +5212,11 @@ void accountLogin::Clear() {
   _internal_metadata_.Clear();
 }
 
-bool accountLogin::MergePartialFromCodedStream(
+bool accountLoginRequest::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:prop.accountLogin)
+  // @@protoc_insertion_point(parse_start:prop.accountLoginRequest)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -4881,7 +5231,7 @@ bool accountLogin::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->id().data(), static_cast<int>(this->id().length()),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "prop.accountLogin.id");
+            "prop.accountLoginRequest.id");
         } else {
           goto handle_unusual;
         }
@@ -4897,7 +5247,7 @@ bool accountLogin::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->password().data(), static_cast<int>(this->password().length()),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "prop.accountLogin.password");
+            "prop.accountLoginRequest.password");
         } else {
           goto handle_unusual;
         }
@@ -4916,17 +5266,17 @@ bool accountLogin::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:prop.accountLogin)
+  // @@protoc_insertion_point(parse_success:prop.accountLoginRequest)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:prop.accountLogin)
+  // @@protoc_insertion_point(parse_failure:prop.accountLoginRequest)
   return false;
 #undef DO_
 }
 
-void accountLogin::SerializeWithCachedSizes(
+void accountLoginRequest::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:prop.accountLogin)
+  // @@protoc_insertion_point(serialize_start:prop.accountLoginRequest)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -4936,7 +5286,7 @@ void accountLogin::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->id().data(), static_cast<int>(this->id().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "prop.accountLogin.id");
+      "prop.accountLoginRequest.id");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->id(), output);
   }
@@ -4946,7 +5296,7 @@ void accountLogin::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->password().data(), static_cast<int>(this->password().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "prop.accountLogin.password");
+      "prop.accountLoginRequest.password");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       2, this->password(), output);
   }
@@ -4955,13 +5305,13 @@ void accountLogin::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:prop.accountLogin)
+  // @@protoc_insertion_point(serialize_end:prop.accountLoginRequest)
 }
 
-::google::protobuf::uint8* accountLogin::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* accountLoginRequest::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:prop.accountLogin)
+  // @@protoc_insertion_point(serialize_to_array_start:prop.accountLoginRequest)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -4971,7 +5321,7 @@ void accountLogin::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->id().data(), static_cast<int>(this->id().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "prop.accountLogin.id");
+      "prop.accountLoginRequest.id");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->id(), target);
@@ -4982,7 +5332,7 @@ void accountLogin::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->password().data(), static_cast<int>(this->password().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "prop.accountLogin.password");
+      "prop.accountLoginRequest.password");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->password(), target);
@@ -4992,12 +5342,12 @@ void accountLogin::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:prop.accountLogin)
+  // @@protoc_insertion_point(serialize_to_array_end:prop.accountLoginRequest)
   return target;
 }
 
-size_t accountLogin::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:prop.accountLogin)
+size_t accountLoginRequest::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:prop.accountLoginRequest)
   size_t total_size = 0;
 
   if (has_id()) {
@@ -5016,8 +5366,8 @@ size_t accountLogin::RequiredFieldsByteSizeFallback() const {
 
   return total_size;
 }
-size_t accountLogin::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:prop.accountLogin)
+size_t accountLoginRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:prop.accountLoginRequest)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -5046,23 +5396,23 @@ size_t accountLogin::ByteSizeLong() const {
   return total_size;
 }
 
-void accountLogin::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:prop.accountLogin)
+void accountLoginRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:prop.accountLoginRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  const accountLogin* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const accountLogin>(
+  const accountLoginRequest* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const accountLoginRequest>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:prop.accountLogin)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:prop.accountLoginRequest)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:prop.accountLogin)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:prop.accountLoginRequest)
     MergeFrom(*source);
   }
 }
 
-void accountLogin::MergeFrom(const accountLogin& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:prop.accountLogin)
+void accountLoginRequest::MergeFrom(const accountLoginRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:prop.accountLoginRequest)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -5081,30 +5431,30 @@ void accountLogin::MergeFrom(const accountLogin& from) {
   }
 }
 
-void accountLogin::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:prop.accountLogin)
+void accountLoginRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:prop.accountLoginRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void accountLogin::CopyFrom(const accountLogin& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:prop.accountLogin)
+void accountLoginRequest::CopyFrom(const accountLoginRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:prop.accountLoginRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool accountLogin::IsInitialized() const {
+bool accountLoginRequest::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
   return true;
 }
 
-void accountLogin::Swap(accountLogin* other) {
+void accountLoginRequest::Swap(accountLoginRequest* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void accountLogin::InternalSwap(accountLogin* other) {
+void accountLoginRequest::InternalSwap(accountLoginRequest* other) {
   using std::swap;
   id_.Swap(&other->id_);
   password_.Swap(&other->password_);
@@ -5113,7 +5463,7 @@ void accountLogin::InternalSwap(accountLogin* other) {
   swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata accountLogin::GetMetadata() const {
+::google::protobuf::Metadata accountLoginRequest::GetMetadata() const {
   protobuf_protoPack_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_protoPack_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -5121,68 +5471,309 @@ void accountLogin::InternalSwap(accountLogin* other) {
 
 // ===================================================================
 
-void accountLogout::InitAsDefaultInstance() {
+void accountLoginResponse::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int accountLogout::kEmptyFieldNumber;
+const int accountLoginResponse::kSuccessFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-accountLogout::accountLogout()
+accountLoginResponse::accountLoginResponse()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_protoPack_2eproto::InitDefaultsaccountLogout();
+    ::protobuf_protoPack_2eproto::InitDefaultsaccountLoginResponse();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:prop.accountLogout)
+  // @@protoc_insertion_point(constructor:prop.accountLoginResponse)
 }
-accountLogout::accountLogout(const accountLogout& from)
+accountLoginResponse::accountLoginResponse(const accountLoginResponse& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  empty_ = from.empty_;
-  // @@protoc_insertion_point(copy_constructor:prop.accountLogout)
+  success_ = from.success_;
+  // @@protoc_insertion_point(copy_constructor:prop.accountLoginResponse)
 }
 
-void accountLogout::SharedCtor() {
+void accountLoginResponse::SharedCtor() {
   _cached_size_ = 0;
-  empty_ = 0;
+  success_ = false;
 }
 
-accountLogout::~accountLogout() {
-  // @@protoc_insertion_point(destructor:prop.accountLogout)
+accountLoginResponse::~accountLoginResponse() {
+  // @@protoc_insertion_point(destructor:prop.accountLoginResponse)
   SharedDtor();
 }
 
-void accountLogout::SharedDtor() {
+void accountLoginResponse::SharedDtor() {
 }
 
-void accountLogout::SetCachedSize(int size) const {
+void accountLoginResponse::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* accountLogout::descriptor() {
+const ::google::protobuf::Descriptor* accountLoginResponse::descriptor() {
   ::protobuf_protoPack_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_protoPack_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const accountLogout& accountLogout::default_instance() {
-  ::protobuf_protoPack_2eproto::InitDefaultsaccountLogout();
+const accountLoginResponse& accountLoginResponse::default_instance() {
+  ::protobuf_protoPack_2eproto::InitDefaultsaccountLoginResponse();
   return *internal_default_instance();
 }
 
-accountLogout* accountLogout::New(::google::protobuf::Arena* arena) const {
-  accountLogout* n = new accountLogout;
+accountLoginResponse* accountLoginResponse::New(::google::protobuf::Arena* arena) const {
+  accountLoginResponse* n = new accountLoginResponse;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void accountLogout::Clear() {
-// @@protoc_insertion_point(message_clear_start:prop.accountLogout)
+void accountLoginResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:prop.accountLoginResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  success_ = false;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool accountLoginResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:prop.accountLoginResponse)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required bool success = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          set_has_success();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &success_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:prop.accountLoginResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:prop.accountLoginResponse)
+  return false;
+#undef DO_
+}
+
+void accountLoginResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:prop.accountLoginResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required bool success = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->success(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:prop.accountLoginResponse)
+}
+
+::google::protobuf::uint8* accountLoginResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:prop.accountLoginResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required bool success = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->success(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:prop.accountLoginResponse)
+  return target;
+}
+
+size_t accountLoginResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:prop.accountLoginResponse)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  // required bool success = 1;
+  if (has_success()) {
+    total_size += 1 + 1;
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void accountLoginResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:prop.accountLoginResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const accountLoginResponse* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const accountLoginResponse>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:prop.accountLoginResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:prop.accountLoginResponse)
+    MergeFrom(*source);
+  }
+}
+
+void accountLoginResponse::MergeFrom(const accountLoginResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:prop.accountLoginResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_success()) {
+    set_success(from.success());
+  }
+}
+
+void accountLoginResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:prop.accountLoginResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void accountLoginResponse::CopyFrom(const accountLoginResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:prop.accountLoginResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool accountLoginResponse::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  return true;
+}
+
+void accountLoginResponse::Swap(accountLoginResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void accountLoginResponse::InternalSwap(accountLoginResponse* other) {
+  using std::swap;
+  swap(success_, other->success_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata accountLoginResponse::GetMetadata() const {
+  protobuf_protoPack_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_protoPack_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void accountLogoutRequest::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int accountLogoutRequest::kEmptyFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+accountLogoutRequest::accountLogoutRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_protoPack_2eproto::InitDefaultsaccountLogoutRequest();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:prop.accountLogoutRequest)
+}
+accountLogoutRequest::accountLogoutRequest(const accountLogoutRequest& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  empty_ = from.empty_;
+  // @@protoc_insertion_point(copy_constructor:prop.accountLogoutRequest)
+}
+
+void accountLogoutRequest::SharedCtor() {
+  _cached_size_ = 0;
+  empty_ = 0;
+}
+
+accountLogoutRequest::~accountLogoutRequest() {
+  // @@protoc_insertion_point(destructor:prop.accountLogoutRequest)
+  SharedDtor();
+}
+
+void accountLogoutRequest::SharedDtor() {
+}
+
+void accountLogoutRequest::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* accountLogoutRequest::descriptor() {
+  ::protobuf_protoPack_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_protoPack_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const accountLogoutRequest& accountLogoutRequest::default_instance() {
+  ::protobuf_protoPack_2eproto::InitDefaultsaccountLogoutRequest();
+  return *internal_default_instance();
+}
+
+accountLogoutRequest* accountLogoutRequest::New(::google::protobuf::Arena* arena) const {
+  accountLogoutRequest* n = new accountLogoutRequest;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void accountLogoutRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:prop.accountLogoutRequest)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -5192,11 +5783,11 @@ void accountLogout::Clear() {
   _internal_metadata_.Clear();
 }
 
-bool accountLogout::MergePartialFromCodedStream(
+bool accountLogoutRequest::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:prop.accountLogout)
+  // @@protoc_insertion_point(parse_start:prop.accountLogoutRequest)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -5228,17 +5819,17 @@ bool accountLogout::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:prop.accountLogout)
+  // @@protoc_insertion_point(parse_success:prop.accountLogoutRequest)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:prop.accountLogout)
+  // @@protoc_insertion_point(parse_failure:prop.accountLogoutRequest)
   return false;
 #undef DO_
 }
 
-void accountLogout::SerializeWithCachedSizes(
+void accountLogoutRequest::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:prop.accountLogout)
+  // @@protoc_insertion_point(serialize_start:prop.accountLogoutRequest)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -5252,13 +5843,13 @@ void accountLogout::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:prop.accountLogout)
+  // @@protoc_insertion_point(serialize_end:prop.accountLogoutRequest)
 }
 
-::google::protobuf::uint8* accountLogout::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* accountLogoutRequest::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:prop.accountLogout)
+  // @@protoc_insertion_point(serialize_to_array_start:prop.accountLogoutRequest)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -5272,12 +5863,12 @@ void accountLogout::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:prop.accountLogout)
+  // @@protoc_insertion_point(serialize_to_array_end:prop.accountLogoutRequest)
   return target;
 }
 
-size_t accountLogout::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:prop.accountLogout)
+size_t accountLogoutRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:prop.accountLogoutRequest)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -5298,23 +5889,23 @@ size_t accountLogout::ByteSizeLong() const {
   return total_size;
 }
 
-void accountLogout::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:prop.accountLogout)
+void accountLogoutRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:prop.accountLogoutRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  const accountLogout* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const accountLogout>(
+  const accountLogoutRequest* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const accountLogoutRequest>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:prop.accountLogout)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:prop.accountLogoutRequest)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:prop.accountLogout)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:prop.accountLogoutRequest)
     MergeFrom(*source);
   }
 }
 
-void accountLogout::MergeFrom(const accountLogout& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:prop.accountLogout)
+void accountLogoutRequest::MergeFrom(const accountLogoutRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:prop.accountLogoutRequest)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -5325,30 +5916,30 @@ void accountLogout::MergeFrom(const accountLogout& from) {
   }
 }
 
-void accountLogout::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:prop.accountLogout)
+void accountLogoutRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:prop.accountLogoutRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void accountLogout::CopyFrom(const accountLogout& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:prop.accountLogout)
+void accountLogoutRequest::CopyFrom(const accountLogoutRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:prop.accountLogoutRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool accountLogout::IsInitialized() const {
+bool accountLogoutRequest::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
   return true;
 }
 
-void accountLogout::Swap(accountLogout* other) {
+void accountLogoutRequest::Swap(accountLogoutRequest* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void accountLogout::InternalSwap(accountLogout* other) {
+void accountLogoutRequest::InternalSwap(accountLogoutRequest* other) {
   using std::swap;
   swap(empty_, other->empty_);
   swap(_has_bits_[0], other->_has_bits_[0]);
@@ -5356,7 +5947,248 @@ void accountLogout::InternalSwap(accountLogout* other) {
   swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata accountLogout::GetMetadata() const {
+::google::protobuf::Metadata accountLogoutRequest::GetMetadata() const {
+  protobuf_protoPack_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_protoPack_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void accountLogoutResponse::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int accountLogoutResponse::kSuccessFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+accountLogoutResponse::accountLogoutResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_protoPack_2eproto::InitDefaultsaccountLogoutResponse();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:prop.accountLogoutResponse)
+}
+accountLogoutResponse::accountLogoutResponse(const accountLogoutResponse& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  success_ = from.success_;
+  // @@protoc_insertion_point(copy_constructor:prop.accountLogoutResponse)
+}
+
+void accountLogoutResponse::SharedCtor() {
+  _cached_size_ = 0;
+  success_ = false;
+}
+
+accountLogoutResponse::~accountLogoutResponse() {
+  // @@protoc_insertion_point(destructor:prop.accountLogoutResponse)
+  SharedDtor();
+}
+
+void accountLogoutResponse::SharedDtor() {
+}
+
+void accountLogoutResponse::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* accountLogoutResponse::descriptor() {
+  ::protobuf_protoPack_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_protoPack_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const accountLogoutResponse& accountLogoutResponse::default_instance() {
+  ::protobuf_protoPack_2eproto::InitDefaultsaccountLogoutResponse();
+  return *internal_default_instance();
+}
+
+accountLogoutResponse* accountLogoutResponse::New(::google::protobuf::Arena* arena) const {
+  accountLogoutResponse* n = new accountLogoutResponse;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void accountLogoutResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:prop.accountLogoutResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  success_ = false;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool accountLogoutResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:prop.accountLogoutResponse)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required bool success = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          set_has_success();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &success_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:prop.accountLogoutResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:prop.accountLogoutResponse)
+  return false;
+#undef DO_
+}
+
+void accountLogoutResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:prop.accountLogoutResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required bool success = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->success(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:prop.accountLogoutResponse)
+}
+
+::google::protobuf::uint8* accountLogoutResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:prop.accountLogoutResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required bool success = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->success(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:prop.accountLogoutResponse)
+  return target;
+}
+
+size_t accountLogoutResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:prop.accountLogoutResponse)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  // required bool success = 1;
+  if (has_success()) {
+    total_size += 1 + 1;
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void accountLogoutResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:prop.accountLogoutResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const accountLogoutResponse* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const accountLogoutResponse>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:prop.accountLogoutResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:prop.accountLogoutResponse)
+    MergeFrom(*source);
+  }
+}
+
+void accountLogoutResponse::MergeFrom(const accountLogoutResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:prop.accountLogoutResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_success()) {
+    set_success(from.success());
+  }
+}
+
+void accountLogoutResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:prop.accountLogoutResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void accountLogoutResponse::CopyFrom(const accountLogoutResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:prop.accountLogoutResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool accountLogoutResponse::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  return true;
+}
+
+void accountLogoutResponse::Swap(accountLogoutResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void accountLogoutResponse::InternalSwap(accountLogoutResponse* other) {
+  using std::swap;
+  swap(success_, other->success_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata accountLogoutResponse::GetMetadata() const {
   protobuf_protoPack_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_protoPack_2eproto::file_level_metadata[kIndexInFileMessages];
 }

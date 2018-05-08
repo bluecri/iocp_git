@@ -38,20 +38,21 @@ public:
 public:	// DB requests
 	//only for guest
 	void RequestNewPlayer(std::string& strID, std::string& strPassword, std::string& strNickName);
-	void ResponseNewPlayer();
-
-	void RequestLogin();		//with id & pw
-	void ResponseLogin();							//ger ID from DB
-	
-	//only for login
+	void RequestLogin(const std::string& id, const std::string& password);		//with id & pw	->call playmanager.memfunc
 	void RequestLogout();
-	void RequestSaveState();
-	void RequestLoadState();
+
+	void RequestUpdateGameInfo();
+	void RequestLoadGameInfo();
+	void RequestOtherPlayerInfoWithUID(int uid = -1);
+	void RequestOtherPlayerInfoWithID(const char* id);
+	void RequestOtherPlayerInfoWithNIckname(const char* nickName);
+
 
 	bool GetClientSessionWithAddRef(ClientSession* cSession);
-private:
+
 	//send buf
 	bool SendToClient(Packet* packet);
+	
 private:
 	
 	int		_playerUID;

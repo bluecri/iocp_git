@@ -16,13 +16,22 @@ enum PACKET_PRIO
 class PacketHeader
 {
 public:
+	PacketHeader() {};
 	PacketHeader(PACKET_TYPE packetType, DWORD packetSize, PACKET_PRIO _packetPriority = PACKET_PRIO::MUST);
 	~PacketHeader();
+
+	void SetPriority(PACKET_PRIO prio);
+
+	PACKET_PRIO GetPriority() const;
+	DWORD GetSize() const;
+	PACKET_TYPE GetType() const;
 
 private:
 	DWORD _packetSize;
 	PACKET_PRIO _packetPriority;
 	PACKET_TYPE _packetType;
+
+	
 
 	friend class Packet;
 };
@@ -30,7 +39,7 @@ private:
 class Packet
 {
 public:
-	Packet(PACKET_TYPE packetType, protobuf::Message&& msg, PACKET_PRIO _packetPriority = PACKET_PRIO::MUST);
+	Packet(PACKET_TYPE packetType, protobuf::Message& msg, PACKET_PRIO _packetPriority = PACKET_PRIO::MUST);
 	~Packet();
 
 	void SetPriority(PACKET_PRIO prio);
@@ -43,5 +52,5 @@ public:
 
 private:
 	PacketHeader _header;
-	protobuf::Message&& _msg;
+	protobuf::Message& _msg;
 };

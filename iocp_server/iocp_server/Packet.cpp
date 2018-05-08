@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Packet.h"
-#include "../../3rdParty/google_protobuf/protoGen/GetSource/protoTypeEnum.h"
 
 PacketHeader::PacketHeader(PACKET_TYPE packetType, DWORD packetSize, PACKET_PRIO _packetPriority)
 {
@@ -10,8 +9,29 @@ PacketHeader::~PacketHeader()
 {
 }
 
-Packet::Packet(PACKET_TYPE packetType, protobuf::Message&& msg, PACKET_PRIO _packetPriority)
-	: _header(packetType, msg.ByteSizeLong() + sizeof(PacketHeader), _packetPriority), _msg(std::move(msg))
+void PacketHeader::SetPriority(PACKET_PRIO prio)
+{
+	_packetPriority = prio;
+}
+
+PACKET_PRIO PacketHeader::GetPriority() const
+{
+	return _packetPriority;
+}
+
+DWORD PacketHeader::GetSize() const
+{
+	return _packetSize;
+}
+
+PACKET_TYPE PacketHeader::GetType() const
+{
+	return _packetType;
+}
+
+
+Packet::Packet(PACKET_TYPE packetType, protobuf::Message& msg, PACKET_PRIO _packetPriority)
+	: _header(packetType, msg.ByteSizeLong() + sizeof(PacketHeader), _packetPriority), _msg(msg)
 {
 }
 

@@ -114,7 +114,13 @@
     <ClCompile Include="PlayerDBContext.cpp">
       <Filter>소스 파일\OdbcContents</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\3rdParty\google_protobuf\protoGen\GetSource\protoPack.pb.cc">
+    <ClCompile Include="Packet.cpp">
+      <Filter>소스 파일\Packet</Filter>
+    </ClCompile>
+    <ClCompile Include="protoGen\GetSource\protoPack.pb.cc">
+      <Filter>소스 파일\Packet</Filter>
+    </ClCompile>
+    <ClCompile Include="protoGen\GetSource\PacketRecvHadler.cpp">
       <Filter>소스 파일\Packet</Filter>
     </ClCompile>
   </ItemGroup>
@@ -224,7 +230,13 @@
     <ClInclude Include="RigidbodyComponent.h">
       <Filter>소스 파일\Components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\3rdParty\google_protobuf\protoGen\GetSource\protoPack.pb.h">
+    <ClInclude Include="protoGen\GetSource\protoPack.pb.h">
+      <Filter>소스 파일\Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="protoGen\GetSource\protoTypeEnum.h">
+      <Filter>소스 파일\Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="protoGen\GetSource\PacketRecvHadler.h">
       <Filter>소스 파일\Packet</Filter>
     </ClInclude>
   </ItemGroup>
@@ -232,7 +244,7 @@
     <None Include="GameDB.sql">
       <Filter>소스 파일\OdbcContents</Filter>
     </None>
-    <None Include="..\..\3rdParty\google_protobuf\protoGen\protoPack.proto">
+    <None Include="protoGen\protoPack.proto">
       <Filter>리소스 파일\protobuf</Filter>
     </None>
   </ItemGroup>

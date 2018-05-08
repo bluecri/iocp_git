@@ -16,10 +16,11 @@ enum THREAD_TYPE
 class ThreadCallHistory;
 class ThreadCallElapsedRecord;
 class LockOrderChecker;
+class Session;
 
 extern __declspec(thread) int LThreadType;
 extern __declspec(thread) int LWorkerThreadId;
-extern __declspec(thread) int LSendRequestSessionQueueIndex = -1;
+extern __declspec(thread) int LSendRequestSessionQueueIndex;
 extern __declspec(thread) std::queue<Session*>* LSendRequestSessionQueue[SENDREQUESET_QUEUE_SIZE];
 extern __declspec(thread) LockOrderChecker* LLockOrderChecker;
 extern __declspec(thread) ThreadCallHistory* LThreadCallHistory;

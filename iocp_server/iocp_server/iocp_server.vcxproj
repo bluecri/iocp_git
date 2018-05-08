@@ -168,15 +168,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\3rdParty\google_protobuf\protoGen\GetSource\protoPack.pb.cc" />
     <ClCompile Include="addressbook.pb.cc" />
     <ClCompile Include="ClientSession.cpp" />
     <ClCompile Include="DBContext.cpp" />
     <ClCompile Include="DBHelper.cpp" />
     <ClCompile Include="DBManager.cpp" />
     <ClCompile Include="DBThread.cpp" />
+    <ClCompile Include="Packet.cpp" />
     <ClCompile Include="PlayerDBContext.cpp" />
     <ClCompile Include="PlayerManager.cpp" />
+    <ClCompile Include="protoGen\GetSource\PacketRecvHadler.cpp" />
+    <ClCompile Include="protoGen\GetSource\protoPack.pb.cc" />
     <ClCompile Include="SendRequestSessionConcurrentQueue.cpp" />
     <ClCompile Include="IocpManager.cpp" />
     <ClCompile Include="IOThread.cpp" />
@@ -200,7 +202,6 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\3rdParty\google_protobuf\protoGen\GetSource\protoPack.pb.h" />
     <ClInclude Include="addressbook.pb.h" />
     <ClInclude Include="ClientSession.h" />
     <ClInclude Include="ContentsConfig.h" />
@@ -227,6 +228,9 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerDBContext.h" />
     <ClInclude Include="PlayerManager.h" />
+    <ClInclude Include="protoGen\GetSource\PacketRecvHadler.h" />
+    <ClInclude Include="protoGen\GetSource\protoPack.pb.h" />
+    <ClInclude Include="protoGen\GetSource\protoTypeEnum.h" />
     <ClInclude Include="RigidbodyComponent.h" />
     <ClInclude Include="RigidbodyComponentManager.h" />
     <ClInclude Include="SendRequestSessionConcurrentQueue.h" />
@@ -238,8 +242,8 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\3rdParty\google_protobuf\protoGen\protoPack.proto" />
     <None Include="GameDB.sql" />
+    <None Include="protoGen\protoPack.proto" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

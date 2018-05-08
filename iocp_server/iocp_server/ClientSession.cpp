@@ -6,6 +6,8 @@
 #include "origin\ThreadLocal.h"
 #include "IocpManager.h"
 
+#include "Packet.h"
+
 ClientSession::ClientSession(size_t sendBufSize, size_t recvBufSize) : Session(sendBufSize, recvBufSize)
 {
 	memset(&__clientSockAddr, 0, sizeof(__clientSockAddr));
@@ -93,7 +95,7 @@ void ClientSession::AcceptCompletion()
 			break;
 		}
 
-		HANDLE handle = CreateIoCompletionPort((HANDLE)__socket, GIocpManager->GetHandleCompletionPort, (ULONG_PTR)this, 0);
+		HANDLE handle = CreateIoCompletionPort((HANDLE)__socket, GIocpManager->GetHandleCompletionPort(), (ULONG_PTR)this, 0);
 		if (handle != GIocpManager->GetHandleCompletionPort())
 		{
 			printf_s("[DEBUG] CreateIoCompletionPort error: %d\n", GetLastError());
@@ -114,7 +116,12 @@ void ClientSession::AcceptCompletion()
 
 
 	// Guest Login Ã³¸®.
-	_sharedPlayer = GPlayerManager->GetGuestPlayer(this);
+	//_sharedPlayer = GPlayerManager->GetGuestPlayer(this);
+	if (nullptr == GPlayerManager->GetGuestPlayer(this))
+	{
+		DisconnectRequest(DR_ONCONNECT_ERROR);
+		return;
+	}
 
 	if (false == PreRecv())
 	{
@@ -122,6 +129,65 @@ void ClientSession::AcceptCompletion()
 	}
 
 	return;
+}
+
+SessionErrType ClientSession::PostSend(Packet * packet)
+{
+	if (!IsConnected())
+	{
+		return SessionErrType::DISCONN;
+	}
+
+	FastSpinlockGuard criticalSection(_lockSendBuffer);
+
+	if (_sendBuffer.GetFreeSpaceSize() < packet->GetSize())
+		return SessionErrType::POSTSEND_NOSPACE;
+
+	char* destData = _sendBuffer.GetBufferEnd();
+	protobuf::io::ArrayOutputStream arrayOutputStream(destData, packet->GetSize());
+	protobuf::io::CodedOutputStream codeOutputStream(&arrayOutputStream);
+
+	codeOutputStream.WriteRaw(&packet->GetHeader(), sizeof(PacketHeader));
+	(packet->GetMsg()).SerializePartialToCodedStream(&codeOutputStream);
+
+	//memcpy(destData, data, len);
+
+	_sendBuffer.Commit(packet->GetSize());
+	
+	return SessionErrType::SAFE;
+}
+
+SessionErrType ClientSession::RecvCompletion(DWORD transferred)
+{
+	_recvBuffer.Commit(transferred);
+
+	while (true)	//until cannot read packet
+	{
+		if (_recvBuffer.GetContiguiousBytes() < sizeof(PacketHeader))
+			return SessionErrType::SAFE;
+
+		PacketHeader packetHeader;
+		char* destData = _recvBuffer.GetBufferStart();
+
+		protobuf::io::ArrayInputStream arrayInputStream(destData, _recvBuffer.GetContiguiousBytes());
+		protobuf::io::CodedInputStream codeInputStream(&arrayInputStream);
+
+		codeInputStream.ReadRaw(&packetHeader, sizeof(PacketHeader));
+
+		if (_recvBuffer.GetContiguiousBytes() < packetHeader.GetSize())
+			return SessionErrType::SAFE;
+
+		if (false == PacketRecvToMsg(static_cast<ClientSession*>(this), packetHeader, codeInputStream))
+		{
+			return SessionErrType::FAIL;
+		}
+
+		//memcpy(destData, data, len);
+
+		_recvBuffer.Commit(packetHeader.GetSize());
+	}
+	
+	return SessionErrType::SAFE;
 }
 
 void ClientSession::DisconnectRequest(DisconnectReason dr)
