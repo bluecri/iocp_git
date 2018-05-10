@@ -8,10 +8,12 @@
 #include "DBContext.h"
 #include "PlayerDBContext.h"
 #include "DBManager.h"
+#include "LocationInfo.h"
 
 Player::Player(ClientSession * session) : _clientSession(session)
 {
 	PlayerReset();
+	_locInfo = new LocationInfo();
 }
 
 Player::~Player()
@@ -142,6 +144,7 @@ bool Player::GetClientSessionWithAddRef(ClientSession* cSession)
 	return true;
 }
 
+//recv에서 context 보장하므로 바로 postSend. 보장못하면 sendtoclient로..
 bool Player::SendToClient(Packet* packet)
 {
 	ClientSession* targetSession = _clientSession;

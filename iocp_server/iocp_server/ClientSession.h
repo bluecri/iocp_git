@@ -8,6 +8,8 @@
 #define CLIENT_BUFSIZE	65536
 
 class Player;
+class PacketRecvHandler;
+class ClientSessionManager;
 
 class ClientSession : public Session, public ObjectPool<ClientSession>
 {
@@ -27,15 +29,18 @@ public:
 	virtual void OnDisconnect(DisconnectReason dr);
 	virtual void OnRelease();
 
+	virtual SessionErrType PostSend(Packet* packet);
+	SessionErrType PostSend(Packet & packet);
 public:
 	std::shared_ptr<Player> _sharedPlayer;
 
 protected:
-	virtual SessionErrType PostSend(Packet* packet);
-
+	
 private:
 	SOCKADDR_IN __clientSockAddr;
 
-	friend class ClientSessionManager;
-	friend class Player;
+	//use PostSend class
+	//friend class PacketRecvHandler;
+	//friend class ClientSessionManager;
+	//friend class Player;
 };

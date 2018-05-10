@@ -12,19 +12,16 @@ const char* SQL_LoginPlayer = "{ call gamedb.spLoginPlayer ( ?, ? ) }";
 const char* SQL_DeletePlayer = "{ call gamedb.spDeletePlayer (?) }";
 // uid(int)
 
-//change to SQL_UpdatePlayerGameInfo(pos, state...)
 const char* SQL_UpdatePlayerPosition = "{ call gamedb.spUpdatePlayerPosition (?, ?, ? ,?, ?, ? ,?) }";
 // uid(int), x(float), y(float), z(float), qX(float), qY(float), qZ(float), qW(float)
 
-//change to SQL_LoadPlayerGameInfo(pos, state...)
 const char* SQL_LoadPlayerPosition = "{ call gamedb.spLoadPlayerPosition (?) }";
 // uid(int)
 /*
 uid, posX, posY, posZ, quatX, quatY, quatZ, quatW
 */
 
-//TODO : const char* SQL_UpdatePlayerWithUID = "{ call gamedb.spUpdatePlayerPosition (?, ?, ? ,?, ?, ? ,?) }";
-// uid(int), x(float), y(float), z(float), qX(float), qY(float), qZ(float), qW(float)
+//TODO : const char* SQL_UpdatePlayerWithUID = "{ call gamedb.spUpdatePlayerWithUID (?, ?, ? ,?, ?, ? ,?) }";
 
 const char* SQL_LoadPlayerWithUID = "{ call gamedb.spLoadPlayerWithUID (?) }";
 // uid(int)

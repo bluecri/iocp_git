@@ -280,33 +280,12 @@ void OverlappedDBUpdatePlayerContext::OnSuccess()
 	case E_TYPE::UPDATE_PLAYER_POS:
 		printf_s("[LOG] : OverlappedDBUpdatePlayerContext::UPDATE_PLAYER_POS success\n");
 		{
-			/*
-			prop::accountCreateResponse msg;
-			msg.set_success(true);
-			Packet pack(PACKET_TYPE::PACKET_TYPE_accountCreateResponse, msg);
-			_playerShared->SendToClient(&pack);
-			*/
 		}
 		break;
 	case E_TYPE::LOAD_PLAYER_POS:
 		printf_s("[LOG] : OverlappedDBLogInOutContext::LOAD_PLAYER_POS success\n");
 		{
-			prop::anyPlayerInfoResponse msg;
-			prop::msgUserInfo userInfoMsg;
-
-
-			msg.set_allocated_userinfo(userInfoMsg);
-			userInfoMsg.set_useruid(_intUID);
-			msg.set_x(_x);
-			msg.set_y(_y);
-			msg.set_z(_z);
-			msg.set_qx(_qx);
-			msg.set_qy(_qy);
-			msg.set_qz(_qz);
-			msg.set_qw(_qw);
-
-			Packet pack(PACKET_TYPE::PACKET_TYPE_anyPlayerInfoResponse, msg);
-			_playerShared->SendToClient(&pack);
+			//use for db backup. (not for packet)
 		}
 		break;
 	case E_TYPE::LOAD_PLAYER_INFO_WITH_UID:
@@ -315,17 +294,23 @@ void OverlappedDBUpdatePlayerContext::OnSuccess()
 			prop::anyPlayerInfoResponse msg;
 			prop::msgUserInfo userInfoMsg;
 
+			userInfoMsg.set_uid(_intUID);
+			userInfoMsg.set_id(_cstrID);
+			userInfoMsg.set_nickname(_cstrNickName);
 
-			msg.set_allocated_userinfo(userInfoMsg);
-			userInfoMsg.set_useruid(_intUID);
-			msg.set_x(_x);
-			msg.set_y(_y);
-			msg.set_z(_z);
-			msg.set_qx(_qx);
-			msg.set_qy(_qy);
-			msg.set_qz(_qz);
-			msg.set_qw(_qw);
-
+			//if in login playerlist, add more info(room name, lobby name, online/offline..)
+			std::shared_ptr<Player> loginPlayerShared = GPlayerManager->GetLoginPlayerSharedWithUID(_intUID);
+			if (loginPlayerShared != nullptr)
+			{
+				// TODO
+				/*
+				userInfoMsg.set_lobbyuid
+				userInfoMsg.set_lobbyuid
+				userInfoMsg.set_lobbyuid
+				*/
+			}
+			msg.set_allocated_userinfo(&userInfoMsg);
+			
 			Packet pack(PACKET_TYPE::PACKET_TYPE_anyPlayerInfoResponse, msg);
 			_playerShared->SendToClient(&pack);
 		}
@@ -333,26 +318,52 @@ void OverlappedDBUpdatePlayerContext::OnSuccess()
 	case E_TYPE::LOAD_PLAYER_INFO_WITH_ID:
 		printf_s("[LOG] : OverlappedDBLogInOutContext::LOAD_PLAYER_INFO_WITH_ID success\n");
 		{
-			prop::msgUserInfo msg;
-			msg.set_uid(_intUID);
-			msg.set_id(_cstrID);
-			msg.set_nickname(_cstrNickName);
-			//TODO : get info room name, lobby name, online/offline
+			prop::anyPlayerInfoResponse msg;
+			prop::msgUserInfo userInfoMsg;
 
-			Packet pack(PACKET_TYPE::PACKET_TYPE_msgUserInfo, msg);
+			userInfoMsg.set_uid(_intUID);
+			userInfoMsg.set_id(_cstrID);
+			userInfoMsg.set_nickname(_cstrNickName);
+
+			//if in login playerlist, add more info(room name, lobby name, online/offline..)
+			std::shared_ptr<Player> loginPlayerShared = GPlayerManager->GetLoginPlayerSharedWithUID(_intUID);
+			if (loginPlayerShared != nullptr)
+			{
+				/*
+				userInfoMsg.set_lobbyuid
+				userInfoMsg.set_lobbyuid
+				userInfoMsg.set_lobbyuid
+				*/
+			}
+			msg.set_allocated_userinfo(&userInfoMsg);
+
+			Packet pack(PACKET_TYPE::PACKET_TYPE_anyPlayerInfoResponse, msg);
 			_playerShared->SendToClient(&pack);
 		}
 		break;
 	case E_TYPE::LOAD_PLAYER_INFO_WITH_NICKNAME:
 		printf_s("[LOG] : OverlappedDBLogInOutContext::LOAD_PLAYER_INFO_WITH_NICKNAME success\n");
 		{
-			prop::msgUserInfo msg;
-			msg.set_uid(_intUID);
-			msg.set_id(_cstrID);
-			msg.set_nickname(_cstrNickName);
-			//TODO : get info room name, lobby name, online/offline
+			prop::anyPlayerInfoResponse msg;
+			prop::msgUserInfo userInfoMsg;
 
-			Packet pack(PACKET_TYPE::PACKET_TYPE_msgUserInfo, msg);
+			userInfoMsg.set_uid(_intUID);
+			userInfoMsg.set_id(_cstrID);
+			userInfoMsg.set_nickname(_cstrNickName);
+
+			//if in login playerlist, add more info(room name, lobby name, online/offline..)
+			std::shared_ptr<Player> loginPlayerShared = GPlayerManager->GetLoginPlayerSharedWithUID(_intUID);
+			if (loginPlayerShared != nullptr)
+			{
+				/*
+				userInfoMsg.set_lobbyuid
+				userInfoMsg.set_lobbyuid
+				userInfoMsg.set_lobbyuid
+				*/
+			}
+			msg.set_allocated_userinfo(&userInfoMsg);
+
+			Packet pack(PACKET_TYPE::PACKET_TYPE_anyPlayerInfoResponse, msg);
 			_playerShared->SendToClient(&pack);
 		}
 		break;
@@ -376,19 +387,50 @@ void OverlappedDBUpdatePlayerContext::OnFail()
 		break;
 	case E_TYPE::LOAD_PLAYER_POS:
 		printf_s("[LOG] : OverlappedDBLogInOutContext::LOAD_PLAYER_POS fail\n");
+		//use for db backup. (not for packet)
 
 		break;
 	case E_TYPE::LOAD_PLAYER_INFO_WITH_UID:
 		printf_s("[LOG] : OverlappedDBLogInOutContext::LOAD_PLAYER_INFO_WITH_UID fail\n");
+		{
+			prop::anyPlayerInfoResponse msg;
+			prop::msgUserInfo userInfoMsg;
 
+			userInfoMsg.set_uid(-1);
+			userInfoMsg.set_id("NONEID");
+			userInfoMsg.set_nickname("NONENICENAME");
+
+			msg.set_allocated_userinfo(&userInfoMsg);
+
+			Packet pack(PACKET_TYPE::PACKET_TYPE_anyPlayerInfoResponse, msg);
+			_playerShared->SendToClient(&pack);
+		}
 		break;
 	case E_TYPE::LOAD_PLAYER_INFO_WITH_ID:
 		printf_s("[LOG] : OverlappedDBLogInOutContext::LOAD_PLAYER_INFO_WITH_ID fail\n");
+		{
+			prop::anyPlayerInfoResponse msg;
+			prop::msgUserInfo userInfoMsg;
 
+			userInfoMsg.set_uid(-1);
+			userInfoMsg.set_id("NONEID");
+			userInfoMsg.set_nickname("NONENICENAME");
+
+			msg.set_allocated_userinfo(&userInfoMsg);
+		}
 		break;
 	case E_TYPE::LOAD_PLAYER_INFO_WITH_NICKNAME:
 		printf_s("[LOG] : OverlappedDBLogInOutContext::LOAD_PLAYER_INFO_WITH_NICKNAME fail\n");
+		{
+			prop::anyPlayerInfoResponse msg;
+			prop::msgUserInfo userInfoMsg;
 
+			userInfoMsg.set_uid(-1);
+			userInfoMsg.set_id("NONEID");
+			userInfoMsg.set_nickname("NONENICENAME");
+
+			msg.set_allocated_userinfo(&userInfoMsg);
+		}
 		break;
 	default:
 		printf_s("[DEBUG] : default type in OverlappedDBUpdatePlayerContext::OnFail : %d\n", GetLastError());

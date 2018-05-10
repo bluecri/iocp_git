@@ -6,6 +6,7 @@ class ClientSession;
 class PlayerManager;
 class Packet;
 class RigidbodyComponent;
+class LocationInfo;
 
 class Player : public SyncExecutable
 {
@@ -31,6 +32,7 @@ public:
 	int GetPlayerUID() { return _playerUID; }
 	char* GetPlayerID() { return _id; }
 	char* GetPlayerNIckName() { return _nickName; }
+	LocationInfo* GetLocInfo() { return _locInfo; }
 
 	RigidbodyComponent* GetRigidbodyComponent() { return _rigidbodyComp; }
 	
@@ -60,6 +62,7 @@ private:
 	char*	_nickName;
 	int		_heartBeat;
 
+	LocationInfo* _locInfo;
 	RigidbodyComponent* _rigidbodyComp;
 
 	/// 버프 리스트  GCE

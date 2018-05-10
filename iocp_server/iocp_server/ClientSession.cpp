@@ -157,6 +157,33 @@ SessionErrType ClientSession::PostSend(Packet * packet)
 	return SessionErrType::SAFE;
 }
 
+SessionErrType ClientSession::PostSend(Packet &packet)
+{
+	if (!IsConnected())
+	{
+		return SessionErrType::DISCONN;
+	}
+
+	FastSpinlockGuard criticalSection(_lockSendBuffer);
+
+	if (_sendBuffer.GetFreeSpaceSize() < packet.GetSize())
+		return SessionErrType::POSTSEND_NOSPACE;
+
+	char* destData = _sendBuffer.GetBufferEnd();
+	protobuf::io::ArrayOutputStream arrayOutputStream(destData, packet.GetSize());
+	protobuf::io::CodedOutputStream codeOutputStream(&arrayOutputStream);
+
+	codeOutputStream.WriteRaw(&packet.GetHeader(), sizeof(PacketHeader));
+	(packet.GetMsg()).SerializePartialToCodedStream(&codeOutputStream);
+
+	//memcpy(destData, data, len);
+
+	_sendBuffer.Commit(packet.GetSize());
+
+	return SessionErrType::SAFE;
+}
+
+
 SessionErrType ClientSession::RecvCompletion(DWORD transferred)
 {
 	_recvBuffer.Commit(transferred);

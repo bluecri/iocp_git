@@ -187,6 +187,19 @@ message inLobbyEnterRoomResponse
 	required int32 roomUID = 2;
 }
 
+message inLobbyCreateRoomRequest
+{
+	required string roomName = 1;
+	required int32 useraMaxNum = 2;
+}
+
+message inLobbyCreateRoomResponse
+{
+	required bool success = 1;
+	required int32 roomUID = 2;
+	required string roomName = 3;
+}
+
 message inLobbyLeaveLobbyRequest
 {
 	required int32 lobbyUID = 1;
@@ -308,7 +321,7 @@ message inGameAllPlayersTotalInfoRequest
   required int32 empty = 1;
 }
 
-message inGameAllPlayersTotalInfoRequest
+message inGameAllPlayersTotalInfoResponse
 {
 	required bool success = 1;
 	repeated msgUserInGamePosInfo usersInGameInfo = 2;

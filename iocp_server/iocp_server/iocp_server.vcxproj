@@ -174,11 +174,14 @@
     <ClCompile Include="DBHelper.cpp" />
     <ClCompile Include="DBManager.cpp" />
     <ClCompile Include="DBThread.cpp" />
+    <ClCompile Include="Lobby.cpp" />
+    <ClCompile Include="OutLobby.cpp" />
     <ClCompile Include="Packet.cpp" />
     <ClCompile Include="PlayerDBContext.cpp" />
     <ClCompile Include="PlayerManager.cpp" />
     <ClCompile Include="protoGen\GetSource\PacketRecvHadler.cpp" />
     <ClCompile Include="protoGen\GetSource\protoPack.pb.cc" />
+    <ClCompile Include="Room.cpp" />
     <ClCompile Include="SendRequestSessionConcurrentQueue.cpp" />
     <ClCompile Include="IocpManager.cpp" />
     <ClCompile Include="IOThread.cpp" />
@@ -210,9 +213,12 @@
     <ClInclude Include="DBManager.h" />
     <ClInclude Include="DBPacket.h" />
     <ClInclude Include="DBThread.h" />
+    <ClInclude Include="GameSession.h" />
     <ClInclude Include="IocpManager.h" />
     <ClInclude Include="IOThread.h" />
+    <ClInclude Include="Lobby.h" />
     <ClInclude Include="LocalSendRequestSessionList.h" />
+    <ClInclude Include="LocationInfo.h" />
     <ClInclude Include="origin\CircularBuffer.h" />
     <ClInclude Include="origin\Exception.h" />
     <ClInclude Include="origin\FastSpinlock.h" />
@@ -223,6 +229,7 @@
     <ClInclude Include="origin\ThreadLocal.h" />
     <ClInclude Include="origin\TypeTraits.h" />
     <ClInclude Include="origin\XTL.h" />
+    <ClInclude Include="OutLobby.h" />
     <ClInclude Include="OverlappedContext.h" />
     <ClInclude Include="Packet.h" />
     <ClInclude Include="Player.h" />
@@ -233,6 +240,7 @@
     <ClInclude Include="protoGen\GetSource\protoTypeEnum.h" />
     <ClInclude Include="RigidbodyComponent.h" />
     <ClInclude Include="RigidbodyComponentManager.h" />
+    <ClInclude Include="Room.h" />
     <ClInclude Include="SendRequestSessionConcurrentQueue.h" />
     <ClInclude Include="ServerSession.h" />
     <ClInclude Include="ServerSessionManager.h" />

@@ -1,6 +1,10 @@
 #include "../../ClientSession.h"
 #include "../../Packet.h"
-
+#include "PacketRecvHadler.h"
+#include "../../OutLobby.h"
+#include "../../Lobby.h"
+#include "../../Room.h"
+#include "../../LocationInfo.h"
 
 bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::protobuf::io::CodedInputStream & codeInputStream)
 {
@@ -16,7 +20,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, msgLobby);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_msgRoom:
 	{
@@ -28,7 +32,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, msgRoom);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_msgGame:
 	{
@@ -40,7 +44,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, msgGame);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_msgUserInfo:
 	{
@@ -52,19 +56,31 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, msgUserInfo);
 	}
-		break;
+	break;
 
-	case PACKET_TYPE::PACKET_TYPE_msgUserInGameInfo:
+	case PACKET_TYPE::PACKET_TYPE_msgUserInGameTotalInfo:
 	{
-		prop::msgUserInGameInfo *msgUserInGameInfo = new prop::msgUserInGameInfo();
-		if (false == msgUserInGameInfo->ParseFromCodedStream(&codeInputStream))
+		prop::msgUserInGameTotalInfo *msgUserInGameTotalInfo = new prop::msgUserInGameTotalInfo();
+		if (false == msgUserInGameTotalInfo->ParseFromCodedStream(&codeInputStream))
 		{
-			printf_s("[ERROR] : PacketRecvHandle PACKET_TYPE_msgUserInGameInfo error\n");
+			printf_s("[ERROR] : PacketRecvHandle PACKET_TYPE_msgUserInGameTotalInfo error\n");
 			return false;
 		}
-		PacketRecvMsgHandle(session, msgUserInGameInfo);
+		PacketRecvMsgHandle(session, msgUserInGameTotalInfo);
 	}
-		break;
+	break;
+
+	case PACKET_TYPE::PACKET_TYPE_msgUserInGamePosInfo:
+	{
+		prop::msgUserInGamePosInfo *msgUserInGamePosInfo = new prop::msgUserInGamePosInfo();
+		if (false == msgUserInGamePosInfo->ParseFromCodedStream(&codeInputStream))
+		{
+			printf_s("[ERROR] : PacketRecvHandle PACKET_TYPE_msgUserInGamePosInfo error\n");
+			return false;
+		}
+		PacketRecvMsgHandle(session, msgUserInGamePosInfo);
+	}
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_msgUserInGameStateInfo:
 	{
@@ -76,7 +92,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, msgUserInGameStateInfo);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_accountCreateRequest:
 	{
@@ -88,7 +104,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, accountCreateRequest);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_accountCreateResponse:
 	{
@@ -100,7 +116,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, accountCreateResponse);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_accountLoginRequest:
 	{
@@ -112,7 +128,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, accountLoginRequest);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_accountLoginResponse:
 	{
@@ -124,7 +140,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, accountLoginResponse);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_accountLogoutRequest:
 	{
@@ -136,7 +152,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, accountLogoutRequest);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_accountLogoutResponse:
 	{
@@ -148,7 +164,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, accountLogoutResponse);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_anyPlayerInfoSelfRequest:
 	{
@@ -160,7 +176,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, anyPlayerInfoSelfRequest);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_anyPlayerInfoOtherRequestWithID:
 	{
@@ -172,7 +188,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, anyPlayerInfoOtherRequestWithID);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_anyPlayerInfoOtherRequestWithNickName:
 	{
@@ -184,7 +200,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, anyPlayerInfoOtherRequestWithNickName);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_anyPlayerInfoResponse:
 	{
@@ -196,7 +212,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, anyPlayerInfoResponse);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_anyWhisperRequestWithUID:
 	{
@@ -208,7 +224,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, anyWhisperRequestWithUID);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_anyWhisperRequestWithID:
 	{
@@ -220,7 +236,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, anyWhisperRequestWithID);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_anyWhisperRequestWithNickName:
 	{
@@ -232,7 +248,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, anyWhisperRequestWithNickName);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_anyWhisperResponse:
 	{
@@ -244,7 +260,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, anyWhisperResponse);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_outLobbyLobbylistRequest:
 	{
@@ -256,7 +272,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, outLobbyLobbylistRequest);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_outLobbyLobbylistResponse:
 	{
@@ -268,7 +284,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, outLobbyLobbylistResponse);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_outLobbyEnterLobbyRequest:
 	{
@@ -280,7 +296,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, outLobbyEnterLobbyRequest);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_outLobbyEnterLobbyResponse:
 	{
@@ -292,7 +308,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, outLobbyEnterLobbyResponse);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inLobbyPlayerlistRequest:
 	{
@@ -304,7 +320,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inLobbyPlayerlistRequest);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inLobbyPlayerlistResponse:
 	{
@@ -316,7 +332,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inLobbyPlayerlistResponse);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inLobbyEnterRoomRequest:
 	{
@@ -328,7 +344,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inLobbyEnterRoomRequest);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inLobbyEnterRoomResponse:
 	{
@@ -340,7 +356,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inLobbyEnterRoomResponse);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inLobbyLeaveLobbyRequest:
 	{
@@ -352,7 +368,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inLobbyLeaveLobbyRequest);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inLobbyLeaveLobbyResponse:
 	{
@@ -364,7 +380,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inLobbyLeaveLobbyResponse);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inLobbyChatRequest:
 	{
@@ -376,7 +392,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inLobbyChatRequest);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inLobbyChatResponse:
 	{
@@ -388,7 +404,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inLobbyChatResponse);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inLobbyChatBroadcast:
 	{
@@ -400,7 +416,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inLobbyChatBroadcast);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inRoomChatRequest:
 	{
@@ -412,7 +428,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inRoomChatRequest);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inRoomChatResponse:
 	{
@@ -424,7 +440,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inRoomChatResponse);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inRoomChatBroadcast:
 	{
@@ -436,7 +452,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inRoomChatBroadcast);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inRoomLeaveRoomRequest:
 	{
@@ -448,7 +464,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inRoomLeaveRoomRequest);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inRoomLeaveRoomResponse:
 	{
@@ -460,7 +476,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inRoomLeaveRoomResponse);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inRoomReadyRequest:
 	{
@@ -472,7 +488,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inRoomReadyRequest);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inRoomReadyResponse:
 	{
@@ -484,7 +500,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inRoomReadyResponse);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inRoomStartRequest:
 	{
@@ -496,7 +512,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inRoomStartRequest);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inRoomStartResponse:
 	{
@@ -508,7 +524,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inRoomStartResponse);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inRoomStartBroadcast:
 	{
@@ -520,7 +536,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inRoomStartBroadcast);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inGameSyncPlayerPosToServer:
 	{
@@ -532,7 +548,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inGameSyncPlayerPosToServer);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inGameSyncPlayersPosFromServer:
 	{
@@ -544,7 +560,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inGameSyncPlayersPosFromServer);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inGameSyncPlayerStateToServer:
 	{
@@ -556,7 +572,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inGameSyncPlayerStateToServer);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inGameSyncPlayersStateFromServer:
 	{
@@ -568,7 +584,55 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inGameSyncPlayersStateFromServer);
 	}
-		break;
+	break;
+
+	case PACKET_TYPE::PACKET_TYPE_inGamePlayerTotalInfoRequest:
+	{
+		prop::inGamePlayerTotalInfoRequest *inGamePlayerTotalInfoRequest = new prop::inGamePlayerTotalInfoRequest();
+		if (false == inGamePlayerTotalInfoRequest->ParseFromCodedStream(&codeInputStream))
+		{
+			printf_s("[ERROR] : PacketRecvHandle PACKET_TYPE_inGamePlayerTotalInfoRequest error\n");
+			return false;
+		}
+		PacketRecvMsgHandle(session, inGamePlayerTotalInfoRequest);
+	}
+	break;
+
+	case PACKET_TYPE::PACKET_TYPE_inGamePlayerTotalInfoResponse:
+	{
+		prop::inGamePlayerTotalInfoResponse *inGamePlayerTotalInfoResponse = new prop::inGamePlayerTotalInfoResponse();
+		if (false == inGamePlayerTotalInfoResponse->ParseFromCodedStream(&codeInputStream))
+		{
+			printf_s("[ERROR] : PacketRecvHandle PACKET_TYPE_inGamePlayerTotalInfoResponse error\n");
+			return false;
+		}
+		PacketRecvMsgHandle(session, inGamePlayerTotalInfoResponse);
+	}
+	break;
+
+	case PACKET_TYPE::PACKET_TYPE_inGameAllPlayersTotalInfoRequest:
+	{
+		prop::inGameAllPlayersTotalInfoRequest *inGameAllPlayersTotalInfoRequest = new prop::inGameAllPlayersTotalInfoRequest();
+		if (false == inGameAllPlayersTotalInfoRequest->ParseFromCodedStream(&codeInputStream))
+		{
+			printf_s("[ERROR] : PacketRecvHandle PACKET_TYPE_inGameAllPlayersTotalInfoRequest error\n");
+			return false;
+		}
+		PacketRecvMsgHandle(session, inGameAllPlayersTotalInfoRequest);
+	}
+	break;
+
+	case PACKET_TYPE::PACKET_TYPE_inGameAllPlayersTotalInfoResponse:
+	{
+		prop::inGameAllPlayersTotalInfoResponse *inGameAllPlayersTotalInfoResponse = new prop::inGameAllPlayersTotalInfoResponse();
+		if (false == inGameAllPlayersTotalInfoResponse->ParseFromCodedStream(&codeInputStream))
+		{
+			printf_s("[ERROR] : PacketRecvHandle PACKET_TYPE_inGameAllPlayersTotalInfoResponse error\n");
+			return false;
+		}
+		PacketRecvMsgHandle(session, inGameAllPlayersTotalInfoResponse);
+	}
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inGameChatRequest:
 	{
@@ -580,7 +644,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inGameChatRequest);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inGameChatResponse:
 	{
@@ -592,7 +656,7 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inGameChatResponse);
 	}
-		break;
+	break;
 
 	case PACKET_TYPE::PACKET_TYPE_inGameChatBroadcast:
 	{
@@ -604,14 +668,17 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 		}
 		PacketRecvMsgHandle(session, inGameChatBroadcast);
 	}
-		break;
+	break;
 
 	default:
 		printf_s("[ERROR] : PacketRecvHandle default error\n");
 		return false;
 	}
-return true;
+	return true;
 }
+
+
+
 bool PacketRecvMsgHandle(ClientSession * session, prop::msgLobby *msgLobby)
 {
 	return true;
@@ -628,7 +695,12 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::msgUserInfo *msgUserInfo
 {
 	return true;
 }
-bool PacketRecvMsgHandle(ClientSession * session, prop::msgUserInGameInfo *msgUserInGameInfo)
+bool PacketRecvMsgHandle(ClientSession * session, prop::msgUserInGameTotalInfo *msgUserInGameTotalInfo)
+{
+	//goto gamesession
+	return true;
+}
+bool PacketRecvMsgHandle(ClientSession * session, prop::msgUserInGamePosInfo *msgUserInGamePosInfo)
 {
 	return true;
 }
@@ -638,14 +710,19 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::msgUserInGameStateInfo *
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::accountCreateRequest *accountCreateRequest)
 {
+	//Player -> DB context
+	session->_sharedPlayer->RequestNewPlayer(accountCreateRequest->id, accountCreateRequest->password, accountCreateRequest->nickname);
+
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::accountCreateResponse *accountCreateResponse)
 {
+	// client
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::accountLoginRequest *accountLoginRequest)
 {
+	session->_sharedPlayer->RequestLogin(accountLoginRequest->id, accountLoginRequest->password);
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::accountLoginResponse *accountLoginResponse)
@@ -654,6 +731,7 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::accountLoginResponse *ac
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::accountLogoutRequest *accountLogoutRequest)
 {
+	session->_sharedPlayer->RequestLogout();
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::accountLogoutResponse *accountLogoutResponse)
@@ -662,14 +740,17 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::accountLogoutResponse *a
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::anyPlayerInfoSelfRequest *anyPlayerInfoSelfRequest)
 {
+	session->_sharedPlayer->RequestOtherPlayerInfoWithUID(session->_sharedPlayer->GetPlayerUID());
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::anyPlayerInfoOtherRequestWithID *anyPlayerInfoOtherRequestWithID)
 {
+	session->_sharedPlayer->RequestOtherPlayerInfoWithID(anyPlayerInfoOtherRequestWithID->otherid);
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::anyPlayerInfoOtherRequestWithNickName *anyPlayerInfoOtherRequestWithNickName)
 {
+	session->_sharedPlayer->RequestOtherPlayerInfoWithNIckname(anyPlayerInfoOtherRequestWithNickName->othernickname);
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::anyPlayerInfoResponse *anyPlayerInfoResponse)
@@ -694,94 +775,198 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::anyWhisperResponse *anyW
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::outLobbyLobbylistRequest *outLobbyLobbylistRequest)
 {
+	prop::outLobbyLobbylistResponse msg;
+	bool success = GOutLobby->GetLobbyList(session->_sharedPlayer, msg);
+
+	//todo
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::outLobbyLobbylistResponse *outLobbyLobbylistResponse)
 {
+	//on client
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::outLobbyEnterLobbyRequest *outLobbyEnterLobbyRequest)
 {
+	prop::outLobbyEnterLobbyResponse msg;
+	bool success = GOutLobby->EnterLobby(session->_sharedPlayer, outLobbyEnterLobbyRequest->lobbyuid, msg);
+
+	Packet pack(PACKET_TYPE::PACKET_TYPE_outLobbyEnterLobbyResponse, msg);
+	session->PostSend(pack);
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::outLobbyEnterLobbyResponse *outLobbyEnterLobbyResponse)
 {
+	// on client
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyPlayerlistRequest *inLobbyPlayerlistRequest)
 {
+	prop::inLobbyPlayerlistResponse msg;
+	int curLobbyUID = session->_sharedPlayer->GetLocInfo()->_lobbyUID;
+	bool success = GOutLobby->_lobbyMap[curLobbyUID]->GetPlayerList(session->_sharedPlayer, msg);
+
+	Packet pack(PACKET_TYPE::PACKET_TYPE_inLobbyPlayerlistResponse, msg);
+	session->PostSend(pack);
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyPlayerlistResponse *inLobbyPlayerlistResponse)
 {
+	// in client
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyEnterRoomRequest *inLobbyEnterRoomRequest)
 {
+	prop::inLobbyEnterRoomResponse msg;
+	int curLobbyUID = session->_sharedPlayer->GetLocInfo()->_lobbyUID;
+	bool success = GOutLobby->_lobbyMap[curLobbyUID]->EnterRoom(session->_sharedPlayer, inLobbyEnterRoomRequest->roomuid, msg);
+
+	Packet pack(PACKET_TYPE::PACKET_TYPE_inLobbyEnterRoomResponse, msg);
+	session->PostSend(pack);
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyEnterRoomResponse *inLobbyEnterRoomResponse)
 {
+	// in client
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyLeaveLobbyRequest *inLobbyLeaveLobbyRequest)
 {
+	prop::inLobbyLeaveLobbyResponse msg;
+	int curLobbyUID = session->_sharedPlayer->GetLocInfo()->_lobbyUID;
+	bool success = GOutLobby->_lobbyMap[curLobbyUID]->LeaveLobby(session->_sharedPlayer, inLobbyLeaveLobbyRequest->lobbyuid, msg);
+
+	Packet pack(PACKET_TYPE::PACKET_TYPE_inRoomLeaveRoomResponse, msg);
+	session->PostSend(pack);
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyLeaveLobbyResponse *inLobbyLeaveLobbyResponse)
 {
+	// in client
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyChatRequest *inLobbyChatRequest)
 {
+	prop::inLobbyChatResponse msg;
+	int curLobbyUID = session->_sharedPlayer->GetLocInfo()->_lobbyUID;
+	if (inLobbyChatRequest->lobbyuid != curLobbyUID)
+	{
+		msg.set_success(false);
+		Packet pack(PACKET_TYPE::PACKET_TYPE_inLobbyChatResponse, msg);
+		session->PostSend(pack);
+		return;
+	}
+	bool success = GOutLobby->_lobbyMap[curLobbyUID]->Chat(session->_sharedPlayer, inLobbyChatRequest->lobbyuid, inLobbyChatRequest->chat, msg);
+
+	Packet pack(PACKET_TYPE::PACKET_TYPE_inLobbyChatResponse, msg);
+	session->PostSend(pack);
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyChatResponse *inLobbyChatResponse)
 {
+	// in client
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyChatBroadcast *inLobbyChatBroadcast)
 {
+	// in client
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::inRoomChatRequest *inRoomChatRequest)
 {
+	prop::inRoomChatResponse msg;
+	int curLobbyUID = session->_sharedPlayer->GetLocInfo()->_lobbyUID;
+	int curRoomID = session->_sharedPlayer->GetLocInfo()->_roomUID;
+
+	if (inRoomChatRequest->set_roomuid != curRoomID)
+	{
+		msg.set_success(false);
+		Packet pack(PACKET_TYPE::PACKET_TYPE_inRoomChatResponse, msg);
+		session->PostSend(pack);
+		return;
+	}
+
+	std::shared_ptr<Room> curRoom = GOutLobby->_lobbyMap[curLobbyUID]->GetRoomShared(curRoomID);
+	bool success = curRoom->Chat(session->_sharedPlayer, inRoomChatRequest->chat, msg);
+
+	Packet pack(PACKET_TYPE::PACKET_TYPE_inRoomChatResponse, msg);
+	session->PostSend(pack);
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::inRoomChatResponse *inRoomChatResponse)
 {
+	// in client
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::inRoomChatBroadcast *inRoomChatBroadcast)
 {
+	// in client
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::inRoomLeaveRoomRequest *inRoomLeaveRoomRequest)
 {
+	prop::inRoomLeaveRoomResponse msg;
+	int curRoomUID = session->_sharedPlayer->GetLocInfo()->_roomUID;
+	int curLobbyUID = session->_sharedPlayer->GetLocInfo()->_lobbyUID;
+
+	if (inRoomLeaveRoomRequest->roomuid != curRoomUID)
+	{
+		msg.set_success(false);
+		Packet pack(PACKET_TYPE::PACKET_TYPE_inLobbyChatResponse, msg);
+		session->PostSend(pack);
+		return;
+	}
+	std::shared_ptr<Room> curRoom = GOutLobby->_lobbyMap[curLobbyUID]->GetRoomShared(curRoomUID);
+	curRoom->LeaveRoom(session->_sharedPlayer, inRoomLeaveRoomRequest->roomuid, msg);
+
+	Packet pack(PACKET_TYPE::PACKET_TYPE_inRoomLeaveRoomResponse, msg);
+	session->PostSend(pack);
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::inRoomLeaveRoomResponse *inRoomLeaveRoomResponse)
 {
+	// in client
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::inRoomReadyRequest *inRoomReadyRequest)
 {
+	prop::inRoomReadyResponse msg;
+	int curRoomUID = session->_sharedPlayer->GetLocInfo()->_roomUID;
+	int curLobbyUID = session->_sharedPlayer->GetLocInfo()->_lobbyUID;
+
+	std::shared_ptr<Room> curRoom = GOutLobby->_lobbyMap[curLobbyUID]->GetRoomShared(curRoomUID);
+	curRoom->ReadyRequest(session->_sharedPlayer, inRoomReadyRequest->ready, msg);
+
+	Packet pack(PACKET_TYPE::PACKET_TYPE_inRoomReadyResponse, msg);
+	session->PostSend(pack);
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::inRoomReadyResponse *inRoomReadyResponse)
 {
+	//in client
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::inRoomStartRequest *inRoomStartRequest)
 {
+	prop::inRoomStartResponse msg;
+	int curRoomUID = session->_sharedPlayer->GetLocInfo()->_roomUID;
+	int curLobbyUID = session->_sharedPlayer->GetLocInfo()->_lobbyUID;
+
+	std::shared_ptr<Room> curRoom = GOutLobby->_lobbyMap[curLobbyUID]->GetRoomShared(curRoomUID);
+	curRoom->StartRequest(session->_sharedPlayer, inRoomStartRequest->start, msg);
+
+	Packet pack(PACKET_TYPE::PACKET_TYPE_inRoomReadyResponse, msg);
+	session->PostSend(pack);
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::inRoomStartResponse *inRoomStartResponse)
 {
+	//in client
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::inRoomStartBroadcast *inRoomStartBroadcast)
 {
+	//in client
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::inGameSyncPlayerPosToServer *inGameSyncPlayerPosToServer)
@@ -797,6 +982,22 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::inGameSyncPlayerStateToS
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::inGameSyncPlayersStateFromServer *inGameSyncPlayersStateFromServer)
+{
+	return true;
+}
+bool PacketRecvMsgHandle(ClientSession * session, prop::inGamePlayerTotalInfoRequest *inGamePlayerTotalInfoRequest)
+{
+	return true;
+}
+bool PacketRecvMsgHandle(ClientSession * session, prop::inGamePlayerTotalInfoResponse *inGamePlayerTotalInfoResponse)
+{
+	return true;
+}
+bool PacketRecvMsgHandle(ClientSession * session, prop::inGameAllPlayersTotalInfoRequest *inGameAllPlayersTotalInfoRequest)
+{
+	return true;
+}
+bool PacketRecvMsgHandle(ClientSession * session, prop::inGameAllPlayersTotalInfoResponse *inGameAllPlayersTotalInfoResponse)
 {
 	return true;
 }

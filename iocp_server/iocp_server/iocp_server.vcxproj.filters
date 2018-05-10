@@ -22,9 +22,6 @@
     <Filter Include="소스 파일\Session">
       <UniqueIdentifier>{bf55c8f2-c89a-452e-9c9c-588c56cc939c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\NetworkObject">
-      <UniqueIdentifier>{9601a9b2-cdc1-4536-ac7b-aeb34f33f7b0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\Packet">
       <UniqueIdentifier>{88927754-c29d-40e1-a3c6-85ff6b08cf4e}</UniqueIdentifier>
     </Filter>
@@ -39,6 +36,12 @@
     </Filter>
     <Filter Include="리소스 파일\protobuf">
       <UniqueIdentifier>{e46730ba-d143-4c89-965a-49956c961b24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\NetworkrObj">
+      <UniqueIdentifier>{9601a9b2-cdc1-4536-ac7b-aeb34f33f7b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameSession">
+      <UniqueIdentifier>{c8757734-ff09-4b97-bd85-129efd5fde5c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -82,7 +85,7 @@
       <Filter>소스 파일\Session</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>소스 파일\NetworkObject</Filter>
+      <Filter>소스 파일\NetworkrObj</Filter>
     </ClCompile>
     <ClCompile Include="ClientSession.cpp">
       <Filter>소스 파일\Session</Filter>
@@ -97,7 +100,7 @@
       <Filter>소스 파일\Session</Filter>
     </ClCompile>
     <ClCompile Include="PlayerManager.cpp">
-      <Filter>소스 파일\NetworkObject</Filter>
+      <Filter>소스 파일\NetworkrObj</Filter>
     </ClCompile>
     <ClCompile Include="DBThread.cpp">
       <Filter>소스 파일\DatabaseHandling</Filter>
@@ -122,6 +125,15 @@
     </ClCompile>
     <ClCompile Include="protoGen\GetSource\PacketRecvHadler.cpp">
       <Filter>소스 파일\Packet</Filter>
+    </ClCompile>
+    <ClCompile Include="Lobby.cpp">
+      <Filter>소스 파일\NetworkrObj</Filter>
+    </ClCompile>
+    <ClCompile Include="OutLobby.cpp">
+      <Filter>소스 파일\NetworkrObj</Filter>
+    </ClCompile>
+    <ClCompile Include="Room.cpp">
+      <Filter>소스 파일\NetworkrObj</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -177,7 +189,7 @@
       <Filter>소스 파일\Session</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>소스 파일\NetworkObject</Filter>
+      <Filter>소스 파일\NetworkrObj</Filter>
     </ClInclude>
     <ClInclude Include="LocalSendRequestSessionList.h">
       <Filter>소스 파일\Session</Filter>
@@ -195,7 +207,7 @@
       <Filter>소스 파일\Session</Filter>
     </ClInclude>
     <ClInclude Include="PlayerManager.h">
-      <Filter>소스 파일\NetworkObject</Filter>
+      <Filter>소스 파일\NetworkrObj</Filter>
     </ClInclude>
     <ClInclude Include="Packet.h">
       <Filter>소스 파일\Packet</Filter>
@@ -238,6 +250,21 @@
     </ClInclude>
     <ClInclude Include="protoGen\GetSource\PacketRecvHadler.h">
       <Filter>소스 파일\Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="Lobby.h">
+      <Filter>소스 파일\NetworkrObj</Filter>
+    </ClInclude>
+    <ClInclude Include="Room.h">
+      <Filter>소스 파일\NetworkrObj</Filter>
+    </ClInclude>
+    <ClInclude Include="OutLobby.h">
+      <Filter>소스 파일\NetworkrObj</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSession.h">
+      <Filter>소스 파일\GameSession</Filter>
+    </ClInclude>
+    <ClInclude Include="LocationInfo.h">
+      <Filter>소스 파일\NetworkrObj</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

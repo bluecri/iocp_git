@@ -1,4 +1,4 @@
-bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, protobuf::io::CodedInputStream & codeInputStream)
+bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::protobuf::io::CodedInputStream & codeInputStream)
 {
 	switch (header.GetType())
 	{
@@ -50,15 +50,27 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, protobuf::i
 	}
 		break;
 
-	case PACKET_TYPE::PACKET_TYPE_msgUserInGameInfo:
+	case PACKET_TYPE::PACKET_TYPE_msgUserInGameTotalInfo:
 	{
-		prop::msgUserInGameInfo *msgUserInGameInfo = new prop::msgUserInGameInfo();
-		if (false == msgUserInGameInfo->ParseFromCodedStream(&codeInputStream))
+		prop::msgUserInGameTotalInfo *msgUserInGameTotalInfo = new prop::msgUserInGameTotalInfo();
+		if (false == msgUserInGameTotalInfo->ParseFromCodedStream(&codeInputStream))
 		{
-			printf_s("[ERROR] : PacketRecvHandle PACKET_TYPE_msgUserInGameInfo error\n");
+			printf_s("[ERROR] : PacketRecvHandle PACKET_TYPE_msgUserInGameTotalInfo error\n");
 			return false;
 		}
-		PacketRecvMsgHandle(session, msgUserInGameInfo);
+		PacketRecvMsgHandle(session, msgUserInGameTotalInfo);
+	}
+		break;
+
+	case PACKET_TYPE::PACKET_TYPE_msgUserInGamePosInfo:
+	{
+		prop::msgUserInGamePosInfo *msgUserInGamePosInfo = new prop::msgUserInGamePosInfo();
+		if (false == msgUserInGamePosInfo->ParseFromCodedStream(&codeInputStream))
+		{
+			printf_s("[ERROR] : PacketRecvHandle PACKET_TYPE_msgUserInGamePosInfo error\n");
+			return false;
+		}
+		PacketRecvMsgHandle(session, msgUserInGamePosInfo);
 	}
 		break;
 
@@ -566,6 +578,54 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, protobuf::i
 	}
 		break;
 
+	case PACKET_TYPE::PACKET_TYPE_inGamePlayerTotalInfoRequest:
+	{
+		prop::inGamePlayerTotalInfoRequest *inGamePlayerTotalInfoRequest = new prop::inGamePlayerTotalInfoRequest();
+		if (false == inGamePlayerTotalInfoRequest->ParseFromCodedStream(&codeInputStream))
+		{
+			printf_s("[ERROR] : PacketRecvHandle PACKET_TYPE_inGamePlayerTotalInfoRequest error\n");
+			return false;
+		}
+		PacketRecvMsgHandle(session, inGamePlayerTotalInfoRequest);
+	}
+		break;
+
+	case PACKET_TYPE::PACKET_TYPE_inGamePlayerTotalInfoResponse:
+	{
+		prop::inGamePlayerTotalInfoResponse *inGamePlayerTotalInfoResponse = new prop::inGamePlayerTotalInfoResponse();
+		if (false == inGamePlayerTotalInfoResponse->ParseFromCodedStream(&codeInputStream))
+		{
+			printf_s("[ERROR] : PacketRecvHandle PACKET_TYPE_inGamePlayerTotalInfoResponse error\n");
+			return false;
+		}
+		PacketRecvMsgHandle(session, inGamePlayerTotalInfoResponse);
+	}
+		break;
+
+	case PACKET_TYPE::PACKET_TYPE_inGameAllPlayersTotalInfoRequest:
+	{
+		prop::inGameAllPlayersTotalInfoRequest *inGameAllPlayersTotalInfoRequest = new prop::inGameAllPlayersTotalInfoRequest();
+		if (false == inGameAllPlayersTotalInfoRequest->ParseFromCodedStream(&codeInputStream))
+		{
+			printf_s("[ERROR] : PacketRecvHandle PACKET_TYPE_inGameAllPlayersTotalInfoRequest error\n");
+			return false;
+		}
+		PacketRecvMsgHandle(session, inGameAllPlayersTotalInfoRequest);
+	}
+		break;
+
+	case PACKET_TYPE::PACKET_TYPE_inGameAllPlayersTotalInfoResponse:
+	{
+		prop::inGameAllPlayersTotalInfoResponse *inGameAllPlayersTotalInfoResponse = new prop::inGameAllPlayersTotalInfoResponse();
+		if (false == inGameAllPlayersTotalInfoResponse->ParseFromCodedStream(&codeInputStream))
+		{
+			printf_s("[ERROR] : PacketRecvHandle PACKET_TYPE_inGameAllPlayersTotalInfoResponse error\n");
+			return false;
+		}
+		PacketRecvMsgHandle(session, inGameAllPlayersTotalInfoResponse);
+	}
+		break;
+
 	case PACKET_TYPE::PACKET_TYPE_inGameChatRequest:
 	{
 		prop::inGameChatRequest *inGameChatRequest = new prop::inGameChatRequest();
@@ -624,7 +684,11 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::msgUserInfo *msgUserInfo
 {
 	return true;
 }
-bool PacketRecvMsgHandle(ClientSession * session, prop::msgUserInGameInfo *msgUserInGameInfo)
+bool PacketRecvMsgHandle(ClientSession * session, prop::msgUserInGameTotalInfo *msgUserInGameTotalInfo)
+{
+	return true;
+}
+bool PacketRecvMsgHandle(ClientSession * session, prop::msgUserInGamePosInfo *msgUserInGamePosInfo)
 {
 	return true;
 }
@@ -793,6 +857,22 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::inGameSyncPlayerStateToS
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::inGameSyncPlayersStateFromServer *inGameSyncPlayersStateFromServer)
+{
+	return true;
+}
+bool PacketRecvMsgHandle(ClientSession * session, prop::inGamePlayerTotalInfoRequest *inGamePlayerTotalInfoRequest)
+{
+	return true;
+}
+bool PacketRecvMsgHandle(ClientSession * session, prop::inGamePlayerTotalInfoResponse *inGamePlayerTotalInfoResponse)
+{
+	return true;
+}
+bool PacketRecvMsgHandle(ClientSession * session, prop::inGameAllPlayersTotalInfoRequest *inGameAllPlayersTotalInfoRequest)
+{
+	return true;
+}
+bool PacketRecvMsgHandle(ClientSession * session, prop::inGameAllPlayersTotalInfoResponse *inGameAllPlayersTotalInfoResponse)
 {
 	return true;
 }

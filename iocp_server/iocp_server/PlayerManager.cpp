@@ -135,3 +135,14 @@ bool PlayerManager::MoveLoginToPlayerGuest(std::shared_ptr<Player> playerShared)
 	clientSession->ReleaseRef();
 	return true;
 }
+
+std::shared_ptr<Player> PlayerManager::GetLoginPlayerSharedWithUID(int uid)
+{
+	FastSpinlockGuard guard(__loginPlayerMaplock, false);
+	auto it = __loginPlayerMap.find(uid);
+	if (it == __loginPlayerMap.end())
+	{
+		return nullptr;
+	}
+	return it->second;
+}

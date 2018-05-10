@@ -35,7 +35,8 @@ void FastSpinlock::EnterWriteLock()
 			return;
 		}
 
-		InterlockedAdd(&mLockFlag, -LF_WRITE_FLAG);	//??
+		//write lock을 진입했는데 이미 write lock이 2개 이상 할당된 경우
+		InterlockedAdd(&mLockFlag, -LF_WRITE_FLAG);
 	}
 
 }

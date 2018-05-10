@@ -38,46 +38,10 @@
 using namespace std;
 
 #define MAX_STR_SIZE 200
-class SyncExecutable : public std::enable_shared_from_this<SyncExecutable>
-{
-public:
-	SyncExecutable(int in) : _in(in) {};
-	int _in;
 
-	template <class T>
-	std::shared_ptr<T> GetSharedFromThis()
-	{
-		static_assert(true == std::is_convertible<T, SyncExecutable>::value, "GetSharedFromThis T should be derived from SyncExecutable");
-
-		// this 포인터를 std::shared_ptr<T>형태로 반환.
-		//(HINT: 이 클래스는 std::enable_shared_from_this에서 상속받았다. 그리고 static_pointer_cast 사용)
-		//return std::shared_ptr<T>((Player*)this); ///< X X X
-		return std::static_pointer_cast<T>(shared_from_this());
-	}
-
-};
-class Player : public SyncExecutable
-{
-public:
-	Player(int i, int in) : _i(i), SyncExecutable(in) {};
-	int _i;
-	std::shared_ptr<Player> func() {
-		return  std::static_pointer_cast<Player>(GetSharedFromThis<Player>());
-	}
-};
 int main(int argc, char* argv[])
 {
-	std::shared_ptr<Player> sharedPlayer = nullptr;
-	sharedPlayer = make_shared<Player>(10, 20);
-	sharedPlayer->GetSharedFromThis<Player>();
-	std::shared_ptr<Player> sharedPlayer22 = sharedPlayer->func();
-	sharedPlayer22->func();
-	cout << sharedPlayer22->_i << endl;
-
-	static_assert(true == std::is_convertible<Player, SyncExecutable>::value, "T should be derived from SyncExecutable");
-	cout << std::is_convertible<Player, SyncExecutable>::value << endl;
-
-	/*
+	
 	vector<string> classTextVec;
 	char * protoFileName = "protoPack.proto";
 
@@ -186,6 +150,6 @@ int main(int argc, char* argv[])
 
 	}
 	outFilePacketRecvHadlerCpp.close();
-	*/
+	
 	return 0;
 }

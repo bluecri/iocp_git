@@ -1,16 +1,14 @@
 #pragma once
-
 #include "protoPack.pb.h"
-
 class ClientSession;
 class PacketHeader;
-
 bool PacketRecvToMsg(ClientSession* session, PacketHeader& header, google::protobuf::io::CodedInputStream& codeInputStream);
 bool PacketRecvMsgHandle(ClientSession * session, prop::msgLobby *msgLobby);
 bool PacketRecvMsgHandle(ClientSession * session, prop::msgRoom *msgRoom);
 bool PacketRecvMsgHandle(ClientSession * session, prop::msgGame *msgGame);
 bool PacketRecvMsgHandle(ClientSession * session, prop::msgUserInfo *msgUserInfo);
-bool PacketRecvMsgHandle(ClientSession * session, prop::msgUserInGameInfo *msgUserInGameInfo);
+bool PacketRecvMsgHandle(ClientSession * session, prop::msgUserInGameTotalInfo *msgUserInGameTotalInfo);
+bool PacketRecvMsgHandle(ClientSession * session, prop::msgUserInGamePosInfo *msgUserInGamePosInfo);
 bool PacketRecvMsgHandle(ClientSession * session, prop::msgUserInGameStateInfo *msgUserInGameStateInfo);
 bool PacketRecvMsgHandle(ClientSession * session, prop::accountCreateRequest *accountCreateRequest);
 bool PacketRecvMsgHandle(ClientSession * session, prop::accountCreateResponse *accountCreateResponse);
@@ -53,6 +51,10 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::inGameSyncPlayerPosToSer
 bool PacketRecvMsgHandle(ClientSession * session, prop::inGameSyncPlayersPosFromServer *inGameSyncPlayersPosFromServer);
 bool PacketRecvMsgHandle(ClientSession * session, prop::inGameSyncPlayerStateToServer *inGameSyncPlayerStateToServer);
 bool PacketRecvMsgHandle(ClientSession * session, prop::inGameSyncPlayersStateFromServer *inGameSyncPlayersStateFromServer);
+bool PacketRecvMsgHandle(ClientSession * session, prop::inGamePlayerTotalInfoRequest *inGamePlayerTotalInfoRequest);
+bool PacketRecvMsgHandle(ClientSession * session, prop::inGamePlayerTotalInfoResponse *inGamePlayerTotalInfoResponse);
+bool PacketRecvMsgHandle(ClientSession * session, prop::inGameAllPlayersTotalInfoRequest *inGameAllPlayersTotalInfoRequest);
+bool PacketRecvMsgHandle(ClientSession * session, prop::inGameAllPlayersTotalInfoResponse *inGameAllPlayersTotalInfoResponse);
 bool PacketRecvMsgHandle(ClientSession * session, prop::inGameChatRequest *inGameChatRequest);
 bool PacketRecvMsgHandle(ClientSession * session, prop::inGameChatResponse *inGameChatResponse);
 bool PacketRecvMsgHandle(ClientSession * session, prop::inGameChatBroadcast *inGameChatBroadcast);

@@ -22,6 +22,8 @@ public:
 	void MoveGuestToLoginPlayer(std::shared_ptr<Player> guestPlayerShared, int playerID);
 	bool MoveLoginToPlayerGuest(std::shared_ptr<Player> playerShared);
 
+
+	std::shared_ptr<Player> GetLoginPlayerSharedWithUID(int uid);
 private:
 	FastSpinlock __loginPlayerMaplock;
 	FastSpinlock __guestPlayerMaplock;

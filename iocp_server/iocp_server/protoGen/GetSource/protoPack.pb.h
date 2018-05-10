@@ -36,7 +36,7 @@ namespace protobuf_protoPack_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[50];
+  static const ::google::protobuf::internal::ParseTable schema[55];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -50,8 +50,10 @@ void InitDefaultsmsgGameImpl();
 void InitDefaultsmsgGame();
 void InitDefaultsmsgUserInfoImpl();
 void InitDefaultsmsgUserInfo();
-void InitDefaultsmsgUserInGameInfoImpl();
-void InitDefaultsmsgUserInGameInfo();
+void InitDefaultsmsgUserInGameTotalInfoImpl();
+void InitDefaultsmsgUserInGameTotalInfo();
+void InitDefaultsmsgUserInGamePosInfoImpl();
+void InitDefaultsmsgUserInGamePosInfo();
 void InitDefaultsmsgUserInGameStateInfoImpl();
 void InitDefaultsmsgUserInGameStateInfo();
 void InitDefaultsaccountCreateRequestImpl();
@@ -136,6 +138,14 @@ void InitDefaultsinGameSyncPlayerStateToServerImpl();
 void InitDefaultsinGameSyncPlayerStateToServer();
 void InitDefaultsinGameSyncPlayersStateFromServerImpl();
 void InitDefaultsinGameSyncPlayersStateFromServer();
+void InitDefaultsinGamePlayerTotalInfoRequestImpl();
+void InitDefaultsinGamePlayerTotalInfoRequest();
+void InitDefaultsinGamePlayerTotalInfoResponseImpl();
+void InitDefaultsinGamePlayerTotalInfoResponse();
+void InitDefaultsinGameAllPlayersTotalInfoRequestImpl();
+void InitDefaultsinGameAllPlayersTotalInfoRequest();
+void InitDefaultsinGameAllPlayersTotalInfoResponseImpl();
+void InitDefaultsinGameAllPlayersTotalInfoResponse();
 void InitDefaultsinGameChatRequestImpl();
 void InitDefaultsinGameChatRequest();
 void InitDefaultsinGameChatResponseImpl();
@@ -147,7 +157,8 @@ inline void InitDefaults() {
   InitDefaultsmsgRoom();
   InitDefaultsmsgGame();
   InitDefaultsmsgUserInfo();
-  InitDefaultsmsgUserInGameInfo();
+  InitDefaultsmsgUserInGameTotalInfo();
+  InitDefaultsmsgUserInGamePosInfo();
   InitDefaultsmsgUserInGameStateInfo();
   InitDefaultsaccountCreateRequest();
   InitDefaultsaccountCreateResponse();
@@ -190,6 +201,10 @@ inline void InitDefaults() {
   InitDefaultsinGameSyncPlayersPosFromServer();
   InitDefaultsinGameSyncPlayerStateToServer();
   InitDefaultsinGameSyncPlayersStateFromServer();
+  InitDefaultsinGamePlayerTotalInfoRequest();
+  InitDefaultsinGamePlayerTotalInfoResponse();
+  InitDefaultsinGameAllPlayersTotalInfoRequest();
+  InitDefaultsinGameAllPlayersTotalInfoResponse();
   InitDefaultsinGameChatRequest();
   InitDefaultsinGameChatResponse();
   InitDefaultsinGameChatBroadcast();
@@ -238,6 +253,12 @@ extern anyWhisperRequestWithUIDDefaultTypeInternal _anyWhisperRequestWithUID_def
 class anyWhisperResponse;
 class anyWhisperResponseDefaultTypeInternal;
 extern anyWhisperResponseDefaultTypeInternal _anyWhisperResponse_default_instance_;
+class inGameAllPlayersTotalInfoRequest;
+class inGameAllPlayersTotalInfoRequestDefaultTypeInternal;
+extern inGameAllPlayersTotalInfoRequestDefaultTypeInternal _inGameAllPlayersTotalInfoRequest_default_instance_;
+class inGameAllPlayersTotalInfoResponse;
+class inGameAllPlayersTotalInfoResponseDefaultTypeInternal;
+extern inGameAllPlayersTotalInfoResponseDefaultTypeInternal _inGameAllPlayersTotalInfoResponse_default_instance_;
 class inGameChatBroadcast;
 class inGameChatBroadcastDefaultTypeInternal;
 extern inGameChatBroadcastDefaultTypeInternal _inGameChatBroadcast_default_instance_;
@@ -247,6 +268,12 @@ extern inGameChatRequestDefaultTypeInternal _inGameChatRequest_default_instance_
 class inGameChatResponse;
 class inGameChatResponseDefaultTypeInternal;
 extern inGameChatResponseDefaultTypeInternal _inGameChatResponse_default_instance_;
+class inGamePlayerTotalInfoRequest;
+class inGamePlayerTotalInfoRequestDefaultTypeInternal;
+extern inGamePlayerTotalInfoRequestDefaultTypeInternal _inGamePlayerTotalInfoRequest_default_instance_;
+class inGamePlayerTotalInfoResponse;
+class inGamePlayerTotalInfoResponseDefaultTypeInternal;
+extern inGamePlayerTotalInfoResponseDefaultTypeInternal _inGamePlayerTotalInfoResponse_default_instance_;
 class inGameSyncPlayerPosToServer;
 class inGameSyncPlayerPosToServerDefaultTypeInternal;
 extern inGameSyncPlayerPosToServerDefaultTypeInternal _inGameSyncPlayerPosToServer_default_instance_;
@@ -325,12 +352,15 @@ extern msgLobbyDefaultTypeInternal _msgLobby_default_instance_;
 class msgRoom;
 class msgRoomDefaultTypeInternal;
 extern msgRoomDefaultTypeInternal _msgRoom_default_instance_;
-class msgUserInGameInfo;
-class msgUserInGameInfoDefaultTypeInternal;
-extern msgUserInGameInfoDefaultTypeInternal _msgUserInGameInfo_default_instance_;
+class msgUserInGamePosInfo;
+class msgUserInGamePosInfoDefaultTypeInternal;
+extern msgUserInGamePosInfoDefaultTypeInternal _msgUserInGamePosInfo_default_instance_;
 class msgUserInGameStateInfo;
 class msgUserInGameStateInfoDefaultTypeInternal;
 extern msgUserInGameStateInfoDefaultTypeInternal _msgUserInGameStateInfo_default_instance_;
+class msgUserInGameTotalInfo;
+class msgUserInGameTotalInfoDefaultTypeInternal;
+extern msgUserInGameTotalInfoDefaultTypeInternal _msgUserInGameTotalInfo_default_instance_;
 class msgUserInfo;
 class msgUserInfoDefaultTypeInternal;
 extern msgUserInfoDefaultTypeInternal _msgUserInfo_default_instance_;
@@ -764,27 +794,19 @@ class msgGame : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   const ::google::protobuf::RepeatedPtrField< ::prop::msgUserInfo >&
       userlist() const;
 
-  // required string number = 2;
-  bool has_number() const;
-  void clear_number();
-  static const int kNumberFieldNumber = 2;
-  const ::std::string& number() const;
-  void set_number(const ::std::string& value);
-  #if LANG_CXX11
-  void set_number(::std::string&& value);
-  #endif
-  void set_number(const char* value);
-  void set_number(const char* value, size_t size);
-  ::std::string* mutable_number();
-  ::std::string* release_number();
-  void set_allocated_number(::std::string* number);
-
   // required int32 uid = 1;
   bool has_uid() const;
   void clear_uid();
   static const int kUidFieldNumber = 1;
   ::google::protobuf::int32 uid() const;
   void set_uid(::google::protobuf::int32 value);
+
+  // required int32 number = 2;
+  bool has_number() const;
+  void clear_number();
+  static const int kNumberFieldNumber = 2;
+  ::google::protobuf::int32 number() const;
+  void set_number(::google::protobuf::int32 value);
 
   // @@protoc_insertion_point(class_scope:prop.msgGame)
  private:
@@ -800,8 +822,8 @@ class msgGame : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
   ::google::protobuf::RepeatedPtrField< ::prop::msgUserInfo > userlist_;
-  ::google::protobuf::internal::ArenaStringPtr number_;
   ::google::protobuf::int32 uid_;
+  ::google::protobuf::int32 number_;
   friend struct ::protobuf_protoPack_2eproto::TableStruct;
   friend void ::protobuf_protoPack_2eproto::InitDefaultsmsgGameImpl();
 };
@@ -896,6 +918,21 @@ class msgUserInfo : public ::google::protobuf::Message /* @@protoc_insertion_poi
 
   // accessors -------------------------------------------------------
 
+  // required string id = 2;
+  bool has_id() const;
+  void clear_id();
+  static const int kIdFieldNumber = 2;
+  const ::std::string& id() const;
+  void set_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_id(::std::string&& value);
+  #endif
+  void set_id(const char* value);
+  void set_id(const char* value, size_t size);
+  ::std::string* mutable_id();
+  ::std::string* release_id();
+  void set_allocated_id(::std::string* id);
+
   // required string Nickname = 3;
   bool has_nickname() const;
   void clear_nickname();
@@ -911,6 +948,36 @@ class msgUserInfo : public ::google::protobuf::Message /* @@protoc_insertion_poi
   ::std::string* release_nickname();
   void set_allocated_nickname(::std::string* nickname);
 
+  // optional string lobbyName = 5;
+  bool has_lobbyname() const;
+  void clear_lobbyname();
+  static const int kLobbyNameFieldNumber = 5;
+  const ::std::string& lobbyname() const;
+  void set_lobbyname(const ::std::string& value);
+  #if LANG_CXX11
+  void set_lobbyname(::std::string&& value);
+  #endif
+  void set_lobbyname(const char* value);
+  void set_lobbyname(const char* value, size_t size);
+  ::std::string* mutable_lobbyname();
+  ::std::string* release_lobbyname();
+  void set_allocated_lobbyname(::std::string* lobbyname);
+
+  // optional string roomName = 7;
+  bool has_roomname() const;
+  void clear_roomname();
+  static const int kRoomNameFieldNumber = 7;
+  const ::std::string& roomname() const;
+  void set_roomname(const ::std::string& value);
+  #if LANG_CXX11
+  void set_roomname(::std::string&& value);
+  #endif
+  void set_roomname(const char* value);
+  void set_roomname(const char* value, size_t size);
+  ::std::string* mutable_roomname();
+  ::std::string* release_roomname();
+  void set_allocated_roomname(::std::string* roomname);
+
   // required int32 uid = 1;
   bool has_uid() const;
   void clear_uid();
@@ -918,12 +985,26 @@ class msgUserInfo : public ::google::protobuf::Message /* @@protoc_insertion_poi
   ::google::protobuf::int32 uid() const;
   void set_uid(::google::protobuf::int32 value);
 
-  // required int32 id = 2;
-  bool has_id() const;
-  void clear_id();
-  static const int kIdFieldNumber = 2;
-  ::google::protobuf::int32 id() const;
-  void set_id(::google::protobuf::int32 value);
+  // optional int32 lobbyUID = 4;
+  bool has_lobbyuid() const;
+  void clear_lobbyuid();
+  static const int kLobbyUIDFieldNumber = 4;
+  ::google::protobuf::int32 lobbyuid() const;
+  void set_lobbyuid(::google::protobuf::int32 value);
+
+  // optional int32 roomUID = 6;
+  bool has_roomuid() const;
+  void clear_roomuid();
+  static const int kRoomUIDFieldNumber = 6;
+  ::google::protobuf::int32 roomuid() const;
+  void set_roomuid(::google::protobuf::int32 value);
+
+  // optional int32 gameSessionUID = 8;
+  bool has_gamesessionuid() const;
+  void clear_gamesessionuid();
+  static const int kGameSessionUIDFieldNumber = 8;
+  ::google::protobuf::int32 gamesessionuid() const;
+  void set_gamesessionuid(::google::protobuf::int32 value);
 
   // @@protoc_insertion_point(class_scope:prop.msgUserInfo)
  private:
@@ -933,6 +1014,16 @@ class msgUserInfo : public ::google::protobuf::Message /* @@protoc_insertion_poi
   void clear_has_id();
   void set_has_nickname();
   void clear_has_nickname();
+  void set_has_lobbyuid();
+  void clear_has_lobbyuid();
+  void set_has_lobbyname();
+  void clear_has_lobbyname();
+  void set_has_roomuid();
+  void clear_has_roomuid();
+  void set_has_roomname();
+  void clear_has_roomname();
+  void set_has_gamesessionuid();
+  void clear_has_gamesessionuid();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -940,32 +1031,37 @@ class msgUserInfo : public ::google::protobuf::Message /* @@protoc_insertion_poi
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr id_;
   ::google::protobuf::internal::ArenaStringPtr nickname_;
+  ::google::protobuf::internal::ArenaStringPtr lobbyname_;
+  ::google::protobuf::internal::ArenaStringPtr roomname_;
   ::google::protobuf::int32 uid_;
-  ::google::protobuf::int32 id_;
+  ::google::protobuf::int32 lobbyuid_;
+  ::google::protobuf::int32 roomuid_;
+  ::google::protobuf::int32 gamesessionuid_;
   friend struct ::protobuf_protoPack_2eproto::TableStruct;
   friend void ::protobuf_protoPack_2eproto::InitDefaultsmsgUserInfoImpl();
 };
 // -------------------------------------------------------------------
 
-class msgUserInGameInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.msgUserInGameInfo) */ {
+class msgUserInGameTotalInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.msgUserInGameTotalInfo) */ {
  public:
-  msgUserInGameInfo();
-  virtual ~msgUserInGameInfo();
+  msgUserInGameTotalInfo();
+  virtual ~msgUserInGameTotalInfo();
 
-  msgUserInGameInfo(const msgUserInGameInfo& from);
+  msgUserInGameTotalInfo(const msgUserInGameTotalInfo& from);
 
-  inline msgUserInGameInfo& operator=(const msgUserInGameInfo& from) {
+  inline msgUserInGameTotalInfo& operator=(const msgUserInGameTotalInfo& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  msgUserInGameInfo(msgUserInGameInfo&& from) noexcept
-    : msgUserInGameInfo() {
+  msgUserInGameTotalInfo(msgUserInGameTotalInfo&& from) noexcept
+    : msgUserInGameTotalInfo() {
     *this = ::std::move(from);
   }
 
-  inline msgUserInGameInfo& operator=(msgUserInGameInfo&& from) noexcept {
+  inline msgUserInGameTotalInfo& operator=(msgUserInGameTotalInfo&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -982,30 +1078,30 @@ class msgUserInGameInfo : public ::google::protobuf::Message /* @@protoc_inserti
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const msgUserInGameInfo& default_instance();
+  static const msgUserInGameTotalInfo& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const msgUserInGameInfo* internal_default_instance() {
-    return reinterpret_cast<const msgUserInGameInfo*>(
-               &_msgUserInGameInfo_default_instance_);
+  static inline const msgUserInGameTotalInfo* internal_default_instance() {
+    return reinterpret_cast<const msgUserInGameTotalInfo*>(
+               &_msgUserInGameTotalInfo_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
     4;
 
-  void Swap(msgUserInGameInfo* other);
-  friend void swap(msgUserInGameInfo& a, msgUserInGameInfo& b) {
+  void Swap(msgUserInGameTotalInfo* other);
+  friend void swap(msgUserInGameTotalInfo& a, msgUserInGameTotalInfo& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline msgUserInGameInfo* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline msgUserInGameTotalInfo* New() const PROTOBUF_FINAL { return New(NULL); }
 
-  msgUserInGameInfo* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  msgUserInGameTotalInfo* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
   void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
   void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const msgUserInGameInfo& from);
-  void MergeFrom(const msgUserInGameInfo& from);
+  void CopyFrom(const msgUserInGameTotalInfo& from);
+  void MergeFrom(const msgUserInGameTotalInfo& from);
   void Clear() PROTOBUF_FINAL;
   bool IsInitialized() const PROTOBUF_FINAL;
 
@@ -1021,7 +1117,7 @@ class msgUserInGameInfo : public ::google::protobuf::Message /* @@protoc_inserti
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(msgUserInGameInfo* other);
+  void InternalSwap(msgUserInGameTotalInfo* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -1093,7 +1189,7 @@ class msgUserInGameInfo : public ::google::protobuf::Message /* @@protoc_inserti
   float qw() const;
   void set_qw(float value);
 
-  // @@protoc_insertion_point(class_scope:prop.msgUserInGameInfo)
+  // @@protoc_insertion_point(class_scope:prop.msgUserInGameTotalInfo)
  private:
   void set_has_useruid();
   void clear_has_useruid();
@@ -1127,7 +1223,190 @@ class msgUserInGameInfo : public ::google::protobuf::Message /* @@protoc_inserti
   float qz_;
   float qw_;
   friend struct ::protobuf_protoPack_2eproto::TableStruct;
-  friend void ::protobuf_protoPack_2eproto::InitDefaultsmsgUserInGameInfoImpl();
+  friend void ::protobuf_protoPack_2eproto::InitDefaultsmsgUserInGameTotalInfoImpl();
+};
+// -------------------------------------------------------------------
+
+class msgUserInGamePosInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.msgUserInGamePosInfo) */ {
+ public:
+  msgUserInGamePosInfo();
+  virtual ~msgUserInGamePosInfo();
+
+  msgUserInGamePosInfo(const msgUserInGamePosInfo& from);
+
+  inline msgUserInGamePosInfo& operator=(const msgUserInGamePosInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  msgUserInGamePosInfo(msgUserInGamePosInfo&& from) noexcept
+    : msgUserInGamePosInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline msgUserInGamePosInfo& operator=(msgUserInGamePosInfo&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const msgUserInGamePosInfo& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const msgUserInGamePosInfo* internal_default_instance() {
+    return reinterpret_cast<const msgUserInGamePosInfo*>(
+               &_msgUserInGamePosInfo_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    5;
+
+  void Swap(msgUserInGamePosInfo* other);
+  friend void swap(msgUserInGamePosInfo& a, msgUserInGamePosInfo& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline msgUserInGamePosInfo* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  msgUserInGamePosInfo* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const msgUserInGamePosInfo& from);
+  void MergeFrom(const msgUserInGamePosInfo& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(msgUserInGamePosInfo* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 userUid = 1;
+  bool has_useruid() const;
+  void clear_useruid();
+  static const int kUserUidFieldNumber = 1;
+  ::google::protobuf::int32 useruid() const;
+  void set_useruid(::google::protobuf::int32 value);
+
+  // required float x = 2;
+  bool has_x() const;
+  void clear_x();
+  static const int kXFieldNumber = 2;
+  float x() const;
+  void set_x(float value);
+
+  // required float y = 3;
+  bool has_y() const;
+  void clear_y();
+  static const int kYFieldNumber = 3;
+  float y() const;
+  void set_y(float value);
+
+  // required float z = 4;
+  bool has_z() const;
+  void clear_z();
+  static const int kZFieldNumber = 4;
+  float z() const;
+  void set_z(float value);
+
+  // required float qx = 5;
+  bool has_qx() const;
+  void clear_qx();
+  static const int kQxFieldNumber = 5;
+  float qx() const;
+  void set_qx(float value);
+
+  // required float qy = 6;
+  bool has_qy() const;
+  void clear_qy();
+  static const int kQyFieldNumber = 6;
+  float qy() const;
+  void set_qy(float value);
+
+  // required float qz = 7;
+  bool has_qz() const;
+  void clear_qz();
+  static const int kQzFieldNumber = 7;
+  float qz() const;
+  void set_qz(float value);
+
+  // required float qw = 8;
+  bool has_qw() const;
+  void clear_qw();
+  static const int kQwFieldNumber = 8;
+  float qw() const;
+  void set_qw(float value);
+
+  // @@protoc_insertion_point(class_scope:prop.msgUserInGamePosInfo)
+ private:
+  void set_has_useruid();
+  void clear_has_useruid();
+  void set_has_x();
+  void clear_has_x();
+  void set_has_y();
+  void clear_has_y();
+  void set_has_z();
+  void clear_has_z();
+  void set_has_qx();
+  void clear_has_qx();
+  void set_has_qy();
+  void clear_has_qy();
+  void set_has_qz();
+  void clear_has_qz();
+  void set_has_qw();
+  void clear_has_qw();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::int32 useruid_;
+  float x_;
+  float y_;
+  float z_;
+  float qx_;
+  float qy_;
+  float qz_;
+  float qw_;
+  friend struct ::protobuf_protoPack_2eproto::TableStruct;
+  friend void ::protobuf_protoPack_2eproto::InitDefaultsmsgUserInGamePosInfoImpl();
 };
 // -------------------------------------------------------------------
 
@@ -1173,7 +1452,7 @@ class msgUserInGameStateInfo : public ::google::protobuf::Message /* @@protoc_in
                &_msgUserInGameStateInfo_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    5;
+    6;
 
   void Swap(msgUserInGameStateInfo* other);
   friend void swap(msgUserInGameStateInfo& a, msgUserInGameStateInfo& b) {
@@ -1296,7 +1575,7 @@ class accountCreateRequest : public ::google::protobuf::Message /* @@protoc_inse
                &_accountCreateRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    6;
+    7;
 
   void Swap(accountCreateRequest* other);
   friend void swap(accountCreateRequest& a, accountCreateRequest& b) {
@@ -1453,7 +1732,7 @@ class accountCreateResponse : public ::google::protobuf::Message /* @@protoc_ins
                &_accountCreateResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    7;
+    8;
 
   void Swap(accountCreateResponse* other);
   friend void swap(accountCreateResponse& a, accountCreateResponse& b) {
@@ -1563,7 +1842,7 @@ class accountLoginRequest : public ::google::protobuf::Message /* @@protoc_inser
                &_accountLoginRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    8;
+    9;
 
   void Swap(accountLoginRequest* other);
   friend void swap(accountLoginRequest& a, accountLoginRequest& b) {
@@ -1702,7 +1981,7 @@ class accountLoginResponse : public ::google::protobuf::Message /* @@protoc_inse
                &_accountLoginResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    9;
+    10;
 
   void Swap(accountLoginResponse* other);
   friend void swap(accountLoginResponse& a, accountLoginResponse& b) {
@@ -1812,7 +2091,7 @@ class accountLogoutRequest : public ::google::protobuf::Message /* @@protoc_inse
                &_accountLogoutRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    10;
+    11;
 
   void Swap(accountLogoutRequest* other);
   friend void swap(accountLogoutRequest& a, accountLogoutRequest& b) {
@@ -1922,7 +2201,7 @@ class accountLogoutResponse : public ::google::protobuf::Message /* @@protoc_ins
                &_accountLogoutResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    11;
+    12;
 
   void Swap(accountLogoutResponse* other);
   friend void swap(accountLogoutResponse& a, accountLogoutResponse& b) {
@@ -2032,7 +2311,7 @@ class anyPlayerInfoSelfRequest : public ::google::protobuf::Message /* @@protoc_
                &_anyPlayerInfoSelfRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    12;
+    13;
 
   void Swap(anyPlayerInfoSelfRequest* other);
   friend void swap(anyPlayerInfoSelfRequest& a, anyPlayerInfoSelfRequest& b) {
@@ -2142,7 +2421,7 @@ class anyPlayerInfoOtherRequestWithID : public ::google::protobuf::Message /* @@
                &_anyPlayerInfoOtherRequestWithID_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    13;
+    14;
 
   void Swap(anyPlayerInfoOtherRequestWithID* other);
   friend void swap(anyPlayerInfoOtherRequestWithID& a, anyPlayerInfoOtherRequestWithID& b) {
@@ -2260,7 +2539,7 @@ class anyPlayerInfoOtherRequestWithNickName : public ::google::protobuf::Message
                &_anyPlayerInfoOtherRequestWithNickName_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    14;
+    15;
 
   void Swap(anyPlayerInfoOtherRequestWithNickName* other);
   friend void swap(anyPlayerInfoOtherRequestWithNickName& a, anyPlayerInfoOtherRequestWithNickName& b) {
@@ -2378,7 +2657,7 @@ class anyPlayerInfoResponse : public ::google::protobuf::Message /* @@protoc_ins
                &_anyPlayerInfoResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    15;
+    16;
 
   void Swap(anyPlayerInfoResponse* other);
   friend void swap(anyPlayerInfoResponse& a, anyPlayerInfoResponse& b) {
@@ -2490,7 +2769,7 @@ class anyWhisperRequestWithUID : public ::google::protobuf::Message /* @@protoc_
                &_anyWhisperRequestWithUID_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    16;
+    17;
 
   void Swap(anyWhisperRequestWithUID* other);
   friend void swap(anyWhisperRequestWithUID& a, anyWhisperRequestWithUID& b) {
@@ -2621,7 +2900,7 @@ class anyWhisperRequestWithID : public ::google::protobuf::Message /* @@protoc_i
                &_anyWhisperRequestWithID_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    17;
+    18;
 
   void Swap(anyWhisperRequestWithID* other);
   friend void swap(anyWhisperRequestWithID& a, anyWhisperRequestWithID& b) {
@@ -2760,7 +3039,7 @@ class anyWhisperRequestWithNickName : public ::google::protobuf::Message /* @@pr
                &_anyWhisperRequestWithNickName_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    18;
+    19;
 
   void Swap(anyWhisperRequestWithNickName* other);
   friend void swap(anyWhisperRequestWithNickName& a, anyWhisperRequestWithNickName& b) {
@@ -2899,7 +3178,7 @@ class anyWhisperResponse : public ::google::protobuf::Message /* @@protoc_insert
                &_anyWhisperResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    19;
+    20;
 
   void Swap(anyWhisperResponse* other);
   friend void swap(anyWhisperResponse& a, anyWhisperResponse& b) {
@@ -3009,7 +3288,7 @@ class outLobbyLobbylistRequest : public ::google::protobuf::Message /* @@protoc_
                &_outLobbyLobbylistRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    20;
+    21;
 
   void Swap(outLobbyLobbylistRequest* other);
   friend void swap(outLobbyLobbylistRequest& a, outLobbyLobbylistRequest& b) {
@@ -3119,7 +3398,7 @@ class outLobbyLobbylistResponse : public ::google::protobuf::Message /* @@protoc
                &_outLobbyLobbylistResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    21;
+    22;
 
   void Swap(outLobbyLobbylistResponse* other);
   friend void swap(outLobbyLobbylistResponse& a, outLobbyLobbylistResponse& b) {
@@ -3242,7 +3521,7 @@ class outLobbyEnterLobbyRequest : public ::google::protobuf::Message /* @@protoc
                &_outLobbyEnterLobbyRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    22;
+    23;
 
   void Swap(outLobbyEnterLobbyRequest* other);
   friend void swap(outLobbyEnterLobbyRequest& a, outLobbyEnterLobbyRequest& b) {
@@ -3352,7 +3631,7 @@ class outLobbyEnterLobbyResponse : public ::google::protobuf::Message /* @@proto
                &_outLobbyEnterLobbyResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    23;
+    24;
 
   void Swap(outLobbyEnterLobbyResponse* other);
   friend void swap(outLobbyEnterLobbyResponse& a, outLobbyEnterLobbyResponse& b) {
@@ -3475,7 +3754,7 @@ class inLobbyPlayerlistRequest : public ::google::protobuf::Message /* @@protoc_
                &_inLobbyPlayerlistRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    24;
+    25;
 
   void Swap(inLobbyPlayerlistRequest* other);
   friend void swap(inLobbyPlayerlistRequest& a, inLobbyPlayerlistRequest& b) {
@@ -3585,7 +3864,7 @@ class inLobbyPlayerlistResponse : public ::google::protobuf::Message /* @@protoc
                &_inLobbyPlayerlistResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    25;
+    26;
 
   void Swap(inLobbyPlayerlistResponse* other);
   friend void swap(inLobbyPlayerlistResponse& a, inLobbyPlayerlistResponse& b) {
@@ -3721,7 +4000,7 @@ class inLobbyEnterRoomRequest : public ::google::protobuf::Message /* @@protoc_i
                &_inLobbyEnterRoomRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    26;
+    27;
 
   void Swap(inLobbyEnterRoomRequest* other);
   friend void swap(inLobbyEnterRoomRequest& a, inLobbyEnterRoomRequest& b) {
@@ -3831,7 +4110,7 @@ class inLobbyEnterRoomResponse : public ::google::protobuf::Message /* @@protoc_
                &_inLobbyEnterRoomResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    27;
+    28;
 
   void Swap(inLobbyEnterRoomResponse* other);
   friend void swap(inLobbyEnterRoomResponse& a, inLobbyEnterRoomResponse& b) {
@@ -3954,7 +4233,7 @@ class inLobbyLeaveLobbyRequest : public ::google::protobuf::Message /* @@protoc_
                &_inLobbyLeaveLobbyRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    28;
+    29;
 
   void Swap(inLobbyLeaveLobbyRequest* other);
   friend void swap(inLobbyLeaveLobbyRequest& a, inLobbyLeaveLobbyRequest& b) {
@@ -4064,7 +4343,7 @@ class inLobbyLeaveLobbyResponse : public ::google::protobuf::Message /* @@protoc
                &_inLobbyLeaveLobbyResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    29;
+    30;
 
   void Swap(inLobbyLeaveLobbyResponse* other);
   friend void swap(inLobbyLeaveLobbyResponse& a, inLobbyLeaveLobbyResponse& b) {
@@ -4187,7 +4466,7 @@ class inLobbyChatRequest : public ::google::protobuf::Message /* @@protoc_insert
                &_inLobbyChatRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    30;
+    31;
 
   void Swap(inLobbyChatRequest* other);
   friend void swap(inLobbyChatRequest& a, inLobbyChatRequest& b) {
@@ -4318,7 +4597,7 @@ class inLobbyChatResponse : public ::google::protobuf::Message /* @@protoc_inser
                &_inLobbyChatResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    31;
+    32;
 
   void Swap(inLobbyChatResponse* other);
   friend void swap(inLobbyChatResponse& a, inLobbyChatResponse& b) {
@@ -4428,7 +4707,7 @@ class inLobbyChatBroadcast : public ::google::protobuf::Message /* @@protoc_inse
                &_inLobbyChatBroadcast_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    32;
+    33;
 
   void Swap(inLobbyChatBroadcast* other);
   friend void swap(inLobbyChatBroadcast& a, inLobbyChatBroadcast& b) {
@@ -4559,7 +4838,7 @@ class inRoomChatRequest : public ::google::protobuf::Message /* @@protoc_inserti
                &_inRoomChatRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    33;
+    34;
 
   void Swap(inRoomChatRequest* other);
   friend void swap(inRoomChatRequest& a, inRoomChatRequest& b) {
@@ -4690,7 +4969,7 @@ class inRoomChatResponse : public ::google::protobuf::Message /* @@protoc_insert
                &_inRoomChatResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    34;
+    35;
 
   void Swap(inRoomChatResponse* other);
   friend void swap(inRoomChatResponse& a, inRoomChatResponse& b) {
@@ -4800,7 +5079,7 @@ class inRoomChatBroadcast : public ::google::protobuf::Message /* @@protoc_inser
                &_inRoomChatBroadcast_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    35;
+    36;
 
   void Swap(inRoomChatBroadcast* other);
   friend void swap(inRoomChatBroadcast& a, inRoomChatBroadcast& b) {
@@ -4931,7 +5210,7 @@ class inRoomLeaveRoomRequest : public ::google::protobuf::Message /* @@protoc_in
                &_inRoomLeaveRoomRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    36;
+    37;
 
   void Swap(inRoomLeaveRoomRequest* other);
   friend void swap(inRoomLeaveRoomRequest& a, inRoomLeaveRoomRequest& b) {
@@ -5041,7 +5320,7 @@ class inRoomLeaveRoomResponse : public ::google::protobuf::Message /* @@protoc_i
                &_inRoomLeaveRoomResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    37;
+    38;
 
   void Swap(inRoomLeaveRoomResponse* other);
   friend void swap(inRoomLeaveRoomResponse& a, inRoomLeaveRoomResponse& b) {
@@ -5174,7 +5453,7 @@ class inRoomReadyRequest : public ::google::protobuf::Message /* @@protoc_insert
                &_inRoomReadyRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    38;
+    39;
 
   void Swap(inRoomReadyRequest* other);
   friend void swap(inRoomReadyRequest& a, inRoomReadyRequest& b) {
@@ -5284,7 +5563,7 @@ class inRoomReadyResponse : public ::google::protobuf::Message /* @@protoc_inser
                &_inRoomReadyResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    39;
+    40;
 
   void Swap(inRoomReadyResponse* other);
   friend void swap(inRoomReadyResponse& a, inRoomReadyResponse& b) {
@@ -5394,7 +5673,7 @@ class inRoomStartRequest : public ::google::protobuf::Message /* @@protoc_insert
                &_inRoomStartRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    40;
+    41;
 
   void Swap(inRoomStartRequest* other);
   friend void swap(inRoomStartRequest& a, inRoomStartRequest& b) {
@@ -5504,7 +5783,7 @@ class inRoomStartResponse : public ::google::protobuf::Message /* @@protoc_inser
                &_inRoomStartResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    41;
+    42;
 
   void Swap(inRoomStartResponse* other);
   friend void swap(inRoomStartResponse& a, inRoomStartResponse& b) {
@@ -5614,7 +5893,7 @@ class inRoomStartBroadcast : public ::google::protobuf::Message /* @@protoc_inse
                &_inRoomStartBroadcast_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    42;
+    43;
 
   void Swap(inRoomStartBroadcast* other);
   friend void swap(inRoomStartBroadcast& a, inRoomStartBroadcast& b) {
@@ -5724,7 +6003,7 @@ class inGameSyncPlayerPosToServer : public ::google::protobuf::Message /* @@prot
                &_inGameSyncPlayerPosToServer_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    43;
+    44;
 
   void Swap(inGameSyncPlayerPosToServer* other);
   friend void swap(inGameSyncPlayerPosToServer& a, inGameSyncPlayerPosToServer& b) {
@@ -5771,37 +6050,24 @@ class inGameSyncPlayerPosToServer : public ::google::protobuf::Message /* @@prot
 
   // accessors -------------------------------------------------------
 
-  // required .prop.msgUserInGameInfo userInGameInfo = 2;
+  // required .prop.msgUserInGamePosInfo userInGameInfo = 1;
   bool has_useringameinfo() const;
   void clear_useringameinfo();
-  static const int kUserInGameInfoFieldNumber = 2;
-  const ::prop::msgUserInGameInfo& useringameinfo() const;
-  ::prop::msgUserInGameInfo* release_useringameinfo();
-  ::prop::msgUserInGameInfo* mutable_useringameinfo();
-  void set_allocated_useringameinfo(::prop::msgUserInGameInfo* useringameinfo);
-
-  // required int32 inGameUID = 1;
-  bool has_ingameuid() const;
-  void clear_ingameuid();
-  static const int kInGameUIDFieldNumber = 1;
-  ::google::protobuf::int32 ingameuid() const;
-  void set_ingameuid(::google::protobuf::int32 value);
+  static const int kUserInGameInfoFieldNumber = 1;
+  const ::prop::msgUserInGamePosInfo& useringameinfo() const;
+  ::prop::msgUserInGamePosInfo* release_useringameinfo();
+  ::prop::msgUserInGamePosInfo* mutable_useringameinfo();
+  void set_allocated_useringameinfo(::prop::msgUserInGamePosInfo* useringameinfo);
 
   // @@protoc_insertion_point(class_scope:prop.inGameSyncPlayerPosToServer)
  private:
-  void set_has_ingameuid();
-  void clear_has_ingameuid();
   void set_has_useringameinfo();
   void clear_has_useringameinfo();
-
-  // helper for ByteSizeLong()
-  size_t RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::prop::msgUserInGameInfo* useringameinfo_;
-  ::google::protobuf::int32 ingameuid_;
+  ::prop::msgUserInGamePosInfo* useringameinfo_;
   friend struct ::protobuf_protoPack_2eproto::TableStruct;
   friend void ::protobuf_protoPack_2eproto::InitDefaultsinGameSyncPlayerPosToServerImpl();
 };
@@ -5849,7 +6115,7 @@ class inGameSyncPlayersPosFromServer : public ::google::protobuf::Message /* @@p
                &_inGameSyncPlayersPosFromServer_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    44;
+    45;
 
   void Swap(inGameSyncPlayersPosFromServer* other);
   friend void swap(inGameSyncPlayersPosFromServer& a, inGameSyncPlayersPosFromServer& b) {
@@ -5896,35 +6162,25 @@ class inGameSyncPlayersPosFromServer : public ::google::protobuf::Message /* @@p
 
   // accessors -------------------------------------------------------
 
-  // repeated .prop.msgUserInGameInfo usersInGameInfo = 2;
+  // repeated .prop.msgUserInGamePosInfo usersInGameInfo = 1;
   int usersingameinfo_size() const;
   void clear_usersingameinfo();
-  static const int kUsersInGameInfoFieldNumber = 2;
-  const ::prop::msgUserInGameInfo& usersingameinfo(int index) const;
-  ::prop::msgUserInGameInfo* mutable_usersingameinfo(int index);
-  ::prop::msgUserInGameInfo* add_usersingameinfo();
-  ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGameInfo >*
+  static const int kUsersInGameInfoFieldNumber = 1;
+  const ::prop::msgUserInGamePosInfo& usersingameinfo(int index) const;
+  ::prop::msgUserInGamePosInfo* mutable_usersingameinfo(int index);
+  ::prop::msgUserInGamePosInfo* add_usersingameinfo();
+  ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGamePosInfo >*
       mutable_usersingameinfo();
-  const ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGameInfo >&
+  const ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGamePosInfo >&
       usersingameinfo() const;
-
-  // required int32 inGameUID = 1;
-  bool has_ingameuid() const;
-  void clear_ingameuid();
-  static const int kInGameUIDFieldNumber = 1;
-  ::google::protobuf::int32 ingameuid() const;
-  void set_ingameuid(::google::protobuf::int32 value);
 
   // @@protoc_insertion_point(class_scope:prop.inGameSyncPlayersPosFromServer)
  private:
-  void set_has_ingameuid();
-  void clear_has_ingameuid();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGameInfo > usersingameinfo_;
-  ::google::protobuf::int32 ingameuid_;
+  ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGamePosInfo > usersingameinfo_;
   friend struct ::protobuf_protoPack_2eproto::TableStruct;
   friend void ::protobuf_protoPack_2eproto::InitDefaultsinGameSyncPlayersPosFromServerImpl();
 };
@@ -5972,7 +6228,7 @@ class inGameSyncPlayerStateToServer : public ::google::protobuf::Message /* @@pr
                &_inGameSyncPlayerStateToServer_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    45;
+    46;
 
   void Swap(inGameSyncPlayerStateToServer* other);
   friend void swap(inGameSyncPlayerStateToServer& a, inGameSyncPlayerStateToServer& b) {
@@ -6019,37 +6275,24 @@ class inGameSyncPlayerStateToServer : public ::google::protobuf::Message /* @@pr
 
   // accessors -------------------------------------------------------
 
-  // required .prop.msgUserInGameStateInfo userStateInfo = 2;
+  // required .prop.msgUserInGameStateInfo userStateInfo = 1;
   bool has_userstateinfo() const;
   void clear_userstateinfo();
-  static const int kUserStateInfoFieldNumber = 2;
+  static const int kUserStateInfoFieldNumber = 1;
   const ::prop::msgUserInGameStateInfo& userstateinfo() const;
   ::prop::msgUserInGameStateInfo* release_userstateinfo();
   ::prop::msgUserInGameStateInfo* mutable_userstateinfo();
   void set_allocated_userstateinfo(::prop::msgUserInGameStateInfo* userstateinfo);
 
-  // required int32 inGameUID = 1;
-  bool has_ingameuid() const;
-  void clear_ingameuid();
-  static const int kInGameUIDFieldNumber = 1;
-  ::google::protobuf::int32 ingameuid() const;
-  void set_ingameuid(::google::protobuf::int32 value);
-
   // @@protoc_insertion_point(class_scope:prop.inGameSyncPlayerStateToServer)
  private:
-  void set_has_ingameuid();
-  void clear_has_ingameuid();
   void set_has_userstateinfo();
   void clear_has_userstateinfo();
-
-  // helper for ByteSizeLong()
-  size_t RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
   ::prop::msgUserInGameStateInfo* userstateinfo_;
-  ::google::protobuf::int32 ingameuid_;
   friend struct ::protobuf_protoPack_2eproto::TableStruct;
   friend void ::protobuf_protoPack_2eproto::InitDefaultsinGameSyncPlayerStateToServerImpl();
 };
@@ -6097,7 +6340,7 @@ class inGameSyncPlayersStateFromServer : public ::google::protobuf::Message /* @
                &_inGameSyncPlayersStateFromServer_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    46;
+    47;
 
   void Swap(inGameSyncPlayersStateFromServer* other);
   friend void swap(inGameSyncPlayersStateFromServer& a, inGameSyncPlayersStateFromServer& b) {
@@ -6144,10 +6387,10 @@ class inGameSyncPlayersStateFromServer : public ::google::protobuf::Message /* @
 
   // accessors -------------------------------------------------------
 
-  // repeated .prop.msgUserInGameStateInfo userStateInfoList = 2;
+  // repeated .prop.msgUserInGameStateInfo userStateInfoList = 1;
   int userstateinfolist_size() const;
   void clear_userstateinfolist();
-  static const int kUserStateInfoListFieldNumber = 2;
+  static const int kUserStateInfoListFieldNumber = 1;
   const ::prop::msgUserInGameStateInfo& userstateinfolist(int index) const;
   ::prop::msgUserInGameStateInfo* mutable_userstateinfolist(int index);
   ::prop::msgUserInGameStateInfo* add_userstateinfolist();
@@ -6156,6 +6399,107 @@ class inGameSyncPlayersStateFromServer : public ::google::protobuf::Message /* @
   const ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGameStateInfo >&
       userstateinfolist() const;
 
+  // @@protoc_insertion_point(class_scope:prop.inGameSyncPlayersStateFromServer)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGameStateInfo > userstateinfolist_;
+  friend struct ::protobuf_protoPack_2eproto::TableStruct;
+  friend void ::protobuf_protoPack_2eproto::InitDefaultsinGameSyncPlayersStateFromServerImpl();
+};
+// -------------------------------------------------------------------
+
+class inGamePlayerTotalInfoRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inGamePlayerTotalInfoRequest) */ {
+ public:
+  inGamePlayerTotalInfoRequest();
+  virtual ~inGamePlayerTotalInfoRequest();
+
+  inGamePlayerTotalInfoRequest(const inGamePlayerTotalInfoRequest& from);
+
+  inline inGamePlayerTotalInfoRequest& operator=(const inGamePlayerTotalInfoRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  inGamePlayerTotalInfoRequest(inGamePlayerTotalInfoRequest&& from) noexcept
+    : inGamePlayerTotalInfoRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline inGamePlayerTotalInfoRequest& operator=(inGamePlayerTotalInfoRequest&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const inGamePlayerTotalInfoRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const inGamePlayerTotalInfoRequest* internal_default_instance() {
+    return reinterpret_cast<const inGamePlayerTotalInfoRequest*>(
+               &_inGamePlayerTotalInfoRequest_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    48;
+
+  void Swap(inGamePlayerTotalInfoRequest* other);
+  friend void swap(inGamePlayerTotalInfoRequest& a, inGamePlayerTotalInfoRequest& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline inGamePlayerTotalInfoRequest* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  inGamePlayerTotalInfoRequest* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const inGamePlayerTotalInfoRequest& from);
+  void MergeFrom(const inGamePlayerTotalInfoRequest& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(inGamePlayerTotalInfoRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
   // required int32 inGameUID = 1;
   bool has_ingameuid() const;
   void clear_ingameuid();
@@ -6163,7 +6507,7 @@ class inGameSyncPlayersStateFromServer : public ::google::protobuf::Message /* @
   ::google::protobuf::int32 ingameuid() const;
   void set_ingameuid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:prop.inGameSyncPlayersStateFromServer)
+  // @@protoc_insertion_point(class_scope:prop.inGamePlayerTotalInfoRequest)
  private:
   void set_has_ingameuid();
   void clear_has_ingameuid();
@@ -6171,10 +6515,389 @@ class inGameSyncPlayersStateFromServer : public ::google::protobuf::Message /* @
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGameStateInfo > userstateinfolist_;
   ::google::protobuf::int32 ingameuid_;
   friend struct ::protobuf_protoPack_2eproto::TableStruct;
-  friend void ::protobuf_protoPack_2eproto::InitDefaultsinGameSyncPlayersStateFromServerImpl();
+  friend void ::protobuf_protoPack_2eproto::InitDefaultsinGamePlayerTotalInfoRequestImpl();
+};
+// -------------------------------------------------------------------
+
+class inGamePlayerTotalInfoResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inGamePlayerTotalInfoResponse) */ {
+ public:
+  inGamePlayerTotalInfoResponse();
+  virtual ~inGamePlayerTotalInfoResponse();
+
+  inGamePlayerTotalInfoResponse(const inGamePlayerTotalInfoResponse& from);
+
+  inline inGamePlayerTotalInfoResponse& operator=(const inGamePlayerTotalInfoResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  inGamePlayerTotalInfoResponse(inGamePlayerTotalInfoResponse&& from) noexcept
+    : inGamePlayerTotalInfoResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline inGamePlayerTotalInfoResponse& operator=(inGamePlayerTotalInfoResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const inGamePlayerTotalInfoResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const inGamePlayerTotalInfoResponse* internal_default_instance() {
+    return reinterpret_cast<const inGamePlayerTotalInfoResponse*>(
+               &_inGamePlayerTotalInfoResponse_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    49;
+
+  void Swap(inGamePlayerTotalInfoResponse* other);
+  friend void swap(inGamePlayerTotalInfoResponse& a, inGamePlayerTotalInfoResponse& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline inGamePlayerTotalInfoResponse* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  inGamePlayerTotalInfoResponse* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const inGamePlayerTotalInfoResponse& from);
+  void MergeFrom(const inGamePlayerTotalInfoResponse& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(inGamePlayerTotalInfoResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .prop.msgUserInGamePosInfo usersInGameInfo = 2;
+  bool has_usersingameinfo() const;
+  void clear_usersingameinfo();
+  static const int kUsersInGameInfoFieldNumber = 2;
+  const ::prop::msgUserInGamePosInfo& usersingameinfo() const;
+  ::prop::msgUserInGamePosInfo* release_usersingameinfo();
+  ::prop::msgUserInGamePosInfo* mutable_usersingameinfo();
+  void set_allocated_usersingameinfo(::prop::msgUserInGamePosInfo* usersingameinfo);
+
+  // optional .prop.msgUserInGameStateInfo userStateInfoList = 3;
+  bool has_userstateinfolist() const;
+  void clear_userstateinfolist();
+  static const int kUserStateInfoListFieldNumber = 3;
+  const ::prop::msgUserInGameStateInfo& userstateinfolist() const;
+  ::prop::msgUserInGameStateInfo* release_userstateinfolist();
+  ::prop::msgUserInGameStateInfo* mutable_userstateinfolist();
+  void set_allocated_userstateinfolist(::prop::msgUserInGameStateInfo* userstateinfolist);
+
+  // required bool success = 1;
+  bool has_success() const;
+  void clear_success();
+  static const int kSuccessFieldNumber = 1;
+  bool success() const;
+  void set_success(bool value);
+
+  // @@protoc_insertion_point(class_scope:prop.inGamePlayerTotalInfoResponse)
+ private:
+  void set_has_success();
+  void clear_has_success();
+  void set_has_usersingameinfo();
+  void clear_has_usersingameinfo();
+  void set_has_userstateinfolist();
+  void clear_has_userstateinfolist();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::prop::msgUserInGamePosInfo* usersingameinfo_;
+  ::prop::msgUserInGameStateInfo* userstateinfolist_;
+  bool success_;
+  friend struct ::protobuf_protoPack_2eproto::TableStruct;
+  friend void ::protobuf_protoPack_2eproto::InitDefaultsinGamePlayerTotalInfoResponseImpl();
+};
+// -------------------------------------------------------------------
+
+class inGameAllPlayersTotalInfoRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inGameAllPlayersTotalInfoRequest) */ {
+ public:
+  inGameAllPlayersTotalInfoRequest();
+  virtual ~inGameAllPlayersTotalInfoRequest();
+
+  inGameAllPlayersTotalInfoRequest(const inGameAllPlayersTotalInfoRequest& from);
+
+  inline inGameAllPlayersTotalInfoRequest& operator=(const inGameAllPlayersTotalInfoRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  inGameAllPlayersTotalInfoRequest(inGameAllPlayersTotalInfoRequest&& from) noexcept
+    : inGameAllPlayersTotalInfoRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline inGameAllPlayersTotalInfoRequest& operator=(inGameAllPlayersTotalInfoRequest&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const inGameAllPlayersTotalInfoRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const inGameAllPlayersTotalInfoRequest* internal_default_instance() {
+    return reinterpret_cast<const inGameAllPlayersTotalInfoRequest*>(
+               &_inGameAllPlayersTotalInfoRequest_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    50;
+
+  void Swap(inGameAllPlayersTotalInfoRequest* other);
+  friend void swap(inGameAllPlayersTotalInfoRequest& a, inGameAllPlayersTotalInfoRequest& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline inGameAllPlayersTotalInfoRequest* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  inGameAllPlayersTotalInfoRequest* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const inGameAllPlayersTotalInfoRequest& from);
+  void MergeFrom(const inGameAllPlayersTotalInfoRequest& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(inGameAllPlayersTotalInfoRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 empty = 1;
+  bool has_empty() const;
+  void clear_empty();
+  static const int kEmptyFieldNumber = 1;
+  ::google::protobuf::int32 empty() const;
+  void set_empty(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:prop.inGameAllPlayersTotalInfoRequest)
+ private:
+  void set_has_empty();
+  void clear_has_empty();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::int32 empty_;
+  friend struct ::protobuf_protoPack_2eproto::TableStruct;
+  friend void ::protobuf_protoPack_2eproto::InitDefaultsinGameAllPlayersTotalInfoRequestImpl();
+};
+// -------------------------------------------------------------------
+
+class inGameAllPlayersTotalInfoResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.inGameAllPlayersTotalInfoResponse) */ {
+ public:
+  inGameAllPlayersTotalInfoResponse();
+  virtual ~inGameAllPlayersTotalInfoResponse();
+
+  inGameAllPlayersTotalInfoResponse(const inGameAllPlayersTotalInfoResponse& from);
+
+  inline inGameAllPlayersTotalInfoResponse& operator=(const inGameAllPlayersTotalInfoResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  inGameAllPlayersTotalInfoResponse(inGameAllPlayersTotalInfoResponse&& from) noexcept
+    : inGameAllPlayersTotalInfoResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline inGameAllPlayersTotalInfoResponse& operator=(inGameAllPlayersTotalInfoResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const inGameAllPlayersTotalInfoResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const inGameAllPlayersTotalInfoResponse* internal_default_instance() {
+    return reinterpret_cast<const inGameAllPlayersTotalInfoResponse*>(
+               &_inGameAllPlayersTotalInfoResponse_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    51;
+
+  void Swap(inGameAllPlayersTotalInfoResponse* other);
+  friend void swap(inGameAllPlayersTotalInfoResponse& a, inGameAllPlayersTotalInfoResponse& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline inGameAllPlayersTotalInfoResponse* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  inGameAllPlayersTotalInfoResponse* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const inGameAllPlayersTotalInfoResponse& from);
+  void MergeFrom(const inGameAllPlayersTotalInfoResponse& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(inGameAllPlayersTotalInfoResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .prop.msgUserInGamePosInfo usersInGameInfo = 2;
+  int usersingameinfo_size() const;
+  void clear_usersingameinfo();
+  static const int kUsersInGameInfoFieldNumber = 2;
+  const ::prop::msgUserInGamePosInfo& usersingameinfo(int index) const;
+  ::prop::msgUserInGamePosInfo* mutable_usersingameinfo(int index);
+  ::prop::msgUserInGamePosInfo* add_usersingameinfo();
+  ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGamePosInfo >*
+      mutable_usersingameinfo();
+  const ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGamePosInfo >&
+      usersingameinfo() const;
+
+  // repeated .prop.msgUserInGameStateInfo userStateInfoList = 3;
+  int userstateinfolist_size() const;
+  void clear_userstateinfolist();
+  static const int kUserStateInfoListFieldNumber = 3;
+  const ::prop::msgUserInGameStateInfo& userstateinfolist(int index) const;
+  ::prop::msgUserInGameStateInfo* mutable_userstateinfolist(int index);
+  ::prop::msgUserInGameStateInfo* add_userstateinfolist();
+  ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGameStateInfo >*
+      mutable_userstateinfolist();
+  const ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGameStateInfo >&
+      userstateinfolist() const;
+
+  // required bool success = 1;
+  bool has_success() const;
+  void clear_success();
+  static const int kSuccessFieldNumber = 1;
+  bool success() const;
+  void set_success(bool value);
+
+  // @@protoc_insertion_point(class_scope:prop.inGameAllPlayersTotalInfoResponse)
+ private:
+  void set_has_success();
+  void clear_has_success();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGamePosInfo > usersingameinfo_;
+  ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGameStateInfo > userstateinfolist_;
+  bool success_;
+  friend struct ::protobuf_protoPack_2eproto::TableStruct;
+  friend void ::protobuf_protoPack_2eproto::InitDefaultsinGameAllPlayersTotalInfoResponseImpl();
 };
 // -------------------------------------------------------------------
 
@@ -6220,7 +6943,7 @@ class inGameChatRequest : public ::google::protobuf::Message /* @@protoc_inserti
                &_inGameChatRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    47;
+    52;
 
   void Swap(inGameChatRequest* other);
   friend void swap(inGameChatRequest& a, inGameChatRequest& b) {
@@ -6351,7 +7074,7 @@ class inGameChatResponse : public ::google::protobuf::Message /* @@protoc_insert
                &_inGameChatResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    48;
+    53;
 
   void Swap(inGameChatResponse* other);
   friend void swap(inGameChatResponse& a, inGameChatResponse& b) {
@@ -6461,7 +7184,7 @@ class inGameChatBroadcast : public ::google::protobuf::Message /* @@protoc_inser
                &_inGameChatBroadcast_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    49;
+    54;
 
   void Swap(inGameChatBroadcast* other);
   friend void swap(inGameChatBroadcast& a, inGameChatBroadcast& b) {
@@ -6850,13 +7573,13 @@ inline void msgRoom::set_useramaxnum(::google::protobuf::int32 value) {
 
 // required int32 uid = 1;
 inline bool msgGame::has_uid() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000001u) != 0;
 }
 inline void msgGame::set_has_uid() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000001u;
 }
 inline void msgGame::clear_has_uid() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000001u;
 }
 inline void msgGame::clear_uid() {
   uid_ = 0;
@@ -6872,67 +7595,28 @@ inline void msgGame::set_uid(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:prop.msgGame.uid)
 }
 
-// required string number = 2;
+// required int32 number = 2;
 inline bool msgGame::has_number() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
 inline void msgGame::set_has_number() {
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000002u;
 }
 inline void msgGame::clear_has_number() {
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void msgGame::clear_number() {
-  number_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  number_ = 0;
   clear_has_number();
 }
-inline const ::std::string& msgGame::number() const {
+inline ::google::protobuf::int32 msgGame::number() const {
   // @@protoc_insertion_point(field_get:prop.msgGame.number)
-  return number_.GetNoArena();
+  return number_;
 }
-inline void msgGame::set_number(const ::std::string& value) {
+inline void msgGame::set_number(::google::protobuf::int32 value) {
   set_has_number();
-  number_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  number_ = value;
   // @@protoc_insertion_point(field_set:prop.msgGame.number)
-}
-#if LANG_CXX11
-inline void msgGame::set_number(::std::string&& value) {
-  set_has_number();
-  number_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:prop.msgGame.number)
-}
-#endif
-inline void msgGame::set_number(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_number();
-  number_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:prop.msgGame.number)
-}
-inline void msgGame::set_number(const char* value, size_t size) {
-  set_has_number();
-  number_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:prop.msgGame.number)
-}
-inline ::std::string* msgGame::mutable_number() {
-  set_has_number();
-  // @@protoc_insertion_point(field_mutable:prop.msgGame.number)
-  return number_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* msgGame::release_number() {
-  // @@protoc_insertion_point(field_release:prop.msgGame.number)
-  clear_has_number();
-  return number_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void msgGame::set_allocated_number(::std::string* number) {
-  if (number != NULL) {
-    set_has_number();
-  } else {
-    clear_has_number();
-  }
-  number_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), number);
-  // @@protoc_insertion_point(field_set_allocated:prop.msgGame.number)
 }
 
 // repeated .prop.msgUserInfo userList = 3;
@@ -6971,13 +7655,13 @@ msgGame::userlist() const {
 
 // required int32 uid = 1;
 inline bool msgUserInfo::has_uid() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void msgUserInfo::set_has_uid() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void msgUserInfo::clear_has_uid() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void msgUserInfo::clear_uid() {
   uid_ = 0;
@@ -6993,39 +7677,78 @@ inline void msgUserInfo::set_uid(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:prop.msgUserInfo.uid)
 }
 
-// required int32 id = 2;
+// required string id = 2;
 inline bool msgUserInfo::has_id() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000001u) != 0;
 }
 inline void msgUserInfo::set_has_id() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000001u;
 }
 inline void msgUserInfo::clear_has_id() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000001u;
 }
 inline void msgUserInfo::clear_id() {
-  id_ = 0;
+  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   clear_has_id();
 }
-inline ::google::protobuf::int32 msgUserInfo::id() const {
+inline const ::std::string& msgUserInfo::id() const {
   // @@protoc_insertion_point(field_get:prop.msgUserInfo.id)
-  return id_;
+  return id_.GetNoArena();
 }
-inline void msgUserInfo::set_id(::google::protobuf::int32 value) {
+inline void msgUserInfo::set_id(const ::std::string& value) {
   set_has_id();
-  id_ = value;
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:prop.msgUserInfo.id)
+}
+#if LANG_CXX11
+inline void msgUserInfo::set_id(::std::string&& value) {
+  set_has_id();
+  id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:prop.msgUserInfo.id)
+}
+#endif
+inline void msgUserInfo::set_id(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_id();
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:prop.msgUserInfo.id)
+}
+inline void msgUserInfo::set_id(const char* value, size_t size) {
+  set_has_id();
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:prop.msgUserInfo.id)
+}
+inline ::std::string* msgUserInfo::mutable_id() {
+  set_has_id();
+  // @@protoc_insertion_point(field_mutable:prop.msgUserInfo.id)
+  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* msgUserInfo::release_id() {
+  // @@protoc_insertion_point(field_release:prop.msgUserInfo.id)
+  clear_has_id();
+  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void msgUserInfo::set_allocated_id(::std::string* id) {
+  if (id != NULL) {
+    set_has_id();
+  } else {
+    clear_has_id();
+  }
+  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
+  // @@protoc_insertion_point(field_set_allocated:prop.msgUserInfo.id)
 }
 
 // required string Nickname = 3;
 inline bool msgUserInfo::has_nickname() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
 inline void msgUserInfo::set_has_nickname() {
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000002u;
 }
 inline void msgUserInfo::clear_has_nickname() {
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void msgUserInfo::clear_nickname() {
   nickname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -7080,200 +7803,594 @@ inline void msgUserInfo::set_allocated_nickname(::std::string* nickname) {
   // @@protoc_insertion_point(field_set_allocated:prop.msgUserInfo.Nickname)
 }
 
+// optional int32 lobbyUID = 4;
+inline bool msgUserInfo::has_lobbyuid() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void msgUserInfo::set_has_lobbyuid() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void msgUserInfo::clear_has_lobbyuid() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void msgUserInfo::clear_lobbyuid() {
+  lobbyuid_ = 0;
+  clear_has_lobbyuid();
+}
+inline ::google::protobuf::int32 msgUserInfo::lobbyuid() const {
+  // @@protoc_insertion_point(field_get:prop.msgUserInfo.lobbyUID)
+  return lobbyuid_;
+}
+inline void msgUserInfo::set_lobbyuid(::google::protobuf::int32 value) {
+  set_has_lobbyuid();
+  lobbyuid_ = value;
+  // @@protoc_insertion_point(field_set:prop.msgUserInfo.lobbyUID)
+}
+
+// optional string lobbyName = 5;
+inline bool msgUserInfo::has_lobbyname() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void msgUserInfo::set_has_lobbyname() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void msgUserInfo::clear_has_lobbyname() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void msgUserInfo::clear_lobbyname() {
+  lobbyname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_lobbyname();
+}
+inline const ::std::string& msgUserInfo::lobbyname() const {
+  // @@protoc_insertion_point(field_get:prop.msgUserInfo.lobbyName)
+  return lobbyname_.GetNoArena();
+}
+inline void msgUserInfo::set_lobbyname(const ::std::string& value) {
+  set_has_lobbyname();
+  lobbyname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:prop.msgUserInfo.lobbyName)
+}
+#if LANG_CXX11
+inline void msgUserInfo::set_lobbyname(::std::string&& value) {
+  set_has_lobbyname();
+  lobbyname_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:prop.msgUserInfo.lobbyName)
+}
+#endif
+inline void msgUserInfo::set_lobbyname(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_lobbyname();
+  lobbyname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:prop.msgUserInfo.lobbyName)
+}
+inline void msgUserInfo::set_lobbyname(const char* value, size_t size) {
+  set_has_lobbyname();
+  lobbyname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:prop.msgUserInfo.lobbyName)
+}
+inline ::std::string* msgUserInfo::mutable_lobbyname() {
+  set_has_lobbyname();
+  // @@protoc_insertion_point(field_mutable:prop.msgUserInfo.lobbyName)
+  return lobbyname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* msgUserInfo::release_lobbyname() {
+  // @@protoc_insertion_point(field_release:prop.msgUserInfo.lobbyName)
+  clear_has_lobbyname();
+  return lobbyname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void msgUserInfo::set_allocated_lobbyname(::std::string* lobbyname) {
+  if (lobbyname != NULL) {
+    set_has_lobbyname();
+  } else {
+    clear_has_lobbyname();
+  }
+  lobbyname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), lobbyname);
+  // @@protoc_insertion_point(field_set_allocated:prop.msgUserInfo.lobbyName)
+}
+
+// optional int32 roomUID = 6;
+inline bool msgUserInfo::has_roomuid() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void msgUserInfo::set_has_roomuid() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void msgUserInfo::clear_has_roomuid() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void msgUserInfo::clear_roomuid() {
+  roomuid_ = 0;
+  clear_has_roomuid();
+}
+inline ::google::protobuf::int32 msgUserInfo::roomuid() const {
+  // @@protoc_insertion_point(field_get:prop.msgUserInfo.roomUID)
+  return roomuid_;
+}
+inline void msgUserInfo::set_roomuid(::google::protobuf::int32 value) {
+  set_has_roomuid();
+  roomuid_ = value;
+  // @@protoc_insertion_point(field_set:prop.msgUserInfo.roomUID)
+}
+
+// optional string roomName = 7;
+inline bool msgUserInfo::has_roomname() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void msgUserInfo::set_has_roomname() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void msgUserInfo::clear_has_roomname() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void msgUserInfo::clear_roomname() {
+  roomname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_roomname();
+}
+inline const ::std::string& msgUserInfo::roomname() const {
+  // @@protoc_insertion_point(field_get:prop.msgUserInfo.roomName)
+  return roomname_.GetNoArena();
+}
+inline void msgUserInfo::set_roomname(const ::std::string& value) {
+  set_has_roomname();
+  roomname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:prop.msgUserInfo.roomName)
+}
+#if LANG_CXX11
+inline void msgUserInfo::set_roomname(::std::string&& value) {
+  set_has_roomname();
+  roomname_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:prop.msgUserInfo.roomName)
+}
+#endif
+inline void msgUserInfo::set_roomname(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_roomname();
+  roomname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:prop.msgUserInfo.roomName)
+}
+inline void msgUserInfo::set_roomname(const char* value, size_t size) {
+  set_has_roomname();
+  roomname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:prop.msgUserInfo.roomName)
+}
+inline ::std::string* msgUserInfo::mutable_roomname() {
+  set_has_roomname();
+  // @@protoc_insertion_point(field_mutable:prop.msgUserInfo.roomName)
+  return roomname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* msgUserInfo::release_roomname() {
+  // @@protoc_insertion_point(field_release:prop.msgUserInfo.roomName)
+  clear_has_roomname();
+  return roomname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void msgUserInfo::set_allocated_roomname(::std::string* roomname) {
+  if (roomname != NULL) {
+    set_has_roomname();
+  } else {
+    clear_has_roomname();
+  }
+  roomname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), roomname);
+  // @@protoc_insertion_point(field_set_allocated:prop.msgUserInfo.roomName)
+}
+
+// optional int32 gameSessionUID = 8;
+inline bool msgUserInfo::has_gamesessionuid() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void msgUserInfo::set_has_gamesessionuid() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void msgUserInfo::clear_has_gamesessionuid() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void msgUserInfo::clear_gamesessionuid() {
+  gamesessionuid_ = 0;
+  clear_has_gamesessionuid();
+}
+inline ::google::protobuf::int32 msgUserInfo::gamesessionuid() const {
+  // @@protoc_insertion_point(field_get:prop.msgUserInfo.gameSessionUID)
+  return gamesessionuid_;
+}
+inline void msgUserInfo::set_gamesessionuid(::google::protobuf::int32 value) {
+  set_has_gamesessionuid();
+  gamesessionuid_ = value;
+  // @@protoc_insertion_point(field_set:prop.msgUserInfo.gameSessionUID)
+}
+
 // -------------------------------------------------------------------
 
-// msgUserInGameInfo
+// msgUserInGameTotalInfo
 
 // required int32 userUid = 1;
-inline bool msgUserInGameInfo::has_useruid() const {
+inline bool msgUserInGameTotalInfo::has_useruid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void msgUserInGameInfo::set_has_useruid() {
+inline void msgUserInGameTotalInfo::set_has_useruid() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void msgUserInGameInfo::clear_has_useruid() {
+inline void msgUserInGameTotalInfo::clear_has_useruid() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void msgUserInGameInfo::clear_useruid() {
+inline void msgUserInGameTotalInfo::clear_useruid() {
   useruid_ = 0;
   clear_has_useruid();
 }
-inline ::google::protobuf::int32 msgUserInGameInfo::useruid() const {
-  // @@protoc_insertion_point(field_get:prop.msgUserInGameInfo.userUid)
+inline ::google::protobuf::int32 msgUserInGameTotalInfo::useruid() const {
+  // @@protoc_insertion_point(field_get:prop.msgUserInGameTotalInfo.userUid)
   return useruid_;
 }
-inline void msgUserInGameInfo::set_useruid(::google::protobuf::int32 value) {
+inline void msgUserInGameTotalInfo::set_useruid(::google::protobuf::int32 value) {
   set_has_useruid();
   useruid_ = value;
-  // @@protoc_insertion_point(field_set:prop.msgUserInGameInfo.userUid)
+  // @@protoc_insertion_point(field_set:prop.msgUserInGameTotalInfo.userUid)
 }
 
 // required float x = 2;
-inline bool msgUserInGameInfo::has_x() const {
+inline bool msgUserInGameTotalInfo::has_x() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void msgUserInGameInfo::set_has_x() {
+inline void msgUserInGameTotalInfo::set_has_x() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void msgUserInGameInfo::clear_has_x() {
+inline void msgUserInGameTotalInfo::clear_has_x() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void msgUserInGameInfo::clear_x() {
+inline void msgUserInGameTotalInfo::clear_x() {
   x_ = 0;
   clear_has_x();
 }
-inline float msgUserInGameInfo::x() const {
-  // @@protoc_insertion_point(field_get:prop.msgUserInGameInfo.x)
+inline float msgUserInGameTotalInfo::x() const {
+  // @@protoc_insertion_point(field_get:prop.msgUserInGameTotalInfo.x)
   return x_;
 }
-inline void msgUserInGameInfo::set_x(float value) {
+inline void msgUserInGameTotalInfo::set_x(float value) {
   set_has_x();
   x_ = value;
-  // @@protoc_insertion_point(field_set:prop.msgUserInGameInfo.x)
+  // @@protoc_insertion_point(field_set:prop.msgUserInGameTotalInfo.x)
 }
 
 // required float y = 3;
-inline bool msgUserInGameInfo::has_y() const {
+inline bool msgUserInGameTotalInfo::has_y() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void msgUserInGameInfo::set_has_y() {
+inline void msgUserInGameTotalInfo::set_has_y() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void msgUserInGameInfo::clear_has_y() {
+inline void msgUserInGameTotalInfo::clear_has_y() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void msgUserInGameInfo::clear_y() {
+inline void msgUserInGameTotalInfo::clear_y() {
   y_ = 0;
   clear_has_y();
 }
-inline float msgUserInGameInfo::y() const {
-  // @@protoc_insertion_point(field_get:prop.msgUserInGameInfo.y)
+inline float msgUserInGameTotalInfo::y() const {
+  // @@protoc_insertion_point(field_get:prop.msgUserInGameTotalInfo.y)
   return y_;
 }
-inline void msgUserInGameInfo::set_y(float value) {
+inline void msgUserInGameTotalInfo::set_y(float value) {
   set_has_y();
   y_ = value;
-  // @@protoc_insertion_point(field_set:prop.msgUserInGameInfo.y)
+  // @@protoc_insertion_point(field_set:prop.msgUserInGameTotalInfo.y)
 }
 
 // required float z = 4;
-inline bool msgUserInGameInfo::has_z() const {
+inline bool msgUserInGameTotalInfo::has_z() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void msgUserInGameInfo::set_has_z() {
+inline void msgUserInGameTotalInfo::set_has_z() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void msgUserInGameInfo::clear_has_z() {
+inline void msgUserInGameTotalInfo::clear_has_z() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void msgUserInGameInfo::clear_z() {
+inline void msgUserInGameTotalInfo::clear_z() {
   z_ = 0;
   clear_has_z();
 }
-inline float msgUserInGameInfo::z() const {
-  // @@protoc_insertion_point(field_get:prop.msgUserInGameInfo.z)
+inline float msgUserInGameTotalInfo::z() const {
+  // @@protoc_insertion_point(field_get:prop.msgUserInGameTotalInfo.z)
   return z_;
 }
-inline void msgUserInGameInfo::set_z(float value) {
+inline void msgUserInGameTotalInfo::set_z(float value) {
   set_has_z();
   z_ = value;
-  // @@protoc_insertion_point(field_set:prop.msgUserInGameInfo.z)
+  // @@protoc_insertion_point(field_set:prop.msgUserInGameTotalInfo.z)
 }
 
 // required float qx = 5;
-inline bool msgUserInGameInfo::has_qx() const {
+inline bool msgUserInGameTotalInfo::has_qx() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void msgUserInGameInfo::set_has_qx() {
+inline void msgUserInGameTotalInfo::set_has_qx() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void msgUserInGameInfo::clear_has_qx() {
+inline void msgUserInGameTotalInfo::clear_has_qx() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void msgUserInGameInfo::clear_qx() {
+inline void msgUserInGameTotalInfo::clear_qx() {
   qx_ = 0;
   clear_has_qx();
 }
-inline float msgUserInGameInfo::qx() const {
-  // @@protoc_insertion_point(field_get:prop.msgUserInGameInfo.qx)
+inline float msgUserInGameTotalInfo::qx() const {
+  // @@protoc_insertion_point(field_get:prop.msgUserInGameTotalInfo.qx)
   return qx_;
 }
-inline void msgUserInGameInfo::set_qx(float value) {
+inline void msgUserInGameTotalInfo::set_qx(float value) {
   set_has_qx();
   qx_ = value;
-  // @@protoc_insertion_point(field_set:prop.msgUserInGameInfo.qx)
+  // @@protoc_insertion_point(field_set:prop.msgUserInGameTotalInfo.qx)
 }
 
 // required float qy = 6;
-inline bool msgUserInGameInfo::has_qy() const {
+inline bool msgUserInGameTotalInfo::has_qy() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void msgUserInGameInfo::set_has_qy() {
+inline void msgUserInGameTotalInfo::set_has_qy() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void msgUserInGameInfo::clear_has_qy() {
+inline void msgUserInGameTotalInfo::clear_has_qy() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void msgUserInGameInfo::clear_qy() {
+inline void msgUserInGameTotalInfo::clear_qy() {
   qy_ = 0;
   clear_has_qy();
 }
-inline float msgUserInGameInfo::qy() const {
-  // @@protoc_insertion_point(field_get:prop.msgUserInGameInfo.qy)
+inline float msgUserInGameTotalInfo::qy() const {
+  // @@protoc_insertion_point(field_get:prop.msgUserInGameTotalInfo.qy)
   return qy_;
 }
-inline void msgUserInGameInfo::set_qy(float value) {
+inline void msgUserInGameTotalInfo::set_qy(float value) {
   set_has_qy();
   qy_ = value;
-  // @@protoc_insertion_point(field_set:prop.msgUserInGameInfo.qy)
+  // @@protoc_insertion_point(field_set:prop.msgUserInGameTotalInfo.qy)
 }
 
 // required float qz = 7;
-inline bool msgUserInGameInfo::has_qz() const {
+inline bool msgUserInGameTotalInfo::has_qz() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void msgUserInGameInfo::set_has_qz() {
+inline void msgUserInGameTotalInfo::set_has_qz() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void msgUserInGameInfo::clear_has_qz() {
+inline void msgUserInGameTotalInfo::clear_has_qz() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void msgUserInGameInfo::clear_qz() {
+inline void msgUserInGameTotalInfo::clear_qz() {
   qz_ = 0;
   clear_has_qz();
 }
-inline float msgUserInGameInfo::qz() const {
-  // @@protoc_insertion_point(field_get:prop.msgUserInGameInfo.qz)
+inline float msgUserInGameTotalInfo::qz() const {
+  // @@protoc_insertion_point(field_get:prop.msgUserInGameTotalInfo.qz)
   return qz_;
 }
-inline void msgUserInGameInfo::set_qz(float value) {
+inline void msgUserInGameTotalInfo::set_qz(float value) {
   set_has_qz();
   qz_ = value;
-  // @@protoc_insertion_point(field_set:prop.msgUserInGameInfo.qz)
+  // @@protoc_insertion_point(field_set:prop.msgUserInGameTotalInfo.qz)
 }
 
 // required float qw = 8;
-inline bool msgUserInGameInfo::has_qw() const {
+inline bool msgUserInGameTotalInfo::has_qw() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void msgUserInGameInfo::set_has_qw() {
+inline void msgUserInGameTotalInfo::set_has_qw() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void msgUserInGameInfo::clear_has_qw() {
+inline void msgUserInGameTotalInfo::clear_has_qw() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void msgUserInGameInfo::clear_qw() {
+inline void msgUserInGameTotalInfo::clear_qw() {
   qw_ = 0;
   clear_has_qw();
 }
-inline float msgUserInGameInfo::qw() const {
-  // @@protoc_insertion_point(field_get:prop.msgUserInGameInfo.qw)
+inline float msgUserInGameTotalInfo::qw() const {
+  // @@protoc_insertion_point(field_get:prop.msgUserInGameTotalInfo.qw)
   return qw_;
 }
-inline void msgUserInGameInfo::set_qw(float value) {
+inline void msgUserInGameTotalInfo::set_qw(float value) {
   set_has_qw();
   qw_ = value;
-  // @@protoc_insertion_point(field_set:prop.msgUserInGameInfo.qw)
+  // @@protoc_insertion_point(field_set:prop.msgUserInGameTotalInfo.qw)
+}
+
+// -------------------------------------------------------------------
+
+// msgUserInGamePosInfo
+
+// required int32 userUid = 1;
+inline bool msgUserInGamePosInfo::has_useruid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void msgUserInGamePosInfo::set_has_useruid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void msgUserInGamePosInfo::clear_has_useruid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void msgUserInGamePosInfo::clear_useruid() {
+  useruid_ = 0;
+  clear_has_useruid();
+}
+inline ::google::protobuf::int32 msgUserInGamePosInfo::useruid() const {
+  // @@protoc_insertion_point(field_get:prop.msgUserInGamePosInfo.userUid)
+  return useruid_;
+}
+inline void msgUserInGamePosInfo::set_useruid(::google::protobuf::int32 value) {
+  set_has_useruid();
+  useruid_ = value;
+  // @@protoc_insertion_point(field_set:prop.msgUserInGamePosInfo.userUid)
+}
+
+// required float x = 2;
+inline bool msgUserInGamePosInfo::has_x() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void msgUserInGamePosInfo::set_has_x() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void msgUserInGamePosInfo::clear_has_x() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void msgUserInGamePosInfo::clear_x() {
+  x_ = 0;
+  clear_has_x();
+}
+inline float msgUserInGamePosInfo::x() const {
+  // @@protoc_insertion_point(field_get:prop.msgUserInGamePosInfo.x)
+  return x_;
+}
+inline void msgUserInGamePosInfo::set_x(float value) {
+  set_has_x();
+  x_ = value;
+  // @@protoc_insertion_point(field_set:prop.msgUserInGamePosInfo.x)
+}
+
+// required float y = 3;
+inline bool msgUserInGamePosInfo::has_y() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void msgUserInGamePosInfo::set_has_y() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void msgUserInGamePosInfo::clear_has_y() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void msgUserInGamePosInfo::clear_y() {
+  y_ = 0;
+  clear_has_y();
+}
+inline float msgUserInGamePosInfo::y() const {
+  // @@protoc_insertion_point(field_get:prop.msgUserInGamePosInfo.y)
+  return y_;
+}
+inline void msgUserInGamePosInfo::set_y(float value) {
+  set_has_y();
+  y_ = value;
+  // @@protoc_insertion_point(field_set:prop.msgUserInGamePosInfo.y)
+}
+
+// required float z = 4;
+inline bool msgUserInGamePosInfo::has_z() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void msgUserInGamePosInfo::set_has_z() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void msgUserInGamePosInfo::clear_has_z() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void msgUserInGamePosInfo::clear_z() {
+  z_ = 0;
+  clear_has_z();
+}
+inline float msgUserInGamePosInfo::z() const {
+  // @@protoc_insertion_point(field_get:prop.msgUserInGamePosInfo.z)
+  return z_;
+}
+inline void msgUserInGamePosInfo::set_z(float value) {
+  set_has_z();
+  z_ = value;
+  // @@protoc_insertion_point(field_set:prop.msgUserInGamePosInfo.z)
+}
+
+// required float qx = 5;
+inline bool msgUserInGamePosInfo::has_qx() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void msgUserInGamePosInfo::set_has_qx() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void msgUserInGamePosInfo::clear_has_qx() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void msgUserInGamePosInfo::clear_qx() {
+  qx_ = 0;
+  clear_has_qx();
+}
+inline float msgUserInGamePosInfo::qx() const {
+  // @@protoc_insertion_point(field_get:prop.msgUserInGamePosInfo.qx)
+  return qx_;
+}
+inline void msgUserInGamePosInfo::set_qx(float value) {
+  set_has_qx();
+  qx_ = value;
+  // @@protoc_insertion_point(field_set:prop.msgUserInGamePosInfo.qx)
+}
+
+// required float qy = 6;
+inline bool msgUserInGamePosInfo::has_qy() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void msgUserInGamePosInfo::set_has_qy() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void msgUserInGamePosInfo::clear_has_qy() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void msgUserInGamePosInfo::clear_qy() {
+  qy_ = 0;
+  clear_has_qy();
+}
+inline float msgUserInGamePosInfo::qy() const {
+  // @@protoc_insertion_point(field_get:prop.msgUserInGamePosInfo.qy)
+  return qy_;
+}
+inline void msgUserInGamePosInfo::set_qy(float value) {
+  set_has_qy();
+  qy_ = value;
+  // @@protoc_insertion_point(field_set:prop.msgUserInGamePosInfo.qy)
+}
+
+// required float qz = 7;
+inline bool msgUserInGamePosInfo::has_qz() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void msgUserInGamePosInfo::set_has_qz() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void msgUserInGamePosInfo::clear_has_qz() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void msgUserInGamePosInfo::clear_qz() {
+  qz_ = 0;
+  clear_has_qz();
+}
+inline float msgUserInGamePosInfo::qz() const {
+  // @@protoc_insertion_point(field_get:prop.msgUserInGamePosInfo.qz)
+  return qz_;
+}
+inline void msgUserInGamePosInfo::set_qz(float value) {
+  set_has_qz();
+  qz_ = value;
+  // @@protoc_insertion_point(field_set:prop.msgUserInGamePosInfo.qz)
+}
+
+// required float qw = 8;
+inline bool msgUserInGamePosInfo::has_qw() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void msgUserInGamePosInfo::set_has_qw() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void msgUserInGamePosInfo::clear_has_qw() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void msgUserInGamePosInfo::clear_qw() {
+  qw_ = 0;
+  clear_has_qw();
+}
+inline float msgUserInGamePosInfo::qw() const {
+  // @@protoc_insertion_point(field_get:prop.msgUserInGamePosInfo.qw)
+  return qw_;
+}
+inline void msgUserInGamePosInfo::set_qw(float value) {
+  set_has_qw();
+  qw_ = value;
+  // @@protoc_insertion_point(field_set:prop.msgUserInGamePosInfo.qw)
 }
 
 // -------------------------------------------------------------------
@@ -9466,31 +10583,7 @@ inline void inRoomStartBroadcast::set_ingameuid(::google::protobuf::int32 value)
 
 // inGameSyncPlayerPosToServer
 
-// required int32 inGameUID = 1;
-inline bool inGameSyncPlayerPosToServer::has_ingameuid() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void inGameSyncPlayerPosToServer::set_has_ingameuid() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void inGameSyncPlayerPosToServer::clear_has_ingameuid() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void inGameSyncPlayerPosToServer::clear_ingameuid() {
-  ingameuid_ = 0;
-  clear_has_ingameuid();
-}
-inline ::google::protobuf::int32 inGameSyncPlayerPosToServer::ingameuid() const {
-  // @@protoc_insertion_point(field_get:prop.inGameSyncPlayerPosToServer.inGameUID)
-  return ingameuid_;
-}
-inline void inGameSyncPlayerPosToServer::set_ingameuid(::google::protobuf::int32 value) {
-  set_has_ingameuid();
-  ingameuid_ = value;
-  // @@protoc_insertion_point(field_set:prop.inGameSyncPlayerPosToServer.inGameUID)
-}
-
-// required .prop.msgUserInGameInfo userInGameInfo = 2;
+// required .prop.msgUserInGamePosInfo userInGameInfo = 1;
 inline bool inGameSyncPlayerPosToServer::has_useringameinfo() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -9504,28 +10597,28 @@ inline void inGameSyncPlayerPosToServer::clear_useringameinfo() {
   if (useringameinfo_ != NULL) useringameinfo_->Clear();
   clear_has_useringameinfo();
 }
-inline const ::prop::msgUserInGameInfo& inGameSyncPlayerPosToServer::useringameinfo() const {
-  const ::prop::msgUserInGameInfo* p = useringameinfo_;
+inline const ::prop::msgUserInGamePosInfo& inGameSyncPlayerPosToServer::useringameinfo() const {
+  const ::prop::msgUserInGamePosInfo* p = useringameinfo_;
   // @@protoc_insertion_point(field_get:prop.inGameSyncPlayerPosToServer.userInGameInfo)
-  return p != NULL ? *p : *reinterpret_cast<const ::prop::msgUserInGameInfo*>(
-      &::prop::_msgUserInGameInfo_default_instance_);
+  return p != NULL ? *p : *reinterpret_cast<const ::prop::msgUserInGamePosInfo*>(
+      &::prop::_msgUserInGamePosInfo_default_instance_);
 }
-inline ::prop::msgUserInGameInfo* inGameSyncPlayerPosToServer::release_useringameinfo() {
+inline ::prop::msgUserInGamePosInfo* inGameSyncPlayerPosToServer::release_useringameinfo() {
   // @@protoc_insertion_point(field_release:prop.inGameSyncPlayerPosToServer.userInGameInfo)
   clear_has_useringameinfo();
-  ::prop::msgUserInGameInfo* temp = useringameinfo_;
+  ::prop::msgUserInGamePosInfo* temp = useringameinfo_;
   useringameinfo_ = NULL;
   return temp;
 }
-inline ::prop::msgUserInGameInfo* inGameSyncPlayerPosToServer::mutable_useringameinfo() {
+inline ::prop::msgUserInGamePosInfo* inGameSyncPlayerPosToServer::mutable_useringameinfo() {
   set_has_useringameinfo();
   if (useringameinfo_ == NULL) {
-    useringameinfo_ = new ::prop::msgUserInGameInfo;
+    useringameinfo_ = new ::prop::msgUserInGamePosInfo;
   }
   // @@protoc_insertion_point(field_mutable:prop.inGameSyncPlayerPosToServer.userInGameInfo)
   return useringameinfo_;
 }
-inline void inGameSyncPlayerPosToServer::set_allocated_useringameinfo(::prop::msgUserInGameInfo* useringameinfo) {
+inline void inGameSyncPlayerPosToServer::set_allocated_useringameinfo(::prop::msgUserInGamePosInfo* useringameinfo) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == NULL) {
     delete useringameinfo_;
@@ -9548,55 +10641,31 @@ inline void inGameSyncPlayerPosToServer::set_allocated_useringameinfo(::prop::ms
 
 // inGameSyncPlayersPosFromServer
 
-// required int32 inGameUID = 1;
-inline bool inGameSyncPlayersPosFromServer::has_ingameuid() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void inGameSyncPlayersPosFromServer::set_has_ingameuid() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void inGameSyncPlayersPosFromServer::clear_has_ingameuid() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void inGameSyncPlayersPosFromServer::clear_ingameuid() {
-  ingameuid_ = 0;
-  clear_has_ingameuid();
-}
-inline ::google::protobuf::int32 inGameSyncPlayersPosFromServer::ingameuid() const {
-  // @@protoc_insertion_point(field_get:prop.inGameSyncPlayersPosFromServer.inGameUID)
-  return ingameuid_;
-}
-inline void inGameSyncPlayersPosFromServer::set_ingameuid(::google::protobuf::int32 value) {
-  set_has_ingameuid();
-  ingameuid_ = value;
-  // @@protoc_insertion_point(field_set:prop.inGameSyncPlayersPosFromServer.inGameUID)
-}
-
-// repeated .prop.msgUserInGameInfo usersInGameInfo = 2;
+// repeated .prop.msgUserInGamePosInfo usersInGameInfo = 1;
 inline int inGameSyncPlayersPosFromServer::usersingameinfo_size() const {
   return usersingameinfo_.size();
 }
 inline void inGameSyncPlayersPosFromServer::clear_usersingameinfo() {
   usersingameinfo_.Clear();
 }
-inline const ::prop::msgUserInGameInfo& inGameSyncPlayersPosFromServer::usersingameinfo(int index) const {
+inline const ::prop::msgUserInGamePosInfo& inGameSyncPlayersPosFromServer::usersingameinfo(int index) const {
   // @@protoc_insertion_point(field_get:prop.inGameSyncPlayersPosFromServer.usersInGameInfo)
   return usersingameinfo_.Get(index);
 }
-inline ::prop::msgUserInGameInfo* inGameSyncPlayersPosFromServer::mutable_usersingameinfo(int index) {
+inline ::prop::msgUserInGamePosInfo* inGameSyncPlayersPosFromServer::mutable_usersingameinfo(int index) {
   // @@protoc_insertion_point(field_mutable:prop.inGameSyncPlayersPosFromServer.usersInGameInfo)
   return usersingameinfo_.Mutable(index);
 }
-inline ::prop::msgUserInGameInfo* inGameSyncPlayersPosFromServer::add_usersingameinfo() {
+inline ::prop::msgUserInGamePosInfo* inGameSyncPlayersPosFromServer::add_usersingameinfo() {
   // @@protoc_insertion_point(field_add:prop.inGameSyncPlayersPosFromServer.usersInGameInfo)
   return usersingameinfo_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGameInfo >*
+inline ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGamePosInfo >*
 inGameSyncPlayersPosFromServer::mutable_usersingameinfo() {
   // @@protoc_insertion_point(field_mutable_list:prop.inGameSyncPlayersPosFromServer.usersInGameInfo)
   return &usersingameinfo_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGameInfo >&
+inline const ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGamePosInfo >&
 inGameSyncPlayersPosFromServer::usersingameinfo() const {
   // @@protoc_insertion_point(field_list:prop.inGameSyncPlayersPosFromServer.usersInGameInfo)
   return usersingameinfo_;
@@ -9606,31 +10675,7 @@ inGameSyncPlayersPosFromServer::usersingameinfo() const {
 
 // inGameSyncPlayerStateToServer
 
-// required int32 inGameUID = 1;
-inline bool inGameSyncPlayerStateToServer::has_ingameuid() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void inGameSyncPlayerStateToServer::set_has_ingameuid() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void inGameSyncPlayerStateToServer::clear_has_ingameuid() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void inGameSyncPlayerStateToServer::clear_ingameuid() {
-  ingameuid_ = 0;
-  clear_has_ingameuid();
-}
-inline ::google::protobuf::int32 inGameSyncPlayerStateToServer::ingameuid() const {
-  // @@protoc_insertion_point(field_get:prop.inGameSyncPlayerStateToServer.inGameUID)
-  return ingameuid_;
-}
-inline void inGameSyncPlayerStateToServer::set_ingameuid(::google::protobuf::int32 value) {
-  set_has_ingameuid();
-  ingameuid_ = value;
-  // @@protoc_insertion_point(field_set:prop.inGameSyncPlayerStateToServer.inGameUID)
-}
-
-// required .prop.msgUserInGameStateInfo userStateInfo = 2;
+// required .prop.msgUserInGameStateInfo userStateInfo = 1;
 inline bool inGameSyncPlayerStateToServer::has_userstateinfo() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -9688,31 +10733,7 @@ inline void inGameSyncPlayerStateToServer::set_allocated_userstateinfo(::prop::m
 
 // inGameSyncPlayersStateFromServer
 
-// required int32 inGameUID = 1;
-inline bool inGameSyncPlayersStateFromServer::has_ingameuid() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void inGameSyncPlayersStateFromServer::set_has_ingameuid() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void inGameSyncPlayersStateFromServer::clear_has_ingameuid() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void inGameSyncPlayersStateFromServer::clear_ingameuid() {
-  ingameuid_ = 0;
-  clear_has_ingameuid();
-}
-inline ::google::protobuf::int32 inGameSyncPlayersStateFromServer::ingameuid() const {
-  // @@protoc_insertion_point(field_get:prop.inGameSyncPlayersStateFromServer.inGameUID)
-  return ingameuid_;
-}
-inline void inGameSyncPlayersStateFromServer::set_ingameuid(::google::protobuf::int32 value) {
-  set_has_ingameuid();
-  ingameuid_ = value;
-  // @@protoc_insertion_point(field_set:prop.inGameSyncPlayersStateFromServer.inGameUID)
-}
-
-// repeated .prop.msgUserInGameStateInfo userStateInfoList = 2;
+// repeated .prop.msgUserInGameStateInfo userStateInfoList = 1;
 inline int inGameSyncPlayersStateFromServer::userstateinfolist_size() const {
   return userstateinfolist_.size();
 }
@@ -9739,6 +10760,286 @@ inGameSyncPlayersStateFromServer::mutable_userstateinfolist() {
 inline const ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGameStateInfo >&
 inGameSyncPlayersStateFromServer::userstateinfolist() const {
   // @@protoc_insertion_point(field_list:prop.inGameSyncPlayersStateFromServer.userStateInfoList)
+  return userstateinfolist_;
+}
+
+// -------------------------------------------------------------------
+
+// inGamePlayerTotalInfoRequest
+
+// required int32 inGameUID = 1;
+inline bool inGamePlayerTotalInfoRequest::has_ingameuid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void inGamePlayerTotalInfoRequest::set_has_ingameuid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void inGamePlayerTotalInfoRequest::clear_has_ingameuid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void inGamePlayerTotalInfoRequest::clear_ingameuid() {
+  ingameuid_ = 0;
+  clear_has_ingameuid();
+}
+inline ::google::protobuf::int32 inGamePlayerTotalInfoRequest::ingameuid() const {
+  // @@protoc_insertion_point(field_get:prop.inGamePlayerTotalInfoRequest.inGameUID)
+  return ingameuid_;
+}
+inline void inGamePlayerTotalInfoRequest::set_ingameuid(::google::protobuf::int32 value) {
+  set_has_ingameuid();
+  ingameuid_ = value;
+  // @@protoc_insertion_point(field_set:prop.inGamePlayerTotalInfoRequest.inGameUID)
+}
+
+// -------------------------------------------------------------------
+
+// inGamePlayerTotalInfoResponse
+
+// required bool success = 1;
+inline bool inGamePlayerTotalInfoResponse::has_success() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void inGamePlayerTotalInfoResponse::set_has_success() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void inGamePlayerTotalInfoResponse::clear_has_success() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void inGamePlayerTotalInfoResponse::clear_success() {
+  success_ = false;
+  clear_has_success();
+}
+inline bool inGamePlayerTotalInfoResponse::success() const {
+  // @@protoc_insertion_point(field_get:prop.inGamePlayerTotalInfoResponse.success)
+  return success_;
+}
+inline void inGamePlayerTotalInfoResponse::set_success(bool value) {
+  set_has_success();
+  success_ = value;
+  // @@protoc_insertion_point(field_set:prop.inGamePlayerTotalInfoResponse.success)
+}
+
+// optional .prop.msgUserInGamePosInfo usersInGameInfo = 2;
+inline bool inGamePlayerTotalInfoResponse::has_usersingameinfo() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void inGamePlayerTotalInfoResponse::set_has_usersingameinfo() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void inGamePlayerTotalInfoResponse::clear_has_usersingameinfo() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void inGamePlayerTotalInfoResponse::clear_usersingameinfo() {
+  if (usersingameinfo_ != NULL) usersingameinfo_->Clear();
+  clear_has_usersingameinfo();
+}
+inline const ::prop::msgUserInGamePosInfo& inGamePlayerTotalInfoResponse::usersingameinfo() const {
+  const ::prop::msgUserInGamePosInfo* p = usersingameinfo_;
+  // @@protoc_insertion_point(field_get:prop.inGamePlayerTotalInfoResponse.usersInGameInfo)
+  return p != NULL ? *p : *reinterpret_cast<const ::prop::msgUserInGamePosInfo*>(
+      &::prop::_msgUserInGamePosInfo_default_instance_);
+}
+inline ::prop::msgUserInGamePosInfo* inGamePlayerTotalInfoResponse::release_usersingameinfo() {
+  // @@protoc_insertion_point(field_release:prop.inGamePlayerTotalInfoResponse.usersInGameInfo)
+  clear_has_usersingameinfo();
+  ::prop::msgUserInGamePosInfo* temp = usersingameinfo_;
+  usersingameinfo_ = NULL;
+  return temp;
+}
+inline ::prop::msgUserInGamePosInfo* inGamePlayerTotalInfoResponse::mutable_usersingameinfo() {
+  set_has_usersingameinfo();
+  if (usersingameinfo_ == NULL) {
+    usersingameinfo_ = new ::prop::msgUserInGamePosInfo;
+  }
+  // @@protoc_insertion_point(field_mutable:prop.inGamePlayerTotalInfoResponse.usersInGameInfo)
+  return usersingameinfo_;
+}
+inline void inGamePlayerTotalInfoResponse::set_allocated_usersingameinfo(::prop::msgUserInGamePosInfo* usersingameinfo) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete usersingameinfo_;
+  }
+  if (usersingameinfo) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      usersingameinfo = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, usersingameinfo, submessage_arena);
+    }
+    set_has_usersingameinfo();
+  } else {
+    clear_has_usersingameinfo();
+  }
+  usersingameinfo_ = usersingameinfo;
+  // @@protoc_insertion_point(field_set_allocated:prop.inGamePlayerTotalInfoResponse.usersInGameInfo)
+}
+
+// optional .prop.msgUserInGameStateInfo userStateInfoList = 3;
+inline bool inGamePlayerTotalInfoResponse::has_userstateinfolist() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void inGamePlayerTotalInfoResponse::set_has_userstateinfolist() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void inGamePlayerTotalInfoResponse::clear_has_userstateinfolist() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void inGamePlayerTotalInfoResponse::clear_userstateinfolist() {
+  if (userstateinfolist_ != NULL) userstateinfolist_->Clear();
+  clear_has_userstateinfolist();
+}
+inline const ::prop::msgUserInGameStateInfo& inGamePlayerTotalInfoResponse::userstateinfolist() const {
+  const ::prop::msgUserInGameStateInfo* p = userstateinfolist_;
+  // @@protoc_insertion_point(field_get:prop.inGamePlayerTotalInfoResponse.userStateInfoList)
+  return p != NULL ? *p : *reinterpret_cast<const ::prop::msgUserInGameStateInfo*>(
+      &::prop::_msgUserInGameStateInfo_default_instance_);
+}
+inline ::prop::msgUserInGameStateInfo* inGamePlayerTotalInfoResponse::release_userstateinfolist() {
+  // @@protoc_insertion_point(field_release:prop.inGamePlayerTotalInfoResponse.userStateInfoList)
+  clear_has_userstateinfolist();
+  ::prop::msgUserInGameStateInfo* temp = userstateinfolist_;
+  userstateinfolist_ = NULL;
+  return temp;
+}
+inline ::prop::msgUserInGameStateInfo* inGamePlayerTotalInfoResponse::mutable_userstateinfolist() {
+  set_has_userstateinfolist();
+  if (userstateinfolist_ == NULL) {
+    userstateinfolist_ = new ::prop::msgUserInGameStateInfo;
+  }
+  // @@protoc_insertion_point(field_mutable:prop.inGamePlayerTotalInfoResponse.userStateInfoList)
+  return userstateinfolist_;
+}
+inline void inGamePlayerTotalInfoResponse::set_allocated_userstateinfolist(::prop::msgUserInGameStateInfo* userstateinfolist) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete userstateinfolist_;
+  }
+  if (userstateinfolist) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      userstateinfolist = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, userstateinfolist, submessage_arena);
+    }
+    set_has_userstateinfolist();
+  } else {
+    clear_has_userstateinfolist();
+  }
+  userstateinfolist_ = userstateinfolist;
+  // @@protoc_insertion_point(field_set_allocated:prop.inGamePlayerTotalInfoResponse.userStateInfoList)
+}
+
+// -------------------------------------------------------------------
+
+// inGameAllPlayersTotalInfoRequest
+
+// required int32 empty = 1;
+inline bool inGameAllPlayersTotalInfoRequest::has_empty() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void inGameAllPlayersTotalInfoRequest::set_has_empty() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void inGameAllPlayersTotalInfoRequest::clear_has_empty() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void inGameAllPlayersTotalInfoRequest::clear_empty() {
+  empty_ = 0;
+  clear_has_empty();
+}
+inline ::google::protobuf::int32 inGameAllPlayersTotalInfoRequest::empty() const {
+  // @@protoc_insertion_point(field_get:prop.inGameAllPlayersTotalInfoRequest.empty)
+  return empty_;
+}
+inline void inGameAllPlayersTotalInfoRequest::set_empty(::google::protobuf::int32 value) {
+  set_has_empty();
+  empty_ = value;
+  // @@protoc_insertion_point(field_set:prop.inGameAllPlayersTotalInfoRequest.empty)
+}
+
+// -------------------------------------------------------------------
+
+// inGameAllPlayersTotalInfoResponse
+
+// required bool success = 1;
+inline bool inGameAllPlayersTotalInfoResponse::has_success() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void inGameAllPlayersTotalInfoResponse::set_has_success() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void inGameAllPlayersTotalInfoResponse::clear_has_success() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void inGameAllPlayersTotalInfoResponse::clear_success() {
+  success_ = false;
+  clear_has_success();
+}
+inline bool inGameAllPlayersTotalInfoResponse::success() const {
+  // @@protoc_insertion_point(field_get:prop.inGameAllPlayersTotalInfoResponse.success)
+  return success_;
+}
+inline void inGameAllPlayersTotalInfoResponse::set_success(bool value) {
+  set_has_success();
+  success_ = value;
+  // @@protoc_insertion_point(field_set:prop.inGameAllPlayersTotalInfoResponse.success)
+}
+
+// repeated .prop.msgUserInGamePosInfo usersInGameInfo = 2;
+inline int inGameAllPlayersTotalInfoResponse::usersingameinfo_size() const {
+  return usersingameinfo_.size();
+}
+inline void inGameAllPlayersTotalInfoResponse::clear_usersingameinfo() {
+  usersingameinfo_.Clear();
+}
+inline const ::prop::msgUserInGamePosInfo& inGameAllPlayersTotalInfoResponse::usersingameinfo(int index) const {
+  // @@protoc_insertion_point(field_get:prop.inGameAllPlayersTotalInfoResponse.usersInGameInfo)
+  return usersingameinfo_.Get(index);
+}
+inline ::prop::msgUserInGamePosInfo* inGameAllPlayersTotalInfoResponse::mutable_usersingameinfo(int index) {
+  // @@protoc_insertion_point(field_mutable:prop.inGameAllPlayersTotalInfoResponse.usersInGameInfo)
+  return usersingameinfo_.Mutable(index);
+}
+inline ::prop::msgUserInGamePosInfo* inGameAllPlayersTotalInfoResponse::add_usersingameinfo() {
+  // @@protoc_insertion_point(field_add:prop.inGameAllPlayersTotalInfoResponse.usersInGameInfo)
+  return usersingameinfo_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGamePosInfo >*
+inGameAllPlayersTotalInfoResponse::mutable_usersingameinfo() {
+  // @@protoc_insertion_point(field_mutable_list:prop.inGameAllPlayersTotalInfoResponse.usersInGameInfo)
+  return &usersingameinfo_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGamePosInfo >&
+inGameAllPlayersTotalInfoResponse::usersingameinfo() const {
+  // @@protoc_insertion_point(field_list:prop.inGameAllPlayersTotalInfoResponse.usersInGameInfo)
+  return usersingameinfo_;
+}
+
+// repeated .prop.msgUserInGameStateInfo userStateInfoList = 3;
+inline int inGameAllPlayersTotalInfoResponse::userstateinfolist_size() const {
+  return userstateinfolist_.size();
+}
+inline void inGameAllPlayersTotalInfoResponse::clear_userstateinfolist() {
+  userstateinfolist_.Clear();
+}
+inline const ::prop::msgUserInGameStateInfo& inGameAllPlayersTotalInfoResponse::userstateinfolist(int index) const {
+  // @@protoc_insertion_point(field_get:prop.inGameAllPlayersTotalInfoResponse.userStateInfoList)
+  return userstateinfolist_.Get(index);
+}
+inline ::prop::msgUserInGameStateInfo* inGameAllPlayersTotalInfoResponse::mutable_userstateinfolist(int index) {
+  // @@protoc_insertion_point(field_mutable:prop.inGameAllPlayersTotalInfoResponse.userStateInfoList)
+  return userstateinfolist_.Mutable(index);
+}
+inline ::prop::msgUserInGameStateInfo* inGameAllPlayersTotalInfoResponse::add_userstateinfolist() {
+  // @@protoc_insertion_point(field_add:prop.inGameAllPlayersTotalInfoResponse.userStateInfoList)
+  return userstateinfolist_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGameStateInfo >*
+inGameAllPlayersTotalInfoResponse::mutable_userstateinfolist() {
+  // @@protoc_insertion_point(field_mutable_list:prop.inGameAllPlayersTotalInfoResponse.userStateInfoList)
+  return &userstateinfolist_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::prop::msgUserInGameStateInfo >&
+inGameAllPlayersTotalInfoResponse::userstateinfolist() const {
+  // @@protoc_insertion_point(field_list:prop.inGameAllPlayersTotalInfoResponse.userStateInfoList)
   return userstateinfolist_;
 }
 
@@ -9931,6 +11232,16 @@ inline void inGameChatBroadcast::set_allocated_chat(::std::string* chat) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
