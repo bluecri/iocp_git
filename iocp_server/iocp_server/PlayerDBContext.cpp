@@ -2,9 +2,11 @@
 #include "PlayerDBContext.h"
 #include "DBHelper.h"
 #include "SQLStatement.h"
+#include "Packet.h"
+#include "PlayerManager.h"
 #include "RigidbodyComponent.h"
 
-void OverlappedDBLogInOutContext::Init_login(std::string& id, std::string& password)
+void OverlappedDBLogInOutContext::Init_login(const std::string& id, const std::string& password)
 {
 	strcpy_s(_cstrID, id.c_str());
 	strcpy_s(_cstrPassword, password.c_str());
@@ -52,7 +54,7 @@ bool OverlappedDBLogInOutContext::OnSQLExecute()
 
 		break;
 	case E_TYPE::LOGOUT:
-		
+		//TODO : use SQL_UpdatePlayerWithUID
 		break;
 	default:
 		printf_s("[DEBUG] : default type in OverlappedDBLogInOutContext::OnSQLExecute : %d\n", GetLastError());
@@ -74,12 +76,36 @@ void OverlappedDBLogInOutContext::OnSuccess()
 	switch (_inType) {
 	case E_TYPE::CREATE:
 		printf_s("[LOG] : OverlappedDBLogInOutContext::CREATE success\n");
+		{
+			prop::accountCreateResponse msg;
+			msg.set_success(true);
+			Packet pack(PACKET_TYPE::PACKET_TYPE_accountCreateResponse, msg);
+			_playerShared->SendToClient(&pack);
+		}
 		break;
 	case E_TYPE::LOGIN:
 		printf_s("[LOG] : OverlappedDBLogInOutContext::LOGIN success\n");
+		{
+			prop::accountLoginResponse msg;
+			msg.set_success(true);
+			Packet pack(PACKET_TYPE::PACKET_TYPE_accountLoginResponse, msg);
+			_playerShared->SendToClient(&pack);
+
+			//guest -> player with this uid and this db info
+			GPlayerManager->MoveGuestToLoginPlayer(_playerShared, _intUID);
+		}
 		break;
 	case E_TYPE::LOGOUT:
 		//printf_s("[LOG] : OverlappedDBLogInOutContext::LOGOUT success\n");
+		{
+			prop::accountLogoutResponse msg;
+			msg.set_success(true);
+			Packet pack(PACKET_TYPE::PACKET_TYPE_accountLogoutResponse, msg);
+			_playerShared->SendToClient(&pack);
+
+			//player -> guest with this uid and db info
+			GPlayerManager->MoveLoginToPlayerGuest(_playerShared);
+	}
 		break;
 	default:
 		printf_s("[DEBUG] : default type in OverlappedDBLogInOutContext::OnSQLExecute : %d\n", GetLastError());
@@ -92,12 +118,30 @@ void OverlappedDBLogInOutContext::OnFail()
 	switch (_inType) {
 	case E_TYPE::CREATE:
 		printf_s("[LOG] : OverlappedDBLogInOutContext::CREATE fail\n");
+		{
+			prop::accountCreateResponse msg;
+			msg.set_success(false);
+			Packet pack(PACKET_TYPE::PACKET_TYPE_accountCreateResponse, msg);
+			_playerShared->SendToClient(&pack);
+		}
 		break;
 	case E_TYPE::LOGIN:
 		printf_s("[LOG] : OverlappedDBLogInOutContext::LOGIN fail\n");
+		{
+			prop::accountLoginResponse msg;
+			msg.set_success(false);
+			Packet pack(PACKET_TYPE::PACKET_TYPE_accountLoginResponse, msg);
+			_playerShared->SendToClient(&pack);
+		}
 		break;
 	case E_TYPE::LOGOUT:
 		//printf_s("[LOG] : OverlappedDBLogInOutContext::LOGOUT fail\n");
+		{
+			prop::accountLogoutResponse msg;
+			msg.set_success(false);
+			Packet pack(PACKET_TYPE::PACKET_TYPE_accountLogoutResponse, msg);
+			_playerShared->SendToClient(&pack);
+		}
 		break;
 	default:
 		printf_s("[DEBUG] : default type in OverlappedDBLogInOutContext::OnFail : %d\n", GetLastError());
@@ -113,13 +157,13 @@ void OverlappedDBUpdatePlayerContext::init_updatePlayerPosition()
 {
 	_inType = OverlappedDBUpdatePlayerContext::E_TYPE::UPDATE_PLAYER_POS;
 
-	_playerObject->EnterReadLock();
-	_intUID = _playerObject->GetPlayerUID();
+	_playerShared->EnterReadLock();
+	_intUID = _playerShared->GetPlayerUID();
 
-	RigidbodyComponent* rigidbodyComp = _playerObject->GetRigidbodyComponent();
+	RigidbodyComponent* rigidbodyComp = _playerShared->GetRigidbodyComponent();
 	vec3 posVec3 = *(rigidbodyComp->GetPosVec3());	//copy
 	quat quat = *(rigidbodyComp->GetQuat());	//copy
-	_playerObject->LeaveReadLock();
+	_playerShared->LeaveReadLock();
 
 	_x = posVec3.x;
 	_y = posVec3.y;
@@ -137,18 +181,28 @@ void OverlappedDBUpdatePlayerContext::init_loadPlayerPosition()
 {
 	_inType = OverlappedDBUpdatePlayerContext::E_TYPE::LOAD_PLAYER_POS;
 
-	if (_playerObject != nullptr) {
-		_playerObject->EnterReadLock();
-		_intUID = _playerObject->GetPlayerUID();
-		_playerObject->LeaveReadLock();
+	if (_playerShared != nullptr) {
+		_playerShared->EnterReadLock();
+		_intUID = _playerShared->GetPlayerUID();
+		_playerShared->LeaveReadLock();
 	}
 }
 
 void OverlappedDBUpdatePlayerContext::init_loadPlayerWithUID(int uid)
 {
 	_inType = OverlappedDBUpdatePlayerContext::E_TYPE::LOAD_PLAYER_INFO_WITH_UID;
+	if (uid == -1) 
+	{
+		_playerShared->EnterReadLock();
+		_intUID = _playerShared->GetPlayerUID();
+		_playerShared->LeaveReadLock();
+		
+		return;
+	}
+
 	_intUID = uid;
 
+	return;
 }
 
 void OverlappedDBUpdatePlayerContext::init_loadPlayerWithID(const char* id)
@@ -224,24 +278,83 @@ void OverlappedDBUpdatePlayerContext::OnSuccess()
 {
 	switch (_inType) {
 	case E_TYPE::UPDATE_PLAYER_POS:
-		printf_s("[LOG] : OverlappedDBLogInOutContext::UPDATE_PLAYER_POS success\n");
-
+		printf_s("[LOG] : OverlappedDBUpdatePlayerContext::UPDATE_PLAYER_POS success\n");
+		{
+			/*
+			prop::accountCreateResponse msg;
+			msg.set_success(true);
+			Packet pack(PACKET_TYPE::PACKET_TYPE_accountCreateResponse, msg);
+			_playerShared->SendToClient(&pack);
+			*/
+		}
 		break;
 	case E_TYPE::LOAD_PLAYER_POS:
 		printf_s("[LOG] : OverlappedDBLogInOutContext::LOAD_PLAYER_POS success\n");
+		{
+			prop::anyPlayerInfoResponse msg;
+			prop::msgUserInfo userInfoMsg;
 
+
+			msg.set_allocated_userinfo(userInfoMsg);
+			userInfoMsg.set_useruid(_intUID);
+			msg.set_x(_x);
+			msg.set_y(_y);
+			msg.set_z(_z);
+			msg.set_qx(_qx);
+			msg.set_qy(_qy);
+			msg.set_qz(_qz);
+			msg.set_qw(_qw);
+
+			Packet pack(PACKET_TYPE::PACKET_TYPE_anyPlayerInfoResponse, msg);
+			_playerShared->SendToClient(&pack);
+		}
 		break;
 	case E_TYPE::LOAD_PLAYER_INFO_WITH_UID:
 		printf_s("[LOG] : OverlappedDBLogInOutContext::LOAD_PLAYER_INFO_WITH_UID success\n");
+		{
+			prop::anyPlayerInfoResponse msg;
+			prop::msgUserInfo userInfoMsg;
 
+
+			msg.set_allocated_userinfo(userInfoMsg);
+			userInfoMsg.set_useruid(_intUID);
+			msg.set_x(_x);
+			msg.set_y(_y);
+			msg.set_z(_z);
+			msg.set_qx(_qx);
+			msg.set_qy(_qy);
+			msg.set_qz(_qz);
+			msg.set_qw(_qw);
+
+			Packet pack(PACKET_TYPE::PACKET_TYPE_anyPlayerInfoResponse, msg);
+			_playerShared->SendToClient(&pack);
+		}
 		break;
 	case E_TYPE::LOAD_PLAYER_INFO_WITH_ID:
 		printf_s("[LOG] : OverlappedDBLogInOutContext::LOAD_PLAYER_INFO_WITH_ID success\n");
+		{
+			prop::msgUserInfo msg;
+			msg.set_uid(_intUID);
+			msg.set_id(_cstrID);
+			msg.set_nickname(_cstrNickName);
+			//TODO : get info room name, lobby name, online/offline
 
+			Packet pack(PACKET_TYPE::PACKET_TYPE_msgUserInfo, msg);
+			_playerShared->SendToClient(&pack);
+		}
 		break;
 	case E_TYPE::LOAD_PLAYER_INFO_WITH_NICKNAME:
 		printf_s("[LOG] : OverlappedDBLogInOutContext::LOAD_PLAYER_INFO_WITH_NICKNAME success\n");
+		{
+			prop::msgUserInfo msg;
+			msg.set_uid(_intUID);
+			msg.set_id(_cstrID);
+			msg.set_nickname(_cstrNickName);
+			//TODO : get info room name, lobby name, online/offline
 
+			Packet pack(PACKET_TYPE::PACKET_TYPE_msgUserInfo, msg);
+			_playerShared->SendToClient(&pack);
+		}
 		break;
 	default:
 		printf_s("[DEBUG] : default type in OverlappedDBUpdatePlayerContext::OnSQLExecute : %d\n", GetLastError());
@@ -253,7 +366,13 @@ void OverlappedDBUpdatePlayerContext::OnFail()
 	switch (_inType) {
 	case E_TYPE::UPDATE_PLAYER_POS:
 		printf_s("[LOG] : OverlappedDBLogInOutContext::UPDATE_PLAYER_POS fail\n");
-
+		printf_s("[LOG] : OverlappedDBLogInOutContext::LOGIN fail\n");
+		{
+			prop::accountLoginResponse msg;
+			msg.set_success(false);
+			Packet pack(PACKET_TYPE::PACKET_TYPE_accountLoginResponse, msg);
+			_playerShared->SendToClient(&pack);
+		}
 		break;
 	case E_TYPE::LOAD_PLAYER_POS:
 		printf_s("[LOG] : OverlappedDBLogInOutContext::LOAD_PLAYER_POS fail\n");

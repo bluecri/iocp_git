@@ -5,6 +5,10 @@
 #include "origin\ThreadLocal.h"
 #include "SendRequestSessionConcurrentQueue.h"
 
+#include "DBContext.h"
+#include "PlayerDBContext.h"
+#include "DBManager.h"
+
 Player::Player(ClientSession * session) : _clientSession(session)
 {
 	PlayerReset();
@@ -42,32 +46,78 @@ void Player::DecayTickBuff()
 
 void Player::RequestNewPlayer(std::string& strID, std::string& strPassword, std::string& strNickName)
 {
-	/*
-	ClientSession* targetSession = __clientSession;
-
-	if (false == GetClientSessionWithAddRef(targetSession)) {
-		return;
-	}
-
-	__clientSession->ReleaseRef();
-	*/
-
+	//packet recv -> requestNewPlayer : client가 항상 live 상태임. (ref 고려 x)
+	OverlappedDBLogInOutContext* context = new OverlappedDBLogInOutContext(GetSharedFromThis<Player>());
+	context->Init_create(strID, strPassword, strNickName);
 	
-	OverlappedDBContext* context = new OverlappedDBLogInOutContext(GetSharedFromThis<Player>(), strID, strPassword, strNickName, OverlappedDBLogInOutContext::E_TYPE::CREATE);
-
+	GDatabaseManager->PostDatabaseRequest(context);
 }
 
-void Player::ResponseNewPlayer()
+
+void Player::RequestLogin(const std::string& id, const std::string& password)
 {
+	OverlappedDBLogInOutContext* context = new OverlappedDBLogInOutContext(GetSharedFromThis<Player>());
+	context->Init_login(id, password);
+	GDatabaseManager->PostDatabaseRequest(context);
+
+	return;
 }
 
-void Player::RequestLogin()
+void Player::RequestLogout()
 {
+	OverlappedDBLogInOutContext* context = new OverlappedDBLogInOutContext(GetSharedFromThis<Player>());
+	context->Init_logout();
+	GDatabaseManager->PostDatabaseRequest(context);
+
+	return;
 }
 
-void Player::ResponseLogin()
+void Player::RequestUpdateGameInfo()
 {
+	OverlappedDBUpdatePlayerContext* context = new OverlappedDBUpdatePlayerContext(GetSharedFromThis<Player>());
+	context->init_updatePlayerPosition();
+	GDatabaseManager->PostDatabaseRequest(context);
+
+	return;
 }
+
+void Player::RequestLoadGameInfo()
+{
+	OverlappedDBUpdatePlayerContext* context = new OverlappedDBUpdatePlayerContext(GetSharedFromThis<Player>());
+	context->init_loadPlayerPosition();
+	GDatabaseManager->PostDatabaseRequest(context);
+
+	return;
+}
+
+void Player::RequestOtherPlayerInfoWithUID(int uid = -1)
+{
+	OverlappedDBUpdatePlayerContext* context = new OverlappedDBUpdatePlayerContext(GetSharedFromThis<Player>());
+	context->init_loadPlayerWithUID(uid);
+	GDatabaseManager->PostDatabaseRequest(context);
+
+	return;
+}
+
+void Player::RequestOtherPlayerInfoWithID(const char* id)
+{
+	OverlappedDBUpdatePlayerContext* context = new OverlappedDBUpdatePlayerContext(GetSharedFromThis<Player>());
+	context->init_loadPlayerWithID(id);
+	GDatabaseManager->PostDatabaseRequest(context);
+
+	return;
+}
+
+void Player::RequestOtherPlayerInfoWithNIckname(const char* nickName)
+{
+	OverlappedDBUpdatePlayerContext* context = new OverlappedDBUpdatePlayerContext(GetSharedFromThis<Player>());
+	context->init_loadPlayerWithNickName(nickName);
+	GDatabaseManager->PostDatabaseRequest(context);
+
+	return;
+}
+
+
 
 // client와 connection을 check하고 valid 하면 Ref증가 후 cSession 저장.
 // 사용시 반드시 releaseRef해야함.	//Player::CreateSendBuf 에서 사용.
@@ -79,6 +129,7 @@ bool Player::GetClientSessionWithAddRef(ClientSession* cSession)
 	//check is connected
 	if (!isConnWIthClient()) {
 		LeaveReadLock();
+		cSession = nullptr;
 		return false;
 	}
 
@@ -120,6 +171,6 @@ bool Player::SendToClient(Packet* packet)
 		=> __clientSession을 따로 빼서 저장하고 이를 사용. Addref는 이미 되었으므로 clientSession 보장.
 	*/
 
-	
+	// sendToClient 시도 중 client 접속 해제시 false가 반환 될 수 있으며 이는 오류가 아님.
 	return true;
 }

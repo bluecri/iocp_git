@@ -13,12 +13,12 @@ struct OverlappedDBLogInOutContext : public OverlappedDBContext, public ObjectPo
 public:
 	enum E_TYPE { CREATE, LOGIN, LOGOUT };
 
-	OverlappedDBLogInOutContext(std::shared_ptr<Player> owner)
-		: OverlappedDBContext(owner, DBTYPE_LOGINOUT)
+	OverlappedDBLogInOutContext(std::shared_ptr<Player> playerShared)
+		: OverlappedDBContext(playerShared, DBTYPE_LOGINOUT)
 	{
 	}
 
-	void Init_login(std::string& id, std::string& password);
+	void Init_login(const std::string& id, const std::string& password);
 	void Init_logout();		//TODO
 	void Init_create(std::string& id, std::string& password, std::string& nickName);
 
@@ -39,7 +39,7 @@ public:
 
 	E_TYPE _inType;
 
-public:
+protected:
 	void BindParamPos(DBHelper& dbHelper);
 	void BindRequestPos(DBHelper& dbHelper);
 	void BindRequestAll(DBHelper& dbHelper);
@@ -52,7 +52,7 @@ public:
 	, LOAD_PLAYER_INFO_WITH_NICKNAME
 	};
 
-	OverlappedDBUpdatePlayerContext(std::shared_ptr<Player> owner, std::string& id, std::string& password, std::string& nickName, OverlappedDBLogInOutContext::E_TYPE type)
+	OverlappedDBUpdatePlayerContext(std::shared_ptr<Player> owner)
 		: OverlappedDBContext(owner, DBTYPE_PLAYER)
 	{
 	}
@@ -81,7 +81,7 @@ public:
 
 	E_TYPE _inType;
 
-public:
+protected:
 	void BindParamAll(DBHelper& dbHelper);
 	void BindParamPos(DBHelper& dbHelper);
 	void BindRequestPos(DBHelper& dbHelper);

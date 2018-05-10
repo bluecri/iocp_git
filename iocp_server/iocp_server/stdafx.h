@@ -51,7 +51,8 @@
 #include "origin\FastSpinlock.h"
 #include "origin\Exception.h"
 
-#include "../../3rdParty/google_protobuf/protoGen/GetSource/protoPack.pb.h"
-
+#include "protoGen/GetSource/PacketRecvHadler.h"
+#include "protoGen/GetSource/protoTypeEnum.h"
+#include "protoGen/GetSource/protoPack.pb.h"
 using namespace glm;
 using namespace google;

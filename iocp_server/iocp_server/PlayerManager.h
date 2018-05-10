@@ -4,10 +4,10 @@
 #include "Player.h"
 
 
-#define MIN_GUEST_ID	(1<<30)
-#define MAX_GUEST_ID	~(1<<31)
+#define MIN_GUEST_ID	(1 << 30)
+#define MAX_GUEST_ID	~(1 << 31)
 
-struct Packet;
+class Packet;
 class ClientSession;
 
 class PlayerManager
@@ -20,7 +20,7 @@ public:
 	void UnregisterGuestPlayer(int plyaerID);
 
 	void MoveGuestToLoginPlayer(std::shared_ptr<Player> guestPlayerShared, int playerID);
-	void UnregisterLoginPlayer(int plyaerID);
+	bool MoveLoginToPlayerGuest(std::shared_ptr<Player> playerShared);
 
 private:
 	FastSpinlock __loginPlayerMaplock;

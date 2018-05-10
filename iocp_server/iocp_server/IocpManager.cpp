@@ -4,6 +4,7 @@
 #include "IOThread.h"
 #include "ClientSessionManager.h"
 #include "origin\ThreadLocal.h"
+#include "DBContext.h"
 
 
 //static & global
@@ -147,6 +148,15 @@ void IocpManager::PostContext(IOverlappedContext * context)
 {
 	if (FALSE == PostQueuedCompletionStatus(__hCompletionPort, 0, (ULONG_PTR)0, (LPOVERLAPPED)context)) 
 	{
+		printf_s("IocpManager::PostContext PostQueuedCompletionStatus Error: %d\n", GetLastError());
+		CRASH_ASSERT(false);
+	}
+}
+
+void IocpManager::PostDatabaseResult(OverlappedDBContext * context)
+{
+	if (FALSE == PostQueuedCompletionStatus(__hCompletionPort, 0, (ULONG_PTR)CK_DB_REQUEST, (LPOVERLAPPED)context))
+	{
 		printf_s("IocpManager::PostDatabaseResult PostQueuedCompletionStatus Error: %d\n", GetLastError());
 		CRASH_ASSERT(false);
 	}
@@ -156,7 +166,7 @@ unsigned int IocpManager::FnIoWorkerThread(LPVOID lpParam)
 {
 	// ThreadLocal init
 	LThreadType = THREAD_TYPE::THREAD_IO_WORKER;
-	LWorkerThreadId = MAX_DB_THREAD + reinterpret_cast<int>(lpParam);
+	LWorkerThreadId = MAX_DB_THREAD + PtrToInt(lpParam);
 
 	for (int i = 0; i < SENDREQUESET_QUEUE_SIZE; i++)
 	{

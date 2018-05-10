@@ -57,8 +57,8 @@ void DBManager::PostDatabaseRequest(OverlappedDBContext * dbContext)
 
 unsigned int DBManager::FnDbWorkerThread(LPVOID lpParam)
 {
-	LThreadType = THREAD_DB_WORKER;
-	LWorkerThreadId = reinterpret_cast<int>(lpParam);
+	LThreadType = THREAD_DB_WORKER;	
+	LWorkerThreadId = PtrToInt(lpParam);
 	//GThreadCallHistory[LWorkerThreadId] = LThreadCallHistory = new ThreadCallHistory(LWorkerThreadId);
 	//GThreadCallElapsedRecord[LWorkerThreadId] = LThreadCallElapsedRecord = new ThreadCallElapsedRecord(LWorkerThreadId);
 

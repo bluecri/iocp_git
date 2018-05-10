@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Session.h"
-#include "Packet.h"
+
+
+
 #include "origin\ThreadLocal.h"
 
 Session::Session(size_t sendBufSize, size_t recvBufSize) : _recvBuffer(0), _sendBuffer(recvBufSize)
@@ -82,6 +84,7 @@ SessionErrType Session::PostRecv()
 
 	DWORD recvbytes = 0;
 	DWORD flags = 0;
+	//ulong unsing int64
 	preRecvContext->_wsaBuf.len = _recvBuffer.GetFreeSpaceSize();
 	preRecvContext->_wsaBuf.buf = _recvBuffer.GetBufferEnd();
 
@@ -100,6 +103,7 @@ SessionErrType Session::PostRecv()
 
 SessionErrType Session::PostSend(Packet* packet)
 {
+	/*
 	if (!IsConnected())
 	{
 		return SessionErrType::DISCONN;
@@ -120,7 +124,7 @@ SessionErrType Session::PostSend(Packet* packet)
 	//memcpy(destData, data, len);
 
 	_sendBuffer.Commit(packet->GetSize());
-
+	*/
 	return SessionErrType::SAFE;
 }
 
@@ -222,11 +226,36 @@ SessionErrType Session::SendCompletion(DWORD transferred)
 	return SessionErrType::SAFE;
 
 }
-
-void Session::RecvCompletion(DWORD transferred)
+SessionErrType Session::RecvCompletion(DWORD transferred)
 {
+	// client session으로 내릴것
+	/*
 	_recvBuffer.Commit(transferred);
 
+	if (_recvBuffer.GetContiguiousBytes() < sizeof(PacketHeader))
+		return SessionErrType::SAFE;
+
+	PacketHeader packetHeader;
+	char* destData = _recvBuffer.GetBufferStart();
+
+	protobuf::io::ArrayInputStream arrayInputStream(destData, _recvBuffer.GetContiguiousBytes());
+	protobuf::io::CodedInputStream codeInputStream(&arrayInputStream);
+
+	codeInputStream.ReadRaw(&packetHeader, sizeof(PacketHeader));
+
+	if (_recvBuffer.GetContiguiousBytes() < packetHeader.GetSize())
+		return SessionErrType::SAFE;
+
+	PacketRecvToMsg(static_cast<ClientSession*>(this), packetHeader, codeInputStream);
+
+
+	//memcpy(destData, data, len);
+
+	_sendBuffer.Commit(packetHeader.GetSize());
+
+	return SessionErrType::SAFE;
+	*/
+	return SessionErrType::SAFE;
 }
 
 void Session::AddRef()
@@ -244,4 +273,3 @@ void Session::ReleaseRef()
 		OnRelease();	//virtual
 	}
 }
-

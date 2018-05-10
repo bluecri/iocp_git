@@ -29,19 +29,16 @@ void DBThread::DoDBJob()
 
 	int ret = GetQueuedCompletionStatus(__hCompletionPort, &dwTransferred, &completionKey, &overlapped, GQCS_TIMEOUT);
 
-	OverlappedDBContext* context = reinterpret_cast<OverlappedDBContext*>(overlapped);
+	OverlappedDBContext* dbContext = reinterpret_cast<OverlappedDBContext*>(overlapped);
 
 	if (CK_DB_REQUEST != completionKey) {
 		CRASH_ASSERT(false);
 		return;
 	}
 
-	context->_bSuccess = context->SQLExecute();
+	dbContext->_bSuccess = dbContext->SQLExecute();
 
-	// use Player in this OR IOThread with OnSuccess, OnFail
-	//	std::shared_ptr<Player> playerShared = context->_playerObject;
-
-	//TODO : GIocpManger->PostDatabaseResult(dbContext);
-
+	GIocpManager->PostDatabaseResult(dbContext);
+	
 	return;
 }

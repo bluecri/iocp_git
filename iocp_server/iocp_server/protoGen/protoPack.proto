@@ -19,17 +19,33 @@ message msgRoom {
 
 message msgGame {
     required int32 uid = 1;
-    required string number = 2;
+    required int32 number = 2;
 	repeated msgUserInfo userList = 3;
 }
 
 message msgUserInfo {
     required int32 uid = 1;
-    required int32 id = 2;
+    required string id = 2;
 	required string Nickname = 3;
+    optional int32 lobbyUID = 4;
+    optional string lobbyName = 5;
+    optional int32 roomUID = 6;
+    optional string roomName = 7;
+    optional int32 gameSessionUID = 8;
 }
 
-message msgUserInGameInfo {
+message msgUserInGameTotalInfo {
+    required int32 userUid = 1;
+	required float x = 2;
+	required float y = 3;
+	required float z = 4;
+	required float qx = 5;
+	required float qy = 6;
+	required float qz = 7;
+	required float qw = 8;
+}
+
+message msgUserInGamePosInfo {
     required int32 userUid = 1;
 	required float x = 2;
 	required float y = 3;
@@ -46,24 +62,38 @@ message msgUserInGameStateInfo
 	required int32 stateBit32 = 2;
 }
 
-message accountCreate 
+message accountCreateRequest
 {
   required string id = 1;
   required string password = 2;
   required string nickname = 3;
 }
 
-message accountLogin
+message accountCreateResponse
+{
+	required bool success = 1;
+}
+
+message accountLoginRequest
 {
   required string id = 1;
   required string password = 2;
 }
 
-message accountLogout
+message accountLoginResponse
+{
+	required bool success = 1;
+}
+
+message accountLogoutRequest
 {
   required int32 empty = 1;
 }
 
+message accountLogoutResponse
+{
+	required bool success = 1;
+}
 
 
 message anyPlayerInfoSelfRequest
@@ -243,27 +273,48 @@ message inRoomStartBroadcast
 
 message inGameSyncPlayerPosToServer
 {
-	required int32 inGameUID = 1;
-	required msgUserInGameInfo userInGameInfo = 2;
+	required msgUserInGamePosInfo userInGameInfo = 1;
 }
 
 message inGameSyncPlayersPosFromServer
 {
-	required int32 inGameUID = 1;
-	repeated msgUserInGameInfo usersInGameInfo = 2;
+	repeated msgUserInGamePosInfo usersInGameInfo = 1;
 }
 
 message inGameSyncPlayerStateToServer
 {
-	required int32 inGameUID = 1;
-	required msgUserInGameStateInfo userStateInfo = 2;
+	required msgUserInGameStateInfo userStateInfo = 1;
 }
 
 message inGameSyncPlayersStateFromServer
 {
-	required int32 inGameUID = 1;
-	repeated msgUserInGameStateInfo userStateInfoList = 2;
+	repeated msgUserInGameStateInfo userStateInfoList = 1;
 }
+
+message inGamePlayerTotalInfoRequest
+{
+	required int32 inGameUID = 1;
+}
+
+message inGamePlayerTotalInfoResponse
+{
+	required bool success = 1;
+	optional msgUserInGamePosInfo usersInGameInfo = 2;
+	optional msgUserInGameStateInfo userStateInfoList = 3;
+}
+
+message inGameAllPlayersTotalInfoRequest
+{
+  required int32 empty = 1;
+}
+
+message inGameAllPlayersTotalInfoRequest
+{
+	required bool success = 1;
+	repeated msgUserInGamePosInfo usersInGameInfo = 2;
+	repeated msgUserInGameStateInfo userStateInfoList = 3;
+}
+
 
 message inGameChatRequest
 {

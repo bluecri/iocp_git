@@ -13,7 +13,7 @@
 
 class IOThread;
 class IOverlappedContext;
-
+struct OverlappedDBContext;
 
 class IocpManager
 {
@@ -28,6 +28,7 @@ public:
 	void StartAcceptLoop();
 
 	void PostContext(IOverlappedContext * context);
+	void PostDatabaseResult(OverlappedDBContext* context);
 
 public:
 	HANDLE GetHandleCompletionPort() { return __hCompletionPort; }

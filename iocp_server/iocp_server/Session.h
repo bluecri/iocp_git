@@ -37,7 +37,7 @@ public:
 
 	virtual void DisconnectCompletion(DisconnectReason dr) = 0;
 	SessionErrType SendCompletion(DWORD transferred);
-	void RecvCompletion(DWORD transferred);
+	virtual SessionErrType RecvCompletion(DWORD transferred);
 
 	void AddRef();
 	void ReleaseRef();
@@ -63,7 +63,7 @@ protected:
 	FastSpinlock _lockSendBuffer;
 
 	friend class Player;
-	SessionErrType PostSend(Packet* packet);
+	virtual SessionErrType PostSend(Packet* packet);
 
 	volatile long __lRefCount;
 	volatile long __lSendPendingCount;

@@ -12,6 +12,7 @@ public:
 
 	void DoIocpJob();
 	void DoTimerJob();
+	void DoSendFlushJob();
 
 public:
 	HANDLE GetHandle() { return _handle; }

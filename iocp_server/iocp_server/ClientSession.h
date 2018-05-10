@@ -20,6 +20,8 @@ public:
 	bool PostAccept();
 	void AcceptCompletion();
 
+	virtual SessionErrType RecvCompletion(DWORD transferred);
+
 	virtual void DisconnectRequest(DisconnectReason dr);
 	virtual void DisconnectCompletion(DisconnectReason dr);
 	virtual void OnDisconnect(DisconnectReason dr);
@@ -28,8 +30,12 @@ public:
 public:
 	std::shared_ptr<Player> _sharedPlayer;
 
+protected:
+	virtual SessionErrType PostSend(Packet* packet);
+
 private:
 	SOCKADDR_IN __clientSockAddr;
 
 	friend class ClientSessionManager;
+	friend class Player;
 };

@@ -36,7 +36,7 @@ namespace protobuf_protoPack_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[47];
+  static const ::google::protobuf::internal::ParseTable schema[50];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -54,12 +54,18 @@ void InitDefaultsmsgUserInGameInfoImpl();
 void InitDefaultsmsgUserInGameInfo();
 void InitDefaultsmsgUserInGameStateInfoImpl();
 void InitDefaultsmsgUserInGameStateInfo();
-void InitDefaultsaccountCreateImpl();
-void InitDefaultsaccountCreate();
-void InitDefaultsaccountLoginImpl();
-void InitDefaultsaccountLogin();
-void InitDefaultsaccountLogoutImpl();
-void InitDefaultsaccountLogout();
+void InitDefaultsaccountCreateRequestImpl();
+void InitDefaultsaccountCreateRequest();
+void InitDefaultsaccountCreateResponseImpl();
+void InitDefaultsaccountCreateResponse();
+void InitDefaultsaccountLoginRequestImpl();
+void InitDefaultsaccountLoginRequest();
+void InitDefaultsaccountLoginResponseImpl();
+void InitDefaultsaccountLoginResponse();
+void InitDefaultsaccountLogoutRequestImpl();
+void InitDefaultsaccountLogoutRequest();
+void InitDefaultsaccountLogoutResponseImpl();
+void InitDefaultsaccountLogoutResponse();
 void InitDefaultsanyPlayerInfoSelfRequestImpl();
 void InitDefaultsanyPlayerInfoSelfRequest();
 void InitDefaultsanyPlayerInfoOtherRequestWithIDImpl();
@@ -143,9 +149,12 @@ inline void InitDefaults() {
   InitDefaultsmsgUserInfo();
   InitDefaultsmsgUserInGameInfo();
   InitDefaultsmsgUserInGameStateInfo();
-  InitDefaultsaccountCreate();
-  InitDefaultsaccountLogin();
-  InitDefaultsaccountLogout();
+  InitDefaultsaccountCreateRequest();
+  InitDefaultsaccountCreateResponse();
+  InitDefaultsaccountLoginRequest();
+  InitDefaultsaccountLoginResponse();
+  InitDefaultsaccountLogoutRequest();
+  InitDefaultsaccountLogoutResponse();
   InitDefaultsanyPlayerInfoSelfRequest();
   InitDefaultsanyPlayerInfoOtherRequestWithID();
   InitDefaultsanyPlayerInfoOtherRequestWithNickName();
@@ -187,15 +196,24 @@ inline void InitDefaults() {
 }
 }  // namespace protobuf_protoPack_2eproto
 namespace prop {
-class accountCreate;
-class accountCreateDefaultTypeInternal;
-extern accountCreateDefaultTypeInternal _accountCreate_default_instance_;
-class accountLogin;
-class accountLoginDefaultTypeInternal;
-extern accountLoginDefaultTypeInternal _accountLogin_default_instance_;
-class accountLogout;
-class accountLogoutDefaultTypeInternal;
-extern accountLogoutDefaultTypeInternal _accountLogout_default_instance_;
+class accountCreateRequest;
+class accountCreateRequestDefaultTypeInternal;
+extern accountCreateRequestDefaultTypeInternal _accountCreateRequest_default_instance_;
+class accountCreateResponse;
+class accountCreateResponseDefaultTypeInternal;
+extern accountCreateResponseDefaultTypeInternal _accountCreateResponse_default_instance_;
+class accountLoginRequest;
+class accountLoginRequestDefaultTypeInternal;
+extern accountLoginRequestDefaultTypeInternal _accountLoginRequest_default_instance_;
+class accountLoginResponse;
+class accountLoginResponseDefaultTypeInternal;
+extern accountLoginResponseDefaultTypeInternal _accountLoginResponse_default_instance_;
+class accountLogoutRequest;
+class accountLogoutRequestDefaultTypeInternal;
+extern accountLogoutRequestDefaultTypeInternal _accountLogoutRequest_default_instance_;
+class accountLogoutResponse;
+class accountLogoutResponseDefaultTypeInternal;
+extern accountLogoutResponseDefaultTypeInternal _accountLogoutResponse_default_instance_;
 class anyPlayerInfoOtherRequestWithID;
 class anyPlayerInfoOtherRequestWithIDDefaultTypeInternal;
 extern anyPlayerInfoOtherRequestWithIDDefaultTypeInternal _anyPlayerInfoOtherRequestWithID_default_instance_;
@@ -1236,24 +1254,24 @@ class msgUserInGameStateInfo : public ::google::protobuf::Message /* @@protoc_in
 };
 // -------------------------------------------------------------------
 
-class accountCreate : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.accountCreate) */ {
+class accountCreateRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.accountCreateRequest) */ {
  public:
-  accountCreate();
-  virtual ~accountCreate();
+  accountCreateRequest();
+  virtual ~accountCreateRequest();
 
-  accountCreate(const accountCreate& from);
+  accountCreateRequest(const accountCreateRequest& from);
 
-  inline accountCreate& operator=(const accountCreate& from) {
+  inline accountCreateRequest& operator=(const accountCreateRequest& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  accountCreate(accountCreate&& from) noexcept
-    : accountCreate() {
+  accountCreateRequest(accountCreateRequest&& from) noexcept
+    : accountCreateRequest() {
     *this = ::std::move(from);
   }
 
-  inline accountCreate& operator=(accountCreate&& from) noexcept {
+  inline accountCreateRequest& operator=(accountCreateRequest&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1270,30 +1288,30 @@ class accountCreate : public ::google::protobuf::Message /* @@protoc_insertion_p
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const accountCreate& default_instance();
+  static const accountCreateRequest& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const accountCreate* internal_default_instance() {
-    return reinterpret_cast<const accountCreate*>(
-               &_accountCreate_default_instance_);
+  static inline const accountCreateRequest* internal_default_instance() {
+    return reinterpret_cast<const accountCreateRequest*>(
+               &_accountCreateRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
     6;
 
-  void Swap(accountCreate* other);
-  friend void swap(accountCreate& a, accountCreate& b) {
+  void Swap(accountCreateRequest* other);
+  friend void swap(accountCreateRequest& a, accountCreateRequest& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline accountCreate* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline accountCreateRequest* New() const PROTOBUF_FINAL { return New(NULL); }
 
-  accountCreate* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  accountCreateRequest* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
   void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
   void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const accountCreate& from);
-  void MergeFrom(const accountCreate& from);
+  void CopyFrom(const accountCreateRequest& from);
+  void MergeFrom(const accountCreateRequest& from);
   void Clear() PROTOBUF_FINAL;
   bool IsInitialized() const PROTOBUF_FINAL;
 
@@ -1309,7 +1327,7 @@ class accountCreate : public ::google::protobuf::Message /* @@protoc_insertion_p
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(accountCreate* other);
+  void InternalSwap(accountCreateRequest* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -1370,7 +1388,7 @@ class accountCreate : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::std::string* release_nickname();
   void set_allocated_nickname(::std::string* nickname);
 
-  // @@protoc_insertion_point(class_scope:prop.accountCreate)
+  // @@protoc_insertion_point(class_scope:prop.accountCreateRequest)
  private:
   void set_has_id();
   void clear_has_id();
@@ -1389,28 +1407,28 @@ class accountCreate : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::google::protobuf::internal::ArenaStringPtr password_;
   ::google::protobuf::internal::ArenaStringPtr nickname_;
   friend struct ::protobuf_protoPack_2eproto::TableStruct;
-  friend void ::protobuf_protoPack_2eproto::InitDefaultsaccountCreateImpl();
+  friend void ::protobuf_protoPack_2eproto::InitDefaultsaccountCreateRequestImpl();
 };
 // -------------------------------------------------------------------
 
-class accountLogin : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.accountLogin) */ {
+class accountCreateResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.accountCreateResponse) */ {
  public:
-  accountLogin();
-  virtual ~accountLogin();
+  accountCreateResponse();
+  virtual ~accountCreateResponse();
 
-  accountLogin(const accountLogin& from);
+  accountCreateResponse(const accountCreateResponse& from);
 
-  inline accountLogin& operator=(const accountLogin& from) {
+  inline accountCreateResponse& operator=(const accountCreateResponse& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  accountLogin(accountLogin&& from) noexcept
-    : accountLogin() {
+  accountCreateResponse(accountCreateResponse&& from) noexcept
+    : accountCreateResponse() {
     *this = ::std::move(from);
   }
 
-  inline accountLogin& operator=(accountLogin&& from) noexcept {
+  inline accountCreateResponse& operator=(accountCreateResponse&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1427,30 +1445,30 @@ class accountLogin : public ::google::protobuf::Message /* @@protoc_insertion_po
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const accountLogin& default_instance();
+  static const accountCreateResponse& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const accountLogin* internal_default_instance() {
-    return reinterpret_cast<const accountLogin*>(
-               &_accountLogin_default_instance_);
+  static inline const accountCreateResponse* internal_default_instance() {
+    return reinterpret_cast<const accountCreateResponse*>(
+               &_accountCreateResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
     7;
 
-  void Swap(accountLogin* other);
-  friend void swap(accountLogin& a, accountLogin& b) {
+  void Swap(accountCreateResponse* other);
+  friend void swap(accountCreateResponse& a, accountCreateResponse& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline accountLogin* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline accountCreateResponse* New() const PROTOBUF_FINAL { return New(NULL); }
 
-  accountLogin* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  accountCreateResponse* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
   void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
   void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const accountLogin& from);
-  void MergeFrom(const accountLogin& from);
+  void CopyFrom(const accountCreateResponse& from);
+  void MergeFrom(const accountCreateResponse& from);
   void Clear() PROTOBUF_FINAL;
   bool IsInitialized() const PROTOBUF_FINAL;
 
@@ -1466,7 +1484,117 @@ class accountLogin : public ::google::protobuf::Message /* @@protoc_insertion_po
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(accountLogin* other);
+  void InternalSwap(accountCreateResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required bool success = 1;
+  bool has_success() const;
+  void clear_success();
+  static const int kSuccessFieldNumber = 1;
+  bool success() const;
+  void set_success(bool value);
+
+  // @@protoc_insertion_point(class_scope:prop.accountCreateResponse)
+ private:
+  void set_has_success();
+  void clear_has_success();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  bool success_;
+  friend struct ::protobuf_protoPack_2eproto::TableStruct;
+  friend void ::protobuf_protoPack_2eproto::InitDefaultsaccountCreateResponseImpl();
+};
+// -------------------------------------------------------------------
+
+class accountLoginRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.accountLoginRequest) */ {
+ public:
+  accountLoginRequest();
+  virtual ~accountLoginRequest();
+
+  accountLoginRequest(const accountLoginRequest& from);
+
+  inline accountLoginRequest& operator=(const accountLoginRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  accountLoginRequest(accountLoginRequest&& from) noexcept
+    : accountLoginRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline accountLoginRequest& operator=(accountLoginRequest&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const accountLoginRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const accountLoginRequest* internal_default_instance() {
+    return reinterpret_cast<const accountLoginRequest*>(
+               &_accountLoginRequest_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    8;
+
+  void Swap(accountLoginRequest* other);
+  friend void swap(accountLoginRequest& a, accountLoginRequest& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline accountLoginRequest* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  accountLoginRequest* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const accountLoginRequest& from);
+  void MergeFrom(const accountLoginRequest& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(accountLoginRequest* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -1512,7 +1640,7 @@ class accountLogin : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::std::string* release_password();
   void set_allocated_password(::std::string* password);
 
-  // @@protoc_insertion_point(class_scope:prop.accountLogin)
+  // @@protoc_insertion_point(class_scope:prop.accountLoginRequest)
  private:
   void set_has_id();
   void clear_has_id();
@@ -1528,28 +1656,28 @@ class accountLogin : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::google::protobuf::internal::ArenaStringPtr id_;
   ::google::protobuf::internal::ArenaStringPtr password_;
   friend struct ::protobuf_protoPack_2eproto::TableStruct;
-  friend void ::protobuf_protoPack_2eproto::InitDefaultsaccountLoginImpl();
+  friend void ::protobuf_protoPack_2eproto::InitDefaultsaccountLoginRequestImpl();
 };
 // -------------------------------------------------------------------
 
-class accountLogout : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.accountLogout) */ {
+class accountLoginResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.accountLoginResponse) */ {
  public:
-  accountLogout();
-  virtual ~accountLogout();
+  accountLoginResponse();
+  virtual ~accountLoginResponse();
 
-  accountLogout(const accountLogout& from);
+  accountLoginResponse(const accountLoginResponse& from);
 
-  inline accountLogout& operator=(const accountLogout& from) {
+  inline accountLoginResponse& operator=(const accountLoginResponse& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  accountLogout(accountLogout&& from) noexcept
-    : accountLogout() {
+  accountLoginResponse(accountLoginResponse&& from) noexcept
+    : accountLoginResponse() {
     *this = ::std::move(from);
   }
 
-  inline accountLogout& operator=(accountLogout&& from) noexcept {
+  inline accountLoginResponse& operator=(accountLoginResponse&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1566,30 +1694,30 @@ class accountLogout : public ::google::protobuf::Message /* @@protoc_insertion_p
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const accountLogout& default_instance();
+  static const accountLoginResponse& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const accountLogout* internal_default_instance() {
-    return reinterpret_cast<const accountLogout*>(
-               &_accountLogout_default_instance_);
+  static inline const accountLoginResponse* internal_default_instance() {
+    return reinterpret_cast<const accountLoginResponse*>(
+               &_accountLoginResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    8;
+    9;
 
-  void Swap(accountLogout* other);
-  friend void swap(accountLogout& a, accountLogout& b) {
+  void Swap(accountLoginResponse* other);
+  friend void swap(accountLoginResponse& a, accountLoginResponse& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline accountLogout* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline accountLoginResponse* New() const PROTOBUF_FINAL { return New(NULL); }
 
-  accountLogout* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  accountLoginResponse* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
   void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
   void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const accountLogout& from);
-  void MergeFrom(const accountLogout& from);
+  void CopyFrom(const accountLoginResponse& from);
+  void MergeFrom(const accountLoginResponse& from);
   void Clear() PROTOBUF_FINAL;
   bool IsInitialized() const PROTOBUF_FINAL;
 
@@ -1605,7 +1733,117 @@ class accountLogout : public ::google::protobuf::Message /* @@protoc_insertion_p
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(accountLogout* other);
+  void InternalSwap(accountLoginResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required bool success = 1;
+  bool has_success() const;
+  void clear_success();
+  static const int kSuccessFieldNumber = 1;
+  bool success() const;
+  void set_success(bool value);
+
+  // @@protoc_insertion_point(class_scope:prop.accountLoginResponse)
+ private:
+  void set_has_success();
+  void clear_has_success();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  bool success_;
+  friend struct ::protobuf_protoPack_2eproto::TableStruct;
+  friend void ::protobuf_protoPack_2eproto::InitDefaultsaccountLoginResponseImpl();
+};
+// -------------------------------------------------------------------
+
+class accountLogoutRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.accountLogoutRequest) */ {
+ public:
+  accountLogoutRequest();
+  virtual ~accountLogoutRequest();
+
+  accountLogoutRequest(const accountLogoutRequest& from);
+
+  inline accountLogoutRequest& operator=(const accountLogoutRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  accountLogoutRequest(accountLogoutRequest&& from) noexcept
+    : accountLogoutRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline accountLogoutRequest& operator=(accountLogoutRequest&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const accountLogoutRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const accountLogoutRequest* internal_default_instance() {
+    return reinterpret_cast<const accountLogoutRequest*>(
+               &_accountLogoutRequest_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    10;
+
+  void Swap(accountLogoutRequest* other);
+  friend void swap(accountLogoutRequest& a, accountLogoutRequest& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline accountLogoutRequest* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  accountLogoutRequest* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const accountLogoutRequest& from);
+  void MergeFrom(const accountLogoutRequest& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(accountLogoutRequest* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -1628,7 +1866,7 @@ class accountLogout : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::google::protobuf::int32 empty() const;
   void set_empty(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:prop.accountLogout)
+  // @@protoc_insertion_point(class_scope:prop.accountLogoutRequest)
  private:
   void set_has_empty();
   void clear_has_empty();
@@ -1638,7 +1876,117 @@ class accountLogout : public ::google::protobuf::Message /* @@protoc_insertion_p
   mutable int _cached_size_;
   ::google::protobuf::int32 empty_;
   friend struct ::protobuf_protoPack_2eproto::TableStruct;
-  friend void ::protobuf_protoPack_2eproto::InitDefaultsaccountLogoutImpl();
+  friend void ::protobuf_protoPack_2eproto::InitDefaultsaccountLogoutRequestImpl();
+};
+// -------------------------------------------------------------------
+
+class accountLogoutResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:prop.accountLogoutResponse) */ {
+ public:
+  accountLogoutResponse();
+  virtual ~accountLogoutResponse();
+
+  accountLogoutResponse(const accountLogoutResponse& from);
+
+  inline accountLogoutResponse& operator=(const accountLogoutResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  accountLogoutResponse(accountLogoutResponse&& from) noexcept
+    : accountLogoutResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline accountLogoutResponse& operator=(accountLogoutResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const accountLogoutResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const accountLogoutResponse* internal_default_instance() {
+    return reinterpret_cast<const accountLogoutResponse*>(
+               &_accountLogoutResponse_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    11;
+
+  void Swap(accountLogoutResponse* other);
+  friend void swap(accountLogoutResponse& a, accountLogoutResponse& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline accountLogoutResponse* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  accountLogoutResponse* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const accountLogoutResponse& from);
+  void MergeFrom(const accountLogoutResponse& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(accountLogoutResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required bool success = 1;
+  bool has_success() const;
+  void clear_success();
+  static const int kSuccessFieldNumber = 1;
+  bool success() const;
+  void set_success(bool value);
+
+  // @@protoc_insertion_point(class_scope:prop.accountLogoutResponse)
+ private:
+  void set_has_success();
+  void clear_has_success();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  bool success_;
+  friend struct ::protobuf_protoPack_2eproto::TableStruct;
+  friend void ::protobuf_protoPack_2eproto::InitDefaultsaccountLogoutResponseImpl();
 };
 // -------------------------------------------------------------------
 
@@ -1684,7 +2032,7 @@ class anyPlayerInfoSelfRequest : public ::google::protobuf::Message /* @@protoc_
                &_anyPlayerInfoSelfRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    9;
+    12;
 
   void Swap(anyPlayerInfoSelfRequest* other);
   friend void swap(anyPlayerInfoSelfRequest& a, anyPlayerInfoSelfRequest& b) {
@@ -1794,7 +2142,7 @@ class anyPlayerInfoOtherRequestWithID : public ::google::protobuf::Message /* @@
                &_anyPlayerInfoOtherRequestWithID_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    10;
+    13;
 
   void Swap(anyPlayerInfoOtherRequestWithID* other);
   friend void swap(anyPlayerInfoOtherRequestWithID& a, anyPlayerInfoOtherRequestWithID& b) {
@@ -1912,7 +2260,7 @@ class anyPlayerInfoOtherRequestWithNickName : public ::google::protobuf::Message
                &_anyPlayerInfoOtherRequestWithNickName_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    11;
+    14;
 
   void Swap(anyPlayerInfoOtherRequestWithNickName* other);
   friend void swap(anyPlayerInfoOtherRequestWithNickName& a, anyPlayerInfoOtherRequestWithNickName& b) {
@@ -2030,7 +2378,7 @@ class anyPlayerInfoResponse : public ::google::protobuf::Message /* @@protoc_ins
                &_anyPlayerInfoResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    12;
+    15;
 
   void Swap(anyPlayerInfoResponse* other);
   friend void swap(anyPlayerInfoResponse& a, anyPlayerInfoResponse& b) {
@@ -2142,7 +2490,7 @@ class anyWhisperRequestWithUID : public ::google::protobuf::Message /* @@protoc_
                &_anyWhisperRequestWithUID_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    13;
+    16;
 
   void Swap(anyWhisperRequestWithUID* other);
   friend void swap(anyWhisperRequestWithUID& a, anyWhisperRequestWithUID& b) {
@@ -2273,7 +2621,7 @@ class anyWhisperRequestWithID : public ::google::protobuf::Message /* @@protoc_i
                &_anyWhisperRequestWithID_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    14;
+    17;
 
   void Swap(anyWhisperRequestWithID* other);
   friend void swap(anyWhisperRequestWithID& a, anyWhisperRequestWithID& b) {
@@ -2412,7 +2760,7 @@ class anyWhisperRequestWithNickName : public ::google::protobuf::Message /* @@pr
                &_anyWhisperRequestWithNickName_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    15;
+    18;
 
   void Swap(anyWhisperRequestWithNickName* other);
   friend void swap(anyWhisperRequestWithNickName& a, anyWhisperRequestWithNickName& b) {
@@ -2551,7 +2899,7 @@ class anyWhisperResponse : public ::google::protobuf::Message /* @@protoc_insert
                &_anyWhisperResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    16;
+    19;
 
   void Swap(anyWhisperResponse* other);
   friend void swap(anyWhisperResponse& a, anyWhisperResponse& b) {
@@ -2661,7 +3009,7 @@ class outLobbyLobbylistRequest : public ::google::protobuf::Message /* @@protoc_
                &_outLobbyLobbylistRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    17;
+    20;
 
   void Swap(outLobbyLobbylistRequest* other);
   friend void swap(outLobbyLobbylistRequest& a, outLobbyLobbylistRequest& b) {
@@ -2771,7 +3119,7 @@ class outLobbyLobbylistResponse : public ::google::protobuf::Message /* @@protoc
                &_outLobbyLobbylistResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    18;
+    21;
 
   void Swap(outLobbyLobbylistResponse* other);
   friend void swap(outLobbyLobbylistResponse& a, outLobbyLobbylistResponse& b) {
@@ -2894,7 +3242,7 @@ class outLobbyEnterLobbyRequest : public ::google::protobuf::Message /* @@protoc
                &_outLobbyEnterLobbyRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    19;
+    22;
 
   void Swap(outLobbyEnterLobbyRequest* other);
   friend void swap(outLobbyEnterLobbyRequest& a, outLobbyEnterLobbyRequest& b) {
@@ -3004,7 +3352,7 @@ class outLobbyEnterLobbyResponse : public ::google::protobuf::Message /* @@proto
                &_outLobbyEnterLobbyResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    20;
+    23;
 
   void Swap(outLobbyEnterLobbyResponse* other);
   friend void swap(outLobbyEnterLobbyResponse& a, outLobbyEnterLobbyResponse& b) {
@@ -3127,7 +3475,7 @@ class inLobbyPlayerlistRequest : public ::google::protobuf::Message /* @@protoc_
                &_inLobbyPlayerlistRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    21;
+    24;
 
   void Swap(inLobbyPlayerlistRequest* other);
   friend void swap(inLobbyPlayerlistRequest& a, inLobbyPlayerlistRequest& b) {
@@ -3237,7 +3585,7 @@ class inLobbyPlayerlistResponse : public ::google::protobuf::Message /* @@protoc
                &_inLobbyPlayerlistResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    22;
+    25;
 
   void Swap(inLobbyPlayerlistResponse* other);
   friend void swap(inLobbyPlayerlistResponse& a, inLobbyPlayerlistResponse& b) {
@@ -3373,7 +3721,7 @@ class inLobbyEnterRoomRequest : public ::google::protobuf::Message /* @@protoc_i
                &_inLobbyEnterRoomRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    23;
+    26;
 
   void Swap(inLobbyEnterRoomRequest* other);
   friend void swap(inLobbyEnterRoomRequest& a, inLobbyEnterRoomRequest& b) {
@@ -3483,7 +3831,7 @@ class inLobbyEnterRoomResponse : public ::google::protobuf::Message /* @@protoc_
                &_inLobbyEnterRoomResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    24;
+    27;
 
   void Swap(inLobbyEnterRoomResponse* other);
   friend void swap(inLobbyEnterRoomResponse& a, inLobbyEnterRoomResponse& b) {
@@ -3606,7 +3954,7 @@ class inLobbyLeaveLobbyRequest : public ::google::protobuf::Message /* @@protoc_
                &_inLobbyLeaveLobbyRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    25;
+    28;
 
   void Swap(inLobbyLeaveLobbyRequest* other);
   friend void swap(inLobbyLeaveLobbyRequest& a, inLobbyLeaveLobbyRequest& b) {
@@ -3716,7 +4064,7 @@ class inLobbyLeaveLobbyResponse : public ::google::protobuf::Message /* @@protoc
                &_inLobbyLeaveLobbyResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    26;
+    29;
 
   void Swap(inLobbyLeaveLobbyResponse* other);
   friend void swap(inLobbyLeaveLobbyResponse& a, inLobbyLeaveLobbyResponse& b) {
@@ -3839,7 +4187,7 @@ class inLobbyChatRequest : public ::google::protobuf::Message /* @@protoc_insert
                &_inLobbyChatRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    27;
+    30;
 
   void Swap(inLobbyChatRequest* other);
   friend void swap(inLobbyChatRequest& a, inLobbyChatRequest& b) {
@@ -3970,7 +4318,7 @@ class inLobbyChatResponse : public ::google::protobuf::Message /* @@protoc_inser
                &_inLobbyChatResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    28;
+    31;
 
   void Swap(inLobbyChatResponse* other);
   friend void swap(inLobbyChatResponse& a, inLobbyChatResponse& b) {
@@ -4080,7 +4428,7 @@ class inLobbyChatBroadcast : public ::google::protobuf::Message /* @@protoc_inse
                &_inLobbyChatBroadcast_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    29;
+    32;
 
   void Swap(inLobbyChatBroadcast* other);
   friend void swap(inLobbyChatBroadcast& a, inLobbyChatBroadcast& b) {
@@ -4211,7 +4559,7 @@ class inRoomChatRequest : public ::google::protobuf::Message /* @@protoc_inserti
                &_inRoomChatRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    30;
+    33;
 
   void Swap(inRoomChatRequest* other);
   friend void swap(inRoomChatRequest& a, inRoomChatRequest& b) {
@@ -4342,7 +4690,7 @@ class inRoomChatResponse : public ::google::protobuf::Message /* @@protoc_insert
                &_inRoomChatResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    31;
+    34;
 
   void Swap(inRoomChatResponse* other);
   friend void swap(inRoomChatResponse& a, inRoomChatResponse& b) {
@@ -4452,7 +4800,7 @@ class inRoomChatBroadcast : public ::google::protobuf::Message /* @@protoc_inser
                &_inRoomChatBroadcast_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    32;
+    35;
 
   void Swap(inRoomChatBroadcast* other);
   friend void swap(inRoomChatBroadcast& a, inRoomChatBroadcast& b) {
@@ -4583,7 +4931,7 @@ class inRoomLeaveRoomRequest : public ::google::protobuf::Message /* @@protoc_in
                &_inRoomLeaveRoomRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    33;
+    36;
 
   void Swap(inRoomLeaveRoomRequest* other);
   friend void swap(inRoomLeaveRoomRequest& a, inRoomLeaveRoomRequest& b) {
@@ -4693,7 +5041,7 @@ class inRoomLeaveRoomResponse : public ::google::protobuf::Message /* @@protoc_i
                &_inRoomLeaveRoomResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    34;
+    37;
 
   void Swap(inRoomLeaveRoomResponse* other);
   friend void swap(inRoomLeaveRoomResponse& a, inRoomLeaveRoomResponse& b) {
@@ -4826,7 +5174,7 @@ class inRoomReadyRequest : public ::google::protobuf::Message /* @@protoc_insert
                &_inRoomReadyRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    35;
+    38;
 
   void Swap(inRoomReadyRequest* other);
   friend void swap(inRoomReadyRequest& a, inRoomReadyRequest& b) {
@@ -4936,7 +5284,7 @@ class inRoomReadyResponse : public ::google::protobuf::Message /* @@protoc_inser
                &_inRoomReadyResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    36;
+    39;
 
   void Swap(inRoomReadyResponse* other);
   friend void swap(inRoomReadyResponse& a, inRoomReadyResponse& b) {
@@ -5046,7 +5394,7 @@ class inRoomStartRequest : public ::google::protobuf::Message /* @@protoc_insert
                &_inRoomStartRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    37;
+    40;
 
   void Swap(inRoomStartRequest* other);
   friend void swap(inRoomStartRequest& a, inRoomStartRequest& b) {
@@ -5156,7 +5504,7 @@ class inRoomStartResponse : public ::google::protobuf::Message /* @@protoc_inser
                &_inRoomStartResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    38;
+    41;
 
   void Swap(inRoomStartResponse* other);
   friend void swap(inRoomStartResponse& a, inRoomStartResponse& b) {
@@ -5266,7 +5614,7 @@ class inRoomStartBroadcast : public ::google::protobuf::Message /* @@protoc_inse
                &_inRoomStartBroadcast_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    39;
+    42;
 
   void Swap(inRoomStartBroadcast* other);
   friend void swap(inRoomStartBroadcast& a, inRoomStartBroadcast& b) {
@@ -5376,7 +5724,7 @@ class inGameSyncPlayerPosToServer : public ::google::protobuf::Message /* @@prot
                &_inGameSyncPlayerPosToServer_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    40;
+    43;
 
   void Swap(inGameSyncPlayerPosToServer* other);
   friend void swap(inGameSyncPlayerPosToServer& a, inGameSyncPlayerPosToServer& b) {
@@ -5501,7 +5849,7 @@ class inGameSyncPlayersPosFromServer : public ::google::protobuf::Message /* @@p
                &_inGameSyncPlayersPosFromServer_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    41;
+    44;
 
   void Swap(inGameSyncPlayersPosFromServer* other);
   friend void swap(inGameSyncPlayersPosFromServer& a, inGameSyncPlayersPosFromServer& b) {
@@ -5624,7 +5972,7 @@ class inGameSyncPlayerStateToServer : public ::google::protobuf::Message /* @@pr
                &_inGameSyncPlayerStateToServer_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    42;
+    45;
 
   void Swap(inGameSyncPlayerStateToServer* other);
   friend void swap(inGameSyncPlayerStateToServer& a, inGameSyncPlayerStateToServer& b) {
@@ -5749,7 +6097,7 @@ class inGameSyncPlayersStateFromServer : public ::google::protobuf::Message /* @
                &_inGameSyncPlayersStateFromServer_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    43;
+    46;
 
   void Swap(inGameSyncPlayersStateFromServer* other);
   friend void swap(inGameSyncPlayersStateFromServer& a, inGameSyncPlayersStateFromServer& b) {
@@ -5872,7 +6220,7 @@ class inGameChatRequest : public ::google::protobuf::Message /* @@protoc_inserti
                &_inGameChatRequest_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    44;
+    47;
 
   void Swap(inGameChatRequest* other);
   friend void swap(inGameChatRequest& a, inGameChatRequest& b) {
@@ -6003,7 +6351,7 @@ class inGameChatResponse : public ::google::protobuf::Message /* @@protoc_insert
                &_inGameChatResponse_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    45;
+    48;
 
   void Swap(inGameChatResponse* other);
   friend void swap(inGameChatResponse& a, inGameChatResponse& b) {
@@ -6113,7 +6461,7 @@ class inGameChatBroadcast : public ::google::protobuf::Message /* @@protoc_inser
                &_inGameChatBroadcast_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    46;
+    49;
 
   void Swap(inGameChatBroadcast* other);
   friend void swap(inGameChatBroadcast& a, inGameChatBroadcast& b) {
@@ -6982,353 +7330,437 @@ inline void msgUserInGameStateInfo::set_statebit32(::google::protobuf::int32 val
 
 // -------------------------------------------------------------------
 
-// accountCreate
+// accountCreateRequest
 
 // required string id = 1;
-inline bool accountCreate::has_id() const {
+inline bool accountCreateRequest::has_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void accountCreate::set_has_id() {
+inline void accountCreateRequest::set_has_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void accountCreate::clear_has_id() {
+inline void accountCreateRequest::clear_has_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void accountCreate::clear_id() {
+inline void accountCreateRequest::clear_id() {
   id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   clear_has_id();
 }
-inline const ::std::string& accountCreate::id() const {
-  // @@protoc_insertion_point(field_get:prop.accountCreate.id)
+inline const ::std::string& accountCreateRequest::id() const {
+  // @@protoc_insertion_point(field_get:prop.accountCreateRequest.id)
   return id_.GetNoArena();
 }
-inline void accountCreate::set_id(const ::std::string& value) {
+inline void accountCreateRequest::set_id(const ::std::string& value) {
   set_has_id();
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:prop.accountCreate.id)
+  // @@protoc_insertion_point(field_set:prop.accountCreateRequest.id)
 }
 #if LANG_CXX11
-inline void accountCreate::set_id(::std::string&& value) {
+inline void accountCreateRequest::set_id(::std::string&& value) {
   set_has_id();
   id_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:prop.accountCreate.id)
+  // @@protoc_insertion_point(field_set_rvalue:prop.accountCreateRequest.id)
 }
 #endif
-inline void accountCreate::set_id(const char* value) {
+inline void accountCreateRequest::set_id(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_id();
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:prop.accountCreate.id)
+  // @@protoc_insertion_point(field_set_char:prop.accountCreateRequest.id)
 }
-inline void accountCreate::set_id(const char* value, size_t size) {
+inline void accountCreateRequest::set_id(const char* value, size_t size) {
   set_has_id();
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:prop.accountCreate.id)
+  // @@protoc_insertion_point(field_set_pointer:prop.accountCreateRequest.id)
 }
-inline ::std::string* accountCreate::mutable_id() {
+inline ::std::string* accountCreateRequest::mutable_id() {
   set_has_id();
-  // @@protoc_insertion_point(field_mutable:prop.accountCreate.id)
+  // @@protoc_insertion_point(field_mutable:prop.accountCreateRequest.id)
   return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* accountCreate::release_id() {
-  // @@protoc_insertion_point(field_release:prop.accountCreate.id)
+inline ::std::string* accountCreateRequest::release_id() {
+  // @@protoc_insertion_point(field_release:prop.accountCreateRequest.id)
   clear_has_id();
   return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void accountCreate::set_allocated_id(::std::string* id) {
+inline void accountCreateRequest::set_allocated_id(::std::string* id) {
   if (id != NULL) {
     set_has_id();
   } else {
     clear_has_id();
   }
   id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
-  // @@protoc_insertion_point(field_set_allocated:prop.accountCreate.id)
+  // @@protoc_insertion_point(field_set_allocated:prop.accountCreateRequest.id)
 }
 
 // required string password = 2;
-inline bool accountCreate::has_password() const {
+inline bool accountCreateRequest::has_password() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void accountCreate::set_has_password() {
+inline void accountCreateRequest::set_has_password() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void accountCreate::clear_has_password() {
+inline void accountCreateRequest::clear_has_password() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void accountCreate::clear_password() {
+inline void accountCreateRequest::clear_password() {
   password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   clear_has_password();
 }
-inline const ::std::string& accountCreate::password() const {
-  // @@protoc_insertion_point(field_get:prop.accountCreate.password)
+inline const ::std::string& accountCreateRequest::password() const {
+  // @@protoc_insertion_point(field_get:prop.accountCreateRequest.password)
   return password_.GetNoArena();
 }
-inline void accountCreate::set_password(const ::std::string& value) {
+inline void accountCreateRequest::set_password(const ::std::string& value) {
   set_has_password();
   password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:prop.accountCreate.password)
+  // @@protoc_insertion_point(field_set:prop.accountCreateRequest.password)
 }
 #if LANG_CXX11
-inline void accountCreate::set_password(::std::string&& value) {
+inline void accountCreateRequest::set_password(::std::string&& value) {
   set_has_password();
   password_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:prop.accountCreate.password)
+  // @@protoc_insertion_point(field_set_rvalue:prop.accountCreateRequest.password)
 }
 #endif
-inline void accountCreate::set_password(const char* value) {
+inline void accountCreateRequest::set_password(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_password();
   password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:prop.accountCreate.password)
+  // @@protoc_insertion_point(field_set_char:prop.accountCreateRequest.password)
 }
-inline void accountCreate::set_password(const char* value, size_t size) {
+inline void accountCreateRequest::set_password(const char* value, size_t size) {
   set_has_password();
   password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:prop.accountCreate.password)
+  // @@protoc_insertion_point(field_set_pointer:prop.accountCreateRequest.password)
 }
-inline ::std::string* accountCreate::mutable_password() {
+inline ::std::string* accountCreateRequest::mutable_password() {
   set_has_password();
-  // @@protoc_insertion_point(field_mutable:prop.accountCreate.password)
+  // @@protoc_insertion_point(field_mutable:prop.accountCreateRequest.password)
   return password_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* accountCreate::release_password() {
-  // @@protoc_insertion_point(field_release:prop.accountCreate.password)
+inline ::std::string* accountCreateRequest::release_password() {
+  // @@protoc_insertion_point(field_release:prop.accountCreateRequest.password)
   clear_has_password();
   return password_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void accountCreate::set_allocated_password(::std::string* password) {
+inline void accountCreateRequest::set_allocated_password(::std::string* password) {
   if (password != NULL) {
     set_has_password();
   } else {
     clear_has_password();
   }
   password_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), password);
-  // @@protoc_insertion_point(field_set_allocated:prop.accountCreate.password)
+  // @@protoc_insertion_point(field_set_allocated:prop.accountCreateRequest.password)
 }
 
 // required string nickname = 3;
-inline bool accountCreate::has_nickname() const {
+inline bool accountCreateRequest::has_nickname() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void accountCreate::set_has_nickname() {
+inline void accountCreateRequest::set_has_nickname() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void accountCreate::clear_has_nickname() {
+inline void accountCreateRequest::clear_has_nickname() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void accountCreate::clear_nickname() {
+inline void accountCreateRequest::clear_nickname() {
   nickname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   clear_has_nickname();
 }
-inline const ::std::string& accountCreate::nickname() const {
-  // @@protoc_insertion_point(field_get:prop.accountCreate.nickname)
+inline const ::std::string& accountCreateRequest::nickname() const {
+  // @@protoc_insertion_point(field_get:prop.accountCreateRequest.nickname)
   return nickname_.GetNoArena();
 }
-inline void accountCreate::set_nickname(const ::std::string& value) {
+inline void accountCreateRequest::set_nickname(const ::std::string& value) {
   set_has_nickname();
   nickname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:prop.accountCreate.nickname)
+  // @@protoc_insertion_point(field_set:prop.accountCreateRequest.nickname)
 }
 #if LANG_CXX11
-inline void accountCreate::set_nickname(::std::string&& value) {
+inline void accountCreateRequest::set_nickname(::std::string&& value) {
   set_has_nickname();
   nickname_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:prop.accountCreate.nickname)
+  // @@protoc_insertion_point(field_set_rvalue:prop.accountCreateRequest.nickname)
 }
 #endif
-inline void accountCreate::set_nickname(const char* value) {
+inline void accountCreateRequest::set_nickname(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_nickname();
   nickname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:prop.accountCreate.nickname)
+  // @@protoc_insertion_point(field_set_char:prop.accountCreateRequest.nickname)
 }
-inline void accountCreate::set_nickname(const char* value, size_t size) {
+inline void accountCreateRequest::set_nickname(const char* value, size_t size) {
   set_has_nickname();
   nickname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:prop.accountCreate.nickname)
+  // @@protoc_insertion_point(field_set_pointer:prop.accountCreateRequest.nickname)
 }
-inline ::std::string* accountCreate::mutable_nickname() {
+inline ::std::string* accountCreateRequest::mutable_nickname() {
   set_has_nickname();
-  // @@protoc_insertion_point(field_mutable:prop.accountCreate.nickname)
+  // @@protoc_insertion_point(field_mutable:prop.accountCreateRequest.nickname)
   return nickname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* accountCreate::release_nickname() {
-  // @@protoc_insertion_point(field_release:prop.accountCreate.nickname)
+inline ::std::string* accountCreateRequest::release_nickname() {
+  // @@protoc_insertion_point(field_release:prop.accountCreateRequest.nickname)
   clear_has_nickname();
   return nickname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void accountCreate::set_allocated_nickname(::std::string* nickname) {
+inline void accountCreateRequest::set_allocated_nickname(::std::string* nickname) {
   if (nickname != NULL) {
     set_has_nickname();
   } else {
     clear_has_nickname();
   }
   nickname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), nickname);
-  // @@protoc_insertion_point(field_set_allocated:prop.accountCreate.nickname)
+  // @@protoc_insertion_point(field_set_allocated:prop.accountCreateRequest.nickname)
 }
 
 // -------------------------------------------------------------------
 
-// accountLogin
+// accountCreateResponse
 
-// required string id = 1;
-inline bool accountLogin::has_id() const {
+// required bool success = 1;
+inline bool accountCreateResponse::has_success() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void accountLogin::set_has_id() {
+inline void accountCreateResponse::set_has_success() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void accountLogin::clear_has_id() {
+inline void accountCreateResponse::clear_has_success() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void accountLogin::clear_id() {
+inline void accountCreateResponse::clear_success() {
+  success_ = false;
+  clear_has_success();
+}
+inline bool accountCreateResponse::success() const {
+  // @@protoc_insertion_point(field_get:prop.accountCreateResponse.success)
+  return success_;
+}
+inline void accountCreateResponse::set_success(bool value) {
+  set_has_success();
+  success_ = value;
+  // @@protoc_insertion_point(field_set:prop.accountCreateResponse.success)
+}
+
+// -------------------------------------------------------------------
+
+// accountLoginRequest
+
+// required string id = 1;
+inline bool accountLoginRequest::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void accountLoginRequest::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void accountLoginRequest::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void accountLoginRequest::clear_id() {
   id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   clear_has_id();
 }
-inline const ::std::string& accountLogin::id() const {
-  // @@protoc_insertion_point(field_get:prop.accountLogin.id)
+inline const ::std::string& accountLoginRequest::id() const {
+  // @@protoc_insertion_point(field_get:prop.accountLoginRequest.id)
   return id_.GetNoArena();
 }
-inline void accountLogin::set_id(const ::std::string& value) {
+inline void accountLoginRequest::set_id(const ::std::string& value) {
   set_has_id();
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:prop.accountLogin.id)
+  // @@protoc_insertion_point(field_set:prop.accountLoginRequest.id)
 }
 #if LANG_CXX11
-inline void accountLogin::set_id(::std::string&& value) {
+inline void accountLoginRequest::set_id(::std::string&& value) {
   set_has_id();
   id_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:prop.accountLogin.id)
+  // @@protoc_insertion_point(field_set_rvalue:prop.accountLoginRequest.id)
 }
 #endif
-inline void accountLogin::set_id(const char* value) {
+inline void accountLoginRequest::set_id(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_id();
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:prop.accountLogin.id)
+  // @@protoc_insertion_point(field_set_char:prop.accountLoginRequest.id)
 }
-inline void accountLogin::set_id(const char* value, size_t size) {
+inline void accountLoginRequest::set_id(const char* value, size_t size) {
   set_has_id();
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:prop.accountLogin.id)
+  // @@protoc_insertion_point(field_set_pointer:prop.accountLoginRequest.id)
 }
-inline ::std::string* accountLogin::mutable_id() {
+inline ::std::string* accountLoginRequest::mutable_id() {
   set_has_id();
-  // @@protoc_insertion_point(field_mutable:prop.accountLogin.id)
+  // @@protoc_insertion_point(field_mutable:prop.accountLoginRequest.id)
   return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* accountLogin::release_id() {
-  // @@protoc_insertion_point(field_release:prop.accountLogin.id)
+inline ::std::string* accountLoginRequest::release_id() {
+  // @@protoc_insertion_point(field_release:prop.accountLoginRequest.id)
   clear_has_id();
   return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void accountLogin::set_allocated_id(::std::string* id) {
+inline void accountLoginRequest::set_allocated_id(::std::string* id) {
   if (id != NULL) {
     set_has_id();
   } else {
     clear_has_id();
   }
   id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
-  // @@protoc_insertion_point(field_set_allocated:prop.accountLogin.id)
+  // @@protoc_insertion_point(field_set_allocated:prop.accountLoginRequest.id)
 }
 
 // required string password = 2;
-inline bool accountLogin::has_password() const {
+inline bool accountLoginRequest::has_password() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void accountLogin::set_has_password() {
+inline void accountLoginRequest::set_has_password() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void accountLogin::clear_has_password() {
+inline void accountLoginRequest::clear_has_password() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void accountLogin::clear_password() {
+inline void accountLoginRequest::clear_password() {
   password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   clear_has_password();
 }
-inline const ::std::string& accountLogin::password() const {
-  // @@protoc_insertion_point(field_get:prop.accountLogin.password)
+inline const ::std::string& accountLoginRequest::password() const {
+  // @@protoc_insertion_point(field_get:prop.accountLoginRequest.password)
   return password_.GetNoArena();
 }
-inline void accountLogin::set_password(const ::std::string& value) {
+inline void accountLoginRequest::set_password(const ::std::string& value) {
   set_has_password();
   password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:prop.accountLogin.password)
+  // @@protoc_insertion_point(field_set:prop.accountLoginRequest.password)
 }
 #if LANG_CXX11
-inline void accountLogin::set_password(::std::string&& value) {
+inline void accountLoginRequest::set_password(::std::string&& value) {
   set_has_password();
   password_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:prop.accountLogin.password)
+  // @@protoc_insertion_point(field_set_rvalue:prop.accountLoginRequest.password)
 }
 #endif
-inline void accountLogin::set_password(const char* value) {
+inline void accountLoginRequest::set_password(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_password();
   password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:prop.accountLogin.password)
+  // @@protoc_insertion_point(field_set_char:prop.accountLoginRequest.password)
 }
-inline void accountLogin::set_password(const char* value, size_t size) {
+inline void accountLoginRequest::set_password(const char* value, size_t size) {
   set_has_password();
   password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:prop.accountLogin.password)
+  // @@protoc_insertion_point(field_set_pointer:prop.accountLoginRequest.password)
 }
-inline ::std::string* accountLogin::mutable_password() {
+inline ::std::string* accountLoginRequest::mutable_password() {
   set_has_password();
-  // @@protoc_insertion_point(field_mutable:prop.accountLogin.password)
+  // @@protoc_insertion_point(field_mutable:prop.accountLoginRequest.password)
   return password_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* accountLogin::release_password() {
-  // @@protoc_insertion_point(field_release:prop.accountLogin.password)
+inline ::std::string* accountLoginRequest::release_password() {
+  // @@protoc_insertion_point(field_release:prop.accountLoginRequest.password)
   clear_has_password();
   return password_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void accountLogin::set_allocated_password(::std::string* password) {
+inline void accountLoginRequest::set_allocated_password(::std::string* password) {
   if (password != NULL) {
     set_has_password();
   } else {
     clear_has_password();
   }
   password_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), password);
-  // @@protoc_insertion_point(field_set_allocated:prop.accountLogin.password)
+  // @@protoc_insertion_point(field_set_allocated:prop.accountLoginRequest.password)
 }
 
 // -------------------------------------------------------------------
 
-// accountLogout
+// accountLoginResponse
 
-// required int32 empty = 1;
-inline bool accountLogout::has_empty() const {
+// required bool success = 1;
+inline bool accountLoginResponse::has_success() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void accountLogout::set_has_empty() {
+inline void accountLoginResponse::set_has_success() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void accountLogout::clear_has_empty() {
+inline void accountLoginResponse::clear_has_success() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void accountLogout::clear_empty() {
+inline void accountLoginResponse::clear_success() {
+  success_ = false;
+  clear_has_success();
+}
+inline bool accountLoginResponse::success() const {
+  // @@protoc_insertion_point(field_get:prop.accountLoginResponse.success)
+  return success_;
+}
+inline void accountLoginResponse::set_success(bool value) {
+  set_has_success();
+  success_ = value;
+  // @@protoc_insertion_point(field_set:prop.accountLoginResponse.success)
+}
+
+// -------------------------------------------------------------------
+
+// accountLogoutRequest
+
+// required int32 empty = 1;
+inline bool accountLogoutRequest::has_empty() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void accountLogoutRequest::set_has_empty() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void accountLogoutRequest::clear_has_empty() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void accountLogoutRequest::clear_empty() {
   empty_ = 0;
   clear_has_empty();
 }
-inline ::google::protobuf::int32 accountLogout::empty() const {
-  // @@protoc_insertion_point(field_get:prop.accountLogout.empty)
+inline ::google::protobuf::int32 accountLogoutRequest::empty() const {
+  // @@protoc_insertion_point(field_get:prop.accountLogoutRequest.empty)
   return empty_;
 }
-inline void accountLogout::set_empty(::google::protobuf::int32 value) {
+inline void accountLogoutRequest::set_empty(::google::protobuf::int32 value) {
   set_has_empty();
   empty_ = value;
-  // @@protoc_insertion_point(field_set:prop.accountLogout.empty)
+  // @@protoc_insertion_point(field_set:prop.accountLogoutRequest.empty)
+}
+
+// -------------------------------------------------------------------
+
+// accountLogoutResponse
+
+// required bool success = 1;
+inline bool accountLogoutResponse::has_success() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void accountLogoutResponse::set_has_success() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void accountLogoutResponse::clear_has_success() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void accountLogoutResponse::clear_success() {
+  success_ = false;
+  clear_has_success();
+}
+inline bool accountLogoutResponse::success() const {
+  // @@protoc_insertion_point(field_get:prop.accountLogoutResponse.success)
+  return success_;
+}
+inline void accountLogoutResponse::set_success(bool value) {
+  set_has_success();
+  success_ = value;
+  // @@protoc_insertion_point(field_set:prop.accountLogoutResponse.success)
 }
 
 // -------------------------------------------------------------------
@@ -9499,6 +9931,12 @@ inline void inGameChatBroadcast::set_allocated_chat(::std::string* chat) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
