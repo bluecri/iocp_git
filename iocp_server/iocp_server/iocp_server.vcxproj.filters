@@ -45,9 +45,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="addressbook.pb.cc">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>소스 파일\PCH</Filter>
     </ClCompile>
@@ -123,9 +120,6 @@
     <ClCompile Include="protoGen\GetSource\protoPack.pb.cc">
       <Filter>소스 파일\Packet</Filter>
     </ClCompile>
-    <ClCompile Include="protoGen\GetSource\PacketRecvHadler.cpp">
-      <Filter>소스 파일\Packet</Filter>
-    </ClCompile>
     <ClCompile Include="Lobby.cpp">
       <Filter>소스 파일\NetworkrObj</Filter>
     </ClCompile>
@@ -135,13 +129,13 @@
     <ClCompile Include="Room.cpp">
       <Filter>소스 파일\NetworkrObj</Filter>
     </ClCompile>
+    <ClCompile Include="protoGen\GetSource\PacketRecvHadler.cpp">
+      <Filter>소스 파일\Packet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>소스 파일\PCH</Filter>
-    </ClInclude>
-    <ClInclude Include="addressbook.pb.h">
-      <Filter>소스 파일</Filter>
     </ClInclude>
     <ClInclude Include="origin\CircularBuffer.h">
       <Filter>소스 파일\origin</Filter>

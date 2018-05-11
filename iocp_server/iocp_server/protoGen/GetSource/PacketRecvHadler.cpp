@@ -711,9 +711,8 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::msgUserInGameStateInfo *
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::accountCreateRequest *accountCreateRequest)
 {
-	accountCreateRequest
 	//Player -> DB context
-	session->_sharedPlayer->RequestNewPlayer(accountCreateRequest->id, accountCreateRequest->password, accountCreateRequest->nickname);
+	session->_sharedPlayer->RequestNewPlayer(accountCreateRequest->id(), accountCreateRequest->password(), accountCreateRequest->nickname());
 
 	return true;
 }
@@ -724,7 +723,7 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::accountCreateResponse *a
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::accountLoginRequest *accountLoginRequest)
 {
-	session->_sharedPlayer->RequestLogin(accountLoginRequest->id, accountLoginRequest->password);
+	session->_sharedPlayer->RequestLogin(accountLoginRequest->id(), accountLoginRequest->password());
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::accountLoginResponse *accountLoginResponse)
@@ -747,12 +746,12 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::anyPlayerInfoSelfRequest
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::anyPlayerInfoOtherRequestWithID *anyPlayerInfoOtherRequestWithID)
 {
-	session->_sharedPlayer->RequestOtherPlayerInfoWithID(anyPlayerInfoOtherRequestWithID->otherid);
+	session->_sharedPlayer->RequestOtherPlayerInfoWithID(anyPlayerInfoOtherRequestWithID->otherid().c_str());
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::anyPlayerInfoOtherRequestWithNickName *anyPlayerInfoOtherRequestWithNickName)
 {
-	session->_sharedPlayer->RequestOtherPlayerInfoWithNIckname(anyPlayerInfoOtherRequestWithNickName->othernickname);
+	session->_sharedPlayer->RequestOtherPlayerInfoWithNIckname(anyPlayerInfoOtherRequestWithNickName->othernickname().c_str());
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::anyPlayerInfoResponse *anyPlayerInfoResponse)
@@ -780,7 +779,8 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::outLobbyLobbylistRequest
 	prop::outLobbyLobbylistResponse msg;
 	bool success = GOutLobby->GetLobbyList(session->_sharedPlayer, msg);
 
-	//todo
+	Packet pack(PACKET_TYPE::PACKET_TYPE_outLobbyLobbylistResponse, msg);
+	session->PostSend(pack);
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::outLobbyLobbylistResponse *outLobbyLobbylistResponse)
@@ -791,7 +791,7 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::outLobbyLobbylistRespons
 bool PacketRecvMsgHandle(ClientSession * session, prop::outLobbyEnterLobbyRequest *outLobbyEnterLobbyRequest)
 {
 	prop::outLobbyEnterLobbyResponse msg;
-	bool success = GOutLobby->EnterLobby(session->_sharedPlayer, outLobbyEnterLobbyRequest->lobbyuid, msg);
+	bool success = GOutLobby->EnterLobby(session->_sharedPlayer, outLobbyEnterLobbyRequest->lobbyuid(), msg);
 
 	Packet pack(PACKET_TYPE::PACKET_TYPE_outLobbyEnterLobbyResponse, msg);
 	session->PostSend(pack);
@@ -821,7 +821,7 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyEnterRoomRequest 
 {
 	prop::inLobbyEnterRoomResponse msg;
 	int curLobbyUID = session->_sharedPlayer->GetLocInfo()->_lobbyUID;
-	bool success = GOutLobby->_lobbyMap[curLobbyUID]->EnterRoom(session->_sharedPlayer, inLobbyEnterRoomRequest->roomuid, msg);
+	bool success = GOutLobby->_lobbyMap[curLobbyUID]->EnterRoom(session->_sharedPlayer, inLobbyEnterRoomRequest->roomuid(), msg);
 
 	Packet pack(PACKET_TYPE::PACKET_TYPE_inLobbyEnterRoomResponse, msg);
 	session->PostSend(pack);
@@ -832,11 +832,25 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyEnterRoomResponse
 	// in client
 	return true;
 }
+bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyCreateRoomRequest * inLobbyCreateRoomRequest)
+{
+	prop::inLobbyCreateRoomResponse msg;
+	int curLobbyUID = session->_sharedPlayer->GetLocInfo()->_lobbyUID;
+	bool success = GOutLobby->_lobbyMap[curLobbyUID]->CreateNewRoom(session->_sharedPlayer, inLobbyCreateRoomRequest->roomname().c_str(), inLobbyCreateRoomRequest->useramaxnum(), msg);
+
+	Packet pack(PACKET_TYPE::PACKET_TYPE_inRoomLeaveRoomResponse, msg);
+	session->PostSend(pack);
+	return true;
+}
+bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyCreateRoomResponse * inLobbyCreateRoomResponse)
+{
+	return false;
+}
 bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyLeaveLobbyRequest *inLobbyLeaveLobbyRequest)
 {
 	prop::inLobbyLeaveLobbyResponse msg;
 	int curLobbyUID = session->_sharedPlayer->GetLocInfo()->_lobbyUID;
-	bool success = GOutLobby->_lobbyMap[curLobbyUID]->LeaveLobby(session->_sharedPlayer, inLobbyLeaveLobbyRequest->lobbyuid, msg);
+	bool success = GOutLobby->_lobbyMap[curLobbyUID]->LeaveLobby(session->_sharedPlayer, inLobbyLeaveLobbyRequest->lobbyuid(), msg);
 
 	Packet pack(PACKET_TYPE::PACKET_TYPE_inRoomLeaveRoomResponse, msg);
 	session->PostSend(pack);
@@ -851,14 +865,14 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyChatRequest *inLo
 {
 	prop::inLobbyChatResponse msg;
 	int curLobbyUID = session->_sharedPlayer->GetLocInfo()->_lobbyUID;
-	if (inLobbyChatRequest->lobbyuid != curLobbyUID)
+	if (inLobbyChatRequest->lobbyuid() != curLobbyUID)
 	{
 		msg.set_success(false);
 		Packet pack(PACKET_TYPE::PACKET_TYPE_inLobbyChatResponse, msg);
 		session->PostSend(pack);
 		return false;
 	}
-	bool success = GOutLobby->_lobbyMap[curLobbyUID]->Chat(session->_sharedPlayer, inLobbyChatRequest->lobbyuid, inLobbyChatRequest->chat, msg);
+	bool success = GOutLobby->_lobbyMap[curLobbyUID]->Chat(session->_sharedPlayer, inLobbyChatRequest->lobbyuid(), inLobbyChatRequest->chat().c_str(), msg);
 
 	Packet pack(PACKET_TYPE::PACKET_TYPE_inLobbyChatResponse, msg);
 	session->PostSend(pack);
@@ -880,7 +894,7 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::inRoomChatRequest *inRoo
 	int curLobbyUID = session->_sharedPlayer->GetLocInfo()->_lobbyUID;
 	int curRoomID = session->_sharedPlayer->GetLocInfo()->_roomUID;
 
-	if (inRoomChatRequest->set_roomuid != curRoomID)
+	if (inRoomChatRequest->roomuid() != curRoomID)
 	{
 		msg.set_success(false);
 		Packet pack(PACKET_TYPE::PACKET_TYPE_inRoomChatResponse, msg);
@@ -889,7 +903,7 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::inRoomChatRequest *inRoo
 	}
 
 	std::shared_ptr<Room> curRoom = GOutLobby->_lobbyMap[curLobbyUID]->GetRoomShared(curRoomID);
-	bool success = curRoom->Chat(session->_sharedPlayer, inRoomChatRequest->chat, msg);
+	bool success = curRoom->Chat(session->_sharedPlayer, inRoomChatRequest->chat().c_str(), msg);
 
 	Packet pack(PACKET_TYPE::PACKET_TYPE_inRoomChatResponse, msg);
 	session->PostSend(pack);
@@ -911,7 +925,7 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::inRoomLeaveRoomRequest *
 	int curRoomUID = session->_sharedPlayer->GetLocInfo()->_roomUID;
 	int curLobbyUID = session->_sharedPlayer->GetLocInfo()->_lobbyUID;
 
-	if (inRoomLeaveRoomRequest->roomuid != curRoomUID)
+	if (inRoomLeaveRoomRequest->roomuid() != curRoomUID)
 	{
 		msg.set_success(false);
 		Packet pack(PACKET_TYPE::PACKET_TYPE_inLobbyChatResponse, msg);
@@ -919,7 +933,7 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::inRoomLeaveRoomRequest *
 		return false;
 	}
 	std::shared_ptr<Room> curRoom = GOutLobby->_lobbyMap[curLobbyUID]->GetRoomShared(curRoomUID);
-	curRoom->LeaveRoom(session->_sharedPlayer, inRoomLeaveRoomRequest->roomuid, msg);
+	curRoom->LeaveRoom(session->_sharedPlayer, msg);
 
 	Packet pack(PACKET_TYPE::PACKET_TYPE_inRoomLeaveRoomResponse, msg);
 	session->PostSend(pack);
@@ -937,7 +951,7 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::inRoomReadyRequest *inRo
 	int curLobbyUID = session->_sharedPlayer->GetLocInfo()->_lobbyUID;
 
 	std::shared_ptr<Room> curRoom = GOutLobby->_lobbyMap[curLobbyUID]->GetRoomShared(curRoomUID);
-	curRoom->ReadyRequest(session->_sharedPlayer, inRoomReadyRequest->ready, msg);
+	curRoom->ReadyRequest(session->_sharedPlayer, inRoomReadyRequest->ready(), msg);
 
 	Packet pack(PACKET_TYPE::PACKET_TYPE_inRoomReadyResponse, msg);
 	session->PostSend(pack);
@@ -955,7 +969,7 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::inRoomStartRequest *inRo
 	int curLobbyUID = session->_sharedPlayer->GetLocInfo()->_lobbyUID;
 
 	std::shared_ptr<Room> curRoom = GOutLobby->_lobbyMap[curLobbyUID]->GetRoomShared(curRoomUID);
-	curRoom->StartRequest(session->_sharedPlayer, inRoomStartRequest->start, msg);
+	curRoom->StartRequest(session->_sharedPlayer, inRoomStartRequest->start(), msg);
 
 	Packet pack(PACKET_TYPE::PACKET_TYPE_inRoomReadyResponse, msg);
 	session->PostSend(pack);

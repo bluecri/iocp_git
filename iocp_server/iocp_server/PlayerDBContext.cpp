@@ -5,6 +5,7 @@
 #include "Packet.h"
 #include "PlayerManager.h"
 #include "RigidbodyComponent.h"
+#include "LocationInfo.h"
 
 void OverlappedDBLogInOutContext::Init_login(const std::string& id, const std::string& password)
 {
@@ -20,7 +21,7 @@ void OverlappedDBLogInOutContext::Init_logout()
 	return;
 }
 
-void OverlappedDBLogInOutContext::Init_create(std::string & id, std::string & password, std::string & nickName)
+void OverlappedDBLogInOutContext::Init_create(const std::string & id, const std::string & password, const std::string & nickName)
 {
 	strcpy_s(_cstrID, id.c_str());
 	strcpy_s(_cstrPassword, password.c_str());
@@ -91,19 +92,19 @@ void OverlappedDBLogInOutContext::OnSuccess()
 			Packet pack(PACKET_TYPE::PACKET_TYPE_accountLoginResponse, msg);
 			_playerShared->SendToClient(&pack);
 
-			//guest -> player with this uid and this db info
+			// guest -> player with this uid and this db info
 			GPlayerManager->MoveGuestToLoginPlayer(_playerShared, _intUID);
 		}
 		break;
 	case E_TYPE::LOGOUT:
-		//printf_s("[LOG] : OverlappedDBLogInOutContext::LOGOUT success\n");
+		printf_s("[LOG] : OverlappedDBLogInOutContext::LOGOUT success\n");
 		{
 			prop::accountLogoutResponse msg;
 			msg.set_success(true);
 			Packet pack(PACKET_TYPE::PACKET_TYPE_accountLogoutResponse, msg);
 			_playerShared->SendToClient(&pack);
 
-			//player -> guest with this uid and db info
+			// player -> guest with this uid and db info
 			GPlayerManager->MoveLoginToPlayerGuest(_playerShared);
 	}
 		break;
@@ -302,12 +303,10 @@ void OverlappedDBUpdatePlayerContext::OnSuccess()
 			std::shared_ptr<Player> loginPlayerShared = GPlayerManager->GetLoginPlayerSharedWithUID(_intUID);
 			if (loginPlayerShared != nullptr)
 			{
-				// TODO
-				/*
-				userInfoMsg.set_lobbyuid
-				userInfoMsg.set_lobbyuid
-				userInfoMsg.set_lobbyuid
-				*/
+				loginPlayerShared->EnterReadLock();
+				userInfoMsg.set_lobbyuid(loginPlayerShared->GetLocInfo()->_lobbyUID);
+				userInfoMsg.set_roomuid(loginPlayerShared->GetLocInfo()->_roomUID);
+				loginPlayerShared->LeaveReadLock();
 			}
 			msg.set_allocated_userinfo(&userInfoMsg);
 			

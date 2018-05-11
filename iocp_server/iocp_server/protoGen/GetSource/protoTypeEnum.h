@@ -29,6 +29,8 @@ enum PACKET_TYPE
 	PACKET_TYPE_inLobbyPlayerlistResponse,
 	PACKET_TYPE_inLobbyEnterRoomRequest,
 	PACKET_TYPE_inLobbyEnterRoomResponse,
+	PACKET_TYPE_inLobbyCreateRoomRequest,
+	PACKET_TYPE_inLobbyCreateRoomResponse,
 	PACKET_TYPE_inLobbyLeaveLobbyRequest,
 	PACKET_TYPE_inLobbyLeaveLobbyResponse,
 	PACKET_TYPE_inLobbyChatRequest,

@@ -350,6 +350,30 @@ bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::pro
 	}
 		break;
 
+	case PACKET_TYPE::PACKET_TYPE_inLobbyCreateRoomRequest:
+	{
+		prop::inLobbyCreateRoomRequest *inLobbyCreateRoomRequest = new prop::inLobbyCreateRoomRequest();
+		if (false == inLobbyCreateRoomRequest->ParseFromCodedStream(&codeInputStream))
+		{
+			printf_s("[ERROR] : PacketRecvHandle PACKET_TYPE_inLobbyCreateRoomRequest error\n");
+			return false;
+		}
+		PacketRecvMsgHandle(session, inLobbyCreateRoomRequest);
+	}
+		break;
+
+	case PACKET_TYPE::PACKET_TYPE_inLobbyCreateRoomResponse:
+	{
+		prop::inLobbyCreateRoomResponse *inLobbyCreateRoomResponse = new prop::inLobbyCreateRoomResponse();
+		if (false == inLobbyCreateRoomResponse->ParseFromCodedStream(&codeInputStream))
+		{
+			printf_s("[ERROR] : PacketRecvHandle PACKET_TYPE_inLobbyCreateRoomResponse error\n");
+			return false;
+		}
+		PacketRecvMsgHandle(session, inLobbyCreateRoomResponse);
+	}
+		break;
+
 	case PACKET_TYPE::PACKET_TYPE_inLobbyLeaveLobbyRequest:
 	{
 		prop::inLobbyLeaveLobbyRequest *inLobbyLeaveLobbyRequest = new prop::inLobbyLeaveLobbyRequest();
@@ -781,6 +805,14 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyEnterRoomRequest 
 	return true;
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyEnterRoomResponse *inLobbyEnterRoomResponse)
+{
+	return true;
+}
+bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyCreateRoomRequest *inLobbyCreateRoomRequest)
+{
+	return true;
+}
+bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyCreateRoomResponse *inLobbyCreateRoomResponse)
 {
 	return true;
 }

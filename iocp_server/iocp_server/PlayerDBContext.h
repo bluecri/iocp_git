@@ -20,7 +20,7 @@ public:
 
 	void Init_login(const std::string& id, const std::string& password);
 	void Init_logout();		//TODO
-	void Init_create(std::string& id, std::string& password, std::string& nickName);
+	void Init_create(const std::string& id, const std::string& password, const std::string& nickName);
 
 
 	virtual bool OnSQLExecute();

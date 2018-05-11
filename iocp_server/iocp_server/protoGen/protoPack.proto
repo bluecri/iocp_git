@@ -176,6 +176,19 @@ message inLobbyPlayerlistResponse
 	repeated msgUserInfo userList = 3;
 }
 
+message inLobbyRoomlistRequest
+{
+	required int32 lobbyUID = 1;
+}
+
+message inLobbyRoomlistResponse
+{
+	required bool success = 1;
+	required int32 lobbyUID = 2;
+	repeated msgRoom roomList = 3;
+}
+
+
 message inLobbyEnterRoomRequest
 {
 	required int32 roomUID = 2;
@@ -256,6 +269,11 @@ message inRoomLeaveRoomResponse
 	required bool success = 1;
 	required int32 roomUID = 2;
 	required int32 lobbyUID = 3;
+}
+
+message inRoomForceOustRoomBroadcast
+{
+	required int32 roomUID = 1;
 }
 
 message inRoomReadyRequest

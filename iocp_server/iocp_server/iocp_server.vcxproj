@@ -168,7 +168,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="addressbook.pb.cc" />
     <ClCompile Include="ClientSession.cpp" />
     <ClCompile Include="DBContext.cpp" />
     <ClCompile Include="DBHelper.cpp" />
@@ -205,7 +204,6 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="addressbook.pb.h" />
     <ClInclude Include="ClientSession.h" />
     <ClInclude Include="ContentsConfig.h" />
     <ClInclude Include="DBContext.h" />

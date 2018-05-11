@@ -39,7 +39,7 @@ public:
 
 public:	// DB requests
 	//only for guest
-	void RequestNewPlayer(std::string& strID, std::string& strPassword, std::string& strNickName);
+	void RequestNewPlayer(const std::string& strID, const std::string& strPassword, const std::string& strNickName);
 	void RequestLogin(const std::string& id, const std::string& password);		//with id & pw	->call playmanager.memfunc
 	void RequestLogout();
 

@@ -32,6 +32,8 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyPlayerlistRequest
 bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyPlayerlistResponse *inLobbyPlayerlistResponse);
 bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyEnterRoomRequest *inLobbyEnterRoomRequest);
 bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyEnterRoomResponse *inLobbyEnterRoomResponse);
+bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyCreateRoomRequest *inLobbyCreateRoomRequest);
+bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyCreateRoomResponse *inLobbyCreateRoomResponse);
 bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyLeaveLobbyRequest *inLobbyLeaveLobbyRequest);
 bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyLeaveLobbyResponse *inLobbyLeaveLobbyResponse);
 bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyChatRequest *inLobbyChatRequest);
@@ -58,3 +60,4 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::inGameAllPlayersTotalInf
 bool PacketRecvMsgHandle(ClientSession * session, prop::inGameChatRequest *inGameChatRequest);
 bool PacketRecvMsgHandle(ClientSession * session, prop::inGameChatResponse *inGameChatResponse);
 bool PacketRecvMsgHandle(ClientSession * session, prop::inGameChatBroadcast *inGameChatBroadcast);
+

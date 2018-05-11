@@ -46,7 +46,7 @@ void Player::DecayTickBuff()
 {
 }
 
-void Player::RequestNewPlayer(std::string& strID, std::string& strPassword, std::string& strNickName)
+void Player::RequestNewPlayer(const std::string& strID, const std::string& strPassword, const std::string& strNickName)
 {
 	//packet recv -> requestNewPlayer : client가 항상 live 상태임. (ref 고려 x)
 	OverlappedDBLogInOutContext* context = new OverlappedDBLogInOutContext(GetSharedFromThis<Player>());
