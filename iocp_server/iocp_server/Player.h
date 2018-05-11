@@ -57,10 +57,10 @@ public:	// DB requests
 	
 private:
 	
-	int		_playerUID;
-	char*	_id;
-	char*	_nickName;
-	int		_heartBeat;
+	long volatile	_playerUID;
+	char* volatile	_id;
+	char* volatile 	_nickName;
+	long volatile	_heartBeat;
 
 	LocationInfo* _locInfo;
 	RigidbodyComponent* _rigidbodyComp;

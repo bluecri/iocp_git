@@ -12,19 +12,21 @@ std::shared_ptr<Player> PlayerManager::GetGuestPlayer(ClientSession* session)
 		printf_s("[LOG] : PlayerManager::GetGuestPlayer player is already disconn...\n");
 		return nullptr;
 	}
-
+	
+	// create player object with session
 	auto guestPlayerShared = std::make_shared<Player>(session);
+	session->_sharedPlayer = guestPlayerShared;
+
 	guestPlayerShared->EnterWriteLock();
 	__guestPlayerMaplock.EnterWriteLock();
 
+	// generate guset ID
 	int guestGenID = -1;
-
 	do {
 		guestGenID = glm::linearRand<int>(MIN_GUEST_ID, MAX_GUEST_ID);
-		
 	} while (__guestPlayerMap.end() != __guestPlayerMap.find(guestGenID));
-	
-	guestPlayerShared->_playerUID = guestGenID;
+
+	InterlockedExchange(&guestPlayerShared->_playerUID, guestGenID);
 	guestPlayerShared->_clientSession = session;
 
 	__guestPlayerMap.insert(make_pair(guestGenID, guestPlayerShared));
@@ -49,7 +51,7 @@ void PlayerManager::UnregisterGuestPlayer(int playerGuestID)
 	return;
 }
 
-// guest player와 새로 접속할 player UID를 이용해 guest->login player로 승격시킴. guestPlayerShared의 UID를 playerUID로 update.
+// guest player와 새로 접속할 player UID를 이용해 guest->login player로 옮김. guestPlayerShared의 UID를 playerUID로 update.
 void PlayerManager::MoveGuestToLoginPlayer(std::shared_ptr<Player> guestPlayerShared, int playerUID)
 {
 	guestPlayerShared->EnterWriteLock();
@@ -61,11 +63,12 @@ void PlayerManager::MoveGuestToLoginPlayer(std::shared_ptr<Player> guestPlayerSh
 		CRASH_ASSERT(false);
 	}
 
-	// remove this ptr from guestList
+	// remove guest ptr from guestList
 	__guestPlayerMaplock.EnterWriteLock();
 	__guestPlayerMap.erase(guestPlayerShared->GetPlayerUID());
 	__guestPlayerMaplock.LeaveWriteLock();
 
+	// move player to playerList
 	__loginPlayerMaplock.EnterWriteLock();
 
 	auto it = __loginPlayerMap.find(playerUID);
@@ -91,16 +94,21 @@ void PlayerManager::MoveGuestToLoginPlayer(std::shared_ptr<Player> guestPlayerSh
 	std::shared_ptr<Player> alreadyLogPlayerShared = __loginPlayerMap[playerUID];
 	__loginPlayerMaplock.LeaveWriteLock();
 
-	ClientSession* newClientSession;
-	guestPlayerShared->GetClientSessionWithAddRef(newClientSession);
-	guestPlayerShared->_clientSession = nullptr;	//guest->client remove
+	// remove guestPlayerShared from guest player list (Use above code)
+	ClientSession* loginClientSession;
+
+	// guest->loginClient remove
+	guestPlayerShared->GetClientSessionWithAddRef(loginClientSession);
+	guestPlayerShared->_clientSession = nullptr;	
 	guestPlayerShared->LeaveWriteLock();
 
+	// in game player object->loginClient
 	alreadyLogPlayerShared->EnterWriteLock();
-	alreadyLogPlayerShared->_clientSession = newClientSession;	//player ->client
+	alreadyLogPlayerShared->_clientSession = loginClientSession;	
 	alreadyLogPlayerShared->_bClientConn = true;
-	newClientSession->ReleaseRef();
+	loginClientSession->ReleaseRef();
 
+	// loginClient -> game player object
 	alreadyLogPlayerShared->_clientSession->_sharedPlayer.reset();	//client->guest player remove
 	alreadyLogPlayerShared->_clientSession->_sharedPlayer = alreadyLogPlayerShared;	//client->player
 	alreadyLogPlayerShared->LeaveWriteLock();
@@ -112,7 +120,6 @@ bool PlayerManager::MoveLoginToPlayerGuest(std::shared_ptr<Player> playerShared)
 {
 	//TODO : unregister lobby, beforeLobby, Room except gamesession
 
-	// really need read lock? : 변하지 않을 UID, ID, nickname인데..?
 	playerShared->EnterReadLock();
 	__loginPlayerMaplock.EnterWriteLock();
 	__loginPlayerMap.erase(playerShared->GetPlayerUID());

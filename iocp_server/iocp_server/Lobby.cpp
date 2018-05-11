@@ -6,17 +6,17 @@ bool Lobby::CreateNewRoom(std::shared_ptr<Player> playerShared, const char * roo
 	return false;
 }
 
-bool Lobby::EnterRoom(std::shared_ptr<Player> playerShared, int roomUID)
+bool Lobby::EnterRoom(std::shared_ptr<Player> playerShared, int roomUID, prop::inLobbyEnterRoomResponse & msg)
 {
 	return false;
 }
 
-bool Lobby::LeaveLobby(std::shared_ptr<Player> playerShared)
+bool Lobby::LeaveLobby(std::shared_ptr<Player> playerShared, int lobbyUID, prop::inLobbyLeaveLobbyResponse & msg)
 {
 	return false;
 }
 
-bool Lobby::Chat(std::shared_ptr<Player> playerShared, const char * chatCStr)
+bool Lobby::Chat(std::shared_ptr<Player> playerShared, int lobbyUID, const char * chatCStr, prop::inLobbyChatResponse & msg)
 {
 	return false;
 }
@@ -33,22 +33,22 @@ bool Lobby::GetRoomList(std::shared_ptr<Player> playerShared)
 
 int Lobby::GetUID()
 {
-	return _uid;
+	return 0;
 }
 
 char * Lobby::GetLobbyName()
 {
-	return _lobbyName;
+	return nullptr;
 }
 
 OutLobby * Lobby::GetBeforeLobby()
 {
-	return _beforeLobby;
+	return nullptr;
 }
 
 int Lobby::GetUserMaxNum()
 {
-	return _userMaxNum;
+	return 0;
 }
 
 bool Lobby::IsClosed()
@@ -58,4 +58,9 @@ bool Lobby::IsClosed()
 
 void Lobby::SetClosed(bool closed)
 {
+}
+
+std::shared_ptr<Room> Lobby::GetRoomShared(int uid)
+{
+	return std::shared_ptr<Room>();
 }

@@ -1,10 +1,11 @@
+#include "PacketRecvHadler.h"
 #include "../../ClientSession.h"
 #include "../../Packet.h"
-#include "PacketRecvHadler.h"
 #include "../../OutLobby.h"
 #include "../../Lobby.h"
 #include "../../Room.h"
 #include "../../LocationInfo.h"
+#include "../../Player.h"
 
 bool PacketRecvToMsg(ClientSession * session, PacketHeader & header, google::protobuf::io::CodedInputStream & codeInputStream)
 {
@@ -710,6 +711,7 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::msgUserInGameStateInfo *
 }
 bool PacketRecvMsgHandle(ClientSession * session, prop::accountCreateRequest *accountCreateRequest)
 {
+	accountCreateRequest
 	//Player -> DB context
 	session->_sharedPlayer->RequestNewPlayer(accountCreateRequest->id, accountCreateRequest->password, accountCreateRequest->nickname);
 
@@ -854,7 +856,7 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::inLobbyChatRequest *inLo
 		msg.set_success(false);
 		Packet pack(PACKET_TYPE::PACKET_TYPE_inLobbyChatResponse, msg);
 		session->PostSend(pack);
-		return;
+		return false;
 	}
 	bool success = GOutLobby->_lobbyMap[curLobbyUID]->Chat(session->_sharedPlayer, inLobbyChatRequest->lobbyuid, inLobbyChatRequest->chat, msg);
 
@@ -883,7 +885,7 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::inRoomChatRequest *inRoo
 		msg.set_success(false);
 		Packet pack(PACKET_TYPE::PACKET_TYPE_inRoomChatResponse, msg);
 		session->PostSend(pack);
-		return;
+		return false;
 	}
 
 	std::shared_ptr<Room> curRoom = GOutLobby->_lobbyMap[curLobbyUID]->GetRoomShared(curRoomID);
@@ -914,7 +916,7 @@ bool PacketRecvMsgHandle(ClientSession * session, prop::inRoomLeaveRoomRequest *
 		msg.set_success(false);
 		Packet pack(PACKET_TYPE::PACKET_TYPE_inLobbyChatResponse, msg);
 		session->PostSend(pack);
-		return;
+		return false;
 	}
 	std::shared_ptr<Room> curRoom = GOutLobby->_lobbyMap[curLobbyUID]->GetRoomShared(curRoomUID);
 	curRoom->LeaveRoom(session->_sharedPlayer, inRoomLeaveRoomRequest->roomuid, msg);

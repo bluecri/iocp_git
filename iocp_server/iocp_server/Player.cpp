@@ -92,7 +92,7 @@ void Player::RequestLoadGameInfo()
 	return;
 }
 
-void Player::RequestOtherPlayerInfoWithUID(int uid = -1)
+void Player::RequestOtherPlayerInfoWithUID(int uid)
 {
 	OverlappedDBUpdatePlayerContext* context = new OverlappedDBUpdatePlayerContext(GetSharedFromThis<Player>());
 	context->init_loadPlayerWithUID(uid);

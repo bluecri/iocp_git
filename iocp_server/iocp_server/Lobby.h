@@ -14,7 +14,7 @@ public:
 	Lobby(OutLobby* beforeLobby, int uid, std::string& lobbyname, int userMaxNum)
 		: _beforeLobby(beforeLobby), _uid(uid), _userMaxNum(userMaxNum), _userNum(0),_bClosed(true), _roomMapLock()
 	{
-		strcpy(_lobbyName, lobbyname.c_str());
+		strcpy_s(_lobbyName, lobbyname.c_str());
 	};
 
 	//io thread(packetRecvHandler

@@ -13,14 +13,14 @@ public:
 	Room(Lobby* beforeLobby, int uid, std::string& Roomname, int userMaxNum)
 		: _beforeLobby(beforeLobby), _uid(uid), _userMaxNum(userMaxNum), _userNum(0), _bClosed(true), _roomPlayerMapLock(), _roomLock()
 	{
-		strcpy(_roomName, Roomname.c_str());
+		strcpy_s(_roomName, Roomname.c_str());
 	};
 
 	bool DestroyRoom();
 	bool LeaveRoom(std::shared_ptr<Player> playerShared, int leaveRoomUID, prop::inRoomLeaveRoomResponse &msg);
 
 	bool ReadyRequest(std::shared_ptr<Player> playerShared, bool bReadyReq, prop::inRoomReadyResponse &msg);
-	bool StartRequest(int uid);
+	bool StartRequest(std::shared_ptr<Player> playerShared, bool bStartReq, prop::inRoomStartResponse &msg);
 
 	bool Chat(std::shared_ptr<Player> playerShared, const char* chat, prop::inRoomChatResponse &msg);
 
